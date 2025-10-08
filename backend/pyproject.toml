@@ -7,7 +7,7 @@ authors = [
 ]
 
 requires-python = ">=3.11"
-dependencies = ["fastapi", "uvicorn[standard]"]
+dependencies = ["fastapi", "uvicorn[standard]", "python-dotenv (>=1.1.1,<2.0.0)", "sqlalchemy (>=2.0.43,<3.0.0)", "asyncpg (>=0.30.0,<0.31.0)", "psycopg[binary] (>=3.2.10,<4.0.0)"]
 
 
 [build-system]
