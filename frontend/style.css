@@ -1,0 +1,55 @@
+:root {
+  --brown: #7F5539;
+  --lightBrown: #A68A64;
+  --darkBrown: #53351e;
+  --offWhite: #EDE0D4;
+  --green: #656D4A;
+  --darkGreen: #414833;
+}
+
+body {
+    background-color: var(--offWhite);
+}
+
+/* top-most bar */
+.siteLogoImg {
+    height: 9vh;
+    margin-top: 2vh; margin-bottom: 2vh;
+    margin-right: 1vw; margin-left: 3vw;
+}
+.PFPImg {
+    height: 9vh;
+    margin-top: 2vh; margin-bottom: 2vh;
+    margin-right: 3vw; margin-left: 1vw;
+}
+.siteLogoText {
+    height: 9vh;
+    font-family: "Just Another Hand", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 10vh;
+    color: var(--darkBrown);
+}
+
+/* nav bar */
+.mainNavBar {
+    width: 96vw;
+    background-color: var(--brown);
+}
+.navBarTexts {
+    background-color: var(--brown);
+    border: none;
+    padding-left: 2vw; padding-right: 2vw; 
+    padding-top: 1vw; padding-bottom: 1vw; 
+    color: white;
+    font-size: 2vh;
+    width: 10vw;
+}
+.navBarTexts:hover {
+    background-color: var(--darkBrown);
+}
+input {
+    width: 20vw;
+    font-size: 2vh;
+    margin-right: 1vw; margin-left: 1vw;
+}
