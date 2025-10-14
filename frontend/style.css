@@ -53,3 +53,13 @@ input {
     font-size: 2vh;
     margin-right: 1vw; margin-left: 1vw;
 }
+
+/* Add onto */
+.title-text {
+    color: var(--darkGreen);
+    text-align: center;
+}
+.paragraph-text {
+    color: var(--darkBrown);
+    text-align: center;
+}
