@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException, Query
-from ..openlibrary_client import search_books, get_by_isbn
+from app.services.openlibrary_client import search_books, get_by_isbn
 
 router = APIRouter(prefix="/openlibrary", tags=["openlibrary"])
 
