@@ -6,7 +6,11 @@ from sqlalchemy.future import select
 from .db import get_db
 from .models import Book
 
+from app.routers import openlibrary as openlibrary_router
+
 app = FastAPI()
+app.include_router(openlibrary_router.router)
+
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 FRONTEND_DIR = REPO_ROOT / "frontend"
