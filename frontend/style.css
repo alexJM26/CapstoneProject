@@ -11,16 +11,18 @@ body {
     background-color: var(--offWhite);
 }
 
+.sectionContentHolder {
+    width: 96vw;
+}
+
 /* top-most bar */
 .siteLogoImg {
     height: 9vh;
-    margin-top: 2vh; margin-bottom: 2vh;
-    margin-right: 1vw; margin-left: 3vw;
+    margin-top: 2vh; margin-bottom: 2vh; 
 }
 .PFPImg {
     height: 9vh;
     margin-top: 2vh; margin-bottom: 2vh;
-    margin-right: 3vw; margin-left: 1vw;
 }
 .siteLogoText {
     height: 9vh;
@@ -29,9 +31,13 @@ body {
     font-style: normal;
     font-size: 10vh;
     color: var(--darkBrown);
+    margin-left: 1vw;
 }
 
 /* nav bar */
+.aboveNavBar {
+    width: 96vw;
+}
 .mainNavBar {
     width: 96vw;
     background-color: var(--brown);
@@ -48,6 +54,9 @@ body {
 .navBarTexts:hover {
     background-color: var(--darkBrown);
 }
+.navBarTexts:focus {
+    outline: none; /* removes small border */
+}
 input {
     width: 20vw;
     font-size: 2vh;
@@ -62,4 +71,37 @@ input {
 .paragraph-text {
     color: var(--darkBrown);
     text-align: center;
+}
+
+/* dropdown menu */
+.dropdown-menu {
+    left: 0% !important;
+    transform: translateX(-50%) !important; /* this and above line cause it to center with above button */
+    top: 85% !important; /* bring close to bottom of button */
+}
+.unstyled-button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+.unstyled-button:focus {
+    outline: none; /* removes small border */
+    box-shadow: none;
+}
+.dropdown-menu {
+    border-color: var(--darkBrown) !important;
+}
+.dropdown-item {
+    color: var(--darkBrown) !important;
+    font-weight: bold !important;
+    text-align: left !important;
+}
+.short-line {
+    width: 50%;
+}
+
+/* user profile */
+.userPFP {
+    width: 20vw;
 }
