@@ -11,8 +11,27 @@ body {
     background-color: var(--offWhite);
 }
 
-.sectionContentHolder {
+/* general */
+.sectionContentHolderClear {
     width: 96vw;
+}
+.sectionContentHolderGreen {
+    width: 96vw;
+    background-color: var(--green);
+    padding: 2vw;
+    margin-top: 1vw; margin-bottom: 1vw;
+}
+.thirdSectionTopperBrown {
+    background-color: var(--brown);
+    font-size: 3vh;
+    font-weight: bold;
+    color: white;
+}
+.thirdSectionBrown {
+    width: 30vw;
+    margin-left: 2vw; margin-right: 2vw;
+    margin-top: 1vw; margin-bottom: 1vw;
+    background-color: var(--lightBrown);
 }
 
 /* top-most bar */
@@ -103,5 +122,12 @@ input {
 
 /* user profile */
 .userPFP {
-    width: 20vw;
+    width: 40vh;
+    align-content: center;
+}
+.userName {
+    color: var(--offWhite) !important;
+    font-size: 4vh;
+    text-align: center;
+    font-weight: bold;
 }
