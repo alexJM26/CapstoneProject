@@ -72,7 +72,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <img src="images/search.svg" style="height: 3.5vh;">
                         <div class="search-container">
-                            <input type="text" placeholder="Search Literature..." name="search">
+                            <input type="text" placeholder="Search Literature..." name="search" id="searchInput">
                         </div>
                     </div>
 
@@ -89,6 +89,53 @@
             <div class="paragraph-text"><h3>Home page text</h3></div> <!-- Will be changed later -->
 
         </section>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const searchInput = document.getElementById("searchInput");
+
+                searchInput.addEventListener("keydown", async (event) => {
+                    if (event.key === "Enter") {
+                        const query = searchInput.value.trim();
+                        if (!query) return;
+
+                        try {
+                            const response = await fetch(`/openlibrary/search?q=${encodeURIComponent(query)}&limit=10&page=1`);
+                            const data = await response.json();
+
+                            const resultsDiv = document.getElementById("searchResults");
+                            resultsDiv.innerHTML = ""; // Clear previous results
+
+                            if (data.results && data.results.length > 0) {
+                                data.results.forEach(book => { // Placeholder format of results
+                                    const bookDiv = document.createElement("div");
+                                    bookDiv.classList.add("card", "mb-2", "p-2");
+
+                                    bookDiv.innerHTML = `
+                                        <div class="d-flex align-items-center">
+                                            <img src="${book.cover || 'https://via.placeholder.com/100x150?text=No+Cover'}" class="mr-3" alt="Cover" width="100">
+                                            <div>
+                                                <h5>${book.title || 'No Title'}</h5>
+                                                <p><strong>Author:</strong> ${book.authors ? book.authors.join(", ") : 'Unknown'}</p>
+                                                <p><strong>Published:</strong> ${book.first_publish_year || 'N/A'}</p>
+                                                <p><strong>ISBN:</strong> ${book.isbn || "N/A"}</p>
+                                            </div>
+                                        </div>
+                                    `;
+                                    resultsDiv.appendChild(bookDiv);
+                                });
+                            } else {
+                                resultsDiv.innerHTML = "<p>No results found.</p>";
+                            }
+                        } catch (error) {
+                            console.error("Search failed:", error);
+                        }
+                    }
+                });
+            });
+        </script>
+
+        <div id="searchResults" class="mt-3"></div>
+
 
         <!-- scripts for bootstrap JS content -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
