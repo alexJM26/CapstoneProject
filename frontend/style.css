@@ -152,3 +152,30 @@ input {
     text-align: center;
     font-weight: bold;
 }
+
+/* my collections and my reads */
+.my-collections-reads-table {
+    width: 100%;
+    color: var(--offWhite);
+    font-size: 4vh;
+    border: 5px solid var(--darkBrown);
+}
+.my-collections-reads-table th {
+    background-color: var(--brown);
+    border-bottom: 5px solid var(--darkBrown);
+}
+ .my-collections-reads-table td {
+    background-color: var(--green);
+    border-bottom: 2px solid var(--darkBrown);
+ }
+.my-collections-reads-table td:first-child {
+    text-decoration: underline;
+}
+.collections-dropdown {
+    width: 20%;
+    background-color: var(--brown);
+    color: var(--offWhite);
+    font-size: 3vh;
+    text-align: center;
+    border: 5px solid var(--darkBrown);
+}
