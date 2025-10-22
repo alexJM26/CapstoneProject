@@ -1,0 +1,10 @@
+2025-10-22 14:35:22,018 - INFO - App started!
+2025-10-22 14:35:27,117 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=are&limit=10&page=1 "HTTP/1.1 200 OK"
+2025-10-22 14:35:41,912 - ERROR - Failed search_books - request error - 
+2025-10-22 14:38:02,549 - INFO - App started!
+2025-10-22 14:39:07,222 - INFO - App started!
+2025-10-22 14:41:37,003 - INFO - App started!
+2025-10-22 14:41:49,334 - ERROR - Failed search_books - request error - type=ReadTimeout url=https://openlibrary.org/search.json?q=the&limit=10&page=1 reason=('',)
+2025-10-22 14:42:34,663 - INFO - App started!
+2025-10-22 14:42:41,652 - INFO - App started!
+2025-10-22 14:43:06,777 - ERROR - Failed search_books - request error - type=ReadTimeout url=https://openlibrary.org/search.json?q=the&limit=10&page=1

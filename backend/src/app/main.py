@@ -3,15 +3,24 @@ from fastapi import FastAPI, APIRouter, Depends
 from fastapi.staticfiles import StaticFiles
 from sqlalchemy import text
 from sqlalchemy.future import select
+import logging
 from .db import get_db
 from .models import Book
 
+from app.routers import openlibrary as openlibrary_router
+
 app = FastAPI()
+app.include_router(openlibrary_router.router)
+
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 FRONTEND_DIR = REPO_ROOT / "frontend"
 
-
+logging.basicConfig(
+    filename='app.log',
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+)
 
 
 api = APIRouter(prefix="/api")
@@ -33,3 +42,6 @@ async def get_books(db=Depends(get_db)):
     return books
 
 app.mount("/", StaticFiles(directory=str(FRONTEND_DIR), html=True), name="frontend")
+
+
+logging.info('App started!')
