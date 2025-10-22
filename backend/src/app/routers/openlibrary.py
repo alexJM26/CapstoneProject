@@ -3,6 +3,8 @@ from app.services.openlibrary_client import search_books, get_by_isbn
 
 router = APIRouter(prefix="/openlibrary", tags=["openlibrary"])
 
+# TODO: Limit total outgoing API requests < limit
+#   We could show out a 'Please try again' message or add a queue for requests.
 
 @router.get("/search")
 async def openlibrary_search(
