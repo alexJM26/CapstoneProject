@@ -24,21 +24,45 @@ body {
 }
 .thirdSectionTopperBrown {
     background-color: var(--brown);
-    font-size: 3vh;
+    font-size: 4vh;
     font-weight: bold;
     color: white;
+    text-align: center;
 }
 .thirdSectionBrown {
     width: 30vw;
     margin-left: 2vw; margin-right: 2vw;
     margin-top: 1vw; margin-bottom: 1vw;
     background-color: var(--lightBrown);
+    color: black;
+    text-align: left;
 }
 .thirdSectionDarkBrown {
     width: 30vw;
     margin-left: 2vw; margin-right: 2vw;
     margin-top: 1vw; margin-bottom: 1vw;
     background-color: var(--brown);
+}
+.thirdSectionText {
+    padding-left: 2vw; padding-right: 2vw;
+    padding-top: 1vw; padding-bottom: 1vw;
+}
+.mainButtonBrown {
+    width: 35vw;
+    margin: 1vw;
+    padding: 0.5vw;
+    background: var(--brown);
+    border-radius: 25px;
+    border: none;
+    color: white;
+    font-size: 3vh; 
+}
+.mainButtonBrown:hover {
+    background: var(--darkBrown);
+}
+.mainButtonBrown:focus {
+    outline: none; /* removes small border */
+    box-shadow: none;
 }
 
 /* top-most bar */
@@ -116,7 +140,7 @@ input {
 /* dropdown menu */
 .dropdown-menu {
     left: 0% !important;
-    transform: translateX(-50%) !important; /* this and above line cause it to center with above button */
+    transform: translateX(-60%) !important; /* this and above line cause it to center with above button */
     top: 85% !important; /* bring close to bottom of button */
 }
 .unstyled-button {
