@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException, Query
-from app.services.openlibrary_client import search_books, get_by_isbn
+from app.services.openlibrary.openlibrary_client import search_books, get_by_isbn, get_by_key
 
 router = APIRouter(prefix="/openlibrary", tags=["openlibrary"])
 
@@ -32,6 +32,12 @@ async def openlibrary_search(
             "authors": d.get("author_name"),
             "first_publish_year": d.get("first_publish_year"),
             "isbn": (d.get("isbn") or [None])[0],
+            "key": (d.get("key") or [None]), # This is the open library unique key
             "cover": cover,
         })
     return {"total": data.get("numFound", 0), "results": results}
+
+
+async def openlibrary_book_data(key: str):
+    results = await get_by_key(key)
+    return results

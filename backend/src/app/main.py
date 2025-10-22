@@ -8,10 +8,10 @@ import logging
 from .db import get_db
 from .models import Book
 
-from app.routers import openlibrary as openlibrary_router
+from app.routers import book_router as book_router
 
 app = FastAPI()
-app.include_router(openlibrary_router.router)
+app.include_router(book_router.router)
 
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
