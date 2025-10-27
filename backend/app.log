@@ -1,0 +1,60 @@
+2025-10-22 14:35:22,018 - INFO - App started!
+2025-10-22 14:35:27,117 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=are&limit=10&page=1 "HTTP/1.1 200 OK"
+2025-10-22 14:35:41,912 - ERROR - Failed search_books - request error - 
+2025-10-22 14:38:02,549 - INFO - App started!
+2025-10-22 14:39:07,222 - INFO - App started!
+2025-10-22 14:41:37,003 - INFO - App started!
+2025-10-22 14:41:49,334 - ERROR - Failed search_books - request error - type=ReadTimeout url=https://openlibrary.org/search.json?q=the&limit=10&page=1 reason=('',)
+2025-10-22 14:42:34,663 - INFO - App started!
+2025-10-22 14:42:41,652 - INFO - App started!
+2025-10-22 14:43:06,777 - ERROR - Failed search_books - request error - type=ReadTimeout url=https://openlibrary.org/search.json?q=the&limit=10&page=1
+2025-10-22 14:47:56,420 - INFO - App started!
+2025-10-22 14:48:16,874 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=are&limit=10&page=1 "HTTP/1.1 200 OK"
+2025-10-22 14:48:29,917 - ERROR - Failed search_books - request error - type=ReadTimeout url=https://openlibrary.org/search.json?q=the&limit=10&page=1
+2025-10-22 14:53:37,200 - INFO - App started!
+2025-10-22 14:53:42,938 - INFO - select pg_catalog.version()
+2025-10-22 14:53:42,938 - INFO - [raw sql] ()
+2025-10-22 14:53:43,016 - INFO - select current_schema()
+2025-10-22 14:53:43,017 - INFO - [raw sql] ()
+2025-10-22 14:53:43,096 - INFO - show standard_conforming_strings
+2025-10-22 14:53:43,096 - INFO - [raw sql] ()
+2025-10-22 14:53:43,155 - INFO - BEGIN (implicit)
+2025-10-22 14:53:43,156 - INFO - SELECT NOW();
+2025-10-22 14:53:43,156 - INFO - [generated in 0.00015s] ()
+2025-10-22 14:53:43,219 - INFO - ROLLBACK
+2025-10-22 14:53:58,063 - INFO - BEGIN (implicit)
+2025-10-22 14:53:58,064 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books
+2025-10-22 14:53:58,064 - INFO - [generated in 0.00020s] ()
+2025-10-22 14:53:58,130 - INFO - ROLLBACK
+2025-10-22 16:46:20,149 - INFO - App started!
+2025-10-22 16:46:46,468 - ERROR - Failed search_books - request error - type=ReadTimeout url=https://openlibrary.org/search.json?q=the&limit=10&page=1
+2025-10-22 16:46:58,606 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=are&limit=10&page=1 "HTTP/1.1 200 OK"
+2025-10-22 16:47:28,900 - INFO - App started!
+2025-10-22 16:47:38,381 - INFO - App started!
+2025-10-22 16:47:42,418 - INFO - App started!
+2025-10-22 16:47:44,746 - INFO - App started!
+2025-10-22 16:47:47,784 - INFO - App started!
+2025-10-22 16:47:52,248 - INFO - App started!
+2025-10-22 16:47:56,754 - INFO - App started!
+2025-10-22 16:47:59,685 - INFO - App started!
+2025-10-22 16:48:55,144 - INFO - App started!
+2025-10-22 16:49:44,793 - INFO - App started!
+2025-10-22 16:49:48,431 - INFO - App started!
+2025-10-22 16:49:54,886 - INFO - App started!
+2025-10-22 16:50:07,634 - INFO - App started!
+2025-10-22 16:50:14,264 - INFO - App started!
+2025-10-22 16:50:49,273 - INFO - App started!
+2025-10-22 16:50:59,989 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=Are&limit=10&page=1 "HTTP/1.1 200 OK"
+2025-10-22 16:52:37,015 - INFO - App started!
+2025-10-22 16:53:07,781 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=Harry+potter&limit=10&page=1 "HTTP/1.1 200 OK"
+2025-10-22 16:54:53,512 - INFO - App started!
+2025-10-22 16:55:40,345 - INFO - App started!
+2025-10-22 16:55:46,866 - INFO - App started!
+2025-10-22 16:55:53,270 - INFO - App started!
+2025-10-22 16:56:07,500 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=Harry+Potter&limit=10&page=1 "HTTP/1.1 200 OK"
+2025-10-22 16:56:36,280 - INFO - App started!
+2025-10-22 16:56:47,031 - INFO - App started!
+2025-10-22 16:56:48,767 - INFO - HTTP Request: GET https://openlibrary.org/books//works/OL82548W.json "HTTP/1.1 303 See Other"
+2025-10-22 16:56:48,802 - ERROR - Failed search_books - HTTP error - status=303 url=https://openlibrary.org/books//works/OL82548W.json body=
+2025-10-22 16:58:27,105 - INFO - App started!
