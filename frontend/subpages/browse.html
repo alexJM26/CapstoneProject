@@ -82,9 +82,46 @@
 
         </header>
 
-        <section>
+        <section class="d-flex flex-column align-items-center text-center">
 
-            <h1 class="title-text">All Literature</h1>
+            <div class="sectionContentHolderClear mt-4 mb-4">
+
+                <div class="browserContainer">
+
+                    <div class="filter">
+                        <div class="filterTitle"> Select Filters for your Search </div>
+                        <form>
+                            <fieldset>
+                                <label> Search by Title/Author </label>
+                                <input type="text" placeholder="Search Title/Author..." name="search" id="searchInput">
+                            </fieldset>
+                            <fieldset>
+                                <label> Minimum Rating </label>
+                                <label> Maximum Rating </label>
+                            </fieldset>
+                            <label> Publish Date Range </label>
+                        </form>
+                    </div>
+
+                    <div class="lit">
+                        <div class="coverImgContainer"> <img src="../images/bookCoverDefault.svg" class="coverImage"> </div>
+                        <div class="litTitle"> To Kill a Mockingbird </div>
+                        <div class="litAuthor"> By Harper Lee </div>
+                        <div class="litRating"> 
+                            5/5 Stars | <a href="#"> View Reviews (10) </a>
+                        </div>
+                        <div class="iconsContainer">
+                            <a href="#"> <img class="icon" src="../images/addToCollection.svg" title="Add to Collection"> </a>
+                            <a href="#"> <img class="icon" src="../images/review.svg" title="Leave a Review"> </a>
+                        </div>
+                    </div>
+                    <div class="lit">3</div>
+                    <div class="lit">4</div>
+                    <div class="lit">5</div>
+
+                </div>
+
+            </div>
 
         </section>
 
