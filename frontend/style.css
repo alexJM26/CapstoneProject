@@ -57,6 +57,22 @@ body {
     color: white;
     font-size: 3vh; 
 }
+.mainButtonBrownSmall {
+    width: 10vw;
+    padding: 0.5vw;
+    background: var(--brown);
+    border-radius: 20px;
+    border: none;
+    color: white;
+    font-size: 2vh; 
+}
+.mainButtonBrownSmall:hover {
+    background: var(--darkBrown);
+}
+.mainButtonBrownSmall:focus {
+    outline: none; /* removes small border */
+    box-shadow: none;
+}
 .mainButtonBrown:hover {
     background: var(--darkBrown);
 }
@@ -206,4 +222,37 @@ input {
     font-size: 3vh;
     text-align: center;
     border: 5px solid var(--darkBrown);
+}
+
+/* login */
+.login-container {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--green);
+    align-items: center;
+    justify-content: center;
+    width: 30vw;
+    color: var(--offWhite);
+    font-size: 1vw;
+    padding: 2vw;
+    
+}
+.login-container label {
+    font-weight: bold;
+}
+.login-container a {
+    color: var(--offWhite);
+}
+form .form-control {
+  margin-left: 0;  
+}
+.login-title {
+    color: var(--darkGreen);
+    text-align: center;
+    font-size: 5vh;
+    margin: 4vh;
+    font-weight: bold;
+}
+form {
+    width: 20vw;
 }

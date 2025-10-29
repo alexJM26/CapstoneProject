@@ -84,21 +84,27 @@
 
         <section>
 
-            <div class="title-text"><h1>Log In</h1></div>
+            <h1 class="login-title">Log In</h1>
 
-            <section class="container mt-4">
-                <form id="login-form" class="w-50 mx-auto">
+            <section class="container login-container">
+                <form id="login-form">
+
                     <div class="form-group">
                         <label>Email address</label>
-                        <input type="email" id="login-email" class="form-control" required />
+                        <input type="email" id="login-email" class="form-control" placeholder="name@example.com" required />
                     </div>
 
-                    <div class="form-group mt-2">
+                    <div class="form-group">
                         <label>Password</label>
                         <input type="password" id="login-password" class="form-control" required />
                     </div>
 
-                    <button type ="submit" class="btn btn-primary mt-3 w-100">Log In</button>
+                    <div class="text-center mt-5">
+                        <button type ="submit" class="mainButtonBrownSmall mb-5">Log In</button>
+                        <p> 
+                            <a href="createAccount.html"> Don't have an accont? Create one here! </a>
+                        </p>
+                    </div>
                 </form>
                 <p id="login-message" class="text-center mt-3"></p>
             </section>
