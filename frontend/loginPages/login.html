@@ -108,6 +108,12 @@
                 </form>
                 <p id="login-message" class="text-center mt-3"></p>
             </section>
+                <div class="text-center mt-4">
+                    <button id="discord-login" class="btn btn-secondary w-50">
+                        <img src="../images/discord-icon.svg" alt="" style="height:20px; margin-right:8px;">
+                        Log in with Discord
+                    </button>
+                </div>
 
         </section>
 
@@ -143,6 +149,21 @@
 
                     
                     setTimeout(() => (window.location.href = "../index.html"), 1000);
+                }
+            });
+
+            document.getElementById("discord-login").addEventListener("click", async () => {
+                const { data, error } = await supabase.auth.signInWithOAuth({
+                    provider: "discord",
+                    options: {
+                        redirectTo: 'http://127.0.0.1:8000/index.html',
+                    },
+                });
+
+                if (error) {
+                    console.error("Discord login error:", error.message);
+                } else {
+                    console.log("Redirecting to Discord...");
                 }
             });
         </script>
