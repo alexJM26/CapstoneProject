@@ -266,6 +266,9 @@ form {
     gap: 2vh;
 }
 .filter {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     grid-row-start: 1;
     grid-row-end: 5;
     background-color: var(--green);
@@ -276,7 +279,7 @@ form {
     font-size: 3vh;
     font-weight: bold;
 }
-.filter form label {
+.filter form fieldset label {
     font-size: 2vh;
     font-weight: bold;
 }
