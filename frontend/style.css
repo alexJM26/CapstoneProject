@@ -66,6 +66,22 @@ body {
     color: white;
     font-size: 2vh; 
 }
+.mainButtonBrownXSmall {
+    width: 7vw;
+    padding: 0.25vw;
+    background: var(--brown);
+    border-radius: 20px;
+    border: none;
+    color: white;
+    font-size: 1.5vh; 
+}
+.mainButtonBrownXSmall:hover {
+    background: var(--darkBrown);
+}
+.mainButtonBrownXSmall:focus {
+    outline: none; /* removes small border */
+    box-shadow: none;
+}
 .mainButtonBrownSmall:hover {
     background: var(--darkBrown);
 }
@@ -284,6 +300,9 @@ form {
     font-size: 3vh;
     font-weight: bold;
 }
+.filter form {
+    text-align: left;
+}
 .filter form fieldset label {
     font-size: 2vh;
     font-weight: bold;
@@ -371,7 +390,6 @@ form {
   left: 50%;
   transform: translate(-30%, -34%);
 }
-
 .popup-content {
   display: flex;
   text-align: center;
@@ -383,13 +401,11 @@ form {
   align-items: center;
   justify-content: center;
 }
-
 .popup-content form {
     width: 80%;
     align-items: left;
     text-align: left;
 }
-
 .close {
   font-size: 1.5rem;
   cursor: pointer;
@@ -398,4 +414,117 @@ form {
   text-align: right;
   padding-right: 0.75vh;
   color: white;
+}
+.close:hover {
+  color: white;
+}
+
+
+/* star ratings */
+.star-rating {
+  border: none;
+  text-align: left;
+}
+.stars {
+  display: inline-flex;
+  flex-direction: row-reverse; 
+  justify-content: center;
+}
+.stars input {
+  display: none; 
+}
+.stars label {
+  font-size: 5vh;
+  color: var(--lightBrown); 
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.stars label:hover {
+  color: var(--darkBrown);
+}
+.stars label:hover ~ label {
+  color: var(--darkBrown);
+}
+.stars input:checked ~ label {
+  color: var(--darkBrown);
+}
+
+
+/* settings */
+.settingsSection {
+    width: 100%;
+    display: grid;
+    gap: 2vh;
+    grid-template-columns: 1.5fr 6fr;
+    text-align: left;
+}
+.settingsCategories {
+    background-color: var(--green);
+    color: var(--offWhite);
+    position: sticky;
+    top: 0;
+    height: 100%;
+    padding-left: 1vw; padding-right: 1vw;
+}
+.sectionCategoriesContainer {
+    position: sticky;
+    top: 0;
+    height: fit-content;
+    padding-top: 1vw;
+}
+.settingsCategories h1 {
+    font-size: 3vh;
+    font-weight: bold;
+}
+.settingsCategories h2 {
+    font-size: 2vh;
+    font-weight: bold;
+    margin-top: 2vh; margin-bottom: 2vh;
+}
+.settingsValues {
+    background-color: var(--lightBrown);
+    padding: 1vw;
+    color: var(--darkBrown);
+    font-weight: bold;
+}
+.settingsValues form {
+    width: 100%;
+}
+.settingsValues fieldset {
+    margin-top: 1vw;
+}
+.pfpContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.settingsValues h1 {
+    font-size: 2vh;
+    font-weight: bold;
+}
+.buttonPFP {
+    background: none;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0);
+    border-radius: 25px;
+    border-width: 0.5vh;
+    padding: 0;
+    margin-top: 1vh; margin-bottom: 1vh; margin-right: 1vh;
+}
+.buttonPFP img {
+    width: 8vw;
+    margin: 1vh;
+}
+.buttonPFP:focus {
+    outline: none; 
+    box-shadow: none;
+    border-style: solid;
+    border-color: var(--darkBrown);
+}
+.buttonPFP:hover {
+    outline: none; 
+    box-shadow: none;
+    border-style: solid;
+    border-color: var(--darkBrown);
 }
