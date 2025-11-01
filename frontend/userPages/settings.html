@@ -10,6 +10,43 @@
        <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Homemade+Apple&family=Indie+Flower&family=Just+Another+Hand&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Pacifico&display=swap" rel="stylesheet">
     </head>
 
+    <style>
+
+        .star-rating {
+        border: none;
+        text-align: center;
+        }
+
+        .stars {
+        display: inline-flex;
+        flex-direction: row-reverse; /* ensures stars fill from left to right */
+        justify-content: center;
+        }
+
+        .stars input {
+        display: none; /* hide radio buttons */
+        }
+
+        .stars label {
+        font-size: 3rem;
+        color: #ccc; /* unfilled star color */
+        cursor: pointer;
+        transition: color 0.2s;
+        }
+
+        /* highlight on hover */
+        .stars label:hover,
+        .stars label:hover ~ label {
+        color: gold;
+        }
+
+        /* highlight when selected */
+        .stars input:checked ~ label {
+        color: gold;
+        }
+
+    </style>
+
     <body>
 
         <header>
@@ -82,9 +119,64 @@
 
         </header>
 
-        <section>
+        <section class="d-flex flex-column align-items-center text-center">
 
-            <h1 class="title-text">Settings</h1>
+            <div class="sectionContentHolderClear mt-4 mb-4">
+
+                <div class="settingsSection">
+                    <div class="settingsCategories">
+                        <div class="sectionCategoriesContainer">
+                            <h1> Settings </h1>
+                            <hr style="background-color: var(--offWhite);">
+                            <a href="#personalization"> <h2> Profile Personalization</h2> </a>
+                            <a href="#account"> <h2> Account Settings </h2> </a>
+                            <a href="#accessiblity"> <h2> Accessiblity </h2> </a>
+                        </div>
+                    </div>
+                    <div class="settingsValues">
+                        <h1 id="personalization"> Profile Personalization </h1>
+                        <hr style="background-color: var(--darkBrown);">
+                        <form>
+                            <fieldset>
+                                <label> Choose Profile Picture </label>
+                            </fieldset>
+                            <fieldset>
+                                <label> Set Bio </label>
+                            </fieldset>
+                            <fieldset>
+                                <label> Choose Favorite Genres </label>
+                            </fieldset>
+                            <fieldset>
+                                <label> Choose Favorite Book </label>
+                            </fieldset>
+                        </form>
+                        <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+
+                        <h1 id="account"> Account Settings </h1>
+                        <hr style="background-color: var(--darkBrown);">
+                        <form>
+                            <fieldset>
+                                <label> Set Profile Privacy </label>
+                            </fieldset>
+                            <fieldset>
+                                <label> Delete Account </label>
+                            </fieldset>
+                        </form>
+                        <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+
+                        <h1 id="accessiblity"> Accessiblity </h1>
+                        <hr style="background-color: var(--darkBrown);">
+                        <form>
+                            <fieldset>
+                                <label> Enable Color Blind Mode </label>
+                            </fieldset>
+                            <fieldset>
+                                <label> Enable Dyslexia-Friendly Fonts </label>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            
 
         </section>
 

@@ -128,18 +128,31 @@
                     <div class="popup-content">
                         <h1 style="font-weight: bold;">Review [book_title]</h1>
                         <hr style="background-color: var(--offWhite); width: 80%;" class="mb-4">
-                        <form>
-                            <fieldset class="mb-4">
-                                <label> Rate this literature out of 5 stars. </label>
+                        <form>     
+                            <fieldset class="star-rating">
+                                <label style="margin-bottom: 0;"> Rate this literature out of 5 stars. </label> <br>
+                                <div class="stars">
+                                    <input type="radio" id="star5" name="rating" value="5">
+                                    <label for="star5" title="5 stars">&#9733;</label>
+                                    <input type="radio" id="star4" name="rating" value="4">
+                                    <label for="star4" title="4 stars">&#9733;</label>
+                                    <input type="radio" id="star3" name="rating" value="3">
+                                    <label for="star3" title="3 stars">&#9733;</label>
+                                    <input type="radio" id="star2" name="rating" value="2">
+                                    <label for="star2" title="2 stars">&#9733;</label>
+                                    <input type="radio" id="star1" name="rating" value="1">
+                                    <label for="star1" title="1 star">&#9733;</label>
+                                </div>
                             </fieldset>
                             <fieldset class="mb-4">
-                                <label> What date did you finish reading this literature? </label>
+                                <label> What date did you finish reading this literature? </label> <br>
+                                <input type="date" id="readDate" style="margin-left: 0;">
                             </fieldset>
                             <fieldset class="mb-4">
                                 <label> Share your thoughts on this literature. </label>
-                                <textarea rows="5" style="width: 75%;"></textarea>
+                                <textarea rows="5" style="width: 75%;" id="reviewText"></textarea>
                             </fieldset>
-                            <button type="submit" class="mainButtonBrownSmall mb-4">Submit Review</button>
+                            <button type="submit" class="mainButtonBrownSmall mb-4" id="submitReview">Submit Review</button>
                         </form>
                     </div>
                     <span class="close">&times;</span>

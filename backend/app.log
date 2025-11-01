@@ -76,3 +76,6 @@ FROM books
 2025-11-01 14:40:24,545 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=hello&limit=10&page=1 "HTTP/1.1 200 OK"
 2025-11-01 14:51:04,333 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=Hello&limit=10&page=1 "HTTP/1.1 200 OK"
 2025-11-01 15:01:59,861 - INFO - App started!
+2025-11-01 15:36:07,527 - INFO - App started!
+2025-11-01 15:40:49,087 - INFO - App started!
+2025-11-01 16:04:21,786 - INFO - App started!
