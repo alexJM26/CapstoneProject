@@ -67,3 +67,12 @@ FROM books
 2025-10-29 21:10:13,031 - INFO - App started!
 2025-10-30 18:42:49,952 - INFO - App started!
 2025-11-01 09:39:00,601 - INFO - App started!
+2025-11-01 12:55:19,050 - INFO - App started!
+2025-11-01 13:26:04,642 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=hello&limit=10&page=1 "HTTP/1.1 200 OK"
+2025-11-01 13:26:44,352 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=count+of+monto+cristo&limit=10&page=1 "HTTP/1.1 200 OK"
+2025-11-01 13:26:47,511 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=count+of+monte+cristo&limit=10&page=1 "HTTP/1.1 200 OK"
+2025-11-01 13:27:59,481 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=Alexandre+Dumas&limit=10&page=1 "HTTP/1.1 200 OK"
+2025-11-01 13:33:14,587 - INFO - App started!
+2025-11-01 14:40:24,545 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=hello&limit=10&page=1 "HTTP/1.1 200 OK"
+2025-11-01 14:51:04,333 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=Hello&limit=10&page=1 "HTTP/1.1 200 OK"
+2025-11-01 15:01:59,861 - INFO - App started!

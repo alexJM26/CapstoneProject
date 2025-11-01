@@ -55,7 +55,7 @@ body {
     border-radius: 25px;
     border: none;
     color: white;
-    font-size: 3vh; 
+    font-size: 2.5vh; 
 }
 .mainButtonBrownSmall {
     width: 10vw;
@@ -169,6 +169,7 @@ input {
     left: 0% !important;
     transform: translateX(-60%) !important; /* this and above line cause it to center with above button */
     top: 85% !important; /* bring close to bottom of button */
+    width: 13vw;
 }
 .unstyled-button {
     background: none;
@@ -331,6 +332,21 @@ form {
 }
 .icon {
     width: 5vh;
+}
+
+
+/* contact us */
+.contactForm {
+    text-align: left;
+    color: var(--offWhite);
+    font-weight: bold;
+    font-size: 2vh;
+    padding-left: 5vw; padding-right: 5vw;
+    padding-top: 2vw; padding-bottom: 2vw;
+    width: 100%;
+}
+.contactForm fieldset {
+    margin: 1vw;
 }
 
 

@@ -52,28 +52,21 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="../subpages/trending.html">
-                                    <button class="navBarTexts">Trending</button>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../subpages/collections.html">
+                                <a href="collections.html">
                                     <button class="navBarTexts">Collections</button>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="../subpages/browse.html">
+                                <a href="browse.html">
                                     <button class="navBarTexts">Browse All</button>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="contactUs.html">
+                                    <button class="navBarTexts">Contact Us</button>
+                                </a>
+                            </li>
                         </ul>
-                    </div>
-
-                    <div class="d-flex justify-content-between align-items-center">
-                        <img src="../images/search.svg" style="height: 3.5vh;">
-                        <div class="search-container">
-                            <input type="text" placeholder="Search Literature..." name="search" id="searchInput">
-                        </div>
                     </div>
 
                 </div>
@@ -84,7 +77,34 @@
 
         <section>
 
-            <h1 class="title-text">Trending Literature</h1>
+            <h2 class="sub-title-text" style="font-weight: bold;"> Contact Us </h2>
+
+            <div class="d-flex flex-column align-items-center text-center">
+                <div class="sectionContentHolderGreen" style="padding-bottom: 0;">
+
+                    <p> <h2 style="font-weight: bold; margin: 1vw;" class="mb-5"> Tell us what we can help you with! </h2> </p>
+                    <hr style="background-color: var(--offWhite); width: 80%;">
+                    <form action="https://api.web3forms.com/submit" method="POST" class="contactForm">
+                        <input type="hidden" name="access_key" value="dcfb9d3f-c1fc-4e7b-b21f-154d4167dba7">
+                        <fieldset>
+                            <label> Enter your Name: </label>
+                            <input type="text" name="name" required>
+                        </fieldset>
+                        <fieldset>
+                            <label> Enter your Email: </label>
+                            <input type="email" name="email" placeholder="name@gmail.com" required>
+                        </fieldset>
+                        <fieldset>
+                            <label> Write your questions, comments, and/or concerns. </label>
+                            <textarea name="message" rows="5" style="width: 100%;" required></textarea>
+                        </fieldset>
+                        <fieldset>
+                            <button type="submit" class="mainButtonBrownSmall mt-4">Submit Form</button>
+                        </fieldset>
+                    </form>
+
+                </div>
+            </div>
 
         </section>
 
@@ -98,6 +118,26 @@
 
         <!-- Script for checking user login and logout functionality-->
         <script type="module" src="../js/session.js"></script>
+
+        <!-- Script for review popup -->
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const popup = document.getElementById("popup");
+                const openPopup = document.getElementById("openPopup");
+                const closeBtn = document.querySelector(".close");
+
+                // Make sure it's closed initially
+                popup.style.display = "none";
+
+                openPopup.addEventListener("click", () => {
+                    popup.style.display = "grid";
+                });
+
+                closeBtn.addEventListener("click", () => {
+                    popup.style.display = "none";
+                });
+            });
+        </script>
     </body>
 
 </html>
