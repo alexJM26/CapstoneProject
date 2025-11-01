@@ -84,7 +84,25 @@
 
         <section>
 
-            <h1 class="title-text">Collections</h1>
+            <button id="openPopup">Open Popup</button>
+
+            <div id="popup" class="popup">
+                <div class="popup-content">
+                    <h1>Review [book_title]</h1>
+                    <hr style="background-color: var(--offWhite); width: 80%;" class="mb-4">
+                    <form>
+                        <fieldset class="mb-4">
+                            <label> Rate this literature out of 5 stars. </label>
+                        </fieldset>
+                        <fieldset class="mb-4">
+                            <label> Share your thoughts on this literature. </label>
+                            <textarea rows="5" style="width: 75%;"></textarea>
+                        </fieldset>
+                        <button type="submit" class="mainButtonBrownSmall mb-4">Submit Review</button>
+                    </form>
+                </div>
+                <span class="close">&times;</span>
+            </div>
 
         </section>
 
@@ -98,6 +116,32 @@
 
         <!-- Script for checking user login and logout functionality-->
         <script type="module" src="../js/session.js"></script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const popup = document.getElementById("popup");
+                const openPopup = document.getElementById("openPopup");
+                const closeBtn = document.querySelector(".close");
+
+                // Make sure it's closed initially
+                popup.style.display = "none";
+
+                openPopup.addEventListener("click", () => {
+                    popup.style.display = "grid";
+                });
+
+                closeBtn.addEventListener("click", () => {
+                    popup.style.display = "none";
+                });
+
+                // Optional: close popup when clicking outside the content
+                window.addEventListener("click", (event) => {
+                    if (event.target === popup) {
+                        popup.style.display = "none";
+                    }
+                });
+            });
+        </script>
     </body>
 
 </html>

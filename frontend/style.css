@@ -83,6 +83,9 @@ body {
 a, a:hover {
     color: var(--offWhite);
 }
+.flexBottom {
+    margin-top: auto;
+}
 
 
 /* top-most bar */
@@ -274,6 +277,7 @@ form {
     background-color: var(--green);
     padding: 3vh;
     color: var(--offWhite);
+    height: 100%;
 }
 .filterTitle {
     font-size: 3vh;
@@ -327,4 +331,55 @@ form {
 }
 .icon {
     width: 5vh;
+}
+
+
+/* Review Popup */
+.popup {
+  display: none; 
+  background-color: var(--darkGreen);
+  justify-content: center;
+  align-items: center;
+  width: 60vw;
+  height: 70vh;
+  border-style: solid;
+  border-width: 1vh;
+  border-color: var(--darkBrown);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  grid-template-columns: 0.5fr 15fr 0.5fr;
+  grid-template-rows: 100%;
+  z-index: 9999;
+  position: fixed;
+  top: 50%;         
+  left: 50%;
+  transform: translate(-30%, -34%);
+}
+
+.popup-content {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  background-color: var(--green);
+  grid-column: 2;
+  height: 100%;
+  color: var(--offWhite);
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-content form {
+    width: 80%;
+    align-items: left;
+    text-align: left;
+}
+
+.close {
+  font-size: 1.5rem;
+  cursor: pointer;
+  grid-column: 3;
+  height: 100%;
+  text-align: right;
+  padding-right: 0.75vh;
+  color: white;
 }

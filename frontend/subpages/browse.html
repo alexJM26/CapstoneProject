@@ -99,6 +99,11 @@
                                 <label> Publish Date Range </label> 
                             </fieldset>
                         </form>
+                        <div class="flexBottom">
+                            <a href="#"><img src="../images/left.svg" style="width: 1vw;"></a>
+                            <span style="margin-left: 1vw; margin-right: 1vw;"> 1 / 5 </span>
+                            <a href="#"><img src="../images/right.svg" style="width: 1vw;"></a>
+                        </div>
                     </div>
 
                     <div class="lit">
@@ -109,14 +114,35 @@
                             5/5 Stars | <a href="#"> View Reviews (10) </a>
                         </div>
                         <div class="iconsContainer">
-                            <a href="#"> <img class="icon" src="../images/addToCollection.svg" title="Add to Collection"> </a>
-                            <a href="#"> <img class="icon" src="../images/review.svg" title="Leave a Review"> </a>
+                            <button class="unstyled-button"> <img class="icon" src="../images/addToCollection.svg" title="Add to Collection"> </button>
+                            <button type="button" class="unstyled-button" id="openPopup"> <img class="icon" src="../images/review.svg" title="Leave a Review"> </button>
                         </div>
                     </div>
                     <div class="lit">3</div>
                     <div class="lit">4</div>
                     <div class="lit">5</div>
 
+                </div>
+
+                <div id="popup" class="popup">
+                    <div class="popup-content">
+                        <h1 style="font-weight: bold;">Review [book_title]</h1>
+                        <hr style="background-color: var(--offWhite); width: 80%;" class="mb-4">
+                        <form>
+                            <fieldset class="mb-4">
+                                <label> Rate this literature out of 5 stars. </label>
+                            </fieldset>
+                            <fieldset class="mb-4">
+                                <label> What date did you finish reading this literature? </label>
+                            </fieldset>
+                            <fieldset class="mb-4">
+                                <label> Share your thoughts on this literature. </label>
+                                <textarea rows="5" style="width: 75%;"></textarea>
+                            </fieldset>
+                            <button type="submit" class="mainButtonBrownSmall mb-4">Submit Review</button>
+                        </form>
+                    </div>
+                    <span class="close">&times;</span>
                 </div>
 
             </div>
@@ -133,6 +159,26 @@
 
         <!-- Script for checking user login and logout functionality-->
         <script type="module" src="../js/session.js"></script>
+
+        <!-- Script for review popup -->
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const popup = document.getElementById("popup");
+                const openPopup = document.getElementById("openPopup");
+                const closeBtn = document.querySelector(".close");
+
+                // Make sure it's closed initially
+                popup.style.display = "none";
+
+                openPopup.addEventListener("click", () => {
+                    popup.style.display = "grid";
+                });
+
+                closeBtn.addEventListener("click", () => {
+                    popup.style.display = "none";
+                });
+            });
+        </script>
     </body>
 
 </html>
