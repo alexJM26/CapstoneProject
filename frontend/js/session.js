@@ -6,7 +6,7 @@ async function updateNavbar() {
   const pfpImg = document.querySelector(".PFPImg");
   const dropdown = document.querySelector(".dropdown-menu");
 
-  if (!pfpImg || !dropdown) return; // Navbar not on this page
+  if (!pfpImg || !dropdown) return; //Navbar not on this page
 
   const { data: { user } } = await supabase.auth.getUser();
 
