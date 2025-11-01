@@ -55,7 +55,7 @@ body {
     border-radius: 25px;
     border: none;
     color: white;
-    font-size: 3vh; 
+    font-size: 2.5vh; 
 }
 .mainButtonBrownSmall {
     width: 10vw;
@@ -82,6 +82,9 @@ body {
 }
 a, a:hover {
     color: var(--offWhite);
+}
+.flexBottom {
+    margin-top: auto;
 }
 
 
@@ -166,6 +169,7 @@ input {
     left: 0% !important;
     transform: translateX(-60%) !important; /* this and above line cause it to center with above button */
     top: 85% !important; /* bring close to bottom of button */
+    width: 13vw;
 }
 .unstyled-button {
     background: none;
@@ -274,6 +278,7 @@ form {
     background-color: var(--green);
     padding: 3vh;
     color: var(--offWhite);
+    height: 100%;
 }
 .filterTitle {
     font-size: 3vh;
@@ -327,4 +332,70 @@ form {
 }
 .icon {
     width: 5vh;
+}
+
+
+/* contact us */
+.contactForm {
+    text-align: left;
+    color: var(--offWhite);
+    font-weight: bold;
+    font-size: 2vh;
+    padding-left: 5vw; padding-right: 5vw;
+    padding-top: 2vw; padding-bottom: 2vw;
+    width: 100%;
+}
+.contactForm fieldset {
+    margin: 1vw;
+}
+
+
+/* Review Popup */
+.popup {
+  display: none; 
+  background-color: var(--darkGreen);
+  justify-content: center;
+  align-items: center;
+  width: 60vw;
+  height: 70vh;
+  border-style: solid;
+  border-width: 1vh;
+  border-color: var(--darkBrown);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  grid-template-columns: 0.5fr 15fr 0.5fr;
+  grid-template-rows: 100%;
+  z-index: 9999;
+  position: fixed;
+  top: 50%;         
+  left: 50%;
+  transform: translate(-30%, -34%);
+}
+
+.popup-content {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  background-color: var(--green);
+  grid-column: 2;
+  height: 100%;
+  color: var(--offWhite);
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-content form {
+    width: 80%;
+    align-items: left;
+    text-align: left;
+}
+
+.close {
+  font-size: 1.5rem;
+  cursor: pointer;
+  grid-column: 3;
+  height: 100%;
+  text-align: right;
+  padding-right: 0.75vh;
+  color: white;
 }
