@@ -10,43 +10,6 @@
        <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Homemade+Apple&family=Indie+Flower&family=Just+Another+Hand&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Pacifico&display=swap" rel="stylesheet">
     </head>
 
-    <style>
-
-        .star-rating {
-        border: none;
-        text-align: center;
-        }
-
-        .stars {
-        display: inline-flex;
-        flex-direction: row-reverse; /* ensures stars fill from left to right */
-        justify-content: center;
-        }
-
-        .stars input {
-        display: none; /* hide radio buttons */
-        }
-
-        .stars label {
-        font-size: 3rem;
-        color: #ccc; /* unfilled star color */
-        cursor: pointer;
-        transition: color 0.2s;
-        }
-
-        /* highlight on hover */
-        .stars label:hover,
-        .stars label:hover ~ label {
-        color: gold;
-        }
-
-        /* highlight when selected */
-        .stars input:checked ~ label {
-        color: gold;
-        }
-
-    </style>
-
     <body>
 
         <header>
@@ -106,12 +69,10 @@
                         </ul>
                     </div>
 
-                    <div class="d-flex justify-content-between align-items-center">
-                        <img src="../images/search.svg" style="height: 3.5vh;">
-                        <div class="search-container">
-                            <input type="text" placeholder="Search Literature..." name="search" id="searchInput">
-                        </div>
-                    </div>
+                    <form class="d-flex justify-content-between align-items-center" style="margin: 0;">
+                        <button type="submit" class="unstyled-button"> <img src="../images/search.svg" style="height: 3.5vh;"> </button>
+                        <input type="text" placeholder="Search Literature..." name="search" id="searchInput">
+                    </form>
 
                 </div>
 

@@ -69,6 +69,11 @@
                         </ul>
                     </div>
 
+                    <form class="d-flex justify-content-between align-items-center" style="margin: 0;">
+                        <button type="submit" class="unstyled-button"> <img src="../images/search.svg" style="height: 3.5vh;"> </button>
+                        <input type="text" placeholder="Search Literature..." name="search" id="searchInput">
+                    </form>
+
                 </div>
 
             </nav>
@@ -82,41 +87,31 @@
                 <div class="browserContainer" id="results">
 
                     <div class="filter">
-                        <div class="filterTitle mb-2"> Select Filters for your Search </div>
+                        <div class="filterTitle mb-0"> Select Filters for your Search </div>
+                        <hr style="background-color: var(--offWhite); width: 100%;" class="mt-0">
                         <form>
-                            <hr style="background-color: var(--offWhite);" class="mb-4">
                             <fieldset class="mb-4">
                                 <label> Search by Title/Author </label>
                                 <input type="text" placeholder="Search Title/Author..." name="search" id="searchInput" style="margin-left: 0;">
                             </fieldset>
-                            <fieldset class="star-rating mb-1">
+                            <fieldset class="mb-3">
                                 <label> Minimum Rating </label> <br>
                                 <div class="stars">
-                                    <input type="radio" id="star5" name="rating" value="5">
-                                    <label for="star5" title="5 stars">&#9733;</label>
-                                    <input type="radio" id="star4" name="rating" value="4">
-                                    <label for="star4" title="4 stars">&#9733;</label>
-                                    <input type="radio" id="star3" name="rating" value="3">
-                                    <label for="star3" title="3 stars">&#9733;</label>
-                                    <input type="radio" id="star2" name="rating" value="2">
-                                    <label for="star2" title="2 stars">&#9733;</label>
-                                    <input type="radio" id="star1" name="rating" value="1">
-                                    <label for="star1" title="1 star">&#9733;</label>
+                                    <input type="radio" id="min5" name="minRating" value="5"> <label for="min5" style="font-size: 3vh;">&#9733;</label>
+                                    <input type="radio" id="min4" name="minRating" value="4"> <label for="min4" style="font-size: 3vh;">&#9733;</label>
+                                    <input type="radio" id="min3" name="minRating" value="3"> <label for="min3" style="font-size: 3vh;">&#9733;</label>
+                                    <input type="radio" id="min2" name="minRating" value="2"> <label for="min2" style="font-size: 3vh;">&#9733;</label>
+                                    <input type="radio" id="min1" name="minRating" value="1"> <label for="min1" style="font-size: 3vh;">&#9733;</label>
                                 </div>
                             </fieldset>
-                            <fieldset class="star-rating mb-1">
+                            <fieldset class="mb-3">
                                 <label> Maximum Rating </label> <br>
                                 <div class="stars">
-                                    <input type="radio" id="star5" name="rating" value="5">
-                                    <label for="star5" title="5 stars">&#9733;</label>
-                                    <input type="radio" id="star4" name="rating" value="4">
-                                    <label for="star4" title="4 stars">&#9733;</label>
-                                    <input type="radio" id="star3" name="rating" value="3">
-                                    <label for="star3" title="3 stars">&#9733;</label>
-                                    <input type="radio" id="star2" name="rating" value="2">
-                                    <label for="star2" title="2 stars">&#9733;</label>
-                                    <input type="radio" id="star1" name="rating" value="1">
-                                    <label for="star1" title="1 star">&#9733;</label>
+                                    <input type="radio" id="max5" name="maxRating" value="5"> <label for="max5" style="font-size: 3vh;">&#9733;</label>
+                                    <input type="radio" id="max4" name="maxRating" value="4"> <label for="max4" style="font-size: 3vh;">&#9733;</label>
+                                    <input type="radio" id="max3" name="maxRating" value="3"> <label for="max3" style="font-size: 3vh;">&#9733;</label>
+                                    <input type="radio" id="max2" name="maxRating" value="2"> <label for="max2" style="font-size: 3vh;">&#9733;</label>
+                                    <input type="radio" id="max1" name="maxRating" value="1"> <label for="max1" style="font-size: 3vh;">&#9733;</label>
                                 </div>
                             </fieldset>
                             <fieldset class="mb-4">
@@ -142,19 +137,14 @@
                         <h1 style="font-weight: bold;">Review [book_title]</h1>
                         <hr style="background-color: var(--offWhite); width: 80%;" class="mb-4">
                         <form>     
-                            <fieldset class="star-rating">
-                                <label style="margin-bottom: 0;"> Rate this literature out of 5 stars. </label> <br>
+                            <fieldset class="mb-4">
+                                <label> Rate this literature out of 5 stars. </label> <br>
                                 <div class="stars">
-                                    <input type="radio" id="star5" name="rating" value="5">
-                                    <label for="star5" title="5 stars">&#9733;</label>
-                                    <input type="radio" id="star4" name="rating" value="4">
-                                    <label for="star4" title="4 stars">&#9733;</label>
-                                    <input type="radio" id="star3" name="rating" value="3">
-                                    <label for="star3" title="3 stars">&#9733;</label>
-                                    <input type="radio" id="star2" name="rating" value="2">
-                                    <label for="star2" title="2 stars">&#9733;</label>
-                                    <input type="radio" id="star1" name="rating" value="1">
-                                    <label for="star1" title="1 star">&#9733;</label>
+                                    <input type="radio" id="given5" name="givenRating" value="5"> <label for="given5" style="font-size: 4vh;">&#9733;</label>
+                                    <input type="radio" id="given4" name="givenRating" value="4"> <label for="given4" style="font-size: 4vh;">&#9733;</label>
+                                    <input type="radio" id="given3" name="givenRating" value="3"> <label for="given3" style="font-size: 4vh;">&#9733;</label>
+                                    <input type="radio" id="given2" name="givenRating" value="2"> <label for="given2" style="font-size: 4vh;">&#9733;</label>
+                                    <input type="radio" id="given1" name="givenRating" value="1"> <label for="given1" style="font-size: 4vh;">&#9733;</label>
                                 </div>
                             </fieldset>
                             <fieldset class="mb-4">
@@ -220,7 +210,7 @@
                 if (!query || !resultsDiv) return;
 
                 try {
-                    const response = await fetch(`/book_router/search?q=${encodeURIComponent(query)}&limit=5&page=1`);
+                    const response = await fetch(`/book_router/search?q=${encodeURIComponent(query)}&limit=50&page=1`);
                     if (!response.ok) throw new Error("Network response not ok");
 
                     const data = await response.json();

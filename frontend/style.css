@@ -440,33 +440,30 @@ form {
 
 
 /* star ratings */
-.star-rating {
-  border: none;
-  text-align: left;
-}
 .stars {
-  display: inline-flex;
-  flex-direction: row-reverse; 
-  justify-content: center;
+    display: inline-flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    margin-top: -2%; margin-bottom: -2%;
 }
 .stars input {
-  display: none; 
+    display: none;
 }
 .stars label {
-  font-size: 5vh;
-  color: var(--lightBrown); 
-  cursor: pointer;
-  transition: color 0.2s;
+    color: var(--lightBrown);
+    cursor: pointer;
+    transition: color 0.2s;
 }
-.stars label:hover {
-  color: var(--darkBrown);
-}
+.stars label:hover,
 .stars label:hover ~ label {
-  color: var(--darkBrown);
+    color: var(--darkBrown);
 }
 .stars input:checked ~ label {
-  color: var(--darkBrown);
+    color: var(--darkBrown);
 }
+
+
+
 
 
 /* settings */
