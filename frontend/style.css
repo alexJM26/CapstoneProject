@@ -403,11 +403,21 @@ form {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   grid-template-columns: 0.5fr 15fr 0.5fr;
   grid-template-rows: 100%;
-  z-index: 9999;
+  z-index: 10000;
   position: fixed;
   top: 50%;         
   left: 50%;
-  transform: translate(-30%, -34%);
+  transform: translate(-50%, -50%);
+}
+.popupBackdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 9999; 
 }
 .popup-content {
   display: flex;
@@ -419,6 +429,7 @@ form {
   color: var(--offWhite);
   align-items: center;
   justify-content: center;
+  z-index: 10000; 
 }
 .popup-content form {
     width: 80%;
@@ -433,6 +444,7 @@ form {
   text-align: right;
   padding-right: 0.75vh;
   color: white;
+  z-index: 10000; 
 }
 .close:hover {
   color: white;
