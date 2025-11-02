@@ -6,7 +6,7 @@ async function loadProfile() {
 
   const { data, error } = await supabase
     .from("profiles")
-    .select("username, created_at, bio, favorite_genres, favorite_book, avatar_url")
+    .select("username, created_at, bio, favorite_genres, favorite_book, avatar_choice")
     .eq("user_id", user.id)
     .single();
 
@@ -15,13 +15,32 @@ async function loadProfile() {
     return;
   }
 
+  const avatarNum = data.avatar_choice || 1;
+  const avatarPath = `../images/pfp/${avatarNum}.svg`;
+
   document.getElementById("profileUsername").textContent = data.username;
   document.getElementById("profileCreatedAt").textContent = `Member since ${new Date(data.created_at).toLocaleDateString()}`;
   document.getElementById("profileBio").textContent = data.bio || "No bio yet.";
   document.getElementById("profileGenres").textContent = data.favorite_genres ? data.favorite_genres.join(", ") : "No favorite genres yet.";
   document.getElementById("profileBook").textContent = data.favorite_book || "No favorite book yet.";
-  document.getElementById("profileAvatar").src = data.avatar_url || "../images/loggedOutPFP.svg";
-  document.getElementById("navProfileImg").src = data.avatar_url || "../images/loggedOutPFP.svg";
+  document.getElementById("profileAvatar").src = avatarPath;
+  document.getElementById("navProfileImg").src = avatarPath;
+
+  //Generate avatar grid in modal
+  const avatarContainer = document.getElementById("avatarOptions");
+  avatarContainer.innerHTML = "";
+  for (let i = 1; i <= 20; i++) {
+    const img = document.createElement("img");
+    img.src = `../images/pfp/${i}.svg`;
+    img.classList.add("avatar-option");
+    if (i === avatarNum) img.classList.add("selected");
+    img.addEventListener("click", () => {
+      document.querySelectorAll(".avatar-option").forEach(opt => opt.classList.remove("selected"));
+      img.classList.add("selected");
+      img.dataset.selected = true;
+    });
+    avatarContainer.appendChild(img);
+  }
 
   //Load related reads (user_books)
   const { data: reads } = await supabase
@@ -58,12 +77,18 @@ document.getElementById("saveProfileBtn").addEventListener("click", async () => 
   const genres = document.getElementById("genresInput").value.trim();
   const favorite_book = document.getElementById("bookInput").value.trim();
 
+  const selectedImg = document.querySelector(".avatar-option.selected");
+  const avatar_choice = selectedImg
+    ? parseInt(selectedImg.src.match(/\/(\d+)\.svg$/)[1])
+    : 1;
+
   const { error } = await supabase
     .from("profiles")
     .update({
       bio,
       favorite_genres: genres ? genres.split(",").map(g => g.trim()) : null,
-      favorite_book
+      favorite_book,
+      avatar_choice
     })
     .eq("user_id", user.id);
 
