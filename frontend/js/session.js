@@ -5,6 +5,10 @@ export const supabase = createClient("https://qguuhcavrukdmprrtxik.supabase.co",
 async function updateNavbar() {
   const pfpImg = document.querySelector(".PFPImg");
   const dropdown = document.querySelector(".dropdown-menu");
+  const cachedChoice = localStorage.getItem("avatar_choice");
+  if (cachedChoice) {
+    pfpImg.src = `/images/pfp/${cachedChoice}.svg`;
+  }
 
   if (!pfpImg || !dropdown) return;  //Navbar not on this page
 
@@ -14,11 +18,15 @@ async function updateNavbar() {
   dropdown.innerHTML = "";
 
   if (user) {
-    const { data: profile } = await supabase
+    const { data: profile, error } = await supabase
       .from("profiles")
       .select("username, avatar_choice")
       .eq("user_id", user.id)
       .single();
+
+      if (!error && profile) {  //cache avatar locally
+        localStorage.setItem("avatar_choice", profile.avatar_choice || "1");
+      }
 
     //update PFP
     if (profile?.avatar_choice) pfpImg.src = `../images/pfp/${profile.avatar_choice}.svg`;
