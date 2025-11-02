@@ -6,7 +6,7 @@ async function updateNavbar() {
   const pfpImg = document.querySelector(".PFPImg");
   const dropdown = document.querySelector(".dropdown-menu");
 
-  if (!pfpImg || !dropdown) return; //Navbar not on this page
+  if (!pfpImg || !dropdown) return;  //Navbar not on this page
 
   const { data: { user } } = await supabase.auth.getUser();
 
@@ -16,12 +16,12 @@ async function updateNavbar() {
   if (user) {
     const { data: profile } = await supabase
       .from("profiles")
-      .select("username, avatar_url")
+      .select("username, avatar_choice")
       .eq("user_id", user.id)
       .single();
 
     //update PFP
-    if (profile?.avatar_url) pfpImg.src = profile.avatar_url;
+    if (profile?.avatar_choice) pfpImg.src = `../images/pfp/${profile.avatar_choice}.svg`;
     else pfpImg.src = "../images/loggedInPFP.png";
 
     //Logged-in menu items
@@ -44,9 +44,7 @@ async function updateNavbar() {
   } else {
     //Not logged in
     pfpImg.src = "../images/loggedOutPFP.svg";
-    dropdown.innerHTML = `
-      <a class="dropdown-item" href="../loginPages/login.html">Login / Create Account</a>
-    `;
+    dropdown.innerHTML = `<a class="dropdown-item" href="../loginPages/login.html">Login / Create Account</a>`;
   }
 }
 
