@@ -79,7 +79,7 @@
 
             <div class="sectionContentHolderClear mt-4 mb-4">
 
-                <div class="browserContainer">
+                <div class="browserContainer" id="results">
 
                     <div class="filter">
                         <div class="filterTitle mb-2"> Select Filters for your Search </div>
@@ -132,55 +132,6 @@
                             <a href="#"><img src="../images/left.svg" style="width: 1vw;"></a>
                             <span style="margin-left: 1vw; margin-right: 1vw;">1 / 5</span>
                             <a href="#"><img src="../images/right.svg" style="width: 1vw;"></a>
-                        </div>
-                    </div>
-
-                    <div class="lit">
-                        <div class="coverImgContainer"> <img src="../images/bookCoverDefault.svg" class="coverImage"> </div>
-                        <div class="litTitle"> To Kill a Mockingbird </div>
-                        <div class="litAuthor"> By Harper Lee </div>
-                        <div class="litRating"> 
-                            &#9733; &#9733; &#9733; &#9733; &#9733; | <a href="#"> View Reviews (10) </a>
-                        </div>
-                        <div class="iconsContainer">
-                            <button class="unstyled-button"> <img class="icon" src="../images/addToCollection.svg" title="Add to Collection"> </button>
-                            <button type="button" class="unstyled-button" id="openPopup"> <img class="icon" src="../images/review.svg" title="Leave a Review"> </button>
-                        </div>
-                    </div>
-                    <div class="lit">
-                        <div class="coverImgContainer"> <img src="../images/bookCoverDefault.svg" class="coverImage"> </div>
-                        <div class="litTitle"> To Kill a Mockingbird </div>
-                        <div class="litAuthor"> By Harper Lee </div>
-                        <div class="litRating"> 
-                            &#9733; &#9733; &#9733; &#9733; &#9733; | <a href="#"> View Reviews (10) </a>
-                        </div>
-                        <div class="iconsContainer">
-                            <button class="unstyled-button"> <img class="icon" src="../images/addToCollection.svg" title="Add to Collection"> </button>
-                            <button type="button" class="unstyled-button" id="openPopup"> <img class="icon" src="../images/review.svg" title="Leave a Review"> </button>
-                        </div>
-                    </div>
-                    <div class="lit">
-                        <div class="coverImgContainer"> <img src="../images/bookCoverDefault.svg" class="coverImage"> </div>
-                        <div class="litTitle"> To Kill a Mockingbird </div>
-                        <div class="litAuthor"> By Harper Lee </div>
-                        <div class="litRating"> 
-                            &#9733; &#9733; &#9733; &#9733; &#9733; | <a href="#"> View Reviews (10) </a>
-                        </div>
-                        <div class="iconsContainer">
-                            <button class="unstyled-button"> <img class="icon" src="../images/addToCollection.svg" title="Add to Collection"> </button>
-                            <button type="button" class="unstyled-button" id="openPopup"> <img class="icon" src="../images/review.svg" title="Leave a Review"> </button>
-                        </div>
-                    </div>
-                    <div class="lit">
-                        <div class="coverImgContainer"> <img src="../images/bookCoverDefault.svg" class="coverImage"> </div>
-                        <div class="litTitle"> To Kill a Mockingbird </div>
-                        <div class="litAuthor"> By Harper Lee </div>
-                        <div class="litRating"> 
-                            &#9733; &#9733; &#9733; &#9733; &#9733; | <a href="#"> View Reviews (10) </a>
-                        </div>
-                        <div class="iconsContainer">
-                            <button class="unstyled-button"> <img class="icon" src="../images/addToCollection.svg" title="Add to Collection"> </button>
-                            <button type="button" class="unstyled-button" id="openPopup"> <img class="icon" src="../images/review.svg" title="Leave a Review"> </button>
                         </div>
                     </div>
 
@@ -254,6 +205,77 @@
                 });
             });
         </script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", async () => {
+                const urlParams = new URLSearchParams(window.location.search);
+                const query = urlParams.get("search");
+                const searchInput = document.getElementById("searchInput");
+                const resultsDiv = document.getElementById("results");
+
+                if (searchInput && query) {
+                    searchInput.value = query;
+                }
+
+                if (!query || !resultsDiv) return;
+
+                try {
+                    const response = await fetch(`/book_router/search?q=${encodeURIComponent(query)}&limit=5&page=1`);
+                    if (!response.ok) throw new Error("Network response not ok");
+
+                    const data = await response.json();
+
+                    const resultsCol = document.createElement("div");
+                    resultsCol.classList.add("resultsCol");
+
+                    if (data.results && data.results.length > 0) {
+                        data.results.forEach(book => {
+                            const bookDiv = document.createElement("div");
+                            bookDiv.classList.add("lit");
+
+                            bookDiv.innerHTML = `
+                                <div class="coverImgContainer">
+                                    <img src="${book.cover || "../images/bookCoverDefault.svg"}" class="coverImage">
+                                </div>
+                                <div class="litTitle">${book.title || 'No Title'}</div>
+                                <div class="litAuthor">By ${book.authors ? book.authors.join(", ") : 'Unknown'}</div>
+                                <div class="litRating">
+                                    &#9733; &#9733; &#9733; &#9733; &#9733; | <a href="#">View Reviews (10)</a>
+                                </div>
+                                <div class="iconsContainer">
+                                    <button class="unstyled-button">
+                                        <img class="icon" src="../images/addToCollection.svg" title="Add to Collection">
+                                    </button>
+                                    <button type="button" class="unstyled-button openPopup">
+                                        <img class="icon" src="../images/review.svg" title="Leave a Review">
+                                    </button>
+                                </div>
+                            `;
+                            resultsCol.appendChild(bookDiv);
+                        });
+                    } else {
+                        resultsCol.innerHTML = "<p>No results found.</p>";
+                    }
+
+                    resultsDiv.appendChild(resultsCol);
+                } catch (error) {
+                    console.error("Search failed:", error);
+                    resultsDiv.innerHTML = "<p>An error occurred while searching.</p>";
+                }
+
+                // event delegation
+                document.addEventListener("click", e => {
+                    if (e.target.closest(".openPopup")) popup.style.display = "grid";
+                    if (e.target.closest(".close")) popup.style.display = "none";
+                });
+
+                // Popup event handling
+                //const popup = document.getElementById("popup");
+                //const closeBtn = document.querySelector(".close");
+                //popup.style.display = "none";
+            });
+        </script>
+
     </body>
 
 </html>

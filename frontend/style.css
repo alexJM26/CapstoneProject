@@ -298,7 +298,6 @@ form {
 .browserContainer {
     display: grid;
     grid-template-columns: 1fr 3fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
     gap: 2vh;
 }
 .filter {
@@ -306,7 +305,7 @@ form {
     align-items: center;
     flex-direction: column;
     grid-row-start: 1;
-    grid-row-end: 5;
+    grid-row-end: 2;
     background-color: var(--green);
     padding: 3vh;
     color: var(--offWhite);
@@ -330,6 +329,11 @@ form {
     padding: 3vh;
     column-gap: 2vh;
 }
+#results > div {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh; 
+} 
 .coverImgContainer {
     display: grid;
     width: fit-content;
@@ -368,7 +372,6 @@ form {
 .icon {
     width: 5vh;
 }
-
 
 /* contact us */
 .contactForm {

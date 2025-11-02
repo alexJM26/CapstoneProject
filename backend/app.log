@@ -84,3 +84,17 @@ FROM books
 2025-11-01 18:26:27,536 - INFO - App started!
 2025-11-01 19:41:07,857 - INFO - App started!
 2025-11-01 20:04:23,501 - INFO - App started!
+2025-11-01 22:19:26,423 - INFO - App started!
+2025-11-01 22:20:11,630 - INFO - App started!
+2025-11-01 22:23:21,392 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=hello&limit=5&page=1 "HTTP/1.1 200 OK"
+2025-11-01 22:24:18,409 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=hello&limit=5&page=1 "HTTP/1.1 200 OK"
+2025-11-01 22:24:44,353 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=hello&limit=5&page=1 "HTTP/1.1 200 OK"
+2025-11-01 22:25:44,195 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=warrior+cats+the+last+hope&limit=5&page=1 "HTTP/1.1 200 OK"
+2025-11-01 22:26:25,736 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=ghostface&limit=5&page=1 "HTTP/1.1 200 OK"
+2025-11-01 22:26:42,337 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=texas+chainsaw+massacre&limit=5&page=1 "HTTP/1.1 200 OK"
+2025-11-01 22:27:00,843 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=stephen+king&limit=5&page=1 "HTTP/1.1 200 OK"
+2025-11-01 22:27:14,393 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=survivors&limit=5&page=1 "HTTP/1.1 200 OK"
+2025-11-01 22:27:18,713 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=survivors+erin+hunter&limit=5&page=1 "HTTP/1.1 200 OK"
+2025-11-01 22:27:31,213 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=markiplier&limit=5&page=1 "HTTP/1.1 200 OK"
+2025-11-01 22:27:45,143 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=kent+state&limit=5&page=1 "HTTP/1.1 200 OK"
+2025-11-01 22:27:56,382 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=kent+state+university&limit=5&page=1 "HTTP/1.1 200 OK"

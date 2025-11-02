@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!query) return;
 
             // Redirect to search.html with query parameter
-            window.location.href = `/subpages/search.html?q=${encodeURIComponent(query)}`;
+            window.location.href = `/subpages/browse.html?search=${encodeURIComponent(query)}`;
         }
     });
 });
