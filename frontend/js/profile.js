@@ -4,29 +4,70 @@ async function loadProfile() {
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return;
 
-  const { data, error } = await supabase
+  //check if viewing another user's profile
+  const params = new URLSearchParams(window.location.search);
+  const targetUsername = params.get("username");
+  const targetUserId = params.get("user_id");
+
+  let viewedProfile;
+  if (targetUsername || targetUserId) {
+    const { data, error } = await supabase
     .from("profiles")
-    .select("username, created_at, bio, favorite_genres, favorite_book, avatar_choice")
-    .eq("user_id", user.id)
+    .select("user_id, username, created_at, bio, favorite_genres, favorite_book, avatar_choice")
+    .eq(targetUsername ? "username" : "user_id", targetUsername || targetUserId)
     .single();
 
-  if (error) {
-    console.error("Error loading profile:", error);
-    return;
+    if (error || !data) {
+      console.error("Error loading target profile:", error);
+      return;
+    }
+    viewedProfile = data;
+  } else {
+    //default to current user
+    const { data, error } = await supabase
+      .from("profiles")
+      .select("user_id, username, created_at, bio, favorite_genres, favorite_book, avatar_choice")
+      .eq("user_id", user.id)
+      .single();
+
+    if (error) {
+      console.error("Error loading profile:", error);
+      return;
+    }
+    viewedProfile = data;
   }
 
-  const avatarNum = data.avatar_choice || 1;
+  const avatarNum = viewedProfile.avatar_choice || 1;
   const avatarPath = `../images/pfp/${avatarNum}.svg`;
 
-  document.getElementById("profileUsername").textContent = data.username;
-  document.getElementById("profileCreatedAt").textContent = `Member since ${new Date(data.created_at).toLocaleDateString()}`;
-  document.getElementById("profileBio").textContent = data.bio || "No bio yet.";
-  document.getElementById("profileGenres").textContent = data.favorite_genres ? data.favorite_genres.join(", ") : "No favorite genres yet.";
-  document.getElementById("profileBook").textContent = data.favorite_book || "No favorite book yet.";
+  document.getElementById("profileUsername").textContent = viewedProfile.username;
+  document.getElementById("profileCreatedAt").textContent = `Member since ${new Date(viewedProfile.created_at).toLocaleDateString()}`;
+  document.getElementById("profileBio").textContent = viewedProfile.bio || "No bio yet.";
+  document.getElementById("profileGenres").textContent = viewedProfile.favorite_genres ? viewedProfile.favorite_genres.join(", ") : "No favorite genres yet.";
+  document.getElementById("profileBook").textContent = viewedProfile.favorite_book || "No favorite book yet.";
   document.getElementById("profileAvatar").src = avatarPath;
   document.getElementById("navProfileImg").src = avatarPath;
 
-  //Generate avatar grid in modal
+  //only show “Edit Profile” button if viewing user's own profile
+  const editBtn = document.getElementById("editProfileBtn");
+  if (viewedProfile.user_id === user.id) {
+    editBtn.style.display = "inline-block";
+  } else {
+    editBtn.style.display = "none";
+  }
+
+  //load follower/following count
+  await loadFollowData(viewedProfile.user_id, user.id);
+
+  //only load read/lists if own profile
+  if (viewedProfile.user_id === user.id) {
+    await loadUserReadsAndLists(user.id);
+  } else {
+    document.getElementById("profileReads").textContent = "Viewing another user's reads.";
+    document.getElementById("profileCollections").textContent = "Viewing another user's collections.";
+  }
+
+  //generate avatar grid in modal
   const avatarContainer = document.getElementById("avatarOptions");
   avatarContainer.innerHTML = "";
   for (let i = 1; i <= 20; i++) {
@@ -56,28 +97,80 @@ async function loadProfile() {
     });
     iconContainer.appendChild(img);
   }
+}
 
-  //Load related reads (user_books)
+async function loadUserReadsAndLists(userID) {
+  //load related reads (user_books)
   const { data: reads } = await supabase
     .from("user_books")
     .select("book_id, status, books(title)")
-    .eq("user_id", user.id);
+    .eq("user_id", userID);
 
   const readsContainer = document.getElementById("profileReads");
   readsContainer.innerHTML = reads && reads.length
     ? reads.map(r => `<div><strong>${r.books.title}</strong> – ${r.status}</div>`).join("")
     : "You have no books logged.";
 
-  //Load user collections (lists)
+  //load user collections (lists)
   const { data: lists } = await supabase
     .from("lists")
     .select("name, description")
-    .eq("user_id", user.id);
+    .eq("user_id", userID);
 
   const collectionsContainer = document.getElementById("profileCollections");
   collectionsContainer.innerHTML = lists && lists.length
     ? lists.map(l => `<div><strong>${l.name}</strong>: ${l.description || ""}</div>`).join("")
     : "You have no collections yet.";
+}
+
+//function to handle counts and follow/unfollow actions
+async function loadFollowData(viewedUserId, currentUserId) {
+  //fetch counts
+  const [{ count: followerCount }, { count: followingCount }] = await Promise.all([
+    supabase.from("follows").select("*", { count: "exact", head: true }).eq("followed_id", viewedUserId),
+    supabase.from("follows").select("*", { count: "exact", head: true }).eq("follower_id", viewedUserId)
+  ]);
+
+  const followerEl = document.getElementById("followerCount");
+  const followingEl = document.getElementById("followingCount");
+  if (followerEl && followingEl) {
+    followerEl.textContent = `${followerCount || 0} followers`;
+    followingEl.textContent = `${followingCount || 0} following`;
+  }
+
+  //don’t show follow button on own profile
+  if (viewedUserId === currentUserId) {
+    const followBtn = document.getElementById("followBtn");
+    if (followBtn) followBtn.style.display = "none";
+    return;
+  }
+
+  const followBtn = document.getElementById("followBtn");
+  followBtn.style.display = "inline-block";
+
+  //check if user already follows
+  const { data: existing } = await supabase
+    .from("follows")
+    .select("follower_id")
+    .eq("follower_id", currentUserId)
+    .eq("followed_id", viewedUserId);
+
+  let isFollowing = existing && existing.length > 0;
+  followBtn.textContent = isFollowing ? "Unfollow" : "Follow";
+
+  followBtn.onclick = async () => {
+    if (isFollowing) {
+      await supabase.from("follows").delete().match({
+        follower_id: currentUserId,
+        followed_id: viewedUserId
+      });
+    } else {
+      await supabase.from("follows").insert([{ follower_id: currentUserId, followed_id: viewedUserId }]);
+    }
+    isFollowing = !isFollowing;
+    followBtn.textContent = isFollowing ? "Unfollow" : "Follow";
+    loadFollowData(viewedUserId, currentUserId);  //refresh counts
+  };
 }
 
 document.getElementById("editProfileBtn").addEventListener("click", () => {
