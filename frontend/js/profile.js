@@ -177,6 +177,60 @@ async function loadFollowData(viewedUserId, currentUserId) {
   };
 }
 
+async function openFollowList(type) {
+  const { data: { user } } = await supabase.auth.getUser();
+  const params = new URLSearchParams(window.location.search);
+  const targetUsername = params.get("username");
+  const targetUserId = params.get("user_id");
+
+  //find viewed profile's user_id (needed for queries)
+  let viewedUserId = targetUserId;
+  if (!viewedUserId && targetUsername) {
+    const { data } = await supabase.from("profiles").select("user_id").eq("username", targetUsername).single();
+    viewedUserId = data.user_id;
+  }
+  if (!viewedUserId) viewedUserId = user.id;
+
+  const isFollowers = type === "followers";
+  const query = supabase
+    .from("follows")
+    .select(`
+      ${isFollowers ? "follower_id" : "followed_id"},
+      profiles:${isFollowers ? "follower_id" : "followed_id"}(username, avatar_choice)
+    `)
+    .eq(isFollowers ? "followed_id" : "follower_id", viewedUserId);
+
+  const { data, error } = await query;
+  if (error) {
+    console.error("Error loading follow list:", error);
+    return;
+  }
+
+  //display modal with results
+  const listType = isFollowers ? "Followers" : "Following";
+  let html = `<h5>${listType}</h5>`;
+  if (data.length === 0) {
+    html += `<p>No ${listType.toLowerCase()} yet.</p>`;
+  } else {
+    html += data
+      .map(
+        f => `
+        <div class="d-flex align-items-center my-2">
+          <img src="../images/pfp/${f.profiles.avatar_choice || 1}.svg" class="mr-2" style="height:40px;width:40px;">
+          <a href="../userPages/profile.html?username=${f.profiles.username}">
+            ${f.profiles.username}
+          </a>
+        </div>`
+      )
+      .join("");
+  }
+
+  const modalBody = document.getElementById("followModalBody");
+  modalBody.innerHTML = html;
+  $("#followModal").modal("show");
+}
+
+
 document.getElementById("editProfileBtn").addEventListener("click", () => {
   $("#editProfileModal").modal("show");
 });
@@ -214,13 +268,23 @@ document.getElementById("saveProfileBtn").addEventListener("click", async () => 
 
 document.addEventListener("click", e => {
   if (e.target.closest(".openReviewPopup")) {
-      popupReview.style.display = "grid";
-      popupBackdrop.style.display = "block";
+    popupReview.style.display = "grid";
+    popupBackdrop.style.display = "block";
   }
   if (e.target.closest(".closeReview")) {
-      popupReview.style.display = "none";
-      popupBackdrop.style.display = "none";
+    popupReview.style.display = "none";
+    popupBackdrop.style.display = "none";
   }
+});
+
+document.getElementById("followerLink").addEventListener("click", e => {
+  e.preventDefault();
+  openFollowList("followers");
+});
+
+document.getElementById("followingLink").addEventListener("click", e => {
+  e.preventDefault();
+  openFollowList("following");
 });
 
 loadProfile();
