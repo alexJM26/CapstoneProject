@@ -200,12 +200,12 @@ input[type=checkbox] {
     font-size: 5vh;
 }
 
-/* dropdown menu */
+/* DROPDOWN MENU =====================================================================================================================| */
 .dropdown-menu {
     left: 0% !important;
     transform: translateX(-60%) !important; /* this and above line cause it to center with above button */
     top: 85% !important; /* bring close to bottom of button */
-    width: 13vw;
+    width: fit-content;
 }
 .unstyled-button {
     background: none;
@@ -254,6 +254,21 @@ input[type=checkbox] {
     transform: scale(1.1);
 }
 .avatar-option.selected {
+    border-color: #654321;
+}
+.icon-option {
+    width: 5vw;
+    padding: 1vh;
+    margin: 1vh;
+    border: 0.5vh solid transparent;
+    border-radius: 5%;
+    cursor: pointer;
+    transition: transform 0.15s ease, border 0.15s ease;
+}
+.icon-option:hover {
+    transform: scale(1.1);
+}
+.icon-option.selected {
     border-color: #654321;
 }
 
@@ -442,15 +457,17 @@ input[type=checkbox] {
 }
 .popup-contentReview {
     display: flex;
-    text-align: center;
     flex-direction: column;
+    align-items: center;
     background-color: var(--green);
     grid-column: 2;
     height: 100%;
+    overflow-y: auto;
     color: var(--offWhite);
-    align-items: center;
-    justify-content: center;
-    z-index: 10000; 
+    z-index: 10000;
+    padding: 2%;         
+    justify-content: flex-start; 
+    text-align: center;
 }
 .popup-contentReview form {
     width: 80%;

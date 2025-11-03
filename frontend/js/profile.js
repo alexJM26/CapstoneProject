@@ -42,6 +42,21 @@ async function loadProfile() {
     avatarContainer.appendChild(img);
   }
 
+  // generate icons for collections
+  const iconContainer = document.getElementById("iconOptions");
+  iconContainer.innerHTML = "";
+  for (let i = 1; i <= 12; i++) {
+    const img = document.createElement("img");
+    img.src = `../images/collections/${i}.svg`;
+    img.classList.add("icon-option");
+    img.addEventListener("click", () => {
+      document.querySelectorAll(".icon-option").forEach(opt => opt.classList.remove("selected"));
+      img.classList.add("selected");
+      img.dataset.selected = true;
+    });
+    iconContainer.appendChild(img);
+  }
+
   //Load related reads (user_books)
   const { data: reads } = await supabase
     .from("user_books")
@@ -97,6 +112,17 @@ document.getElementById("saveProfileBtn").addEventListener("click", async () => 
   } else {
     $("#editProfileModal").modal("hide");
     loadProfile();
+  }
+});
+
+document.addEventListener("click", e => {
+  if (e.target.closest(".openReviewPopup")) {
+      popupReview.style.display = "grid";
+      popupBackdrop.style.display = "block";
+  }
+  if (e.target.closest(".closeReview")) {
+      popupReview.style.display = "none";
+      popupBackdrop.style.display = "none";
   }
 });
 

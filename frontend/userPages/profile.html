@@ -88,6 +88,7 @@
                     <div id="profileUsername" class="userName">Loading...</div>
                     <div id="profileCreatedAt"></div>
                     <button id="editProfileBtn" class="main-button-brown-small mt-3">Edit Profile</button>
+                    <button id="makeCollection" class="main-button-brown-small mt-3 openReviewPopup">Make Collection</button>
                 </div>
             </div>
 
@@ -136,6 +137,26 @@
                     <div class="third-section-topper-brown">My Collections</div>
                     <div id="profileCollections" class="third-section-text">Loading Your Collections...</div>
                 </span>
+            </div>
+
+            <div id="popupBackdrop" class="popupBackdrop"></div>
+            <div id="popupReview" class="popupReview">
+                <div class="popup-contentReview">
+                    <h1 style="font-weight: bold;" id="reviewTitle">Create a New Collection</h1>
+                    <hr style="background-color: var(--offWhite); width: 80%;" class="mb-4">
+                    <form>  
+                        <fieldset>
+                            <label> Name this Collection </label> <br>
+                            <input type="text" style="margin-left: 0;"> 
+                        </fieldset> <br>
+                        <fieldset>
+                            <label> Select an Icon for this Collection </label>
+                            <div id="iconOptions" class="d-flex flex-wrap justify-content-left mb-3"></div> 
+                        </fieldset>
+                        <button type="submit" class="main-button-brown-small mb-4" id="submitReview">Create Collection</button>
+                    </form>
+                </div>
+                <span class="closeReview">&times;</span>
             </div>
         </section>
 
