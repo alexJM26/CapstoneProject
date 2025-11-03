@@ -87,6 +87,11 @@
                     <img id="profileAvatar" src="../images/loggedOutPFP.svg" class="userPFP mb-2">
                     <div id="profileUsername" class="userName">Loading...</div>
                     <div id="profileCreatedAt"></div>
+                    <div id="followInfo" class="mt-2">
+                        <a href="#" id="followerLink"><span id="followerCount">0 followers</span></a> • 
+                        <a href="#" id="followingLink"><span id="followingCount">0 following</span></a>
+                    </div>
+                    <button id="followBtn" class="main-button-brown-xsmall mt-3" style="display:none;">Follow</button>
                     <button id="editProfileBtn" class="main-button-brown-small mt-3">Edit Profile</button>
                     <button id="makeCollection" class="main-button-brown-small mt-3 openReviewPopup">Make Collection</button>
                 </div>
@@ -106,6 +111,15 @@
                         <label>Choose a Profile Picture</label>
                         <div id="avatarOptions" class="d-flex flex-wrap justify-content-center mb-3"></div>
                         <button id="saveProfileBtn" class="btn btn-success">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Follower/Following modal -->
+            <div class="modal fade" id="followModal" tabindex="-1" role="dialog" aria-labelledby="followModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content p-4">
+                        <div id="followModalBody"></div>
                     </div>
                 </div>
             </div>
