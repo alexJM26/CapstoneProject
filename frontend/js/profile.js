@@ -48,12 +48,16 @@ async function loadProfile() {
   document.getElementById("profileAvatar").src = avatarPath;
   document.getElementById("navProfileImg").src = avatarPath;
 
-  //only show “Edit Profile” button if viewing user's own profile
+  //only show “Edit Profile” and "Make Collection" buttons if viewing user's own profile
   const editBtn = document.getElementById("editProfileBtn");
   if (viewedProfile.user_id === user.id) {
     editBtn.style.display = "inline-block";
   } else {
     editBtn.style.display = "none";
+  }
+  const collectionBtn = document.getElementById("makeCollection");
+  if (collectionBtn) {
+    collectionBtn.style.display = (viewedProfile.user_id === user.id) ? "inline-block" : "none";
   }
 
   //load follower/following count
