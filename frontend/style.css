@@ -1,3 +1,4 @@
+/* VARIABLES =====================================================================================================================| */
 :root {
   --brown: #7F5539;
   --lightBrown: #A68A64;
@@ -7,29 +8,54 @@
   --darkGreen: #414833;
 }
 
+
+/* BASIC STYLING =====================================================================================================================| */
 body {
     background-color: var(--offWhite);
 }
+a, a:hover {
+    color: var(--offWhite);
+}
+.flexBottom {
+    margin-top: auto;
+}
+form {
+    width: 20vw;
+}
+form .form-control {
+    margin-left: 0;  
+}
+input {
+    width: 20vw;
+    font-size: 2vh;
+    margin-right: 1vw; margin-left: 1vw;
+}
+input[type=checkbox] {
+    width: 1vw;
+    font-size: 2vh;
+    margin-right: 0; margin-left: 0;
+}
 
-/* general */
-.sectionContentHolderClear {
+
+/* GENERAL SECTIONS =====================================================================================================================| */
+.section-content-holder-clear {
     width: 96vw;
 }
-.sectionContentHolderGreen {
+.section-content-holder-green {
     width: 96vw;
     background-color: var(--green);
     padding: 2vw;
     margin-top: 1vw; margin-bottom: 1vw;
     color: var(--offWhite);
 }
-.thirdSectionTopperBrown {
+.third-section-topper-brown {
     background-color: var(--brown);
     font-size: 4vh;
     font-weight: bold;
     color: white;
     text-align: center;
 }
-.thirdSectionBrown {
+.third-section-brown {
     width: 30vw;
     margin-left: 2vw; margin-right: 2vw;
     margin-top: 1vw; margin-bottom: 1vw;
@@ -37,17 +63,20 @@ body {
     color: black;
     text-align: left;
 }
-.thirdSectionDarkBrown {
+.third-section-dark-brown {
     width: 30vw;
     margin-left: 2vw; margin-right: 2vw;
     margin-top: 1vw; margin-bottom: 1vw;
     background-color: var(--brown);
 }
-.thirdSectionText {
+.third-section-text {
     padding-left: 2vw; padding-right: 2vw;
     padding-top: 1vw; padding-bottom: 1vw;
 }
-.mainButtonBrown {
+
+
+/* GENERAL BUTTONS =====================================================================================================================| */
+.main-button-brown {
     width: 35vw;
     margin: 1vw;
     padding: 0.5vw;
@@ -57,7 +86,7 @@ body {
     color: white;
     font-size: 2.5vh; 
 }
-.mainButtonBrownSmall {
+.main-button-brown-small {
     width: 10vw;
     padding: 0.5vw;
     background: var(--brown);
@@ -66,7 +95,7 @@ body {
     color: white;
     font-size: 2vh; 
 }
-.mainButtonBrownXSmall {
+.main-button-brown-xsmall {
     width: 7vw;
     padding: 0.25vw;
     background: var(--brown);
@@ -75,37 +104,31 @@ body {
     color: white;
     font-size: 1.5vh; 
 }
-.mainButtonBrownXSmall:hover {
+.main-button-brown-xsmall:hover {
     background: var(--darkBrown);
 }
-.mainButtonBrownXSmall:focus {
+.main-button-brown-xsmall:focus {
     outline: none; /* removes small border */
     box-shadow: none;
 }
-.mainButtonBrownSmall:hover {
+.main-button-brown-small:hover {
     background: var(--darkBrown);
 }
-.mainButtonBrownSmall:focus {
+.main-button-brown-small:focus {
     outline: none; /* removes small border */
     box-shadow: none;
 }
-.mainButtonBrown:hover {
+.main-button-brown:hover {
     background: var(--darkBrown);
 }
-.mainButtonBrown:focus {
+.main-button-brown:focus {
     outline: none; /* removes small border */
     box-shadow: none;
-}
-a, a:hover {
-    color: var(--offWhite);
-}
-.flexBottom {
-    margin-top: auto;
 }
 
 
-/* top-most bar */
-.siteLogoImg {
+/* STYLING ABOVE NAV BAR =====================================================================================================================| */
+.site-logo-img {
     height: 9vh;
     margin-top: 2vh; margin-bottom: 2vh; 
 }
@@ -113,7 +136,7 @@ a, a:hover {
     height: 9vh;
     margin-top: 2vh; margin-bottom: 2vh;
 }
-.siteLogoText {
+.site-logo-text {
     height: 9vh;
     font-family: "Just Another Hand", cursive;
     font-weight: 400;
@@ -122,15 +145,16 @@ a, a:hover {
     color: var(--darkBrown);
     margin-left: 1vw;
 }
-.siteLogoText:hover {
+.site-logo-text:hover {
     color: inherit;
     text-decoration: none;
 }
-
-/* nav bar */
 .aboveNavBar {
     width: 96vw;
 }
+
+
+/* NAV BAR =====================================================================================================================| */
 .mainNavBar {
     width: 96vw;
     background-color: var(--brown);
@@ -150,13 +174,9 @@ a, a:hover {
 .navBarTexts:focus {
     outline: none; /* removes small border */
 }
-input {
-    width: 20vw;
-    font-size: 2vh;
-    margin-right: 1vw; margin-left: 1vw;
-}
 
-/* Home Page */
+
+/* HOME PAGE =====================================================================================================================| */
 .title-text {
     color: var(--darkGreen);
     text-align: center;
@@ -180,12 +200,12 @@ input {
     font-size: 5vh;
 }
 
-/* dropdown menu */
+/* DROPDOWN MENU =====================================================================================================================| */
 .dropdown-menu {
     left: 0% !important;
     transform: translateX(-60%) !important; /* this and above line cause it to center with above button */
     top: 85% !important; /* bring close to bottom of button */
-    width: 13vw;
+    width: fit-content;
 }
 .unstyled-button {
     background: none;
@@ -209,7 +229,8 @@ input {
     width: 50%;
 }
 
-/* user profile */
+
+/* USER PROFILE =====================================================================================================================| */
 .userPFP {
     width: 40vh;
     align-content: center;
@@ -220,7 +241,6 @@ input {
     text-align: center;
     font-weight: bold;
 }
-
 .avatar-option {
     width: 60px;
     height: 60px;
@@ -236,8 +256,24 @@ input {
 .avatar-option.selected {
     border-color: #654321;
 }
+.icon-option {
+    width: 5vw;
+    padding: 1vh;
+    margin: 1vh;
+    border: 0.5vh solid transparent;
+    border-radius: 5%;
+    cursor: pointer;
+    transition: transform 0.15s ease, border 0.15s ease;
+}
+.icon-option:hover {
+    transform: scale(1.1);
+}
+.icon-option.selected {
+    border-color: #654321;
+}
 
-/* my collections and my reads */
+
+/* MY COLLECTIONS + MY READS =====================================================================================================================| */
 .my-collections-reads-table {
     width: 100%;
     color: var(--offWhite);
@@ -264,7 +300,8 @@ input {
     border: 5px solid var(--darkBrown);
 }
 
-/* login */
+
+/* LOGIN =====================================================================================================================| */
 .login-container {
     display: flex;
     flex-direction: row;
@@ -280,9 +317,6 @@ input {
 .login-container label {
     font-weight: bold;
 }
-form .form-control {
-  margin-left: 0;  
-}
 .login-title {
     color: var(--darkGreen);
     text-align: center;
@@ -290,11 +324,9 @@ form .form-control {
     margin: 4vh;
     font-weight: bold;
 }
-form {
-    width: 20vw;
-}
 
-/* browse */
+
+/* BROWSE PAGE =====================================================================================================================| */
 .browserContainer {
     display: grid;
     grid-template-columns: 1fr 3fr;
@@ -373,7 +405,8 @@ form {
     width: 5vh;
 }
 
-/* contact us */
+
+/* CONTACT US =====================================================================================================================| */
 .contactForm {
     text-align: left;
     color: var(--offWhite);
@@ -388,27 +421,7 @@ form {
 }
 
 
-/* Review Popup */
-.popup {
-  display: none; 
-  background-color: var(--darkGreen);
-  justify-content: center;
-  align-items: center;
-  width: 60vw;
-  height: 70vh;
-  border-style: solid;
-  border-width: 1vh;
-  border-color: var(--darkBrown);
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  grid-template-columns: 0.5fr 15fr 0.5fr;
-  grid-template-rows: 100%;
-  z-index: 10000;
-  position: fixed;
-  top: 50%;         
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+/* POPUP GENERAL =====================================================================================================================| */
 .popupBackdrop {
     display: none;
     position: fixed;
@@ -419,39 +432,148 @@ form {
     background-color: rgba(0, 0, 0, 0.5); 
     z-index: 9999; 
 }
-.popup-content {
-  display: flex;
-  text-align: center;
-  flex-direction: column;
-  background-color: var(--green);
-  grid-column: 2;
-  height: 100%;
-  color: var(--offWhite);
-  align-items: center;
-  justify-content: center;
-  z-index: 10000; 
+
+
+/* MAKE REVIEW POPUP =====================================================================================================================| */
+.popupReview {
+    display: none; 
+    background-color: var(--darkGreen);
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+    height: 70vh;
+    border-style: solid;
+    border-width: 1vh;
+    border-color: var(--darkBrown);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    grid-template-columns: 0.5fr 15fr 0.5fr;
+    grid-template-rows: 100%;
+    z-index: 10000;
+    position: fixed;
+    top: 50%;         
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
-.popup-content form {
+.popup-contentReview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--green);
+    grid-column: 2;
+    height: 100%;
+    overflow-y: auto;
+    color: var(--offWhite);
+    z-index: 10000;
+    padding: 2%;         
+    justify-content: flex-start; 
+    text-align: center;
+}
+.popup-contentReview form {
     width: 80%;
     align-items: left;
     text-align: left;
 }
-.close {
-  font-size: 1.5rem;
-  cursor: pointer;
-  grid-column: 3;
-  height: 100%;
-  text-align: right;
-  padding-right: 0.75vh;
-  color: white;
-  z-index: 10000; 
+.closeReview {
+    font-size: 1.5rem;
+    cursor: pointer;
+    grid-column: 3;
+    height: 100%;
+    text-align: right;
+    padding-right: 0.75vh;
+    color: white;
+    z-index: 10000; 
 }
-.close:hover {
-  color: white;
+.closeReview:hover {
+    color: white;
 }
 
 
-/* star ratings */
+/* ADD TO COLLECTION POPUP =====================================================================================================================| */
+.popupCollection {
+    display: none; 
+    background-color: var(--darkGreen);
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+    height: 70vh;
+    border-style: solid;
+    border-width: 1vh;
+    border-color: var(--darkBrown);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    grid-template-columns: 0.5fr 15fr 0.5fr;
+    grid-template-rows: 100%;
+    z-index: 10000;
+    position: fixed;
+    top: 50%;         
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.popup-contentCollection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--green);
+    grid-column: 2;
+    height: 100%;
+    overflow-y: auto;
+    color: var(--offWhite);
+    z-index: 10000;
+    padding: 2%;         
+    justify-content: flex-start; 
+    text-align: center;
+}
+.popup-contentCollection form {
+    width: 80%;
+    align-items: left;
+    text-align: left;
+}
+.closeCollection {
+    font-size: 1.5rem;
+    cursor: pointer;
+    grid-column: 3;
+    height: 100%;
+    text-align: right;
+    padding-right: 0.75vh;
+    color: white;
+    z-index: 10000; 
+}
+.closeCollection:hover {
+    color: white;
+}
+.collectionContainer {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--lightBrown);
+    width: 100%;
+    padding: 0.5%;
+    align-items: center;
+    border-style: solid;
+    border-color: var(--brown);
+    border-width: 1vh;
+    margin: 1vh;
+}
+.collectionContainer:focus {
+    border-color: var(--darkBrown);
+}
+.collectionImg {
+    width: 4vw;
+    margin: 1vw;
+}
+.collectionTitle {
+    color: var(--darkBrown);
+    font-weight: bold;
+    font-size: 3vh;
+}
+.collectionSelection {
+    transform: scale(1.5);
+    accent-color: var(--darkBrown);
+    margin-left: 1vh;
+}
+
+
+/* STAR RATING SYSTEM =====================================================================================================================| */
 .stars {
     display: inline-flex;
     flex-direction: row-reverse;
@@ -475,10 +597,7 @@ form {
 }
 
 
-
-
-
-/* settings */
+/* SETTINGS PAGE =====================================================================================================================| */
 .settingsSection {
     width: 100%;
     display: grid;
