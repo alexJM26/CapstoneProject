@@ -63,11 +63,13 @@ async function loadProfile() {
   //load follower/following count
   await loadFollowData(viewedProfile.user_id, user.id);
 
-  //only load read/lists if own profile
+  //load reviews
+  await loadUserReviews(viewedProfile.user_id);
+  
+  //only load lists if own profile
   if (viewedProfile.user_id === user.id) {
-    await loadUserReadsAndLists(user.id);
+    await loadUserLists(viewedProfile.user_id);
   } else {
-    document.getElementById("profileReads").textContent = "Viewing another user's reads.";
     document.getElementById("profileCollections").textContent = "Viewing another user's collections.";
   }
 
@@ -103,25 +105,63 @@ async function loadProfile() {
   }
 }
 
-async function loadUserReadsAndLists(userID) {
-  //load related reads (user_books)
-  const { data: reads } = await supabase
-    .from("user_books")
-    .select("book_id, status, books(title)")
-    .eq("user_id", userID);
+async function loadUserReviews(userID) {
+  const { data: reviews, error } = await supabase
+    .from("reviews")
+    .select("rating, text, created_at, books(title)")
+    .eq("user_id", userID)
+    .order("created_at", { ascending: false });
 
-  const readsContainer = document.getElementById("profileReads");
-  readsContainer.innerHTML = reads && reads.length
-    ? reads.map(r => `<div><strong>${r.books.title}</strong> – ${r.status}</div>`).join("")
-    : "You have no books logged.";
+  const container = document.getElementById("profileReviews");
+  if (error) {
+    console.error("Error loading reviews:", error);
+    container.textContent = "Unable to load reviews.";
+    return;
+  }
 
+  if (!reviews || reviews.length === 0) {
+    container.textContent = "No reviews yet.";
+    return;
+  }
+
+  container.innerHTML = reviews
+    .map(r => {
+    //generate "stars" HTML according to rating
+    const stars = Array.from({ length: 5 }, (_, i) => {
+      const starValue = 5 - i;  //because the CSS reverses flex-direction
+      const checked = r.rating >= starValue ? "checked" : "";
+      return `
+        <input type="radio" id="star${starValue}-${r.review_id}" name="rating-${r.review_id}" value="${starValue}" ${checked} disabled>
+        <label for="star${starValue}-${r.review_id}">&#9733;</label>
+      `;
+    }).join("");
+
+    return `
+      <div class="my-3 text-left">
+        <strong>${r.books?.title || "Unknown Title"}</strong>
+        <div class="stars">${stars}</div>
+        <div>${r.text || "(No text provided.)"}</div>
+        <div style="font-size:smaller; color:gray;">${new Date(r.created_at).toLocaleDateString()}</div>
+      </div>
+    `;
+  })
+  .join("<hr>");
+}
+
+async function loadUserLists(userID) {
   //load user collections (lists)
-  const { data: lists } = await supabase
+  const { data: lists, error } = await supabase
     .from("lists")
     .select("name, description")
     .eq("user_id", userID);
 
   const collectionsContainer = document.getElementById("profileCollections");
+  if (error) {
+    console.error("Error loading collections:", error);
+    collectionsContainer.textContent = "Unable to load collections.";
+    return;
+  }
+
   collectionsContainer.innerHTML = lists && lists.length
     ? lists.map(l => `<div><strong>${l.name}</strong>: ${l.description || ""}</div>`).join("")
     : "You have no collections yet.";
