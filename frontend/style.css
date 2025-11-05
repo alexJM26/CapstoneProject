@@ -96,8 +96,8 @@ input[type=checkbox] {
     font-size: 2vh; 
 }
 .main-button-brown-xsmall {
-    width: 7vw;
-    padding: 0.25vw;
+    width: fit-content;
+    padding: 0.5vw;
     background: var(--brown);
     border-radius: 20px;
     border: none;
@@ -625,10 +625,13 @@ input[type=checkbox] {
     background-color: var(--lightBrown);
     padding: 1vw;
     color: var(--darkBrown);
-    font-weight: bold;
 }
 .settingsValues form {
     width: 100%;
+}
+.settingsValues form label {
+    font-weight: bold;
+    margin-top: 1vw; margin-bottom: 0.5vw;
 }
 .settingsValues fieldset {
     margin-top: 1vw;

@@ -89,51 +89,40 @@
                         <div class="sectionCategoriesContainer">
                             <h1> Settings </h1>
                             <hr style="background-color: var(--offWhite);">
-                            <a href="#personalization"> <h2> Profile Personalization</h2> </a>
                             <a href="#account"> <h2> Account Settings </h2> </a>
                             <a href="#accessiblity"> <h2> Accessiblity </h2> </a>
                         </div>
                     </div>
                     <div class="settingsValues">
-                        <h1 id="personalization"> Profile Personalization </h1>
-                        <hr style="background-color: var(--darkBrown);">
-                        <form>
-                            <fieldset>
-                                <label> Set Bio </label> <br>
-                                <textarea style="width: 75%;" rows="5"></textarea> <br>
-                                <button type="submit" class="main-button-brown-xsmall mt-2" id="submitReview">Update Bio</button>
-                            </fieldset>
-                            <fieldset>
-                                <label> Choose Favorite Genres </label> <br>
-                                <select style="width: 75%;">
-                                    <option> Horror </option>
-                                    <option> Comedy </option>
-                                    <option> Romance </option>
-                                </select> <br>
-                                <button type="submit" class="main-button-brown-xsmall mt-2" id="submitReview">Add to Favorites</button>
-                            </fieldset>
-                            <fieldset>
-                                <label> Favorite Book </label> <br>
-                                <input type="text" style="width: 75%; margin-left: 0;">
-                            </fieldset>
-                        </form>
-                        <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-
                         <h1 id="account"> Account Settings </h1>
                         <hr style="background-color: var(--darkBrown);">
+                        <form >
                         <form>
                             <fieldset>
-                                <label> Set Profile Privacy </label>
+                                <label> Account Privacy </label> <br>
+                                <button type="submit" class="main-button-brown-xsmall mt-2" id="submitReview">Private Account</button> <br>
+                                <button type="submit" class="main-button-brown-xsmall mt-2" id="submitReview">Private All Reads</button> <br>
+                                <button type="submit" class="main-button-brown-xsmall mt-2" id="submitReview">Private All Collections</button> 
                             </fieldset>
                             <fieldset>
-                                <label> Delete Account </label>
+                                <label> Change Username </label> 
+                                <p> Enter new username below. </p> 
+                                <input type="text" id="newUsername" style="margin-left: 0;" class="mb-2"> <br>
+                                <button type="submit" class="main-button-brown-xsmall mt-2" id="submitReview">Confirm New Username</button>
+                            </fieldset>
+                            <fieldset>
+                                <label> Account Data Options </label> <br>
+                                <button type="submit" class="main-button-brown-xsmall mt-2" id="submitReview">Clear Account Data</button> <br>
+                                <button type="submit" class="main-button-brown-xsmall mt-2" id="submitReview">Delete Account</button>
                             </fieldset>
                         </form>
-                        <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 
-                        <h1 id="accessiblity"> Accessiblity </h1>
+                        <h1 class="mt-5" id="accessiblity"> Accessiblity </h1>
                         <hr style="background-color: var(--darkBrown);">
                         <form>
+                            <fieldset>
+                                <label> Enable Dark Mode </label>
+                            </fieldset>
                             <fieldset>
                                 <label> Enable Color Blind Mode </label>
                             </fieldset>

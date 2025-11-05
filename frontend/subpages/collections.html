@@ -91,41 +91,24 @@
                         <hr style="background-color: var(--offWhite); width: 100%;" class="mt-0">
                         <form>
                             <fieldset class="mb-4">
-                                <label> Search by Title/Author </label>
+                                <label> Search by Title/Username </label>
                                 <input type="text" placeholder="Search Title/Author..." name="search" id="searchInput" style="margin-left: 0;">
                             </fieldset>
-                            <fieldset class="mb-3">
-                                <label> Minimum Rating </label> <br>
-                                <div class="stars">
-                                    <input type="radio" id="min5" name="minRating" value="5"> <label for="min5" style="font-size: 3vh;">&#9733;</label>
-                                    <input type="radio" id="min4" name="minRating" value="4"> <label for="min4" style="font-size: 3vh;">&#9733;</label>
-                                    <input type="radio" id="min3" name="minRating" value="3"> <label for="min3" style="font-size: 3vh;">&#9733;</label>
-                                    <input type="radio" id="min2" name="minRating" value="2"> <label for="min2" style="font-size: 3vh;">&#9733;</label>
-                                    <input type="radio" id="min1" name="minRating" value="1"> <label for="min1" style="font-size: 3vh;">&#9733;</label>
-                                </div>
-                            </fieldset>
-                            <fieldset class="mb-3">
-                                <label> Maximum Rating </label> <br>
-                                <div class="stars">
-                                    <input type="radio" id="max5" name="maxRating" value="5"> <label for="max5" style="font-size: 3vh;">&#9733;</label>
-                                    <input type="radio" id="max4" name="maxRating" value="4"> <label for="max4" style="font-size: 3vh;">&#9733;</label>
-                                    <input type="radio" id="max3" name="maxRating" value="3"> <label for="max3" style="font-size: 3vh;">&#9733;</label>
-                                    <input type="radio" id="max2" name="maxRating" value="2"> <label for="max2" style="font-size: 3vh;">&#9733;</label>
-                                    <input type="radio" id="max1" name="maxRating" value="1"> <label for="max1" style="font-size: 3vh;">&#9733;</label>
-                                </div>
-                            </fieldset>
                             <fieldset class="mb-4">
-                                <label> Publish Date Range Start </label> 
+                                <label> Creation Date Range Start </label> 
                                 <input type="date" id="pubDateStart" style="margin-left: 0;">
                             </fieldset>
                             <fieldset class="mb-4">
-                                <label> Publish Date Range End </label> 
+                                <label> Creation Date Range End </label> 
                                 <input type="date" id="pubDateEnd" style="margin-left: 0;">
+                            </fieldset>
+                            <fieldset class="d-flex justify-content-center">
+                                <button type="submit" class="main-button-brown-small">Apply Filters</button> 
                             </fieldset>
                         </form>
                         <div class="flexBottom">
                             <a href="#"><img src="../images/left.svg" style="width: 1vw;"></a>
-                            <span style="margin-left: 1vw; margin-right: 1vw;">1 / 5</span>
+                            <span style="margin-left: 1vw; margin-right: 1vw;"> ... </span>
                             <a href="#"><img src="../images/right.svg" style="width: 1vw;"></a>
                         </div>
                     </div>
