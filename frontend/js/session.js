@@ -1,7 +1,27 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 export const supabase = createClient("https://qguuhcavrukdmprrtxik.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFndXVoY2F2cnVrZG1wcnJ0eGlrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg3NDgxNjMsImV4cCI6MjA3NDMyNDE2M30.FHTmwOGGNX10cVmYf7toVIkqHCsc2IvnbzVHgHme408");
 
-//Function to update navbar UI
+//helper function for authenticated API calls
+export async function authenticatedFetch(url, options = {}) {
+  const { data: { session } } = await supabase.auth.getSession();
+  
+  if (!session) {
+    throw new Error("User not authenticated");
+  }
+
+  const headers = {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${session.access_token}`,
+    ...options.headers
+  };
+
+  return fetch(url, {
+    ...options,
+    headers
+  });
+}
+
+//function to update navbar UI
 async function updateNavbar() {
   const pfpImg = document.querySelector(".PFPImg");
   const dropdown = document.querySelector(".dropdown-menu");
@@ -10,11 +30,11 @@ async function updateNavbar() {
     pfpImg.src = `/images/pfp/${cachedChoice}.svg`;
   }
 
-  if (!pfpImg || !dropdown) return;  //Navbar not on this page
+  if (!pfpImg || !dropdown) return;  //navbar not on this page
 
   const { data: { user } } = await supabase.auth.getUser();
 
-  //Clear old items
+  //clear old items
   dropdown.innerHTML = "";
 
   if (user) {

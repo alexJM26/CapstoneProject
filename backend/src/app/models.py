@@ -13,3 +13,9 @@ class Book(Base):
     year_published = Column(Integer)
     isbn = Column(String)
     cover_img_url = Column(String)
+
+class Author(Base):
+    __tablename__ = "authors"
+
+    author_id = Column(Integer, primary_key=True, index=True)
+    name = Column(String, nullable=False)
