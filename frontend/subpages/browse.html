@@ -130,37 +130,11 @@
 
                 </div>
 
+                <!-- Popup Backdrop -->
                 <div id="popupBackdrop" class="popupBackdrop"></div>
-                <div id="popupReview" class="popupReview">
-                    <div class="popup-contentReview">
-                        <h1 style="font-weight: bold;" id="reviewTitle">Review [book_title]</h1>
-                        <hr style="background-color: var(--offWhite); width: 80%;" class="mb-4">
-                        <form>     
-                            <fieldset class="mb-4">
-                                <label> Rate this literature out of 5 stars. </label> <br>
-                                <div class="stars">
-                                    <input type="radio" id="given5" name="givenRating" value="5"> <label for="given5" style="font-size: 4vh;">&#9733;</label>
-                                    <input type="radio" id="given4" name="givenRating" value="4"> <label for="given4" style="font-size: 4vh;">&#9733;</label>
-                                    <input type="radio" id="given3" name="givenRating" value="3"> <label for="given3" style="font-size: 4vh;">&#9733;</label>
-                                    <input type="radio" id="given2" name="givenRating" value="2"> <label for="given2" style="font-size: 4vh;">&#9733;</label>
-                                    <input type="radio" id="given1" name="givenRating" value="1"> <label for="given1" style="font-size: 4vh;">&#9733;</label>
-                                </div>
-                            </fieldset>
-                            <fieldset class="mb-4">
-                                <label> What date did you finish reading this literature? </label> <br>
-                                <input type="date" id="readDate" style="margin-left: 0;">
-                            </fieldset>
-                            <fieldset class="mb-4">
-                                <label> Share your thoughts on this literature. </label>
-                                <textarea rows="5" style="width: 75%;" id="reviewText"></textarea>
-                            </fieldset>
-                            <button type="submit" class="main-button-brown-small mb-4" id="submitReview">Submit Review</button>
-                        </form>
-                    </div>
-                    <span class="closeReview">&times;</span>
-                </div>
-                <div id="popupCollection" class="popupCollection">
-                    <div class="popup-contentCollection">
+                <!-- Popup -->
+                <div id="popup" class="popup">
+                    <div class="popupContentCollection">
                         <h1 style="font-weight: bold;" id="collectionTitle">Add [book_title] to Collections</h1>
                         <hr style="background-color: var(--offWhite); width: 80%;" class="mb-4">
                         <form>     
@@ -195,7 +169,32 @@
                             <button type="submit" class="main-button-brown-small mb-4" id="submitCollectionChoice">Choose Collections</button>
                         </form>
                     </div>
-                    <span class="closeCollection">&times;</span>
+                    <div class="popupContentReview">
+                        <h1 style="font-weight: bold;" id="reviewTitle">Review [book_title]</h1>
+                        <hr style="background-color: var(--offWhite); width: 80%;" class="mb-4">
+                        <form>     
+                            <fieldset class="mb-4">
+                                <label> Rate this literature out of 5 stars. </label> <br>
+                                <div class="stars">
+                                    <input type="radio" id="given5" name="givenRating" value="5"> <label for="given5" style="font-size: 4vh;">&#9733;</label>
+                                    <input type="radio" id="given4" name="givenRating" value="4"> <label for="given4" style="font-size: 4vh;">&#9733;</label>
+                                    <input type="radio" id="given3" name="givenRating" value="3"> <label for="given3" style="font-size: 4vh;">&#9733;</label>
+                                    <input type="radio" id="given2" name="givenRating" value="2"> <label for="given2" style="font-size: 4vh;">&#9733;</label>
+                                    <input type="radio" id="given1" name="givenRating" value="1"> <label for="given1" style="font-size: 4vh;">&#9733;</label>
+                                </div>
+                            </fieldset>
+                            <fieldset class="mb-4">
+                                <label> What date did you finish reading this literature? </label> <br>
+                                <input type="date" id="readDate" style="margin-left: 0;">
+                            </fieldset>
+                            <fieldset class="mb-4">
+                                <label> Share your thoughts on this literature. </label>
+                                <textarea rows="5" style="width: 75%;" id="reviewText"></textarea>
+                            </fieldset>
+                            <button type="submit" class="main-button-brown-small mb-4" id="submitReview">Submit Review</button>
+                        </form>
+                    </div>
+                    <span class="close">&times;</span>
                 </div>
 
             </div>
@@ -282,30 +281,39 @@
                     resultsDiv.innerHTML = "<p>An error occurred while searching.</p>";
                 }
 
-                // event delegation
+                // add event listeners to results
                 document.addEventListener("click", e => {
-                    if (e.target.closest(".openReviewPopup")) {
+                    if (e.target.closest(".openReviewPopup") || e.target.closest(".openCollectionPopup")) {
+                        // dynamic titles
                         const litDiv = e.target.closest(".lit");
                         const titleText = litDiv.querySelector(".litTitle").textContent.trim();
                         const title = document.getElementById("reviewTitle");
                         title.innerHTML = `Review "${titleText}"`;
 
-                        popupReview.style.display = "grid";
-                        popupBackdrop.style.display = "block";
-                    }
-                    if (e.target.closest(".openCollectionPopup")) {
-                        const litDiv = e.target.closest(".lit");
-                        const titleText = litDiv.querySelector(".litTitle").textContent.trim();
-                        const title = document.getElementById("collectionTitle");
-                        title.innerHTML = `Add "${titleText}" to Collection`;
+                        // grab elements
+                        const popup = document.getElementById("popup");
+                        const popupBackdrop = document.getElementById("popupBackdrop"); 
+                        const popupContentReview = popup.querySelector(".popupContentReview"); 
+                        const popupContentCollection = popup.querySelector(".popupContentCollection"); 
 
-                        popupCollection.style.display = "grid";
+                        // make needed elements visable
+                        popup.style.display = "grid";
                         popupBackdrop.style.display = "block";
+
+                        if (e.target.closest(".openReviewPopup")) { popupContentReview.style.display = "flex"; }
+                        if (e.target.closest(".openCollectionPopup")) { popupContentCollection.style.display = "flex"; }
                     }
-                    if (e.target.closest(".closeReview") || e.target.closest(".closeCollection")) {
-                        popupReview.style.display = "none";
-                        popupCollection.style.display = "none";
+                    if (e.target.closest(".close")) {
+                        // grab elements
+                        const popup = document.getElementById("popup");
+                        const popupBackdrop = document.getElementById("popupBackdrop"); 
+                        const popupContentReview = popup.querySelector(".popupContentReview"); 
+                        const popupContentCollection = popup.querySelector(".popupContentCollection"); 
+
+                        // make popups invisible
+                        popup.style.display = "none";
                         popupBackdrop.style.display = "none";
+                        popupContentReview.style.display = "none"; popupContentCollection.style.display = "none";
                     }
                 });
 

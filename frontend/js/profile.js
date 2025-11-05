@@ -268,11 +268,11 @@ document.getElementById("saveProfileBtn").addEventListener("click", async () => 
 
 document.addEventListener("click", e => {
   if (e.target.closest(".openReviewPopup")) {
-    popupReview.style.display = "grid";
+    popup.style.display = "grid";
     popupBackdrop.style.display = "block";
   }
-  if (e.target.closest(".closeReview")) {
-    popupReview.style.display = "none";
+  if (e.target.closest(".close")) {
+    popup.style.display = "none";
     popupBackdrop.style.display = "none";
   }
 });
