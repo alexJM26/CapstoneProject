@@ -440,3 +440,5 @@ FROM books
 2025-11-04 14:32:07,597 - INFO - App started!
 2025-11-04 14:34:03,982 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=The+Silmarillion&limit=50&page=1 "HTTP/1.1 200 OK"
 2025-11-04 14:34:22,304 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=The+Bible&limit=50&page=1 "HTTP/1.1 200 OK"
+2025-11-05 12:48:13,081 - INFO - App started!
+2025-11-05 12:51:53,606 - INFO - App started!

@@ -46,7 +46,7 @@ async function loadProfile() {
   document.getElementById("profileGenres").textContent = viewedProfile.favorite_genres ? viewedProfile.favorite_genres.join(", ") : "No favorite genres yet.";
   document.getElementById("profileBook").textContent = viewedProfile.favorite_book || "No favorite book yet.";
   document.getElementById("profileAvatar").src = avatarPath;
-  document.getElementById("navProfileImg").src = avatarPath;
+  //document.getElementById("navProfileImg").src = avatarPath;
 
   //only show “Edit Profile” and "Make Collection" buttons if viewing user's own profile
   const editBtn = document.getElementById("editProfileBtn");
