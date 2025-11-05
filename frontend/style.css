@@ -326,6 +326,16 @@ input[type=checkbox] {
 }
 
 
+/* COLLECTIONS PAGE =====================================================================================================================| */
+.collection {
+    display: grid;
+    grid-template-columns: 1fr 4.5fr 1.5fr;
+    background-color: var(--lightBrown);
+    padding: 3vh;
+    column-gap: 2vh;
+}
+
+
 /* BROWSE PAGE =====================================================================================================================| */
 .browserContainer {
     display: grid;

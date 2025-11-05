@@ -468,3 +468,7 @@ FROM books
 2025-11-05 14:44:32,471 - INFO - App started!
 2025-11-05 14:49:09,565 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=warrior+cats&limit=50&page=1 "HTTP/1.1 200 OK"
 2025-11-05 15:09:54,102 - INFO - App started!
+2025-11-05 16:24:06,134 - INFO - App started!
+2025-11-05 16:34:17,361 - INFO - App started!
+2025-11-05 16:50:48,100 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=cats&limit=50&page=1 "HTTP/1.1 200 OK"
+2025-11-05 16:51:41,036 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=cats&limit=50&page=1 "HTTP/1.1 200 OK"
