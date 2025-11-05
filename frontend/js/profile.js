@@ -307,13 +307,21 @@ document.getElementById("saveProfileBtn").addEventListener("click", async () => 
 });
 
 document.addEventListener("click", e => {
-  if (e.target.closest(".openReviewPopup")) {
+  // grab elements
+  const popup = document.getElementById("popup");
+  const popupBackdrop = document.getElementById("popupBackdrop");  
+  const popupContentCollection = popup.querySelector(".popupContentCollection");
+
+  if (e.target.closest(".makeCollectionPopup")) { 
     popup.style.display = "grid";
     popupBackdrop.style.display = "block";
+    popupContentCollection.style.display = "flex"; 
   }
-  if (e.target.closest(".close")) {
+
+  if (e.target.closest(".close")) { // make popups invisible
     popup.style.display = "none";
     popupBackdrop.style.display = "none";
+    popupContentCollection.style.display = "none";
   }
 });
 

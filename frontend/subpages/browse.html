@@ -134,7 +134,7 @@
                 <div id="popupBackdrop" class="popupBackdrop"></div>
                 <!-- Popup -->
                 <div id="popup" class="popup">
-                    <div class="popupContentCollection">
+                    <div class="popupContentCollection" id="addToCollection">
                         <h1 style="font-weight: bold;" id="collectionTitle">Add [book_title] to Collections</h1>
                         <hr style="background-color: var(--offWhite); width: 80%;" class="mb-4">
                         <form>     
@@ -169,7 +169,7 @@
                             <button type="submit" class="main-button-brown-small mb-4" id="submitCollectionChoice">Choose Collections</button>
                         </form>
                     </div>
-                    <div class="popupContentReview">
+                    <div class="popupContentReview" id="makeReview">
                         <h1 style="font-weight: bold;" id="reviewTitle">Review [book_title]</h1>
                         <hr style="background-color: var(--offWhite); width: 80%;" class="mb-4">
                         <form>     
@@ -193,6 +193,28 @@
                             </fieldset>
                             <button type="submit" class="main-button-brown-small mb-4" id="submitReview">Submit Review</button>
                         </form>
+                    </div>
+                    <div class="popupContentViewReviews" id="viewReviews">
+                        <h1 style="font-weight: bold;" id="litTitle">Reviews for [book_title]</h1>
+                        <hr style="background-color: var(--offWhite); width: 80%;" class="mb-4">
+                        <div class="reviewContainer">
+                            <h1 class="reviewRating"> &#9733; &#9733; &#9733; &#9733; &#9733; </h1>
+                            <p> Here's my thoughts on this book. Blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah!</p>
+                            <a href="#"> My Username </a>
+                            <p> Created on: 11/5/2025 </p>
+                        </div>
+                        <div class="reviewContainer">
+                            <h1 class="reviewRating"> &#9733; &#9733; &#9733; &#9733; &#9733; </h1>
+                            <p> Here's my thoughts on this book. Blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah!</p>
+                            <a href="#"> My Username </a>
+                            <p> Created on: 11/5/2025 </p>
+                        </div>
+                        <div class="reviewContainer">
+                            <h1 class="reviewRating"> &#9733; &#9733; &#9733; &#9733; &#9733; </h1>
+                            <p> Here's my thoughts on this book. Blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah!</p>
+                            <a href="#"> My Username </a>
+                            <p> Created on: 11/5/2025 </p>
+                        </div>
                     </div>
                     <span class="close">&times;</span>
                 </div>
@@ -255,9 +277,12 @@
                                         <img src="${book.cover || "../images/bookCoverDefault.svg"}" class="coverImage">
                                     </div>
                                     <div class="litTitle">${book.title || 'No Title'}</div>
-                                    <div class="litAuthor">By ${book.authors ? book.authors.join(", ") : 'Unknown'}</div>
+                                    <div class="litAuthor">
+                                        By ${book.authors ? book.authors.join(", ") : 'Unknown'} 
+                                        <br> <em> ${book.first_publish_year || 'N/A'} </em> 
+                                    </div>
                                     <div class="litRating">
-                                        &#9733; &#9733; &#9733; &#9733; &#9733; | <a href="#">View Reviews (10)</a>
+                                        &#9733; &#9733; &#9733; &#9733; &#9733; | <a href="#" class="viewReviewsPopup">View Reviews (10)</a>
                                     </div>
                                     <div class="iconsContainer">
                                         <button class="unstyled-button openCollectionPopup">
@@ -283,37 +308,32 @@
 
                 // add event listeners to results
                 document.addEventListener("click", e => {
-                    if (e.target.closest(".openReviewPopup") || e.target.closest(".openCollectionPopup")) {
+                    // grab elements
+                    const popup = document.getElementById("popup");
+                    const popupBackdrop = document.getElementById("popupBackdrop"); 
+                    const popupContentReview = popup.querySelector(".popupContentReview"); 
+                    const popupContentCollection = popup.querySelector(".popupContentCollection"); 
+                    const popupContentViewReviews = popup.querySelector(".popupContentViewReviews");
+
+                    if (e.target.closest(".openReviewPopup") || e.target.closest(".openCollectionPopup") || e.target.closest(".viewReviewsPopup")) {
                         // dynamic titles
                         const litDiv = e.target.closest(".lit");
                         const titleText = litDiv.querySelector(".litTitle").textContent.trim();
-                        const title = document.getElementById("reviewTitle");
-                        title.innerHTML = `Review "${titleText}"`;
-
-                        // grab elements
-                        const popup = document.getElementById("popup");
-                        const popupBackdrop = document.getElementById("popupBackdrop"); 
-                        const popupContentReview = popup.querySelector(".popupContentReview"); 
-                        const popupContentCollection = popup.querySelector(".popupContentCollection"); 
+                        const reviewTitle = document.getElementById("reviewTitle");
+                        const collectionTitle = document.getElementById("collectionTitle");
+                        const litTitle = document.getElementById("litTitle");
 
                         // make needed elements visable
                         popup.style.display = "grid";
                         popupBackdrop.style.display = "block";
-
-                        if (e.target.closest(".openReviewPopup")) { popupContentReview.style.display = "flex"; }
-                        if (e.target.closest(".openCollectionPopup")) { popupContentCollection.style.display = "flex"; }
+                        if (e.target.closest(".openReviewPopup")) { popupContentReview.style.display = "flex"; reviewTitle.innerHTML = `Review "${titleText}"`; }
+                        if (e.target.closest(".openCollectionPopup")) { popupContentCollection.style.display = "flex"; collectionTitle.innerHTML = `Add "${titleText}" to Collections`; }
+                        if (e.target.closest(".viewReviewsPopup")) { popupContentViewReviews.style.display = "flex"; litTitle.innerHTML = `Reviews for "${titleText}"`; }
                     }
-                    if (e.target.closest(".close")) {
-                        // grab elements
-                        const popup = document.getElementById("popup");
-                        const popupBackdrop = document.getElementById("popupBackdrop"); 
-                        const popupContentReview = popup.querySelector(".popupContentReview"); 
-                        const popupContentCollection = popup.querySelector(".popupContentCollection"); 
-
-                        // make popups invisible
+                    if (e.target.closest(".close")) { // make popups invisible
                         popup.style.display = "none";
                         popupBackdrop.style.display = "none";
-                        popupContentReview.style.display = "none"; popupContentCollection.style.display = "none";
+                        popupContentReview.style.display = "none"; popupContentCollection.style.display = "none"; popupContentViewReviews.style.display = "none";
                     }
                 });
 

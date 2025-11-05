@@ -514,7 +514,7 @@ input[type=checkbox] {
     align-items: center;
     border-style: solid;
     border-color: var(--brown);
-    border-width: 1vh;
+    border-width: 0.5vh;
     margin: 1vh;
 }
 .collectionContainer:focus {
@@ -533,6 +533,36 @@ input[type=checkbox] {
     transform: scale(1.5);
     accent-color: var(--darkBrown);
     margin-left: 1vh;
+}
+.popupContentViewReviews {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--green);
+    grid-column: 2;
+    height: 100%;
+    overflow-y: auto;
+    color: var(--offWhite);
+    z-index: 10000;
+    padding: 2%;         
+    justify-content: flex-start; 
+    text-align: center;
+}
+.reviewContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--lightBrown);
+    width: 80%;
+    padding: 1%;
+    align-items: left;
+    border-style: solid;
+    border-color: var(--brown);
+    border-width: 0.5vh;
+    margin: 1vh;
+    text-align: left;
+}
+.reviewRating {
+    font-size: 3vh;
 }
 
 
