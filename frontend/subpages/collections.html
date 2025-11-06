@@ -130,6 +130,40 @@
                                 </button>
                             </div>
                         </div>
+                        <div class="collection">
+                            <div class="coverImgContainer">
+                                <img src="../images/collections/10.svg" class="coverImage">
+                            </div>
+                            <div class="litTitle"> Collection Two </div>
+                            <div class="litAuthor">
+                                Created By <a href="#"> Username </a> 
+                            </div>
+                            <div class="litRating">
+                                <em> 11/5/2025 </em>
+                            </div>
+                            <div class="iconsContainer">
+                                <button class="unstyled-button viewCollectionPopup">
+                                    <img class="icon" src="../images/viewCollection.svg" title="Add to Collection">
+                                </button>
+                            </div>
+                        </div>
+                        <div class="collection">
+                            <div class="coverImgContainer">
+                                <img src="../images/collections/5.svg" class="coverImage">
+                            </div>
+                            <div class="litTitle"> Collection Three </div>
+                            <div class="litAuthor">
+                                Created By <a href="#"> Username </a> 
+                            </div>
+                            <div class="litRating">
+                                <em> 11/5/2025 </em>
+                            </div>
+                            <div class="iconsContainer">
+                                <button class="unstyled-button viewCollectionPopup">
+                                    <img class="icon" src="../images/viewCollection.svg" title="Add to Collection">
+                                </button>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -141,11 +175,32 @@
                     <div class="popupContentCollection" id="viewCollection">
                         <h1 style="font-weight: bold;" id="reviewTitle">View the Books of [collection_title]</h1>
                         <hr style="background-color: var(--offWhite); width: 80%;" class="mb-4">
-                        <div class="reviewContainer">
-                            <h1 class="reviewRating"> &#9733; &#9733; &#9733; &#9733; &#9733; </h1>
-                            <p> Here's my thoughts on this book. Blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah!</p>
-                            <a href="#"> My Username </a>
-                            <p> Created on: 11/5/2025 </p>
+                        <div class="innerCollectionLit">
+                            <img src="../images/bookCoverDefault.svg" class="innerCollectionLitImg">
+                            <div class="litTitle">Title</div>
+                            <div class="iconsContainer">
+                                <a href="browse.html?search=Title&page=1" class="unstyled-button">
+                                    <img class="icon" src="../images/search.svg" title="Search for Book">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="innerCollectionLit">
+                            <img src="../images/bookCoverDefault.svg" class="innerCollectionLitImg">
+                            <div class="litTitle">Title</div>
+                            <div class="iconsContainer">
+                                <a href="browse.html?search=Title&page=1" class="unstyled-button">
+                                    <img class="icon" src="../images/search.svg" title="Search for Book">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="innerCollectionLit">
+                            <img src="../images/bookCoverDefault.svg" class="innerCollectionLitImg">
+                            <div class="litTitle">Title</div>
+                            <div class="iconsContainer">
+                                <a href="browse.html?search=Title&page=1" class="unstyled-button">
+                                    <img class="icon" src="../images/search.svg" title="Search for Book">
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <span class="close">&times;</span>
@@ -168,6 +223,26 @@
 
         <!-- Script for review popup -->
         <script>
+            // add event listeners to results
+            document.addEventListener("click", e => {
+                // grab elements
+                const popup = document.getElementById("popup");
+                const popupBackdrop = document.getElementById("popupBackdrop"); 
+                const popupContentViewCollection = popup.querySelector(".popupContentCollection"); 
+
+                if (e.target.closest(".viewCollectionPopup")) {
+                    // make needed elements visable
+                    popup.style.display = "grid";
+                    popupBackdrop.style.display = "block";
+                    popupContentViewCollection.style.display = "flex";
+                }
+                if (e.target.closest(".close")) { // make popups invisible
+                    popup.style.display = "none";
+                    popupBackdrop.style.display = "none";
+                    popupContentViewCollection.style.display = "none";
+                }
+            });
+
             // add event listeners to results
             document.addEventListener("click", e => {
                 // grab elements

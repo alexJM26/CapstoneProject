@@ -334,6 +334,21 @@ input[type=checkbox] {
     padding: 3vh;
     column-gap: 2vh;
 }
+.innerCollectionLit {
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    background-color: var(--lightBrown);
+    width: 90%;
+    padding: 1%;
+    align-items: center;
+    border-style: solid;
+    border-color: var(--brown);
+    border-width: 0.5vh;
+    margin: 1vh;
+}
+.innerCollectionLitImg {
+    width: 5vw;
+}
 
 
 /* BROWSE PAGE =====================================================================================================================| */

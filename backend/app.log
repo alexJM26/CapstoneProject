@@ -468,3 +468,23 @@ FROM books
 2025-11-05 14:44:32,471 - INFO - App started!
 2025-11-05 14:49:09,565 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=warrior+cats&limit=50&page=1 "HTTP/1.1 200 OK"
 2025-11-05 15:09:54,102 - INFO - App started!
+2025-11-05 17:18:06,386 - INFO - App started!
+2025-11-05 17:18:43,383 - INFO - App started!
+2025-11-05 17:19:33,808 - INFO - App started!
+2025-11-05 17:19:43,109 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=cats&limit=50&page=1 "HTTP/1.1 200 OK"
+2025-11-05 17:20:54,161 - INFO - App started!
+2025-11-05 17:31:23,661 - INFO - App started!
+2025-11-06 09:10:17,486 - INFO - App started!
+2025-11-06 09:14:21,444 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=cat&limit=50&page=1 "HTTP/1.1 200 OK"
+2025-11-06 09:17:20,537 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=cat&limit=50&page=1 "HTTP/1.1 200 OK"
+2025-11-06 09:19:17,195 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=cat&limit=50&page=1 "HTTP/1.1 200 OK"
+2025-11-06 09:35:26,251 - ERROR - Failed search_books - request error - type=ReadTimeout url=https://openlibrary.org/search.json?q=Book+One&limit=50&page=1
+2025-11-06 09:35:48,002 - ERROR - Failed search_books - request error - type=ReadTimeout url=https://openlibrary.org/search.json?q=Book+One&limit=50&page=1
+2025-11-06 09:35:51,552 - ERROR - Failed search_books - request error - type=ReadTimeout url=https://openlibrary.org/search.json?q=Book+One&limit=50&page=1
+2025-11-06 09:35:55,451 - ERROR - Failed search_books - request error - type=ReadTimeout url=https://openlibrary.org/search.json?q=Book+One&limit=50&page=1
+2025-11-06 09:36:02,116 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=House+of+Leaves&limit=50&page=1 "HTTP/1.1 200 OK"
+2025-11-06 09:36:04,347 - ERROR - Failed search_books - request error - type=ReadTimeout url=https://openlibrary.org/search.json?q=Book+One&limit=50&page=1
+2025-11-06 09:36:18,183 - ERROR - Failed search_books - request error - type=ReadTimeout url=https://openlibrary.org/search.json?q=Book+One&limit=50&page=1
+2025-11-06 09:36:26,999 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=Title&limit=50&page=1 "HTTP/1.1 200 OK"
+2025-11-06 09:36:57,894 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=Title&limit=50&page=1 "HTTP/1.1 200 OK"
+2025-11-06 09:37:02,839 - INFO - HTTP Request: GET https://openlibrary.org/search.json?q=Title&limit=50&page=1 "HTTP/1.1 200 OK"
