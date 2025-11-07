@@ -176,7 +176,6 @@ input[type=checkbox] {
     color: white;
     font-size: 2vh;
     width: 10vw;
-    font-family: var(--generalFont);
 }
 .navBarTexts:hover {
     background-color: var(--darkBrown);
