@@ -22,7 +22,7 @@ FRONTEND_DIR = REPO_ROOT / "frontend"
 
 logging.basicConfig(
     filename='app.log',
-    level=logging.INFO,
+    level=logging.ERROR,
     format='%(asctime)s - %(levelname)s - %(message)s',
 )
 

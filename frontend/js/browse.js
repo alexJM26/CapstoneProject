@@ -6,6 +6,41 @@ function starFillPercent(avg, max = 5) {
   return `${(clamped / max) * 100}%`;
 }
 
+// Prevents html attacks
+function escapeHtml(s = "") {
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function renderReviewItem(r) {
+    const rating = Number(r.rating ?? NaN);
+    const text = r.text ?? "";
+    const user = r.username ?? ""
+    const created = r.created_at;
+
+    const stars = Number.isFinite(rating)
+        ? `<span class="stars" style="--percent:${starFillPercent(rating)}">★★★★★</span>`
+        : "";
+    
+    let createdStr = "";
+    if (created) {
+        const d = new Date(created);
+        createdStr = isNaN(d) ? String(created) : d.toLocaleDateString();
+    }
+    return `
+        <div class="reviewContainer">
+        <h1 class="reviewRating">${stars}</h1>
+        <p>${escapeHtml(text)}</p>
+        <a href="#">${escapeHtml(user)}</a>
+        ${createdStr ? `<p>Created on: ${escapeHtml(createdStr)}</p>` : ""}
+        </div>
+    `;
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const query = urlParams.get("search");
@@ -140,6 +175,17 @@ document.addEventListener("DOMContentLoaded", async () => {
             if (e.target.closest(".viewReviewsPopup") && popupContentViewReviews) { 
                 popupContentViewReviews.style.display = "flex"; 
                 if (litTitle) litTitle.innerHTML = `Reviews for "${titleText}"`;
+                
+                // Populate reviews
+                const containerId = "reviewsList";
+                let list = popupContentViewReviews.querySelector(`#${containerId}`);
+                if (!list) {
+                    list = document.createElement("div");
+                    list.id = containerId;
+                    popupContentViewReviews.appendChild(list);
+                }
+                const reviews = Array.isArray(currentBookData?.book_reviews) ? currentBookData.book_reviews : [];
+                list.innerHTML = reviews.length ? reviews.map(renderReviewItem).join(""): `<p class="muted">No reviews yet.</p>`;
             }
         }
         
