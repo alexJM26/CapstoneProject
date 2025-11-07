@@ -35,7 +35,7 @@ function renderReviewItem(r) {
         <div class="reviewContainer">
             <h1 class="reviewRating">${stars}</h1>
             <p>${escapeHtml(text)}</p>
-            <a href="#">${escapeHtml(user)}</a>
+            <a href="../userPages/profile.html?username=${user}">${escapeHtml(user)}</a>
             ${createdStr ? `<p>Created on: ${escapeHtml(createdStr)}</p>` : ""}
         </div>
     `;
