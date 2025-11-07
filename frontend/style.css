@@ -596,7 +596,9 @@ input[type=checkbox] {
     display: inline-flex;
     flex-direction: row-reverse;
     justify-content: center;
-    margin-top: -2%; margin-bottom: -2%;
+    position: relative;
+    color: #ddd;
+    /* margin-top: -2%; margin-bottom: -2%; */
 }
 .stars input {
     display: none;
@@ -613,7 +615,15 @@ input[type=checkbox] {
 .stars input:checked ~ label {
     color: var(--darkBrown);
 }
-
+.stars::before {
+  content: "★★★★★";
+  position: absolute;
+  inset: 0;
+  width: var(--percent, 0%);
+  overflow: hidden;
+  color: #f5c518;
+  pointer-events: none;
+}
 
 /* SETTINGS PAGE =====================================================================================================================| */
 .settingsSection {

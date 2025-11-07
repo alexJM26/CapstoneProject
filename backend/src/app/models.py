@@ -19,3 +19,12 @@ class Author(Base):
 
     author_id = Column(Integer, primary_key=True, index=True)
     name = Column(String, nullable=False)
+
+class Review(Base):
+    __tablename__ = "reviews"
+
+    review_id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(String)
+    book_id = Column(Integer, ForeignKey("books.book_id"))
+    rating = Column(Integer)
+    text = Column(String)

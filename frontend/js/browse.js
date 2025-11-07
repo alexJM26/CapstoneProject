@@ -1,5 +1,11 @@
 import { authenticatedFetch } from '../js/session.js';
 
+function starFillPercent(avg, max = 5) {
+  if (!Number.isFinite(avg)) return "0%";
+  const clamped = Math.max(0, Math.min(max, avg));
+  return `${(clamped / max) * 100}%`;
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const query = urlParams.get("search");
@@ -57,6 +63,10 @@ document.addEventListener("DOMContentLoaded", async () => {
                     bookDiv.classList.add("lit");
                     bookDiv.dataset.bookIndex = index;  //store index to retrieve book data later
 
+                    const avg = Number(book.book_rating ?? NaN);
+                    const count = Number(book.book_rating_count ?? 0);
+                    const percent = starFillPercent(avg);
+
                     bookDiv.innerHTML = `
                         <div class="coverImgContainer">
                             <img src="${book.cover || "../images/bookCoverDefault.svg"}" class="coverImage">
@@ -67,7 +77,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                             <br> <em> ${book.first_publish_year || 'N/A'} </em> 
                         </div>
                         <div class="litRating">
-                            &#9733; &#9733; &#9733; &#9733; &#9733; | <a href="#" class="viewReviewsPopup">View Reviews (10)</a>
+                            ${Number.isFinite(avg) ? `<span class="stars" style="--percent:${percent}">★★★★★</span>` : ""}
+                            ${count > 0 ? `<span class="reviewCount"> | <a href="#" class="viewReviewsPopup">View Reviews (${count})</a></span>` : ""}
                         </div>
                         <div class="iconsContainer">
                             <button class="unstyled-button openCollectionPopup">
