@@ -24,7 +24,7 @@ function renderReviewItem(r) {
 
     const stars = Number.isFinite(rating)
         ? `<span class="stars" style="--percent:${starFillPercent(rating)}">★★★★★</span>`
-        : "";
+    : `<span class="stars" style="--percent:0%">★★★★★</span>`;
     
     let createdStr = "";
     if (created) {
@@ -33,10 +33,10 @@ function renderReviewItem(r) {
     }
     return `
         <div class="reviewContainer">
-        <h1 class="reviewRating">${stars}</h1>
-        <p>${escapeHtml(text)}</p>
-        <a href="#">${escapeHtml(user)}</a>
-        ${createdStr ? `<p>Created on: ${escapeHtml(createdStr)}</p>` : ""}
+            <h1 class="reviewRating">${stars}</h1>
+            <p>${escapeHtml(text)}</p>
+            <a href="#">${escapeHtml(user)}</a>
+            ${createdStr ? `<p>Created on: ${escapeHtml(createdStr)}</p>` : ""}
         </div>
     `;
 }
@@ -176,16 +176,24 @@ document.addEventListener("DOMContentLoaded", async () => {
                 popupContentViewReviews.style.display = "flex"; 
                 if (litTitle) litTitle.innerHTML = `Reviews for "${titleText}"`;
                 
-                // Populate reviews
-                const containerId = "reviewsList";
-                let list = popupContentViewReviews.querySelector(`#${containerId}`);
-                if (!list) {
-                    list = document.createElement("div");
-                    list.id = containerId;
-                    popupContentViewReviews.appendChild(list);
+                // Remove any previous
+                popupContentViewReviews
+                    .querySelectorAll(".reviewContainer")
+                    .forEach(el => el.remove());
+
+                const reviews = Array.isArray(currentBookData?.book_reviews)
+                    ? currentBookData.book_reviews
+                    : [];
+                
+                if (reviews.length === 0) { // Add default if reviews is empty
+                    popupContentViewReviews.insertAdjacentHTML(
+                    "beforeend",
+                    `<p class="muted reviewContainer">No reviews yet.</p>`
+                    );
+                } else { // Populate reviews
+                    const html = reviews.map(renderReviewItem).join("");
+                    popupContentViewReviews.insertAdjacentHTML("beforeend", html);
                 }
-                const reviews = Array.isArray(currentBookData?.book_reviews) ? currentBookData.book_reviews : [];
-                list.innerHTML = reviews.length ? reviews.map(renderReviewItem).join(""): `<p class="muted">No reviews yet.</p>`;
             }
         }
         
