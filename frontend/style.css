@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Cormorant+Infant:ital,wght@0,300..700;1,300..700&family=Homemade+Apple&family=Indie+Flower&family=Just+Another+Hand&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Pacifico&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
 /* VARIABLES =====================================================================================================================| */
 :root {
   --brown: #7F5539;
@@ -6,12 +8,19 @@
   --offWhite: #EDE0D4;
   --green: #656D4A;
   --darkGreen: #414833;
+
+  --generalFont: "Spectral", serif;
+  --dyslexiaFriendlyFont: Arial, Helvetica, sans-serif;
 }
 
 
 /* BASIC STYLING =====================================================================================================================| */
-body {
+body, html {
+    font-family: var(--generalFont);
     background-color: var(--offWhite);
+}
+* {
+    font-family: inherit;
 }
 a, a:hover {
     color: var(--offWhite);
@@ -167,6 +176,7 @@ input[type=checkbox] {
     color: white;
     font-size: 2vh;
     width: 10vw;
+    font-family: var(--generalFont);
 }
 .navBarTexts:hover {
     background-color: var(--darkBrown);
