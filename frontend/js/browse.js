@@ -3,7 +3,7 @@ import { authenticatedFetch } from '../js/session.js';
 document.addEventListener("DOMContentLoaded", async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const query = urlParams.get("search");
-    const pageCurrent = Number(urlParams.get("page"));
+    const pageCurrent = Number(urlParams.get("page") || 1);
     const searchInput = document.getElementById("searchInput");
     const resultsDiv = document.getElementById("results");
     let pageTotal = 0;
@@ -16,7 +16,24 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!query || !resultsDiv) return;
 
     try {
-        const response = await fetch(`/book_router/search?q=${encodeURIComponent(query)}&limit=50&page=1`);
+        const body = {
+            search: query,
+            limit: 20,
+            page: pageCurrent,
+            ...(urlParams.has("minRating") ? { minRating: Number(urlParams.get("minRating")) } : {}),
+            ...(urlParams.has("maxRating") ? { maxRating: Number(urlParams.get("maxRating")) } : {}),
+            ...(urlParams.get("pubDateStart") ? { pubDateStart: urlParams.get("pubDateStart") } : {}),
+            ...(urlParams.get("pubDateEnd") ? { pubDateEnd: urlParams.get("pubDateEnd") } : {}),
+        };
+
+        const response = await fetch("/book_router/search", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(body)
+        });
+
         if (!response.ok) throw new Error("Network response not ok");
 
         const data = await response.json();
