@@ -105,9 +105,12 @@
                             </fieldset>
                             <fieldset>
                                 <label> Change Username </label> 
-                                <p> Enter new username below. </p> 
-                                <input type="text" id="newUsername" style="margin-left: 0;" class="mb-2"> <br>
-                                <button type="submit" class="main-button-brown-xsmall mt-2" id="submitReview">Confirm New Username</button>
+                                <p> Enter new username below. </p>
+                                <form id="usernameForm">
+                                    <input type="text" id="newUsername" style="margin-left: 0;" class="mb-2" placeholder="New username"> <br>
+                                    <button type="submit" class="main-button-brown-xsmall mt-2">Confirm New Username</button>
+                                    <p id="usernameStatus" style="margin-top: 10px; font-size: 0.9em;"></p>
+                                </form>
                             </fieldset>
                             <fieldset>
                                 <label> Account Data Options </label> <br>
@@ -156,7 +159,7 @@
         <script type="module" src="../js/session.js"></script>
 
         <!-- Script for settings changes -->
-        <script src="../js/settings.js"></script>
+        <script type="module" src="../js/settings.js"></script>
 
     </body>
 
