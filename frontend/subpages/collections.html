@@ -112,34 +112,96 @@
                             <a href="#"><img src="../images/right.svg" style="width: 1vw;"></a>
                         </div>
                     </div>
+                    <div>
+                        <div class="collection">
+                            <div class="coverImgContainer">
+                                <img src="../images/collections/1.svg" class="coverImage">
+                            </div>
+                            <div class="litTitle"> Collection One </div>
+                            <div class="litAuthor">
+                                Created By <a href="#"> Username </a> 
+                            </div>
+                            <div class="litRating">
+                                <em> 11/5/2025 </em>
+                            </div>
+                            <div class="iconsContainer">
+                                <button class="unstyled-button viewCollectionPopup">
+                                    <img class="icon" src="../images/viewCollection.svg" title="Add to Collection">
+                                </button>
+                            </div>
+                        </div>
+                        <div class="collection">
+                            <div class="coverImgContainer">
+                                <img src="../images/collections/10.svg" class="coverImage">
+                            </div>
+                            <div class="litTitle"> Collection Two </div>
+                            <div class="litAuthor">
+                                Created By <a href="#"> Username </a> 
+                            </div>
+                            <div class="litRating">
+                                <em> 11/5/2025 </em>
+                            </div>
+                            <div class="iconsContainer">
+                                <button class="unstyled-button viewCollectionPopup">
+                                    <img class="icon" src="../images/viewCollection.svg" title="Add to Collection">
+                                </button>
+                            </div>
+                        </div>
+                        <div class="collection">
+                            <div class="coverImgContainer">
+                                <img src="../images/collections/5.svg" class="coverImage">
+                            </div>
+                            <div class="litTitle"> Collection Three </div>
+                            <div class="litAuthor">
+                                Created By <a href="#"> Username </a> 
+                            </div>
+                            <div class="litRating">
+                                <em> 11/5/2025 </em>
+                            </div>
+                            <div class="iconsContainer">
+                                <button class="unstyled-button viewCollectionPopup">
+                                    <img class="icon" src="../images/viewCollection.svg" title="Add to Collection">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
 
+                <!-- Popup Backdrop -->
+                <div id="popupBackdrop" class="popupBackdrop"></div>
+                <!-- Popup -->
                 <div id="popup" class="popup">
-                    <div class="popup-content">
-                        <h1 style="font-weight: bold;">Review [book_title]</h1>
+                    <div class="popupContentCollection" id="viewCollection">
+                        <h1 style="font-weight: bold;" id="reviewTitle">View the Books of [collection_title]</h1>
                         <hr style="background-color: var(--offWhite); width: 80%;" class="mb-4">
-                        <form>     
-                            <fieldset class="mb-4">
-                                <label> Rate this literature out of 5 stars. </label> <br>
-                                <div class="stars">
-                                    <input type="radio" id="given5" name="givenRating" value="5"> <label for="given5" style="font-size: 4vh;">&#9733;</label>
-                                    <input type="radio" id="given4" name="givenRating" value="4"> <label for="given4" style="font-size: 4vh;">&#9733;</label>
-                                    <input type="radio" id="given3" name="givenRating" value="3"> <label for="given3" style="font-size: 4vh;">&#9733;</label>
-                                    <input type="radio" id="given2" name="givenRating" value="2"> <label for="given2" style="font-size: 4vh;">&#9733;</label>
-                                    <input type="radio" id="given1" name="givenRating" value="1"> <label for="given1" style="font-size: 4vh;">&#9733;</label>
-                                </div>
-                            </fieldset>
-                            <fieldset class="mb-4">
-                                <label> What date did you finish reading this literature? </label> <br>
-                                <input type="date" id="readDate" style="margin-left: 0;">
-                            </fieldset>
-                            <fieldset class="mb-4">
-                                <label> Share your thoughts on this literature. </label>
-                                <textarea rows="5" style="width: 75%;" id="reviewText"></textarea>
-                            </fieldset>
-                            <button type="submit" class="main-button-brown-small mb-4" id="submitReview">Submit Review</button>
-                        </form>
+                        <div class="innerCollectionLit">
+                            <img src="../images/bookCoverDefault.svg" class="innerCollectionLitImg">
+                            <div class="litTitle">Title</div>
+                            <div class="iconsContainer">
+                                <a href="browse.html?search=Title&page=1" class="unstyled-button">
+                                    <img class="icon" src="../images/search.svg" title="Search for Book">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="innerCollectionLit">
+                            <img src="../images/bookCoverDefault.svg" class="innerCollectionLitImg">
+                            <div class="litTitle">Title</div>
+                            <div class="iconsContainer">
+                                <a href="browse.html?search=Title&page=1" class="unstyled-button">
+                                    <img class="icon" src="../images/search.svg" title="Search for Book">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="innerCollectionLit">
+                            <img src="../images/bookCoverDefault.svg" class="innerCollectionLitImg">
+                            <div class="litTitle">Title</div>
+                            <div class="iconsContainer">
+                                <a href="browse.html?search=Title&page=1" class="unstyled-button">
+                                    <img class="icon" src="../images/search.svg" title="Search for Book">
+                                </a>
+                            </div>
+                        </div>
                     </div>
                     <span class="close">&times;</span>
                 </div>
@@ -154,100 +216,56 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
         
         <!-- Script for searching-->
-        <script src="../search.js"></script>
+        <script src="../js/search.js"></script>
 
         <!-- Script for checking user login and logout functionality-->
         <script type="module" src="../js/session.js"></script>
 
         <!-- Script for review popup -->
         <script>
-            document.addEventListener("DOMContentLoaded", () => {
+            // add event listeners to results
+            document.addEventListener("click", e => {
+                // grab elements
                 const popup = document.getElementById("popup");
-                const openPopup = document.getElementById("openPopup");
-                const closeBtn = document.querySelector(".close");
+                const popupBackdrop = document.getElementById("popupBackdrop"); 
+                const popupContentViewCollection = popup.querySelector(".popupContentCollection"); 
 
-                // Make sure it's closed initially
-                popup.style.display = "none";
-
-                openPopup.addEventListener("click", () => {
+                if (e.target.closest(".viewCollectionPopup")) {
+                    // make needed elements visable
                     popup.style.display = "grid";
-                });
-
-                closeBtn.addEventListener("click", () => {
+                    popupBackdrop.style.display = "block";
+                    popupContentViewCollection.style.display = "flex";
+                }
+                if (e.target.closest(".close")) { // make popups invisible
                     popup.style.display = "none";
-                });
+                    popupBackdrop.style.display = "none";
+                    popupContentViewCollection.style.display = "none";
+                }
+            });
+
+            // add event listeners to results
+            document.addEventListener("click", e => {
+                // grab elements
+                const popup = document.getElementById("popup");
+                const popupBackdrop = document.getElementById("popupBackdrop"); 
+                const popupContentViewCollection = popup.querySelector(".popupContentCollection"); 
+
+                if (e.target.closest(".viewCollectionPopup")) {
+                    // make needed elements visable
+                    popup.style.display = "grid";
+                    popupBackdrop.style.display = "block";
+                    popupContentViewCollection.style.display = "flex";
+                }
+                if (e.target.closest(".close")) { // make popups invisible
+                    popup.style.display = "none";
+                    popupBackdrop.style.display = "none";
+                    popupContentViewCollection.style.display = "none";
+                }
             });
         </script>
 
-        <script>
-            document.addEventListener("DOMContentLoaded", async () => {
-                const urlParams = new URLSearchParams(window.location.search);
-                const query = urlParams.get("search");
-                const searchInput = document.getElementById("searchInput");
-                const resultsDiv = document.getElementById("results");
-
-                if (searchInput && query) {
-                    searchInput.value = query;
-                }
-
-                if (!query || !resultsDiv) return;
-
-                try {
-                    const response = await fetch(`/book_router/search?q=${encodeURIComponent(query)}&limit=50&page=1`);
-                    if (!response.ok) throw new Error("Network response not ok");
-
-                    const data = await response.json();
-
-                    const resultsCol = document.createElement("div");
-                    resultsCol.classList.add("resultsCol");
-
-                    if (data.results && data.results.length > 0) {
-                        data.results.forEach(book => {
-                            const bookDiv = document.createElement("div");
-                            bookDiv.classList.add("lit");
-
-                            bookDiv.innerHTML = `
-                                <div class="coverImgContainer">
-                                    <img src="${book.cover || "../images/bookCoverDefault.svg"}" class="coverImage">
-                                </div>
-                                <div class="litTitle">${book.title || 'No Title'}</div>
-                                <div class="litAuthor">By ${book.authors ? book.authors.join(", ") : 'Unknown'}</div>
-                                <div class="litRating">
-                                    &#9733; &#9733; &#9733; &#9733; &#9733; | <a href="#">View Reviews (10)</a>
-                                </div>
-                                <div class="iconsContainer">
-                                    <button class="unstyled-button">
-                                        <img class="icon" src="../images/addToCollection.svg" title="Add to Collection">
-                                    </button>
-                                    <button type="button" class="unstyled-button openPopup">
-                                        <img class="icon" src="../images/review.svg" title="Leave a Review">
-                                    </button>
-                                </div>
-                            `;
-                            resultsCol.appendChild(bookDiv);
-                        });
-                    } else {
-                        resultsCol.innerHTML = "<p>No results found.</p>";
-                    }
-
-                    resultsDiv.appendChild(resultsCol);
-                } catch (error) {
-                    console.error("Search failed:", error);
-                    resultsDiv.innerHTML = "<p>An error occurred while searching.</p>";
-                }
-
-                // event delegation
-                document.addEventListener("click", e => {
-                    if (e.target.closest(".openPopup")) popup.style.display = "grid";
-                    if (e.target.closest(".close")) popup.style.display = "none";
-                });
-
-                // Popup event handling
-                //const popup = document.getElementById("popup");
-                //const closeBtn = document.querySelector(".close");
-                //popup.style.display = "none";
-            });
-        </script>
+        <!-- Script for settings changes -->
+        <script src="../js/settings.js"></script>
 
     </body>
 

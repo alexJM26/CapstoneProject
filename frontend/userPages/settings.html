@@ -96,7 +96,6 @@
                     <div class="settingsValues">
                         <h1 id="account" class="mb-2"> Account Settings </h1>
                         <hr style="background-color: var(--darkBrown);">
-                        <form >
                         <form>
                             <fieldset>
                                 <label> Account Privacy </label> <br>
@@ -123,20 +122,20 @@
                             <fieldset>
                                 <label> Enable Dark Mode </label> <br>
                                 Changes the core column scheme of the website to darker tones. <br>
-                                <button type="submit" class="main-button-brown-xsmall mt-2" id="submitReview"> Enable </button>
-                                <button type="submit" class="main-button-brown-xsmall mt-2" id="submitReview"> Disable </button>
+                                <button type="submit" class="main-button-brown-xsmall mt-2" id="a"> Enable </button>
+                                <button type="submit" class="main-button-brown-xsmall mt-2" id="b"> Disable </button>
                             </fieldset>
                             <fieldset>
                                 <label> Enable Color Blind Mode </label> <br>
                                 Changes the core column scheme of the website to better contrast important elements (buttons, links, etc). <br>
-                                <button type="submit" class="main-button-brown-xsmall mt-2" id="submitReview"> Enable </button>
-                                <button type="submit" class="main-button-brown-xsmall mt-2" id="submitReview"> Disable </button>
+                                <button type="button" class="main-button-brown-xsmall mt-2" id="colorBlindToggleEnable"> Enable </button>
+                                <button type="button" class="main-button-brown-xsmall mt-2" id="colorBlindToggleDisable"> Disable </button>
                             </fieldset>
                             <fieldset>
                                 <label> Enable Dyslexia-Friendly Fonts </label> <br>
                                 Changes all fonts on the website to Ariel, one of the most common dyslexia-friendly fonts. <br>
-                                <button type="submit" class="main-button-brown-xsmall mt-2" id="submitReview"> Enable </button>
-                                <button type="submit" class="main-button-brown-xsmall mt-2" id="submitReview"> Disable </button>
+                                <button type="button" class="main-button-brown-xsmall mt-2" id="fontToggleEnable"> Enable </button>
+                                <button type="button" class="main-button-brown-xsmall mt-2" id="fontToggleDisable"> Disable </button>
                             </fieldset>
                         </form>
                     </div>
@@ -151,10 +150,14 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
 
         <!-- Script for searching-->
-        <script src="../search.js"></script>
+        <script src="../js/search.js"></script>
 
         <!-- Script for checking user login and logout functionality-->
         <script type="module" src="../js/session.js"></script>
+
+        <!-- Script for settings changes -->
+        <script src="../js/settings.js"></script>
+
     </body>
 
 </html>

@@ -1,5 +1,6 @@
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String, DateTime, ARRAY, ForeignKey
 from sqlalchemy.orm import declarative_base
+from sqlalchemy.dialects.postgresql import UUID
 
 Base = declarative_base()
 
@@ -19,3 +20,24 @@ class Author(Base):
 
     author_id = Column(Integer, primary_key=True, index=True)
     name = Column(String, nullable=False)
+
+class Review(Base):
+    __tablename__ = "reviews"
+
+    review_id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(UUID(as_uuid=True), ForeignKey("profile.user_id"))
+    book_id = Column(Integer, ForeignKey("books.book_id"))
+    rating = Column(Integer)
+    text = Column(String)
+    created_at = Column(DateTime(timezone=True))
+
+class Profile(Base):
+    __tablename__ = "profiles"
+
+    user_id = Column(UUID(as_uuid=True), primary_key=True, index=True)
+    username = Column(String)
+    bio = Column(String)
+    favorite_genres = Column(ARRAY(String))
+    favorite_book = Column(String)
+    avatar_choice = Column(Integer)
+    created_at = Column(DateTime(timezone=True))

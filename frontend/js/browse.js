@@ -1,9 +1,50 @@
 import { authenticatedFetch } from '../js/session.js';
 
+function starFillPercent(avg, max = 5) {
+  if (!Number.isFinite(avg)) return "0%";
+  const clamped = Math.max(0, Math.min(max, avg));
+  return `${(clamped / max) * 100}%`;
+}
+
+// Prevents html attacks
+function escapeHtml(s = "") {
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function renderReviewItem(r) {
+    const rating = Number(r.rating ?? NaN);
+    const text = r.text ?? "";
+    const user = r.username ?? ""
+    const created = r.created_at;
+
+    const stars = Number.isFinite(rating)
+        ? `<span class="stars" style="--percent:${starFillPercent(rating)}">★★★★★</span>`
+    : `<span class="stars" style="--percent:0%">★★★★★</span>`;
+    
+    let createdStr = "";
+    if (created) {
+        const d = new Date(created);
+        createdStr = isNaN(d) ? String(created) : d.toLocaleDateString();
+    }
+    return `
+        <div class="reviewContainer">
+            <h1 class="reviewRating">${stars}</h1>
+            <p>${escapeHtml(text)}</p>
+            <a href="../userPages/profile.html?username=${user}">${escapeHtml(user)}</a>
+            ${createdStr ? `<p>Created on: ${escapeHtml(createdStr)}</p>` : ""}
+        </div>
+    `;
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const query = urlParams.get("search");
-    const pageCurrent = Number(urlParams.get("page"));
+    const pageCurrent = Number(urlParams.get("page") || 1);
     const searchInput = document.getElementById("searchInput");
     const resultsDiv = document.getElementById("results");
     let pageTotal = 0;
@@ -16,7 +57,24 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!query || !resultsDiv) return;
 
     try {
-        const response = await fetch(`/book_router/search?q=${encodeURIComponent(query)}&limit=50&page=1`);
+        const body = {
+            search: query,
+            limit: 20,
+            page: pageCurrent,
+            ...(urlParams.has("minRating") ? { minRating: Number(urlParams.get("minRating")) } : {}),
+            ...(urlParams.has("maxRating") ? { maxRating: Number(urlParams.get("maxRating")) } : {}),
+            ...(urlParams.get("pubDateStart") ? { pubDateStart: urlParams.get("pubDateStart") } : {}),
+            ...(urlParams.get("pubDateEnd") ? { pubDateEnd: urlParams.get("pubDateEnd") } : {}),
+        };
+
+        const response = await fetch("/book_router/search", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(body)
+        });
+
         if (!response.ok) throw new Error("Network response not ok");
 
         const data = await response.json();
@@ -40,6 +98,10 @@ document.addEventListener("DOMContentLoaded", async () => {
                     bookDiv.classList.add("lit");
                     bookDiv.dataset.bookIndex = index;  //store index to retrieve book data later
 
+                    const avg = Number(book.book_rating ?? NaN);
+                    const count = Number(book.book_rating_count ?? 0);
+                    const percent = starFillPercent(avg);
+
                     bookDiv.innerHTML = `
                         <div class="coverImgContainer">
                             <img src="${book.cover || "../images/bookCoverDefault.svg"}" class="coverImage">
@@ -50,7 +112,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                             <br> <em> ${book.first_publish_year || 'N/A'} </em> 
                         </div>
                         <div class="litRating">
-                            &#9733; &#9733; &#9733; &#9733; &#9733; | <a href="#" class="viewReviewsPopup">View Reviews (10)</a>
+                            ${Number.isFinite(avg) ? `<span class="stars" style="--percent:${percent}">★★★★★</span>` : ""}
+                            ${count > 0 ? `<span class="reviewCount"> | <a href="#" class="viewReviewsPopup">View Reviews (${count})</a></span>` : ""}
                         </div>
                         <div class="iconsContainer">
                             <button class="unstyled-button openCollectionPopup">
@@ -112,6 +175,25 @@ document.addEventListener("DOMContentLoaded", async () => {
             if (e.target.closest(".viewReviewsPopup") && popupContentViewReviews) { 
                 popupContentViewReviews.style.display = "flex"; 
                 if (litTitle) litTitle.innerHTML = `Reviews for "${titleText}"`;
+                
+                // Remove any previous
+                popupContentViewReviews
+                    .querySelectorAll(".reviewContainer")
+                    .forEach(el => el.remove());
+
+                const reviews = Array.isArray(currentBookData?.book_reviews)
+                    ? currentBookData.book_reviews
+                    : [];
+                
+                if (reviews.length === 0) { // Add default if reviews is empty
+                    popupContentViewReviews.insertAdjacentHTML(
+                    "beforeend",
+                    `<p class="muted reviewContainer">No reviews yet.</p>`
+                    );
+                } else { // Populate reviews
+                    const html = reviews.map(renderReviewItem).join("");
+                    popupContentViewReviews.insertAdjacentHTML("beforeend", html);
+                }
             }
         }
         
