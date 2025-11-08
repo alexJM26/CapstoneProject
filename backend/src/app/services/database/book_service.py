@@ -1,6 +1,6 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
-from app.models import Book, Author #NEED TO ADD AUTHOR MODEL
+from app.models import Book, Author
 from typing import Optional, Dict, Any
 import logging
 
