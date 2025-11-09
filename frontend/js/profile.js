@@ -341,7 +341,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('createCollectionForm');
   const nameInput = document.getElementById('collectionName');
 
-
   if (!form) return;
 
   form.addEventListener('submit', async(e) => {
@@ -391,7 +390,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
-
 
 
 

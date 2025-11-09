@@ -63,3 +63,13 @@ async def create_user_collection(
     coll_id = getattr(new_coll, "collection_id", None)
     return str(coll_id) if coll_id is not None else None
 
+
+async def get_user_collections(db : AsyncSession, user_id: str) -> Optional[str]:
+    if not user_id:
+        return []
+    
+    result = await db.execute(
+        select(Collections).where(Collections.user_id == user_id).order_by(Collections.created_at.desc())
+    )
+    return result.scalars().all()
+
