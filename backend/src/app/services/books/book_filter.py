@@ -1,6 +1,6 @@
 from math import ceil
 from typing import Dict, Any, List, Optional
-from app.schemas.search_book import SearchBookRequest
+from app.schemas.requests import SearchBookRequest
 from app.services.database.reviews import get_book_rating
 from app.services.database.book_service import get_book_by_data
 from sqlalchemy.ext.asyncio import AsyncSession

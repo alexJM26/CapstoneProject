@@ -10215,3 +10215,651 @@ WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
             
 2025-11-08 10:02:22,773 - INFO - [generated in 0.00113s] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00', 5)
 2025-11-08 10:02:22,823 - INFO - COMMIT
+2025-11-09 00:22:55,175 - INFO - select pg_catalog.version()
+2025-11-09 00:22:55,176 - INFO - [raw sql] ()
+2025-11-09 00:22:55,256 - INFO - select current_schema()
+2025-11-09 00:22:55,256 - INFO - [raw sql] ()
+2025-11-09 00:22:55,338 - INFO - show standard_conforming_strings
+2025-11-09 00:22:55,338 - INFO - [raw sql] ()
+2025-11-09 00:22:55,405 - INFO - BEGIN (implicit)
+2025-11-09 00:22:55,408 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:22:55,408 - INFO - [generated in 0.00021s] ('J. K. Rowling',)
+2025-11-09 00:22:55,471 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-09 00:22:55,472 - INFO - [generated in 0.00027s] ('Harry Potter and the Order of the Phoenix', 7)
+2025-11-09 00:22:55,517 - INFO - SELECT count(reviews.review_id) AS count_1, coalesce(sum(reviews.rating), $1::INTEGER) AS coalesce_1, avg(reviews.rating) AS avg_1 
+FROM reviews 
+WHERE reviews.book_id = $2::INTEGER
+2025-11-09 00:22:55,517 - INFO - [generated in 0.00023s] (0, 9)
+2025-11-09 00:22:55,572 - INFO - SELECT reviews.review_id, reviews.user_id, reviews.book_id, reviews.rating, reviews.text, reviews.created_at 
+FROM reviews 
+WHERE reviews.book_id = $1::INTEGER ORDER BY reviews.review_id DESC
+2025-11-09 00:22:55,572 - INFO - [generated in 0.00024s] (9,)
+2025-11-09 00:22:55,612 - INFO - SELECT profiles.user_id AS profiles_user_id, profiles.username AS profiles_username, profiles.bio AS profiles_bio, profiles.favorite_genres AS profiles_favorite_genres, profiles.favorite_book AS profiles_favorite_book, profiles.avatar_choice AS profiles_avatar_choice, profiles.created_at AS profiles_created_at 
+FROM profiles 
+WHERE profiles.user_id = $1::UUID
+2025-11-09 00:22:55,612 - INFO - [generated in 0.00026s] (UUID('927889fb-06e1-4c56-9b21-d512c01d5ed6'),)
+2025-11-09 00:22:55,656 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:22:55,656 - INFO - [cached since 0.2482s ago] ('J. K. Rowling',)
+2025-11-09 00:22:55,681 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-09 00:22:55,681 - INFO - [cached since 0.2099s ago] ("Harry Potter and the Philosopher's Stone", 7)
+2025-11-09 00:22:55,701 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:22:55,701 - INFO - [cached since 0.2931s ago] ('J. K. Rowling',)
+2025-11-09 00:22:55,724 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-09 00:22:55,724 - INFO - [cached since 0.2526s ago] ('Harry Potter and the Deathly Hallows', 7)
+2025-11-09 00:22:55,750 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:22:55,750 - INFO - [cached since 0.3421s ago] ('J. K. Rowling',)
+2025-11-09 00:22:55,770 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-09 00:22:55,770 - INFO - [cached since 0.2982s ago] ('Harry Potter and the Prisoner of Azkaban', 7)
+2025-11-09 00:22:55,789 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:22:55,790 - INFO - [cached since 0.3817s ago] ('J. K. Rowling',)
+2025-11-09 00:22:55,811 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-09 00:22:55,811 - INFO - [cached since 0.3394s ago] ('Harry Potter and the Chamber of Secrets', 7)
+2025-11-09 00:22:55,832 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:22:55,832 - INFO - [cached since 0.4246s ago] ('J. K. Rowling',)
+2025-11-09 00:22:55,854 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-09 00:22:55,855 - INFO - [cached since 0.3832s ago] ('Harry Potter and the Half-Blood Prince', 7)
+2025-11-09 00:22:55,879 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:22:55,880 - INFO - [cached since 0.4716s ago] ('J. K. Rowling',)
+2025-11-09 00:22:55,901 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-09 00:22:55,901 - INFO - [cached since 0.4301s ago] ('Harry Potter and the Goblet of Fire', 7)
+2025-11-09 00:22:55,921 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:22:55,922 - INFO - [cached since 0.5138s ago] ('Warner Bros. Entertainment Inc',)
+2025-11-09 00:22:55,943 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:22:55,943 - INFO - [cached since 0.535s ago] ('J. K. Rowling',)
+2025-11-09 00:22:55,963 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-09 00:22:55,963 - INFO - [cached since 0.4919s ago] ('Harry Potter (series) 1-7', 7)
+2025-11-09 00:22:55,987 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:22:55,987 - INFO - [cached since 0.5797s ago] ('J. K. Rowling',)
+2025-11-09 00:22:56,011 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-09 00:22:56,011 - INFO - [cached since 0.5395s ago] ('Harry Potter', 7)
+2025-11-09 00:22:56,034 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:22:56,034 - INFO - [cached since 0.6262s ago] ('Jack Thorne',)
+2025-11-09 00:22:56,055 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:22:56,055 - INFO - [cached since 0.6469s ago] ('Joan Moloney',)
+2025-11-09 00:22:56,075 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:22:56,075 - INFO - [cached since 0.6672s ago] ('Adele Books',)
+2025-11-09 00:22:56,094 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:22:56,095 - INFO - [cached since 0.6867s ago] ('Drew Struzan',)
+2025-11-09 00:22:56,120 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:22:56,120 - INFO - [cached since 0.7118s ago] ('J. K. Rowling',)
+2025-11-09 00:22:56,139 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-09 00:22:56,139 - INFO - [cached since 0.6681s ago] ('Harry Potter (series) 1-4', 7)
+2025-11-09 00:22:56,160 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:22:56,160 - INFO - [cached since 0.7525s ago] ('Felicity Baker',)
+2025-11-09 00:22:56,183 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:22:56,183 - INFO - [cached since 0.7756s ago] ('J. K. Rowling',)
+2025-11-09 00:22:56,203 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-09 00:22:56,203 - INFO - [cached since 0.7319s ago] ('Harry Potter', 7)
+2025-11-09 00:22:56,223 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:22:56,224 - INFO - [cached since 0.8159s ago] ('Scholastic Staff',)
+2025-11-09 00:22:56,248 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:22:56,248 - INFO - [cached since 0.8396s ago] ('Edition Coloriage Hp',)
+2025-11-09 00:22:56,268 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:22:56,268 - INFO - [cached since 0.8608s ago] ('Kevin Wilson',)
+2025-11-09 00:22:56,292 - INFO - ROLLBACK
+2025-11-09 00:23:20,260 - INFO - BEGIN (implicit)
+2025-11-09 00:23:20,260 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:23:20,261 - INFO - [cached since 24.85s ago] ('J. K. Rowling',)
+2025-11-09 00:23:20,301 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-09 00:23:20,302 - INFO - [cached since 24.83s ago] ('Harry Potter and the Order of the Phoenix', 7)
+2025-11-09 00:23:20,321 - INFO - 
+                INSERT INTO reviews (user_id, book_id, rating, text)
+                VALUES ($1, $2, $3, $4)
+                ON CONFLICT (user_id, book_id) 
+                DO UPDATE SET rating = $3, text = $4, created_at = now()
+            
+2025-11-09 00:23:20,321 - INFO - [generated in 0.00025s] ('d3df05b7-7e13-4323-b493-61fe49459912', 9, 5, 'Just amazing!')
+2025-11-09 00:23:20,368 - INFO - 
+                INSERT INTO activity (user_id, action_type, book_id)
+                VALUES ($1, 'review', $2)
+            
+2025-11-09 00:23:20,368 - INFO - [generated in 0.00024s] ('d3df05b7-7e13-4323-b493-61fe49459912', 9)
+2025-11-09 00:23:20,425 - INFO - COMMIT
+2025-11-09 00:23:33,356 - INFO - BEGIN (implicit)
+2025-11-09 00:23:33,357 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:23:33,357 - INFO - [cached since 37.95s ago] ('J. K. Rowling',)
+2025-11-09 00:23:33,400 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-09 00:23:33,400 - INFO - [cached since 37.93s ago] ('Harry Potter and the Order of the Phoenix', 7)
+2025-11-09 00:23:33,421 - INFO - SELECT count(reviews.review_id) AS count_1, coalesce(sum(reviews.rating), $1::INTEGER) AS coalesce_1, avg(reviews.rating) AS avg_1 
+FROM reviews 
+WHERE reviews.book_id = $2::INTEGER
+2025-11-09 00:23:33,421 - INFO - [cached since 37.9s ago] (0, 9)
+2025-11-09 00:23:33,443 - INFO - SELECT reviews.review_id, reviews.user_id, reviews.book_id, reviews.rating, reviews.text, reviews.created_at 
+FROM reviews 
+WHERE reviews.book_id = $1::INTEGER ORDER BY reviews.review_id DESC
+2025-11-09 00:23:33,443 - INFO - [cached since 37.87s ago] (9,)
+2025-11-09 00:23:33,466 - INFO - SELECT profiles.user_id AS profiles_user_id, profiles.username AS profiles_username, profiles.bio AS profiles_bio, profiles.favorite_genres AS profiles_favorite_genres, profiles.favorite_book AS profiles_favorite_book, profiles.avatar_choice AS profiles_avatar_choice, profiles.created_at AS profiles_created_at 
+FROM profiles 
+WHERE profiles.user_id = $1::UUID
+2025-11-09 00:23:33,467 - INFO - [cached since 37.85s ago] (UUID('d3df05b7-7e13-4323-b493-61fe49459912'),)
+2025-11-09 00:23:33,486 - INFO - SELECT profiles.user_id AS profiles_user_id, profiles.username AS profiles_username, profiles.bio AS profiles_bio, profiles.favorite_genres AS profiles_favorite_genres, profiles.favorite_book AS profiles_favorite_book, profiles.avatar_choice AS profiles_avatar_choice, profiles.created_at AS profiles_created_at 
+FROM profiles 
+WHERE profiles.user_id = $1::UUID
+2025-11-09 00:23:33,486 - INFO - [cached since 37.87s ago] (UUID('927889fb-06e1-4c56-9b21-d512c01d5ed6'),)
+2025-11-09 00:23:33,503 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:23:33,503 - INFO - [cached since 38.1s ago] ('J. K. Rowling',)
+2025-11-09 00:23:33,523 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-09 00:23:33,523 - INFO - [cached since 38.05s ago] ("Harry Potter and the Philosopher's Stone", 7)
+2025-11-09 00:23:33,543 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:23:33,543 - INFO - [cached since 38.14s ago] ('J. K. Rowling',)
+2025-11-09 00:23:33,570 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-09 00:23:33,570 - INFO - [cached since 38.1s ago] ('Harry Potter and the Deathly Hallows', 7)
+2025-11-09 00:23:33,593 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:23:33,593 - INFO - [cached since 38.19s ago] ('J. K. Rowling',)
+2025-11-09 00:23:33,617 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-09 00:23:33,617 - INFO - [cached since 38.15s ago] ('Harry Potter and the Prisoner of Azkaban', 7)
+2025-11-09 00:23:33,640 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:23:33,640 - INFO - [cached since 38.23s ago] ('J. K. Rowling',)
+2025-11-09 00:23:33,659 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-09 00:23:33,659 - INFO - [cached since 38.19s ago] ('Harry Potter and the Chamber of Secrets', 7)
+2025-11-09 00:23:33,680 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:23:33,680 - INFO - [cached since 38.27s ago] ('J. K. Rowling',)
+2025-11-09 00:23:33,704 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-09 00:23:33,704 - INFO - [cached since 38.23s ago] ('Harry Potter and the Half-Blood Prince', 7)
+2025-11-09 00:23:33,723 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:23:33,723 - INFO - [cached since 38.32s ago] ('J. K. Rowling',)
+2025-11-09 00:23:33,750 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-09 00:23:33,750 - INFO - [cached since 38.28s ago] ('Harry Potter and the Goblet of Fire', 7)
+2025-11-09 00:23:33,770 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:23:33,770 - INFO - [cached since 38.36s ago] ('Warner Bros. Entertainment Inc',)
+2025-11-09 00:23:33,791 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:23:33,791 - INFO - [cached since 38.38s ago] ('J. K. Rowling',)
+2025-11-09 00:23:33,810 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-09 00:23:33,811 - INFO - [cached since 38.34s ago] ('Harry Potter (series) 1-7', 7)
+2025-11-09 00:23:33,831 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:23:33,831 - INFO - [cached since 38.42s ago] ('J. K. Rowling',)
+2025-11-09 00:23:33,850 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-09 00:23:33,850 - INFO - [cached since 38.38s ago] ('Harry Potter', 7)
+2025-11-09 00:23:33,872 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:23:33,872 - INFO - [cached since 38.46s ago] ('Jack Thorne',)
+2025-11-09 00:23:33,894 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:23:33,894 - INFO - [cached since 38.49s ago] ('Joan Moloney',)
+2025-11-09 00:23:33,915 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:23:33,915 - INFO - [cached since 38.51s ago] ('Adele Books',)
+2025-11-09 00:23:33,935 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:23:33,935 - INFO - [cached since 38.53s ago] ('Drew Struzan',)
+2025-11-09 00:23:33,956 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:23:33,956 - INFO - [cached since 38.55s ago] ('J. K. Rowling',)
+2025-11-09 00:23:33,975 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-09 00:23:33,975 - INFO - [cached since 38.5s ago] ('Harry Potter (series) 1-4', 7)
+2025-11-09 00:23:33,998 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:23:33,998 - INFO - [cached since 38.59s ago] ('Felicity Baker',)
+2025-11-09 00:23:34,017 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:23:34,017 - INFO - [cached since 38.61s ago] ('J. K. Rowling',)
+2025-11-09 00:23:34,036 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-09 00:23:34,037 - INFO - [cached since 38.57s ago] ('Harry Potter', 7)
+2025-11-09 00:23:34,057 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:23:34,057 - INFO - [cached since 38.65s ago] ('Scholastic Staff',)
+2025-11-09 00:23:34,077 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:23:34,077 - INFO - [cached since 38.67s ago] ('Edition Coloriage Hp',)
+2025-11-09 00:23:34,099 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:23:34,099 - INFO - [cached since 38.69s ago] ('Kevin Wilson',)
+2025-11-09 00:23:34,119 - INFO - ROLLBACK
+2025-11-09 00:26:33,510 - INFO - BEGIN (implicit)
+2025-11-09 00:26:33,510 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-09 00:26:33,511 - INFO - [cached since 218.1s ago] ('J. K. Rowling',)
+2025-11-09 00:26:33,592 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-09 00:26:33,592 - INFO - [cached since 218.1s ago] ('Harry Potter and the Order of the Phoenix', 7)
+2025-11-09 00:26:33,616 - INFO - SELECT 1 FROM user_books WHERE user_id = $1 AND book_id = $2
+2025-11-09 00:26:33,616 - INFO - [generated in 0.00019s] ('d3df05b7-7e13-4323-b493-61fe49459912', 9)
+2025-11-09 00:26:33,693 - INFO - 
+                    INSERT INTO user_books (user_id, book_id, status)
+                    VALUES ($1, $2, $3)
+                
+2025-11-09 00:26:33,693 - INFO - [generated in 0.00033s] ('d3df05b7-7e13-4323-b493-61fe49459912', 9, 'Want to Read')
+2025-11-09 00:26:33,746 - INFO - 
+                INSERT INTO activity (user_id, action_type, book_id)
+                VALUES ($1, 'status', $2)
+            
+2025-11-09 00:26:33,746 - INFO - [generated in 0.00033s] ('d3df05b7-7e13-4323-b493-61fe49459912', 9)
+2025-11-09 00:26:33,787 - INFO - COMMIT
+2025-11-09 02:00:15,024 - INFO - select pg_catalog.version()
+2025-11-09 02:00:15,024 - INFO - [raw sql] ()
+2025-11-09 02:00:15,090 - INFO - select current_schema()
+2025-11-09 02:00:15,091 - INFO - [raw sql] ()
+2025-11-09 02:00:15,162 - INFO - show standard_conforming_strings
+2025-11-09 02:00:15,162 - INFO - [raw sql] ()
+2025-11-09 02:00:15,215 - INFO - BEGIN (implicit)
+2025-11-09 02:00:15,217 - INFO - SELECT collections.collection_id, collections.user_id, collections.name, collections.description, collections.icon_id, collections.created_at 
+FROM collections 
+WHERE lower(collections.name) = $1::VARCHAR
+2025-11-09 02:00:15,217 - INFO - [generated in 0.00019s] ('test',)
+2025-11-09 02:00:15,282 - INFO - ROLLBACK
+2025-11-09 02:00:24,777 - INFO - BEGIN (implicit)
+2025-11-09 02:00:24,777 - INFO - SELECT collections.collection_id, collections.user_id, collections.name, collections.description, collections.icon_id, collections.created_at 
+FROM collections 
+WHERE lower(collections.name) = $1::VARCHAR
+2025-11-09 02:00:24,777 - INFO - [cached since 9.56s ago] ('test2',)
+2025-11-09 02:00:24,819 - INFO - ROLLBACK
+2025-11-09 02:00:41,679 - INFO - BEGIN (implicit)
+2025-11-09 02:00:41,679 - INFO - SELECT collections.collection_id, collections.user_id, collections.name, collections.description, collections.icon_id, collections.created_at 
+FROM collections 
+WHERE lower(collections.name) = $1::VARCHAR
+2025-11-09 02:00:41,679 - INFO - [cached since 26.46s ago] ('test3',)
+2025-11-09 02:00:41,718 - INFO - ROLLBACK
+2025-11-09 02:02:16,211 - INFO - select pg_catalog.version()
+2025-11-09 02:02:16,211 - INFO - [raw sql] ()
+2025-11-09 02:02:16,300 - INFO - select current_schema()
+2025-11-09 02:02:16,301 - INFO - [raw sql] ()
+2025-11-09 02:02:16,382 - INFO - show standard_conforming_strings
+2025-11-09 02:02:16,382 - INFO - [raw sql] ()
+2025-11-09 02:02:16,446 - INFO - BEGIN (implicit)
+2025-11-09 02:02:16,450 - INFO - SELECT collections.collection_id, collections.user_id, collections.name, collections.description, collections.icon_id, collections.created_at 
+FROM collections 
+WHERE lower(collections.name) = $1::VARCHAR
+2025-11-09 02:02:16,450 - INFO - [generated in 0.00023s] ('2',)
+2025-11-09 02:02:16,515 - INFO - ROLLBACK
+2025-11-09 02:02:42,388 - INFO - select pg_catalog.version()
+2025-11-09 02:02:42,388 - INFO - [raw sql] ()
+2025-11-09 02:02:42,470 - INFO - select current_schema()
+2025-11-09 02:02:42,470 - INFO - [raw sql] ()
+2025-11-09 02:02:42,554 - INFO - show standard_conforming_strings
+2025-11-09 02:02:42,554 - INFO - [raw sql] ()
+2025-11-09 02:02:42,615 - INFO - BEGIN (implicit)
+2025-11-09 02:02:42,617 - INFO - SELECT collections.collection_id, collections.user_id, collections.name, collections.description, collections.icon_id, collections.created_at 
+FROM collections 
+WHERE lower(collections.name) = $1::VARCHAR
+2025-11-09 02:02:42,618 - INFO - [generated in 0.00022s] ('1513251325',)
+2025-11-09 02:02:42,676 - INFO - ROLLBACK
+2025-11-09 02:02:57,888 - INFO - select pg_catalog.version()
+2025-11-09 02:02:57,888 - INFO - [raw sql] ()
+2025-11-09 02:02:57,977 - INFO - select current_schema()
+2025-11-09 02:02:57,978 - INFO - [raw sql] ()
+2025-11-09 02:02:58,065 - INFO - show standard_conforming_strings
+2025-11-09 02:02:58,065 - INFO - [raw sql] ()
+2025-11-09 02:02:58,132 - INFO - BEGIN (implicit)
+2025-11-09 02:02:58,134 - INFO - SELECT collections.collection_id 
+FROM collections 
+WHERE lower(collections.name) = $1::VARCHAR
+2025-11-09 02:02:58,134 - INFO - [generated in 0.00022s] ('test',)
+2025-11-09 02:02:58,199 - INFO - ROLLBACK
+2025-11-09 02:04:52,386 - INFO - select pg_catalog.version()
+2025-11-09 02:04:52,387 - INFO - [raw sql] ()
+2025-11-09 02:04:52,478 - INFO - select current_schema()
+2025-11-09 02:04:52,478 - INFO - [raw sql] ()
+2025-11-09 02:04:52,565 - INFO - show standard_conforming_strings
+2025-11-09 02:04:52,565 - INFO - [raw sql] ()
+2025-11-09 02:04:52,629 - INFO - BEGIN (implicit)
+2025-11-09 02:04:52,631 - INFO - SELECT collections.collection_id 
+FROM collections 
+WHERE lower(collections.name) = $1::VARCHAR
+2025-11-09 02:04:52,631 - INFO - [generated in 0.00021s] ('test',)
+2025-11-09 02:04:52,708 - INFO - ROLLBACK
+2025-11-09 02:05:58,525 - INFO - select pg_catalog.version()
+2025-11-09 02:05:58,525 - INFO - [raw sql] ()
+2025-11-09 02:05:58,605 - INFO - select current_schema()
+2025-11-09 02:05:58,605 - INFO - [raw sql] ()
+2025-11-09 02:05:58,683 - INFO - show standard_conforming_strings
+2025-11-09 02:05:58,683 - INFO - [raw sql] ()
+2025-11-09 02:05:58,739 - INFO - BEGIN (implicit)
+2025-11-09 02:05:58,742 - INFO - SELECT collections.collection_id 
+FROM collections 
+WHERE lower(collections.name) = $1::VARCHAR
+2025-11-09 02:05:58,742 - INFO - [generated in 0.00021s] ('test',)
+2025-11-09 02:05:58,804 - INFO - SELECT collections.collection_id, collections.user_id, collections.name, collections.description, collections.icon_id, collections.created_at 
+FROM collections 
+WHERE lower(collections.name) = $1::VARCHAR
+2025-11-09 02:05:58,804 - INFO - [generated in 0.00025s] ('test',)
+2025-11-09 02:05:58,842 - INFO - ROLLBACK
+2025-11-09 02:11:40,393 - INFO - select pg_catalog.version()
+2025-11-09 02:11:40,394 - INFO - [raw sql] ()
+2025-11-09 02:11:40,491 - INFO - select current_schema()
+2025-11-09 02:11:40,491 - INFO - [raw sql] ()
+2025-11-09 02:11:40,587 - INFO - show standard_conforming_strings
+2025-11-09 02:11:40,587 - INFO - [raw sql] ()
+2025-11-09 02:11:40,651 - INFO - BEGIN (implicit)
+2025-11-09 02:11:40,654 - INFO - SELECT collections.collection_id 
+FROM collections 
+WHERE collections.user_id = $1::UUID AND lower(collections.name) = $2::VARCHAR
+2025-11-09 02:11:40,654 - INFO - [generated in 0.00022s] ((Depends(get_current_user),), 'test')
+2025-11-09 02:11:40,746 - INFO - ROLLBACK
+2025-11-09 02:11:44,440 - INFO - BEGIN (implicit)
+2025-11-09 02:11:44,440 - INFO - SELECT collections.collection_id 
+FROM collections 
+WHERE collections.user_id = $1::UUID AND lower(collections.name) = $2::VARCHAR
+2025-11-09 02:11:44,440 - INFO - [cached since 3.786s ago] ((Depends(get_current_user),), 'test')
+2025-11-09 02:11:44,465 - INFO - ROLLBACK
+2025-11-09 02:11:59,407 - INFO - select pg_catalog.version()
+2025-11-09 02:11:59,407 - INFO - [raw sql] ()
+2025-11-09 02:11:59,483 - INFO - select current_schema()
+2025-11-09 02:11:59,484 - INFO - [raw sql] ()
+2025-11-09 02:11:59,565 - INFO - show standard_conforming_strings
+2025-11-09 02:11:59,565 - INFO - [raw sql] ()
+2025-11-09 02:11:59,628 - INFO - BEGIN (implicit)
+2025-11-09 02:11:59,631 - INFO - SELECT collections.collection_id 
+FROM collections 
+WHERE collections.user_id = $1::UUID AND lower(collections.name) = $2::VARCHAR
+2025-11-09 02:11:59,631 - INFO - [generated in 0.00020s] ((Depends(get_current_user),), 'test')
+2025-11-09 02:11:59,672 - INFO - ROLLBACK
+2025-11-09 02:12:10,543 - INFO - select pg_catalog.version()
+2025-11-09 02:12:10,544 - INFO - [raw sql] ()
+2025-11-09 02:12:10,622 - INFO - select current_schema()
+2025-11-09 02:12:10,623 - INFO - [raw sql] ()
+2025-11-09 02:12:10,697 - INFO - show standard_conforming_strings
+2025-11-09 02:12:10,698 - INFO - [raw sql] ()
+2025-11-09 02:12:10,753 - INFO - BEGIN (implicit)
+2025-11-09 02:12:10,755 - INFO - SELECT collections.collection_id 
+FROM collections 
+WHERE collections.user_id = $1::UUID AND lower(collections.name) = $2::VARCHAR
+2025-11-09 02:12:10,755 - INFO - [generated in 0.00020s] (Depends(get_current_user), 'testtttt')
+2025-11-09 02:12:10,794 - INFO - ROLLBACK
+2025-11-09 02:13:23,050 - INFO - BEGIN (implicit)
+2025-11-09 02:13:23,050 - INFO - SELECT collections.collection_id 
+FROM collections 
+WHERE collections.user_id = $1::UUID AND lower(collections.name) = $2::VARCHAR
+2025-11-09 02:13:23,050 - INFO - [cached since 72.3s ago] (Depends(get_current_user), 'test')
+2025-11-09 02:13:23,076 - INFO - ROLLBACK
+2025-11-09 02:13:42,277 - INFO - select pg_catalog.version()
+2025-11-09 02:13:42,277 - INFO - [raw sql] ()
+2025-11-09 02:13:42,352 - INFO - select current_schema()
+2025-11-09 02:13:42,353 - INFO - [raw sql] ()
+2025-11-09 02:13:42,423 - INFO - show standard_conforming_strings
+2025-11-09 02:13:42,423 - INFO - [raw sql] ()
+2025-11-09 02:13:42,475 - INFO - BEGIN (implicit)
+2025-11-09 02:13:42,477 - INFO - SELECT collections.collection_id 
+FROM collections 
+WHERE collections.user_id = $1::UUID AND lower(collections.name) = $2::VARCHAR
+2025-11-09 02:13:42,477 - INFO - [generated in 0.00020s] ('d3df05b7-7e13-4323-b493-61fe49459912', 'testtttt')
+2025-11-09 02:13:42,531 - INFO - SELECT collections.collection_id 
+FROM collections 
+WHERE collections.user_id = $1::UUID AND lower(collections.name) = $2::VARCHAR
+2025-11-09 02:13:42,531 - INFO - [cached since 0.05404s ago] ('d3df05b7-7e13-4323-b493-61fe49459912', 'testtttt')
+2025-11-09 02:13:42,551 - INFO - ROLLBACK
+2025-11-09 02:14:28,971 - INFO - select pg_catalog.version()
+2025-11-09 02:14:28,971 - INFO - [raw sql] ()
+2025-11-09 02:14:29,050 - INFO - select current_schema()
+2025-11-09 02:14:29,050 - INFO - [raw sql] ()
+2025-11-09 02:14:29,137 - INFO - show standard_conforming_strings
+2025-11-09 02:14:29,137 - INFO - [raw sql] ()
+2025-11-09 02:14:29,196 - INFO - BEGIN (implicit)
+2025-11-09 02:14:29,199 - INFO - SELECT collections.collection_id 
+FROM collections 
+WHERE collections.user_id = $1::UUID AND lower(collections.name) = $2::VARCHAR
+2025-11-09 02:14:29,199 - INFO - [generated in 0.00020s] ('d3df05b7-7e13-4323-b493-61fe49459912', 'testa')
+2025-11-09 02:14:29,260 - INFO - SELECT collections.collection_id 
+FROM collections 
+WHERE collections.user_id = $1::UUID AND lower(collections.name) = $2::VARCHAR
+2025-11-09 02:14:29,260 - INFO - [cached since 0.06124s ago] ('d3df05b7-7e13-4323-b493-61fe49459912', 'testa')
+2025-11-09 02:14:29,288 - INFO - ROLLBACK
+2025-11-09 02:15:29,522 - INFO - select pg_catalog.version()
+2025-11-09 02:15:29,522 - INFO - [raw sql] ()
+2025-11-09 02:15:29,599 - INFO - select current_schema()
+2025-11-09 02:15:29,599 - INFO - [raw sql] ()
+2025-11-09 02:15:29,680 - INFO - show standard_conforming_strings
+2025-11-09 02:15:29,680 - INFO - [raw sql] ()
+2025-11-09 02:15:29,741 - INFO - BEGIN (implicit)
+2025-11-09 02:15:29,743 - INFO - SELECT collections.collection_id 
+FROM collections 
+WHERE collections.user_id = $1::UUID AND lower(collections.name) = $2::VARCHAR
+2025-11-09 02:15:29,743 - INFO - [generated in 0.00019s] ('d3df05b7-7e13-4323-b493-61fe49459912', 'test')
+2025-11-09 02:15:29,804 - INFO - SELECT collections.collection_id 
+FROM collections 
+WHERE collections.user_id = $1::UUID AND lower(collections.name) = $2::VARCHAR
+2025-11-09 02:15:29,804 - INFO - [cached since 0.06091s ago] ('d3df05b7-7e13-4323-b493-61fe49459912', 'test')
+2025-11-09 02:15:29,824 - INFO - ROLLBACK
+2025-11-09 02:15:36,583 - INFO - select pg_catalog.version()
+2025-11-09 02:15:36,583 - INFO - [raw sql] ()
+2025-11-09 02:15:36,664 - INFO - select current_schema()
+2025-11-09 02:15:36,665 - INFO - [raw sql] ()
+2025-11-09 02:15:36,743 - INFO - show standard_conforming_strings
+2025-11-09 02:15:36,743 - INFO - [raw sql] ()
+2025-11-09 02:15:36,804 - INFO - BEGIN (implicit)
+2025-11-09 02:15:36,807 - INFO - SELECT collections.collection_id 
+FROM collections 
+WHERE collections.user_id = $1::UUID AND lower(collections.name) = $2::VARCHAR
+2025-11-09 02:15:36,808 - INFO - [generated in 0.00062s] ('d3df05b7-7e13-4323-b493-61fe49459912', 'aaaa')
+2025-11-09 02:15:36,870 - INFO - SELECT collections.collection_id 
+FROM collections 
+WHERE collections.user_id = $1::UUID AND lower(collections.name) = $2::VARCHAR
+2025-11-09 02:15:36,870 - INFO - [cached since 0.06279s ago] ('d3df05b7-7e13-4323-b493-61fe49459912', 'aaaa')
+2025-11-09 02:15:36,890 - INFO - ROLLBACK
+2025-11-09 02:16:15,701 - INFO - select pg_catalog.version()
+2025-11-09 02:16:15,701 - INFO - [raw sql] ()
+2025-11-09 02:16:15,773 - INFO - select current_schema()
+2025-11-09 02:16:15,773 - INFO - [raw sql] ()
+2025-11-09 02:16:15,836 - INFO - show standard_conforming_strings
+2025-11-09 02:16:15,836 - INFO - [raw sql] ()
+2025-11-09 02:16:15,886 - INFO - BEGIN (implicit)
+2025-11-09 02:16:15,889 - INFO - SELECT collections.collection_id 
+FROM collections 
+WHERE collections.user_id = $1::UUID AND lower(collections.name) = $2::VARCHAR
+2025-11-09 02:16:15,889 - INFO - [generated in 0.00020s] ('d3df05b7-7e13-4323-b493-61fe49459912', 'test2322')
+2025-11-09 02:16:15,942 - INFO - SELECT collections.collection_id 
+FROM collections 
+WHERE collections.user_id = $1::UUID AND lower(collections.name) = $2::VARCHAR
+2025-11-09 02:16:15,942 - INFO - [cached since 0.05357s ago] ('d3df05b7-7e13-4323-b493-61fe49459912', 'test2322')
+2025-11-09 02:16:15,959 - INFO - ROLLBACK
+2025-11-09 02:17:08,532 - INFO - select pg_catalog.version()
+2025-11-09 02:17:08,533 - INFO - [raw sql] ()
+2025-11-09 02:17:08,601 - INFO - select current_schema()
+2025-11-09 02:17:08,601 - INFO - [raw sql] ()
+2025-11-09 02:17:08,687 - INFO - show standard_conforming_strings
+2025-11-09 02:17:08,687 - INFO - [raw sql] ()
+2025-11-09 02:17:08,740 - INFO - BEGIN (implicit)
+2025-11-09 02:17:08,742 - INFO - SELECT collections.collection_id 
+FROM collections 
+WHERE collections.user_id = $1::UUID AND lower(collections.name) = $2::VARCHAR
+2025-11-09 02:17:08,743 - INFO - [generated in 0.00020s] ('d3df05b7-7e13-4323-b493-61fe49459912', 'asehgsdhg')
+2025-11-09 02:17:08,799 - INFO - SELECT collections.collection_id 
+FROM collections 
+WHERE collections.user_id = $1::UUID AND lower(collections.name) = $2::VARCHAR
+2025-11-09 02:17:08,799 - INFO - [cached since 0.05642s ago] ('d3df05b7-7e13-4323-b493-61fe49459912', 'asehgsdhg')
+2025-11-09 02:17:08,819 - INFO - INSERT INTO collections (user_id, name, description, icon_id, created_at) VALUES ($1::UUID, $2::VARCHAR, $3::VARCHAR, $4::INTEGER, $5::TIMESTAMP WITH TIME ZONE) RETURNING collections.collection_id
+2025-11-09 02:17:08,819 - INFO - [generated in 0.00031s] ('d3df05b7-7e13-4323-b493-61fe49459912', 'asehgsdhg', None, 1, None)
+2025-11-09 02:17:08,864 - INFO - ROLLBACK
+2025-11-09 02:17:54,087 - INFO - select pg_catalog.version()
+2025-11-09 02:17:54,087 - INFO - [raw sql] ()
+2025-11-09 02:17:54,164 - INFO - select current_schema()
+2025-11-09 02:17:54,164 - INFO - [raw sql] ()
+2025-11-09 02:17:54,247 - INFO - show standard_conforming_strings
+2025-11-09 02:17:54,248 - INFO - [raw sql] ()
+2025-11-09 02:17:54,305 - INFO - BEGIN (implicit)
+2025-11-09 02:17:54,307 - INFO - SELECT collections.collection_id 
+FROM collections 
+WHERE collections.user_id = $1::UUID AND lower(collections.name) = $2::VARCHAR
+2025-11-09 02:17:54,308 - INFO - [generated in 0.00020s] ('d3df05b7-7e13-4323-b493-61fe49459912', 'ayahgdasgh')
+2025-11-09 02:17:54,368 - INFO - SELECT collections.collection_id 
+FROM collections 
+WHERE collections.user_id = $1::UUID AND lower(collections.name) = $2::VARCHAR
+2025-11-09 02:17:54,369 - INFO - [cached since 0.06165s ago] ('d3df05b7-7e13-4323-b493-61fe49459912', 'ayahgdasgh')
+2025-11-09 02:17:54,390 - INFO - INSERT INTO collections (user_id, name, description, icon_id, created_at) VALUES ($1::UUID, $2::VARCHAR, $3::VARCHAR, $4::INTEGER, $5::TIMESTAMP WITH TIME ZONE) RETURNING collections.collection_id
+2025-11-09 02:17:54,390 - INFO - [generated in 0.00023s] ('d3df05b7-7e13-4323-b493-61fe49459912', 'ayahgdasgh', None, 3, None)
+2025-11-09 02:17:54,432 - INFO - ROLLBACK
+2025-11-09 02:19:06,747 - INFO - select pg_catalog.version()
+2025-11-09 02:19:06,748 - INFO - [raw sql] ()
+2025-11-09 02:19:06,817 - INFO - select current_schema()
+2025-11-09 02:19:06,817 - INFO - [raw sql] ()
+2025-11-09 02:19:06,881 - INFO - show standard_conforming_strings
+2025-11-09 02:19:06,882 - INFO - [raw sql] ()
+2025-11-09 02:19:06,933 - INFO - BEGIN (implicit)
+2025-11-09 02:19:06,936 - INFO - SELECT collections.collection_id 
+FROM collections 
+WHERE collections.user_id = $1::UUID AND lower(collections.name) = $2::VARCHAR
+2025-11-09 02:19:06,936 - INFO - [generated in 0.00021s] ('d3df05b7-7e13-4323-b493-61fe49459912', 'asdfasdf')
+2025-11-09 02:19:06,985 - INFO - SELECT collections.collection_id 
+FROM collections 
+WHERE collections.user_id = $1::UUID AND lower(collections.name) = $2::VARCHAR
+2025-11-09 02:19:06,985 - INFO - [cached since 0.0496s ago] ('d3df05b7-7e13-4323-b493-61fe49459912', 'asdfasdf')
+2025-11-09 02:19:07,004 - INFO - INSERT INTO collections (user_id, name, description, icon_id) VALUES ($1::UUID, $2::VARCHAR, $3::VARCHAR, $4::INTEGER) RETURNING collections.collection_id, collections.created_at
+2025-11-09 02:19:07,004 - INFO - [generated in 0.00027s] ('d3df05b7-7e13-4323-b493-61fe49459912', 'asdfasdf', None, 1)
+2025-11-09 02:19:07,037 - INFO - ROLLBACK
+2025-11-09 02:19:43,172 - INFO - select pg_catalog.version()
+2025-11-09 02:19:43,172 - INFO - [raw sql] ()
+2025-11-09 02:19:43,248 - INFO - select current_schema()
+2025-11-09 02:19:43,248 - INFO - [raw sql] ()
+2025-11-09 02:19:43,316 - INFO - show standard_conforming_strings
+2025-11-09 02:19:43,316 - INFO - [raw sql] ()
+2025-11-09 02:19:43,365 - INFO - BEGIN (implicit)
+2025-11-09 02:19:43,368 - INFO - SELECT collections.collection_id 
+FROM collections 
+WHERE collections.user_id = $1::UUID AND lower(collections.name) = $2::VARCHAR
+2025-11-09 02:19:43,368 - INFO - [generated in 0.00019s] ('d3df05b7-7e13-4323-b493-61fe49459912', 'agdagdfsg')
+2025-11-09 02:19:43,431 - INFO - SELECT collections.collection_id 
+FROM collections 
+WHERE collections.user_id = $1::UUID AND lower(collections.name) = $2::VARCHAR
+2025-11-09 02:19:43,431 - INFO - [cached since 0.06292s ago] ('d3df05b7-7e13-4323-b493-61fe49459912', 'agdagdfsg')
+2025-11-09 02:19:43,452 - INFO - INSERT INTO collections (user_id, name, description, icon_id, created_at) VALUES ($1::UUID, $2::VARCHAR, $3::VARCHAR, $4::INTEGER, $5::TIMESTAMP WITH TIME ZONE) RETURNING collections.collection_id
+2025-11-09 02:19:43,452 - INFO - [generated in 0.00045s] ('d3df05b7-7e13-4323-b493-61fe49459912', 'agdagdfsg', None, 5, datetime.datetime(2025, 11, 9, 7, 19, 43, 451700, tzinfo=datetime.timezone.utc))
+2025-11-09 02:19:43,489 - INFO - COMMIT
+2025-11-09 02:20:03,938 - INFO - select pg_catalog.version()
+2025-11-09 02:20:03,938 - INFO - [raw sql] ()
+2025-11-09 02:20:04,014 - INFO - select current_schema()
+2025-11-09 02:20:04,014 - INFO - [raw sql] ()
+2025-11-09 02:20:04,087 - INFO - show standard_conforming_strings
+2025-11-09 02:20:04,087 - INFO - [raw sql] ()
+2025-11-09 02:20:04,144 - INFO - BEGIN (implicit)
+2025-11-09 02:20:04,146 - INFO - SELECT collections.collection_id 
+FROM collections 
+WHERE collections.user_id = $1::UUID AND lower(collections.name) = $2::VARCHAR
+2025-11-09 02:20:04,147 - INFO - [generated in 0.00020s] ('d3df05b7-7e13-4323-b493-61fe49459912', 'sdfhsfdhfdgh')
+2025-11-09 02:20:04,205 - INFO - SELECT collections.collection_id 
+FROM collections 
+WHERE collections.user_id = $1::UUID AND lower(collections.name) = $2::VARCHAR
+2025-11-09 02:20:04,205 - INFO - [cached since 0.05861s ago] ('d3df05b7-7e13-4323-b493-61fe49459912', 'sdfhsfdhfdgh')
+2025-11-09 02:20:04,222 - INFO - INSERT INTO collections (user_id, name, description, icon_id, created_at) VALUES ($1::UUID, $2::VARCHAR, $3::VARCHAR, $4::INTEGER, $5::TIMESTAMP WITH TIME ZONE) RETURNING collections.collection_id
+2025-11-09 02:20:04,222 - INFO - [generated in 0.00024s] ('d3df05b7-7e13-4323-b493-61fe49459912', 'sdfhsfdhfdgh', None, 5, datetime.datetime(2025, 11, 9, 7, 20, 4, 221097, tzinfo=datetime.timezone.utc))
+2025-11-09 02:20:04,256 - INFO - COMMIT
+2025-11-09 02:20:23,446 - INFO - BEGIN (implicit)
+2025-11-09 02:20:23,446 - INFO - SELECT collections.collection_id 
+FROM collections 
+WHERE collections.user_id = $1::UUID AND lower(collections.name) = $2::VARCHAR
+2025-11-09 02:20:23,446 - INFO - [cached since 19.3s ago] ('d3df05b7-7e13-4323-b493-61fe49459912', 'drfgsdfh')
+2025-11-09 02:20:23,487 - INFO - SELECT collections.collection_id 
+FROM collections 
+WHERE collections.user_id = $1::UUID AND lower(collections.name) = $2::VARCHAR
+2025-11-09 02:20:23,488 - INFO - [cached since 19.34s ago] ('d3df05b7-7e13-4323-b493-61fe49459912', 'drfgsdfh')
+2025-11-09 02:20:23,506 - INFO - INSERT INTO collections (user_id, name, description, icon_id, created_at) VALUES ($1::UUID, $2::VARCHAR, $3::VARCHAR, $4::INTEGER, $5::TIMESTAMP WITH TIME ZONE) RETURNING collections.collection_id
+2025-11-09 02:20:23,507 - INFO - [cached since 19.28s ago] ('d3df05b7-7e13-4323-b493-61fe49459912', 'drfgsdfh', None, 5, datetime.datetime(2025, 11, 9, 7, 20, 23, 506888, tzinfo=datetime.timezone.utc))
+2025-11-09 02:20:23,525 - INFO - COMMIT

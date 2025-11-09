@@ -3,7 +3,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.services.openlibrary.openlibrary import openlibrary_search
 from app.services.books.book_filter import filter_books
 from app.services.books.book_ratings import add_ratings_to_results
-from app.schemas.search_book import SearchBookRequest
+from app.schemas.requests import SearchBookRequest
 from app.db import get_db
 from app.auth import get_current_user
 

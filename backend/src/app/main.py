@@ -8,13 +8,13 @@ import logging
 from .db import get_db
 from .models import Book
 
-from app.routers import book_router as book_router
-from app.routers import user_books_router, reviews_router
+from app.routers import book_router, user_books_router, reviews_router, collections_router
 
 app = FastAPI()
 app.include_router(book_router.router)
 app.include_router(user_books_router.router)
 app.include_router(reviews_router.router)
+app.include_router(collections_router.router)
 
 
 REPO_ROOT = Path(__file__).resolve().parents[3]

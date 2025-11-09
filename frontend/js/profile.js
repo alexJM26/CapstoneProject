@@ -1,4 +1,5 @@
 import { supabase } from "./session.js";
+import { authenticatedFetch } from '../js/session.js';
 
 async function loadProfile() {
   const { data: { user } } = await supabase.auth.getUser();
@@ -334,5 +335,65 @@ document.getElementById("followingLink").addEventListener("click", e => {
   e.preventDefault();
   openFollowList("following");
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('createCollectionForm');
+  const nameInput = document.getElementById('collectionName');
+
+
+  if (!form) return;
+
+  form.addEventListener('submit', async(e) => {
+    e.preventDefault();
+    
+    const name = (nameInput.value || '').trim();
+    if (!name) {alert('Please enter collection name.'); return; }
+    
+    const selectedImg = document.querySelector('#iconOptions .icon-option.selected');
+    if (!selectedImg) { alert('Pick an icon.'); return; }
+
+    const iconId = (selectedImg.src.match(/\/collections\/(\d+)\.svg$/)?.[1] || '');
+    if (!iconId) { alert('Couldnt figure out icon id.'); return; }
+
+    const payload = {name, iconId: Number(iconId) };
+    
+
+    try{
+      const res = await authenticatedFetch('/collections/create_collection', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      let data = null, text='';
+      data = await res.json();
+
+
+
+      if (!res.ok || (data && data.success == false)){
+        const msg=data?.error || `Request failed ({$res.status})`;
+        alert(`Couldnt create collection: ${msg}`);
+        return;
+      }
+      form.reset();
+      const popup = document.getElementById('popup');
+      const backdrop = document.getElementById('popupBackdrop');
+      if (popup) popup.style.display = 'none';
+      if (backdrop) backdrop.style.display = 'none';
+
+    } catch(err){
+      console.error(err);
+      alert(`Network error: ${err?.message || err}`);
+    }
+  });
+
+});
+
+
+
+
 
 loadProfile();

@@ -159,16 +159,17 @@
                 <div class="popupContentCollection">
                     <h1 style="font-weight: bold;" id="reviewTitle">Create a New Collection</h1>
                     <hr style="background-color: var(--offWhite); width: 80%;" class="mb-4">
-                    <form>  
+                    <form id="createCollectionForm">  
                         <fieldset>
-                            <label> Name this Collection </label> <br>
-                            <input type="text" style="margin-left: 0;"> 
+                            <label for="collectionName"> Name this Collection </label> <br>
+                            <input id="collectionName" name="name" type="text" style="margin-left: 0;"> 
                         </fieldset> <br>
                         <fieldset>
                             <label> Select an Icon for this Collection </label>
                             <div id="iconOptions" class="d-flex flex-wrap justify-content-left mb-3"></div> 
+                            <input id="selectedIcon" name="icon" type="hidden" required>
                         </fieldset>
-                        <button type="submit" class="main-button-brown-small mb-4" id="submitReview">Create Collection</button>
+                        <button type="submit" class="main-button-brown-small mb-4" id="submitCollection">Create Collection</button>
                     </form>
                 </div>
                 <span class="close">&times;</span>

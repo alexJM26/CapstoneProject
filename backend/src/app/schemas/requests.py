@@ -12,3 +12,8 @@ class SearchBookRequest(BaseModel):
     maxRating: Optional[int] = Field(None, alias="maxRating")
     pubDateStart: Optional[str] = Field(None, alias="pubDateStart")
     pubDateEnd: Optional[str] = Field(None, alias="pubDateEnd")
+
+
+class CreateCollectionRequest(BaseModel):
+    name: str = Field(..., min_length=1, max_length=120)
+    iconId: int = Field(..., ge=1, le=12) # 12 is the upper bound for now. Cannot go above 12 icon ids
