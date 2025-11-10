@@ -58,7 +58,7 @@ input[type=checkbox] {
     color: var(--offWhite);
 }
 .third-section-topper-brown {
-    background-color: var(--brown);
+    background-color: var(--darkBrown);
     font-size: 4vh;
     font-weight: bold;
     color: white;
@@ -68,7 +68,7 @@ input[type=checkbox] {
     width: 30vw;
     margin-left: 2vw; margin-right: 2vw;
     margin-top: 1vw; margin-bottom: 1vw;
-    background-color: var(--lightBrown);
+    background-color: var(--green);
     color: black;
     text-align: left;
 }
@@ -279,6 +279,16 @@ input[type=checkbox] {
 }
 .icon-option.selected {
     border-color: #654321;
+}
+.userLabel {
+    color: var(--offWhite);
+    font-weight: bold; 
+    font-size: 3vh;
+    padding-top: 2%; padding-bottom: 2%;
+}
+.userDesc {
+    color: var(--offWhite);
+    font-size: 1.5vh;
 }
 
 
@@ -606,8 +616,15 @@ input[type=checkbox] {
     flex-direction: row-reverse;
     justify-content: center;
     position: relative;
-    color: #ddd;
+    color: var(--offWhite);
     /* margin-top: -2%; margin-bottom: -2%; */
+}
+.starsFull {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    position: relative;
+    color: var(--darkBrown);
 }
 .stars input {
     display: none;
@@ -630,7 +647,7 @@ input[type=checkbox] {
   inset: 0;
   width: var(--percent, 0%);
   overflow: hidden;
-  color: #f5c518;
+  color: var(--darkBrown);
   pointer-events: none;
 }
 

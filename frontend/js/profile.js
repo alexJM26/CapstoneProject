@@ -129,24 +129,28 @@ async function loadUserReviews(userID) {
     .map(r => {
     //generate "stars" HTML according to rating
     const stars = Array.from({ length: 5 }, (_, i) => {
-      const starValue = 5 - i;  //because the CSS reverses flex-direction
-      const checked = r.rating >= starValue ? "checked" : "";
-      return `
-        <input type="radio" id="star${starValue}-${r.review_id}" name="rating-${r.review_id}" value="${starValue}" ${checked} disabled>
-        <label for="star${starValue}-${r.review_id}">&#9733;</label>
-      `;
+      if (r.rating > i) {
+        return `
+          <label class="starsFull">&#9733;</label>
+        `;
+      }
+      else {
+        return `
+          <label class="stars">&#9733;</label>
+        `;
+      }
     }).join("");
 
     return `
-      <div class="my-3 text-left">
+      <div class="my-3 text-left" style="padding: 5%; background-color: var(--lightBrown); border: solid; border-color: var(--darkBrown);">
         <strong>${r.books?.title || "Unknown Title"}</strong>
-        <div class="stars">${stars}</div>
+        <div>${stars}</div>
         <div>${r.text || "(No text provided.)"}</div>
-        <div style="font-size:smaller; color:gray;">${new Date(r.created_at).toLocaleDateString()}</div>
+        <div style="font-size: smaller; color: var(--offWhite); margin-top: 2%;"> Date Created: ${new Date(r.created_at).toLocaleDateString()}</div>
       </div>
     `;
   })
-  .join("<hr>");
+  .join("");
 }
 
 async function loadUserLists(userID) {
