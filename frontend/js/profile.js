@@ -67,9 +67,9 @@ async function loadProfile() {
   //load reviews
   await loadUserReviews(viewedProfile.user_id);
   
-  //only load lists if own profile
+  //only load collections if own profile
   if (viewedProfile.user_id === user.id) {
-    await loadUserLists(viewedProfile.user_id);
+    await loadUserCollections(viewedProfile.user_id);
   } else {
     document.getElementById("profileCollections").textContent = "Viewing another user's collections.";
   }
@@ -153,10 +153,10 @@ async function loadUserReviews(userID) {
   .join("");
 }
 
-async function loadUserLists(userID) {
-  //load user collections (lists)
-  const { data: lists, error } = await supabase
-    .from("lists")
+async function loadUserCollections(userID) {
+  //load user collections
+  const { data: collections, error } = await supabase
+    .from("collections")
     .select("name, description")
     .eq("user_id", userID);
 
@@ -167,8 +167,8 @@ async function loadUserLists(userID) {
     return;
   }
 
-  collectionsContainer.innerHTML = lists && lists.length
-    ? lists.map(l => `<div><strong>${l.name}</strong>: ${l.description || ""}</div>`).join("")
+  collectionsContainer.innerHTML = collections && collections.length
+    ? collections.map(l => `<div><strong>${l.name}</strong>: ${l.description || ""}</div>`).join("")
     : "You have no collections yet.";
 }
 
