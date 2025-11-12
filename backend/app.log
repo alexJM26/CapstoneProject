@@ -9603,7 +9603,7 @@ WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
 2025-11-07 15:17:03,593 - INFO - SELECT authors.author_id, authors.name 
 FROM authors 
 WHERE authors.name = $1::VARCHAR
-2025-11-07 15:17:03,594 - INFO - [generated in 0.00053s] ('Françoise Sagan',)
+2025-11-07 15:17:03,594 - INFO - [generated in 0.00053s] ('Franï¿½oise Sagan',)
 2025-11-07 15:17:03,782 - INFO - SELECT authors.author_id, authors.name 
 FROM authors 
 WHERE authors.name = $1::VARCHAR
@@ -9685,7 +9685,7 @@ WHERE authors.name = $1::VARCHAR
 2025-11-07 15:17:40,387 - INFO - SELECT authors.author_id, authors.name 
 FROM authors 
 WHERE authors.name = $1::VARCHAR
-2025-11-07 15:17:40,388 - INFO - [cached since 36.79s ago] ('Françoise Sagan',)
+2025-11-07 15:17:40,388 - INFO - [cached since 36.79s ago] ('Franï¿½oise Sagan',)
 2025-11-07 15:17:40,501 - INFO - SELECT authors.author_id, authors.name 
 FROM authors 
 WHERE authors.name = $1::VARCHAR
@@ -9767,7 +9767,7 @@ WHERE authors.name = $1::VARCHAR
 2025-11-07 15:17:41,962 - INFO - SELECT authors.author_id, authors.name 
 FROM authors 
 WHERE authors.name = $1::VARCHAR
-2025-11-07 15:17:41,963 - INFO - [cached since 38.37s ago] ('Françoise Sagan',)
+2025-11-07 15:17:41,963 - INFO - [cached since 38.37s ago] ('Franï¿½oise Sagan',)
 2025-11-07 15:17:42,218 - INFO - SELECT authors.author_id, authors.name 
 FROM authors 
 WHERE authors.name = $1::VARCHAR
@@ -11009,12 +11009,12 @@ WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
 2025-11-09 22:14:26,727 - INFO - SELECT authors.author_id, authors.name 
 FROM authors 
 WHERE authors.name = $1::VARCHAR
-2025-11-09 22:14:26,727 - INFO - [cached since 554.1s ago] ('Françoise Sagan',)
+2025-11-09 22:14:26,727 - INFO - [cached since 554.1s ago] ('Franï¿½oise Sagan',)
 2025-11-09 22:14:29,969 - INFO - BEGIN (implicit)
 2025-11-09 22:14:29,970 - INFO - SELECT authors.author_id, authors.name 
 FROM authors 
 WHERE authors.name = $1::VARCHAR
-2025-11-09 22:14:29,970 - INFO - [cached since 557.4s ago] ('Françoise Sagan',)
+2025-11-09 22:14:29,970 - INFO - [cached since 557.4s ago] ('Franï¿½oise Sagan',)
 2025-11-09 22:14:30,209 - INFO - SELECT authors.author_id, authors.name 
 FROM authors 
 WHERE authors.name = $1::VARCHAR
@@ -11096,7 +11096,7 @@ WHERE authors.name = $1::VARCHAR
 2025-11-09 22:14:32,000 - INFO - SELECT authors.author_id, authors.name 
 FROM authors 
 WHERE authors.name = $1::VARCHAR
-2025-11-09 22:14:32,001 - INFO - [cached since 559.4s ago] ('Françoise Sagan',)
+2025-11-09 22:14:32,001 - INFO - [cached since 559.4s ago] ('Franï¿½oise Sagan',)
 2025-11-09 22:14:32,230 - INFO - SELECT authors.author_id, authors.name 
 FROM authors 
 WHERE authors.name = $1::VARCHAR
@@ -11586,17 +11586,17 @@ WHERE authors.name = $1::VARCHAR
 2025-11-09 22:50:30,590 - INFO - SELECT authors.author_id, authors.name 
 FROM authors 
 WHERE authors.name = $1::VARCHAR
-2025-11-09 22:50:30,590 - INFO - [cached since 2718s ago] ('Françoise Sagan',)
+2025-11-09 22:50:30,590 - INFO - [cached since 2718s ago] ('Franï¿½oise Sagan',)
 2025-11-09 22:50:38,261 - INFO - BEGIN (implicit)
 2025-11-09 22:50:38,261 - INFO - SELECT authors.author_id, authors.name 
 FROM authors 
 WHERE authors.name = $1::VARCHAR
-2025-11-09 22:50:38,261 - INFO - [cached since 2726s ago] ('Françoise Sagan',)
+2025-11-09 22:50:38,261 - INFO - [cached since 2726s ago] ('Franï¿½oise Sagan',)
 2025-11-09 22:50:53,823 - INFO - BEGIN (implicit)
 2025-11-09 22:50:53,823 - INFO - SELECT authors.author_id, authors.name 
 FROM authors 
 WHERE authors.name = $1::VARCHAR
-2025-11-09 22:50:53,824 - INFO - [cached since 2741s ago] ('Françoise Sagan',)
+2025-11-09 22:50:53,824 - INFO - [cached since 2741s ago] ('Franï¿½oise Sagan',)
 2025-11-09 22:50:54,064 - INFO - SELECT authors.author_id, authors.name 
 FROM authors 
 WHERE authors.name = $1::VARCHAR
@@ -11874,7 +11874,7 @@ WHERE authors.name = $1::VARCHAR
 2025-11-09 22:51:41,327 - INFO - SELECT authors.author_id, authors.name 
 FROM authors 
 WHERE authors.name = $1::VARCHAR
-2025-11-09 22:51:41,328 - INFO - [cached since 2789s ago] ('Gebrüder Grimm [Brothers Grimm]',)
+2025-11-09 22:51:41,328 - INFO - [cached since 2789s ago] ('Gebrï¿½der Grimm [Brothers Grimm]',)
 2025-11-09 22:51:41,391 - INFO - SELECT authors.author_id, authors.name 
 FROM authors 
 WHERE authors.name = $1::VARCHAR
@@ -11976,7 +11976,7 @@ WHERE authors.name = $1::VARCHAR
 2025-11-09 22:51:49,500 - INFO - SELECT authors.author_id, authors.name 
 FROM authors 
 WHERE authors.name = $1::VARCHAR
-2025-11-09 22:51:49,501 - INFO - [cached since 2797s ago] ('Gebrüder Grimm [Brothers Grimm]',)
+2025-11-09 22:51:49,501 - INFO - [cached since 2797s ago] ('Gebrï¿½der Grimm [Brothers Grimm]',)
 2025-11-09 22:51:49,560 - INFO - SELECT authors.author_id, authors.name 
 FROM authors 
 WHERE authors.name = $1::VARCHAR
@@ -12488,7 +12488,7 @@ WHERE authors.name = $1::VARCHAR
 2025-11-09 23:31:13,819 - INFO - SELECT authors.author_id, authors.name 
 FROM authors 
 WHERE authors.name = $1::VARCHAR
-2025-11-09 23:31:13,819 - INFO - [cached since 1539s ago] ('Gebrüder Grimm [Brothers Grimm]',)
+2025-11-09 23:31:13,819 - INFO - [cached since 1539s ago] ('Gebrï¿½der Grimm [Brothers Grimm]',)
 2025-11-09 23:31:13,879 - INFO - SELECT authors.author_id, authors.name 
 FROM authors 
 WHERE authors.name = $1::VARCHAR
@@ -12748,7 +12748,7 @@ WHERE authors.name = $1::VARCHAR
 2025-11-12 13:07:32,818 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
 FROM books 
 WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
-2025-11-12 13:07:32,819 - INFO - [cached since 1.209s ago] ('The Silmarillion of Beren and Lúthien', 1)
+2025-11-12 13:07:32,819 - INFO - [cached since 1.209s ago] ('The Silmarillion of Beren and Lï¿½thien', 1)
 2025-11-12 13:07:32,847 - INFO - SELECT authors.author_id, authors.name 
 FROM authors 
 WHERE authors.name = $1::VARCHAR
@@ -12886,7 +12886,7 @@ WHERE authors.name = $1::VARCHAR
 2025-11-12 13:10:35,367 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
 FROM books 
 WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
-2025-11-12 13:10:35,367 - INFO - [cached since 1.335s ago] ('The Silmarillion of Beren and Lúthien', 1)
+2025-11-12 13:10:35,367 - INFO - [cached since 1.335s ago] ('The Silmarillion of Beren and Lï¿½thien', 1)
 2025-11-12 13:10:35,391 - INFO - SELECT authors.author_id, authors.name 
 FROM authors 
 WHERE authors.name = $1::VARCHAR
