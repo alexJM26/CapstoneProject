@@ -63,6 +63,10 @@ input[type=checkbox] {
     font-weight: bold;
     color: white;
     text-align: center;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 2;
 }
 .third-section-brown {
     width: 30vw;
@@ -71,6 +75,8 @@ input[type=checkbox] {
     background-color: var(--green);
     color: black;
     text-align: left;
+    overflow-y: auto;
+    height: 75vh;
 }
 .third-section-dark-brown {
     width: 30vw;
@@ -160,6 +166,17 @@ input[type=checkbox] {
 }
 .aboveNavBar {
     width: 96vw;
+}
+.tagline {
+    height: 9vh;
+    font-size: 5vh;
+    font-family: "Just Another Hand", cursive;
+    color: var(--darkGreen);
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    margin-top: 1%;
+    margin-right: 9%;
 }
 
 
