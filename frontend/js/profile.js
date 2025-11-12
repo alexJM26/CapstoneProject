@@ -275,11 +275,6 @@ async function openFollowList(type) {
   $("#followModal").modal("show");
 }
 
-
-document.getElementById("editProfileBtn").addEventListener("click", () => {
-  $("#editProfileModal").modal("show");
-});
-
 document.getElementById("saveProfileBtn").addEventListener("click", async () => {
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return;
@@ -306,27 +301,33 @@ document.getElementById("saveProfileBtn").addEventListener("click", async () => 
   if (error) {
     console.error("Error updating profile:", error);
   } else {
-    $("#editProfileModal").modal("hide");
     loadProfile();
   }
 });
 
 document.addEventListener("click", e => {
-  // grab elements
   const popup = document.getElementById("popup");
   const popupBackdrop = document.getElementById("popupBackdrop");  
   const popupContentCollection = popup.querySelector(".popupContentCollection");
 
+  // open collection popup
   if (e.target.closest(".makeCollectionPopup")) { 
-    popup.style.display = "grid";
+    popup.classList.add("show");
     popupBackdrop.style.display = "block";
-    popupContentCollection.style.display = "flex"; 
+    popupContentCollection.style.display = "flex";
   }
 
-  if (e.target.closest(".close")) { // make popups invisible
-    popup.style.display = "none";
+  // open edit profile popup
+  if (e.target.closest("#editProfileBtn")) {
+    const editModal = document.getElementById("editProfileModal");
+    editModal.classList.add("show");
+    popupBackdrop.style.display = "block";
+  }
+
+  // close popups
+  if (e.target.closest(".close") || e.target === popupBackdrop) { 
+    document.querySelectorAll(".popup").forEach(p => p.classList.remove("show"));
     popupBackdrop.style.display = "none";
-    popupContentCollection.style.display = "none";
   }
 });
 
