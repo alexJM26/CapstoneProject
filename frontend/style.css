@@ -48,10 +48,10 @@ input[type=checkbox] {
 
 /* GENERAL SECTIONS =====================================================================================================================| */
 .section-content-holder-clear {
-    width: 96vw;
+    width: 96%;
 }
 .section-content-holder-green {
-    width: 96vw;
+    width: 96%;
     background-color: var(--green);
     padding: 2vw;
     margin-top: 1vw; margin-bottom: 1vw;
@@ -207,13 +207,13 @@ input[type=checkbox] {
     color: var(--darkGreen);
     text-align: center;
     font-weight: bold;
-    font-size: 12vh;
+    font-size: 680%;
     margin: 10vh;
 }
 .sub-title-text {
     color: var(--darkGreen);
     text-align: center;
-    font-size: 5vh;
+    font-size: 300%;
     margin: 8vh;
 }
 .paragraph-text {
