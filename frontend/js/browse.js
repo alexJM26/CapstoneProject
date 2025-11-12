@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const resultsDiv = document.getElementById("results");
     let pageTotal = 0;
     let currentBooks = [];  //store book data for later use
+    let userCollections = [];
 
     if (searchInput && query) {
         searchInput.value = query;
@@ -141,7 +142,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     let currentBookData = null;
 
     //event delegation
-    document.addEventListener("click", e => {
+    document.addEventListener("click", async (e) => {
         //grab elements
         const popup = document.getElementById("popup");
         const popupBackdrop = document.getElementById("popupBackdrop"); 
@@ -171,6 +172,35 @@ document.addEventListener("DOMContentLoaded", async () => {
             if (e.target.closest(".openCollectionPopup") && popupContentCollection) { 
                 popupContentCollection.style.display = "flex"; 
                 if (collectionTitle) collectionTitle.innerHTML = `Add "${titleText}" to Collections`;
+
+                //Fetch collections dynamically
+                try {
+                    const res = await authenticatedFetch('/collections/get_collections');
+                    if (!res.ok) throw new Error("Failed to fetch collections");
+                    const data = await res.json();
+                    userCollections = data.collections || [];
+
+                    const fieldset = popupContentCollection.querySelector("fieldset");
+                    fieldset.innerHTML = "";  //clear placeholders
+
+                    if (userCollections.length === 0) {
+                        fieldset.innerHTML = `<p class="muted">You have no collections yet.</p>`;
+                    } else {
+                        userCollections.forEach(c => {
+                            fieldset.insertAdjacentHTML("beforeend", `
+                                <div class="collectionContainer">
+                                    <input type="checkbox" class="collectionSelection m-3" value="${c.collectionId}">
+                                    <img src="../images/collections/${c.iconId || "default"}.svg" class="collectionImg">
+                                    <p class="collectionTitle">${escapeHtml(c.name)}</p>
+                                </div>
+                            `);
+                        });
+                    }
+                } catch (err) {
+                    console.error("Error loading collections:", err);
+                    const fieldset = popupContentCollection.querySelector("fieldset");
+                    fieldset.innerHTML = `<p class="muted">Error loading collections.</p>`;
+                }
             }
             if (e.target.closest(".viewReviewsPopup") && popupContentViewReviews) { 
                 popupContentViewReviews.style.display = "flex"; 
@@ -289,19 +319,26 @@ document.addEventListener("DOMContentLoaded", async () => {
                 return;
             }
 
-            //for now just adding to "Want to Read" status
-            //can expand to actually use collection checkboxes later
+            const selectedCollections = Array.from(
+                document.querySelectorAll('.collectionSelection:checked')
+            ).map(el => el.value);
+
+            if (selectedCollections.length === 0) {
+                alert("Please select at least one collection");
+                return;
+            }
+
             const bookData = {
                 title: currentBookData.title,
                 author_name: currentBookData.authors?.[0] || null,
                 isbn: currentBookData.isbn,
                 first_publish_year: currentBookData.first_publish_year,
                 cover: currentBookData.cover,
-                status: "Want to Read"  //default status
+                collection_ids: selectedCollections
             };
 
             try {
-                const response = await authenticatedFetch('/user_books/add', {
+                const response = await authenticatedFetch('/collections/add_book', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -314,18 +351,16 @@ document.addEventListener("DOMContentLoaded", async () => {
                     throw new Error(error.detail || 'Failed to add to collection');
                 }
 
-                const result = await response.json();
-                alert('Book added to your collection!');
-                
+                alert('Book added to selected collections!');
+            
                 //close popup
                 const popup = document.getElementById("popup");
                 const popupBackdrop = document.getElementById("popupBackdrop");
                 const popupContentCollection = popup?.querySelector(".popupContentCollection");
-                
+            
                 if (popup) popup.style.display = "none";
                 if (popupBackdrop) popupBackdrop.style.display = "none";
                 if (popupContentCollection) popupContentCollection.style.display = "none";
-                
             } catch (error) {
                 console.error('Error adding to collection:', error);
                 if (error.message.includes("not authenticated")) {

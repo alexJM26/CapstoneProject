@@ -2,9 +2,12 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from app.schemas.requests import CreateCollectionRequest
 from app.db import get_db
 from app.auth import get_current_user
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
+from pydantic import BaseModel
+from sqlalchemy import text
 
 from app.services.database.collections import create_user_collection, get_collection_id_by_name, get_user_collections
+from app.services.database.book_service import get_or_create_book
 
 router = APIRouter(prefix="/collections", tags=["collections"])
 
@@ -31,7 +34,6 @@ async def create_collection(
         print(f"Error: {e}")
         await db.rollback()
         raise HTTPException(status_code=500, detail="Failed to create collection")
-
 
 
 @router.get("/get_collections")
@@ -62,3 +64,42 @@ async def get_collections(
     except Exception as e: # TODO: Add logging
         print(f"Error: {e}")
         raise HTTPException(status_code=500, detail="Failed to get user collections")
+
+
+class AddBookToCollectionsRequest(BaseModel):
+    title: str
+    author_name: Optional[str] = None
+    isbn: Optional[str] = None
+    first_publish_year: Optional[int] = None
+    cover: Optional[str] = None
+    collection_ids: List[int]
+
+@router.post("/add_book")
+async def add_book_to_collections(
+    req: AddBookToCollectionsRequest,
+    db = Depends(get_db),
+    current_user_id: str = Depends(get_current_user),  #makes sure user is authenticated
+):
+    #Adds a book to one or more user collections and creates the book if it doesn't exist.
+
+    try:
+        #Get or create the book first
+        book_id = await get_or_create_book(db, req.dict())
+
+        #Insert book into each selected collection
+        for coll_id in req.collection_ids:
+            await db.execute(
+                text("""
+                    INSERT INTO collection_books (collection_id, book_id)
+                    VALUES (:collection_id, :book_id)
+                    ON CONFLICT DO NOTHING
+                """),
+                {"collection_id": coll_id, "book_id": book_id}
+            )
+
+        await db.commit()
+        return {"success": True, "book_id": book_id, "added_to": req.collection_ids}
+
+    except Exception as e:
+        await db.rollback()
+        raise HTTPException(status_code=500, detail=f"Failed to add book to collections: {e}")
