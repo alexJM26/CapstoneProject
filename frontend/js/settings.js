@@ -23,7 +23,7 @@ async function initializeSettings() {
 
             if (profile.dyslexia_font) setFont(true, false);
             if (profile.colorblind_mode) setColors(true, false);
-            //TODO: if (profile.dark_mode) setDarkMode(true, false);
+            if (profile.dark_mode) setDarkMode(true, false);
         }
     } else {
         //user not logged in, load from local storage only
@@ -33,8 +33,8 @@ async function initializeSettings() {
         const colorblind = localStorage.getItem('colorblindMode') === 'true';
         if (colorblind) setColors(true, false);
 
-        //TODO: const darkMode = localStorage.getItem('darkMode') === 'true';
-        //if (darkMode) setDarkMode(true, false);
+        const darkMode = localStorage.getItem('darkMode') === 'true';
+        if (darkMode) setDarkMode(true, false);
     }
 }
 
@@ -47,6 +47,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const colorblind = localStorage.getItem('colorblindMode') == 'true';
     if (colorblind) setColors(true);
+
+    const dark = localStorage.getItem('darkMode') == 'true';
+    if (dark) setDarkMode(true);
 });
 
 
@@ -125,6 +128,48 @@ const enableColorBlind = document.getElementById('colorBlindToggleEnable');
 const disableColorBlind = document.getElementById('colorBlindToggleDisable');
 enableColorBlind.addEventListener('click', () => setColors(true));
 disableColorBlind.addEventListener('click', () => setColors(false));
+
+// DARK MODES
+async function setDarkMode(enable, saveToDb = true) {
+    if (enable) {
+        document.documentElement.style.setProperty('--brown', '#583f2cff'); 
+        document.documentElement.style.setProperty('--lightBrown', '#776246ff'); 
+        document.documentElement.style.setProperty('--darkBrown', '#b1a49bff'); 
+        document.documentElement.style.setProperty('--offWhite', '#362d29ff'); 
+        document.documentElement.style.setProperty('--green', '#535a43ff'); 
+        document.documentElement.style.setProperty('--darkGreen', '#818f57ff'); 
+    } else { 
+        document.documentElement.style.setProperty('--brown', '#7F5539'); 
+        document.documentElement.style.setProperty('--lightBrown', '#A68A64'); 
+        document.documentElement.style.setProperty('--darkBrown', '#53351e'); 
+        document.documentElement.style.setProperty('--offWhite', '#EDE0D4'); 
+        document.documentElement.style.setProperty('--green', '#656D4A'); 
+        document.documentElement.style.setProperty('--darkGreen', '#414833'); 
+    }
+    localStorage.setItem('darkMode', enable);  //save preference
+
+    //save to db if user is logged in and saveToDb is true
+    if (saveToDb && currentUser) {
+        try {
+            const { error } = await supabase
+                .from('profiles')
+                .update({ dark_mode: enable })
+                .eq('user_id', currentUser.id);
+            
+            if (error) {
+                console.error('Error saving dark mode setting:', error);
+            }
+        } catch (err) {
+            console.error('Error updating database:', err);
+        }
+    }
+}
+
+// enable/disable buttons
+const enableDark = document.getElementById('darkToggleEnable');
+const disableDark = document.getElementById('darkToggleDisable');
+enableDark.addEventListener('click', () => setDarkMode(true));
+disableDark.addEventListener('click', () => setDarkMode(false));
 
 // USERNAME CHANGE
 const usernameForm = document.getElementById('usernameForm');
