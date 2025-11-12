@@ -12648,3 +12648,481 @@ FROM authors
 WHERE authors.name = $1::VARCHAR
 2025-11-09 23:31:38,400 - INFO - [cached since 1563s ago] ('William Shakespeare',)
 2025-11-09 23:31:38,456 - INFO - ROLLBACK
+2025-11-12 13:07:18,395 - INFO - select pg_catalog.version()
+2025-11-12 13:07:18,399 - INFO - [raw sql] ()
+2025-11-12 13:07:18,578 - INFO - select current_schema()
+2025-11-12 13:07:18,578 - INFO - [raw sql] ()
+2025-11-12 13:07:18,706 - INFO - show standard_conforming_strings
+2025-11-12 13:07:18,706 - INFO - [raw sql] ()
+2025-11-12 13:07:18,888 - INFO - BEGIN (implicit)
+2025-11-12 13:07:18,895 - INFO - SELECT collections.collection_id, collections.user_id, collections.name, collections.description, collections.icon_id, collections.created_at 
+FROM collections 
+WHERE collections.user_id = $1::UUID ORDER BY collections.created_at DESC
+2025-11-12 13:07:18,895 - INFO - [generated in 0.00068s] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00',)
+2025-11-12 13:07:19,007 - INFO - ROLLBACK
+2025-11-12 13:07:31,484 - INFO - BEGIN (implicit)
+2025-11-12 13:07:31,484 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:07:31,484 - INFO - [generated in 0.00054s] ('J.R.R. Tolkien',)
+2025-11-12 13:07:31,611 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-12 13:07:31,611 - INFO - [generated in 0.00173s] ('The Silmarillion', 1)
+2025-11-12 13:07:31,717 - INFO - SELECT count(reviews.review_id) AS count_1, coalesce(sum(reviews.rating), $1::INTEGER) AS coalesce_1, avg(reviews.rating) AS avg_1 
+FROM reviews 
+WHERE reviews.book_id = $2::INTEGER
+2025-11-12 13:07:31,717 - INFO - [generated in 0.00133s] (0, 13)
+2025-11-12 13:07:31,808 - INFO - SELECT reviews.review_id, reviews.user_id, reviews.book_id, reviews.rating, reviews.text, reviews.created_at 
+FROM reviews 
+WHERE reviews.book_id = $1::INTEGER ORDER BY reviews.review_id DESC
+2025-11-12 13:07:31,808 - INFO - [generated in 0.00116s] (13,)
+2025-11-12 13:07:31,914 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:07:31,919 - INFO - [cached since 0.4294s ago] ('SuperSummary',)
+2025-11-12 13:07:31,998 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:07:31,998 - INFO - [cached since 0.5087s ago] ('J.R.R. Tolkien',)
+2025-11-12 13:07:32,018 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-12 13:07:32,020 - INFO - [cached since 0.4088s ago] ('The Silmarillion. 1/?', 1)
+2025-11-12 13:07:32,097 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:07:32,097 - INFO - [cached since 0.6083s ago] ('Christopher Tolkien ',)
+2025-11-12 13:07:32,119 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:07:32,121 - INFO - [cached since 0.6316s ago] ('chrstopher tolkhen',)
+2025-11-12 13:07:32,140 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:07:32,144 - INFO - [cached since 0.6545s ago] ('J.R.R. Tolkien',)
+2025-11-12 13:07:32,203 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-12 13:07:32,204 - INFO - [cached since 0.5934s ago] ('The Silmarillion. 3/3', 1)
+2025-11-12 13:07:32,227 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:07:32,227 - INFO - [cached since 0.7386s ago] ('Clyde S. Kilby',)
+2025-11-12 13:07:32,302 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:07:32,302 - INFO - [cached since 0.8143s ago] ('Paul H. Kocher',)
+2025-11-12 13:07:32,327 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:07:32,327 - INFO - [cached since 0.8443s ago] ('Rhona Beare',)
+2025-11-12 13:07:32,422 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:07:32,422 - INFO - [cached since 0.9326s ago] ('J.R.R. Tolkien',)
+2025-11-12 13:07:32,442 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-12 13:07:32,443 - INFO - [cached since 0.8317s ago] ('The Silmarillion. 2/3', 1)
+2025-11-12 13:07:32,510 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:07:32,510 - INFO - [cached since 1.022s ago] ('J.R.R. Tolkien',)
+2025-11-12 13:07:32,532 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-12 13:07:32,532 - INFO - [cached since 0.9275s ago] ('THE SILMARILLION CALENDAR 1978', 1)
+2025-11-12 13:07:32,609 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:07:32,609 - INFO - [cached since 1.127s ago] ('Allan, G Turner',)
+2025-11-12 13:07:32,707 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:07:32,707 - INFO - [cached since 1.223s ago] ('Paul Harold Kocher',)
+2025-11-12 13:07:32,734 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:07:32,735 - INFO - [cached since 1.246s ago] ('J.R.R. Tolkien',)
+2025-11-12 13:07:32,818 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-12 13:07:32,819 - INFO - [cached since 1.209s ago] ('The Silmarillion of Beren and Lúthien', 1)
+2025-11-12 13:07:32,847 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:07:32,847 - INFO - [cached since 1.358s ago] ('Clyde Kilby',)
+2025-11-12 13:07:32,919 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:07:32,920 - INFO - [cached since 1.43s ago] ('Richard Mathews',)
+2025-11-12 13:07:32,936 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:07:32,936 - INFO - [cached since 1.451s ago] ('J.R.R. Tolkien',)
+2025-11-12 13:07:32,958 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-12 13:07:32,959 - INFO - [cached since 1.348s ago] ('The Hobbit / Lord of the Rings / Silmarillion', 1)
+2025-11-12 13:07:33,020 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:07:33,020 - INFO - [cached since 1.532s ago] ('Robert Foster',)
+2025-11-12 13:07:33,040 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:07:33,042 - INFO - [cached since 1.553s ago] ('D.R. Lloyd',)
+2025-11-12 13:07:33,120 - INFO - ROLLBACK
+2025-11-12 13:09:56,283 - INFO - select pg_catalog.version()
+2025-11-12 13:09:56,288 - INFO - [raw sql] ()
+2025-11-12 13:09:57,025 - INFO - select current_schema()
+2025-11-12 13:09:57,025 - INFO - [raw sql] ()
+2025-11-12 13:09:57,740 - INFO - show standard_conforming_strings
+2025-11-12 13:09:57,740 - INFO - [raw sql] ()
+2025-11-12 13:09:58,030 - INFO - BEGIN (implicit)
+2025-11-12 13:09:58,039 - INFO - SELECT collections.collection_id 
+FROM collections 
+WHERE collections.user_id = $1::UUID AND lower(collections.name) = $2::VARCHAR
+2025-11-12 13:09:58,039 - INFO - [generated in 0.00105s] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00', 'test collection 2')
+2025-11-12 13:09:58,536 - INFO - SELECT collections.collection_id 
+FROM collections 
+WHERE collections.user_id = $1::UUID AND lower(collections.name) = $2::VARCHAR
+2025-11-12 13:09:58,536 - INFO - [cached since 0.4998s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00', 'test collection 2')
+2025-11-12 13:09:59,085 - INFO - INSERT INTO collections (user_id, name, description, icon_id, created_at) VALUES ($1::UUID, $2::VARCHAR, $3::VARCHAR, $4::INTEGER, $5::TIMESTAMP WITH TIME ZONE) RETURNING collections.collection_id
+2025-11-12 13:09:59,085 - INFO - [generated in 0.00108s] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00', 'Test Collection 2', None, 12, datetime.datetime(2025, 11, 12, 18, 9, 59, 85582, tzinfo=datetime.timezone.utc))
+2025-11-12 13:09:59,358 - INFO - COMMIT
+2025-11-12 13:10:16,409 - INFO - BEGIN (implicit)
+2025-11-12 13:10:16,410 - INFO - SELECT collections.collection_id, collections.user_id, collections.name, collections.description, collections.icon_id, collections.created_at 
+FROM collections 
+WHERE collections.user_id = $1::UUID ORDER BY collections.created_at DESC
+2025-11-12 13:10:16,410 - INFO - [generated in 0.00057s] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00',)
+2025-11-12 13:10:16,514 - INFO - ROLLBACK
+2025-11-12 13:10:33,828 - INFO - BEGIN (implicit)
+2025-11-12 13:10:33,841 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:10:33,843 - INFO - [generated in 0.00070s] ('J.R.R. Tolkien',)
+2025-11-12 13:10:34,023 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-12 13:10:34,034 - INFO - [generated in 0.00145s] ('The Silmarillion', 1)
+2025-11-12 13:10:34,154 - INFO - SELECT count(reviews.review_id) AS count_1, coalesce(sum(reviews.rating), $1::INTEGER) AS coalesce_1, avg(reviews.rating) AS avg_1 
+FROM reviews 
+WHERE reviews.book_id = $2::INTEGER
+2025-11-12 13:10:34,154 - INFO - [generated in 0.00106s] (0, 13)
+2025-11-12 13:10:34,267 - INFO - SELECT reviews.review_id, reviews.user_id, reviews.book_id, reviews.rating, reviews.text, reviews.created_at 
+FROM reviews 
+WHERE reviews.book_id = $1::INTEGER ORDER BY reviews.review_id DESC
+2025-11-12 13:10:34,267 - INFO - [generated in 0.00115s] (13,)
+2025-11-12 13:10:34,363 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:10:34,370 - INFO - [cached since 0.5277s ago] ('SuperSummary',)
+2025-11-12 13:10:34,443 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:10:34,443 - INFO - [cached since 0.6047s ago] ('J.R.R. Tolkien',)
+2025-11-12 13:10:34,478 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-12 13:10:34,478 - INFO - [cached since 0.4463s ago] ('The Silmarillion. 1/?', 1)
+2025-11-12 13:10:34,545 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:10:34,545 - INFO - [cached since 0.704s ago] ('Christopher Tolkien ',)
+2025-11-12 13:10:34,562 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:10:34,562 - INFO - [cached since 0.7335s ago] ('chrstopher tolkhen',)
+2025-11-12 13:10:34,650 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:10:34,650 - INFO - [cached since 0.8091s ago] ('J.R.R. Tolkien',)
+2025-11-12 13:10:34,750 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-12 13:10:34,750 - INFO - [cached since 0.7178s ago] ('The Silmarillion. 3/3', 1)
+2025-11-12 13:10:34,774 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:10:34,774 - INFO - [cached since 0.934s ago] ('Clyde S. Kilby',)
+2025-11-12 13:10:34,855 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:10:34,855 - INFO - [cached since 1.013s ago] ('Paul H. Kocher',)
+2025-11-12 13:10:34,882 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:10:34,882 - INFO - [cached since 1.041s ago] ('Rhona Beare',)
+2025-11-12 13:10:34,951 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:10:34,951 - INFO - [cached since 1.111s ago] ('J.R.R. Tolkien',)
+2025-11-12 13:10:34,971 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-12 13:10:34,971 - INFO - [cached since 0.9443s ago] ('The Silmarillion. 2/3', 1)
+2025-11-12 13:10:35,054 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:10:35,054 - INFO - [cached since 1.215s ago] ('J.R.R. Tolkien',)
+2025-11-12 13:10:35,070 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-12 13:10:35,070 - INFO - [cached since 1.05s ago] ('THE SILMARILLION CALENDAR 1978', 1)
+2025-11-12 13:10:35,166 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:10:35,166 - INFO - [cached since 1.325s ago] ('Allan, G Turner',)
+2025-11-12 13:10:35,260 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:10:35,260 - INFO - [cached since 1.419s ago] ('Paul Harold Kocher',)
+2025-11-12 13:10:35,281 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:10:35,281 - INFO - [cached since 1.448s ago] ('J.R.R. Tolkien',)
+2025-11-12 13:10:35,367 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-12 13:10:35,367 - INFO - [cached since 1.335s ago] ('The Silmarillion of Beren and Lúthien', 1)
+2025-11-12 13:10:35,391 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:10:35,391 - INFO - [cached since 1.552s ago] ('Clyde Kilby',)
+2025-11-12 13:10:35,477 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:10:35,477 - INFO - [cached since 1.637s ago] ('Richard Mathews',)
+2025-11-12 13:10:35,514 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:10:35,516 - INFO - [cached since 1.673s ago] ('J.R.R. Tolkien',)
+2025-11-12 13:10:35,578 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-12 13:10:35,593 - INFO - [cached since 1.56s ago] ('The Hobbit / Lord of the Rings / Silmarillion', 1)
+2025-11-12 13:10:35,698 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:10:35,707 - INFO - [cached since 1.865s ago] ('Robert Foster',)
+2025-11-12 13:10:35,784 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:10:35,784 - INFO - [cached since 1.943s ago] ('D.R. Lloyd',)
+2025-11-12 13:10:35,881 - INFO - ROLLBACK
+2025-11-12 13:10:39,203 - INFO - BEGIN (implicit)
+2025-11-12 13:10:39,203 - INFO - SELECT collections.collection_id, collections.user_id, collections.name, collections.description, collections.icon_id, collections.created_at 
+FROM collections 
+WHERE collections.user_id = $1::UUID ORDER BY collections.created_at DESC
+2025-11-12 13:10:39,203 - INFO - [cached since 22.79s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00',)
+2025-11-12 13:10:39,350 - INFO - ROLLBACK
+2025-11-12 13:10:44,341 - INFO - BEGIN (implicit)
+2025-11-12 13:10:44,341 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:10:44,352 - INFO - [cached since 10.51s ago] ('J.R.R. Tolkien',)
+2025-11-12 13:10:44,580 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-12 13:10:44,580 - INFO - [cached since 10.55s ago] ('The Silmarillion', 1)
+2025-11-12 13:10:44,679 - INFO - 
+                    INSERT INTO collection_books (collection_id, book_id)
+                    VALUES ($1, $2)
+                    ON CONFLICT DO NOTHING
+                
+2025-11-12 13:10:44,679 - INFO - [generated in 0.00116s] (1, 13)
+2025-11-12 13:10:44,809 - INFO - COMMIT
+2025-11-12 13:11:24,934 - INFO - BEGIN (implicit)
+2025-11-12 13:11:24,935 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:11:24,935 - INFO - [cached since 51.09s ago] ('J.R.R. Tolkien',)
+2025-11-12 13:11:25,027 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-12 13:11:25,027 - INFO - [cached since 51s ago] ('The Lord of the Rings', 1)
+2025-11-12 13:11:25,141 - INFO - SELECT count(reviews.review_id) AS count_1, coalesce(sum(reviews.rating), $1::INTEGER) AS coalesce_1, avg(reviews.rating) AS avg_1 
+FROM reviews 
+WHERE reviews.book_id = $2::INTEGER
+2025-11-12 13:11:25,141 - INFO - [cached since 50.99s ago] (0, 12)
+2025-11-12 13:11:25,175 - INFO - SELECT reviews.review_id, reviews.user_id, reviews.book_id, reviews.rating, reviews.text, reviews.created_at 
+FROM reviews 
+WHERE reviews.book_id = $1::INTEGER ORDER BY reviews.review_id DESC
+2025-11-12 13:11:25,175 - INFO - [cached since 50.9s ago] (12,)
+2025-11-12 13:11:25,239 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:11:25,239 - INFO - [cached since 51.4s ago] ('J.R.R. Tolkien',)
+2025-11-12 13:11:25,266 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-12 13:11:25,266 - INFO - [cached since 51.23s ago] ('The Two Towers', 1)
+2025-11-12 13:11:25,329 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:11:25,331 - INFO - [cached since 51.49s ago] ('J.R.R. Tolkien',)
+2025-11-12 13:11:25,354 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-12 13:11:25,354 - INFO - [cached since 51.32s ago] ('The Fellowship of the Ring', 1)
+2025-11-12 13:11:25,376 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:11:25,376 - INFO - [cached since 51.54s ago] ('J.R.R. Tolkien',)
+2025-11-12 13:11:25,431 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-12 13:11:25,432 - INFO - [cached since 51.4s ago] ('The Return of the King', 1)
+2025-11-12 13:11:25,456 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:11:25,456 - INFO - [cached since 51.62s ago] ('J.R.R. Tolkien',)
+2025-11-12 13:11:25,486 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-12 13:11:25,488 - INFO - [cached since 51.45s ago] ('Novels (Hobbit / Lord of the Rings)', 1)
+2025-11-12 13:11:25,547 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:11:25,547 - INFO - [cached since 51.71s ago] ('J.R.R. Tolkien',)
+2025-11-12 13:11:25,572 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-12 13:11:25,572 - INFO - [cached since 51.54s ago] ('The Hobbit', 1)
+2025-11-12 13:11:25,651 - INFO - SELECT count(reviews.review_id) AS count_1, coalesce(sum(reviews.rating), $1::INTEGER) AS coalesce_1, avg(reviews.rating) AS avg_1 
+FROM reviews 
+WHERE reviews.book_id = $2::INTEGER
+2025-11-12 13:11:25,652 - INFO - [cached since 51.5s ago] (0, 4)
+2025-11-12 13:11:25,683 - INFO - SELECT reviews.review_id, reviews.user_id, reviews.book_id, reviews.rating, reviews.text, reviews.created_at 
+FROM reviews 
+WHERE reviews.book_id = $1::INTEGER ORDER BY reviews.review_id DESC
+2025-11-12 13:11:25,683 - INFO - [cached since 51.41s ago] (4,)
+2025-11-12 13:11:25,751 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:11:25,751 - INFO - [cached since 51.91s ago] ('The Lord Of The Rings Publishing',)
+2025-11-12 13:11:25,780 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:11:25,780 - INFO - [cached since 51.94s ago] ('Chris Conkling',)
+2025-11-12 13:11:25,846 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:11:25,846 - INFO - [cached since 52.01s ago] ('Henry Beard',)
+2025-11-12 13:11:25,875 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:11:25,875 - INFO - [cached since 52.04s ago] ('J.R.R. Tolkien',)
+2025-11-12 13:11:25,958 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-12 13:11:25,958 - INFO - [cached since 51.93s ago] ('The Return of the Shadow', 1)
+2025-11-12 13:11:25,987 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:11:25,987 - INFO - [cached since 52.15s ago] ('Brian Sibley',)
+2025-11-12 13:11:26,058 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:11:26,058 - INFO - [cached since 52.22s ago] ('Patrick Gardner',)
+2025-11-12 13:11:26,082 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:11:26,082 - INFO - [cached since 52.24s ago] ('J.R.R. Tolkien',)
+2025-11-12 13:11:26,160 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-12 13:11:26,161 - INFO - [cached since 52.13s ago] ('The War of the Ring', 1)
+2025-11-12 13:11:26,189 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:11:26,190 - INFO - [cached since 52.35s ago] ('Wayne G. Hammond',)
+2025-11-12 13:11:26,254 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:11:26,254 - INFO - [cached since 52.42s ago] ('Phil Anderson',)
+2025-11-12 13:11:26,284 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:11:26,284 - INFO - [cached since 52.45s ago] ('Jude Fisher',)
+2025-11-12 13:11:26,301 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:11:26,301 - INFO - [cached since 52.47s ago] ('Alessio Cavatore',)
+2025-11-12 13:11:26,381 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:11:26,381 - INFO - [cached since 52.54s ago] ('J.R.R. Tolkien',)
+2025-11-12 13:11:26,398 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-12 13:11:26,398 - INFO - [cached since 52.38s ago] ('Poems from The lord of the rings', 1)
+2025-11-12 13:11:26,454 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:11:26,456 - INFO - [cached since 52.61s ago] ('Cedco Publishing',)
+2025-11-12 13:11:26,479 - INFO - ROLLBACK
+2025-11-12 13:11:30,258 - INFO - BEGIN (implicit)
+2025-11-12 13:11:30,258 - INFO - SELECT collections.collection_id, collections.user_id, collections.name, collections.description, collections.icon_id, collections.created_at 
+FROM collections 
+WHERE collections.user_id = $1::UUID ORDER BY collections.created_at DESC
+2025-11-12 13:11:30,258 - INFO - [cached since 73.86s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00',)
+2025-11-12 13:11:30,354 - INFO - ROLLBACK
+2025-11-12 13:11:34,563 - INFO - BEGIN (implicit)
+2025-11-12 13:11:34,563 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:11:34,563 - INFO - [cached since 60.72s ago] ('J.R.R. Tolkien',)
+2025-11-12 13:11:34,648 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-12 13:11:34,648 - INFO - [cached since 60.63s ago] ('The Lord of the Rings', 1)
+2025-11-12 13:11:34,685 - INFO - 
+                    INSERT INTO collection_books (collection_id, book_id)
+                    VALUES ($1, $2)
+                    ON CONFLICT DO NOTHING
+                
+2025-11-12 13:11:34,685 - INFO - [cached since 50s ago] (1, 12)
+2025-11-12 13:11:34,750 - INFO - COMMIT
+2025-11-12 13:11:40,594 - INFO - BEGIN (implicit)
+2025-11-12 13:11:40,594 - INFO - SELECT collections.collection_id, collections.user_id, collections.name, collections.description, collections.icon_id, collections.created_at 
+FROM collections 
+WHERE collections.user_id = $1::UUID ORDER BY collections.created_at DESC
+2025-11-12 13:11:40,594 - INFO - [cached since 84.19s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00',)
+2025-11-12 13:11:40,699 - INFO - ROLLBACK
+2025-11-12 13:11:43,292 - INFO - BEGIN (implicit)
+2025-11-12 13:11:43,294 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 13:11:43,294 - INFO - [cached since 69.45s ago] ('J.R.R. Tolkien',)
+2025-11-12 13:11:43,391 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-12 13:11:43,391 - INFO - [cached since 69.36s ago] ('The Lord of the Rings', 1)
+2025-11-12 13:11:43,471 - INFO - 
+                    INSERT INTO collection_books (collection_id, book_id)
+                    VALUES ($1, $2)
+                    ON CONFLICT DO NOTHING
+                
+2025-11-12 13:11:43,471 - INFO - [cached since 58.79s ago] (2, 12)
+2025-11-12 13:11:43,491 - INFO - COMMIT
+2025-11-12 13:12:41,851 - INFO - BEGIN (implicit)
+2025-11-12 13:12:41,851 - INFO - SELECT collections.collection_id, collections.user_id, collections.name, collections.description, collections.icon_id, collections.created_at 
+FROM collections 
+WHERE collections.user_id = $1::UUID ORDER BY collections.created_at DESC
+2025-11-12 13:12:41,851 - INFO - [cached since 145.4s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00',)
+2025-11-12 13:12:41,941 - INFO - ROLLBACK
+2025-11-12 13:12:48,274 - INFO - BEGIN (implicit)
+2025-11-12 13:12:48,290 - INFO - SELECT collections.collection_id, collections.user_id, collections.name, collections.description, collections.icon_id, collections.created_at 
+FROM collections 
+WHERE collections.user_id = $1::UUID ORDER BY collections.created_at DESC
+2025-11-12 13:12:48,290 - INFO - [cached since 151.9s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00',)
+2025-11-12 13:12:48,372 - INFO - ROLLBACK
+2025-11-12 13:12:54,842 - INFO - BEGIN (implicit)
+2025-11-12 13:12:54,842 - INFO - SELECT collections.collection_id, collections.user_id, collections.name, collections.description, collections.icon_id, collections.created_at 
+FROM collections 
+WHERE collections.user_id = $1::UUID ORDER BY collections.created_at DESC
+2025-11-12 13:12:54,842 - INFO - [cached since 158.4s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00',)
+2025-11-12 13:12:54,944 - INFO - ROLLBACK
