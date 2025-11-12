@@ -30,9 +30,7 @@ function initCollectionsUI(){
 
     if (!collectionId) {
       const tr = document.createElement('tr');
-      const td = document.createElement('td');
-      td.textContent = 'No collection selected.';
-      tr.appendChild(td);
+      tr.innerHTML = `<td colspan="4">No collection selected.</td>`;
       tbody.appendChild(tr);
       return;
     }
@@ -45,26 +43,28 @@ function initCollectionsUI(){
 
       if (books.length === 0) {
         const tr = document.createElement('tr');
-        const td = document.createElement('td');
-        td.textContent = 'No books in this collection yet.';
-        tr.appendChild(td);
+        tr.innerHTML = `<td colspan="4">No books in this collection yet.</td>`;
         tbody.appendChild(tr);
         return;
       }
 
       books.forEach(b => {
         const tr = document.createElement('tr');
-        const td = document.createElement('td');
-        td.textContent = b.title || '(Untitled)';
-        tr.appendChild(td);
+
+        //Cover image cell
+        const coverUrl = b.cover_img_url || '../images/bookCoverDefault.svg';
+        tr.innerHTML = `
+          <td><img src="${coverUrl}" alt="Cover" style="height:80px; border-radius:6px;"></td>
+          <td>${b.title || '(Untitled)'}</td>
+          <td>${b.author_name || 'Unknown Author'}</td>
+          <td>${b.year_published || ''}</td>
+        `;
         tbody.appendChild(tr);
       });
     } catch (err) {
       console.error("Error loading books for collection:", err);
       const tr = document.createElement('tr');
-      const td = document.createElement('td');
-      td.textContent = 'Error loading books.';
-      tr.appendChild(td);
+      tr.innerHTML = `<td colspan="4">Error loading books.</td>`;
       tbody.appendChild(tr);
     }
   }
