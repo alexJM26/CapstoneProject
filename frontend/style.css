@@ -513,6 +513,9 @@ input[type=checkbox] {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.popup.show {
+    display: grid;
+}
 .close {
     font-size: 1.5rem;
     cursor: pointer;
@@ -528,6 +531,25 @@ input[type=checkbox] {
 }
 
 /* POPUP SPECIFICS =====================================================================================================================| */
+.popupContentEditProfile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--green);
+    grid-column: 2;
+    height: 100%;
+    overflow-y: auto;
+    color: var(--offWhite);
+    z-index: 10000;
+    padding: 2%;         
+    justify-content: flex-start; 
+    text-align: center;
+}
+.popupContentEditProfile form {
+    width: 80%;
+    align-items: left;
+    text-align: left;
+}
 .popupContentReview {
     display: none;
     flex-direction: column;

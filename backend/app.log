@@ -13635,3 +13635,97 @@ FROM collections
 WHERE collections.user_id = $1::UUID ORDER BY collections.created_at DESC
 2025-11-12 14:38:01,719 - INFO - [cached since 1781s ago] ('73e9aabe-00c4-424b-a8ee-5739faf6c740',)
 2025-11-12 14:38:01,954 - INFO - ROLLBACK
+2025-11-12 15:16:10,685 - INFO - select pg_catalog.version()
+2025-11-12 15:16:10,685 - INFO - [raw sql] ()
+2025-11-12 15:16:10,940 - INFO - select current_schema()
+2025-11-12 15:16:10,940 - INFO - [raw sql] ()
+2025-11-12 15:16:11,195 - INFO - show standard_conforming_strings
+2025-11-12 15:16:11,195 - INFO - [raw sql] ()
+2025-11-12 15:16:11,364 - INFO - BEGIN (implicit)
+2025-11-12 15:16:11,369 - INFO - SELECT collections.collection_id, collections.user_id, collections.name, collections.description, collections.icon_id, collections.created_at 
+FROM collections 
+WHERE collections.user_id = $1::UUID ORDER BY collections.created_at DESC
+2025-11-12 15:16:11,369 - INFO - [generated in 0.00035s] ('73e9aabe-00c4-424b-a8ee-5739faf6c740',)
+2025-11-12 15:16:11,540 - INFO - ROLLBACK
+2025-11-12 15:16:17,206 - INFO - BEGIN (implicit)
+2025-11-12 15:16:17,206 - INFO - SELECT collections.collection_id, collections.user_id, collections.name, collections.description, collections.icon_id, collections.created_at 
+FROM collections 
+WHERE collections.user_id = $1::UUID ORDER BY collections.created_at DESC
+2025-11-12 15:16:17,206 - INFO - [cached since 5.838s ago] ('73e9aabe-00c4-424b-a8ee-5739faf6c740',)
+2025-11-12 15:16:17,336 - INFO - ROLLBACK
+2025-11-12 15:16:18,165 - INFO - BEGIN (implicit)
+2025-11-12 15:16:18,166 - INFO - SELECT 1 FROM collections WHERE collection_id = $1 AND user_id = $2
+2025-11-12 15:16:18,166 - INFO - [generated in 0.00036s] (3, '73e9aabe-00c4-424b-a8ee-5739faf6c740')
+2025-11-12 15:16:18,410 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-12 15:16:18,410 - INFO - [generated in 0.00036s] (3,)
+2025-11-12 15:16:18,540 - INFO - ROLLBACK
+2025-11-12 15:16:28,356 - INFO - BEGIN (implicit)
+2025-11-12 15:16:28,357 - INFO - SELECT collections.collection_id, collections.user_id, collections.name, collections.description, collections.icon_id, collections.created_at 
+FROM collections 
+WHERE collections.user_id = $1::UUID ORDER BY collections.created_at DESC
+2025-11-12 15:16:28,357 - INFO - [cached since 16.99s ago] ('73e9aabe-00c4-424b-a8ee-5739faf6c740',)
+2025-11-12 15:16:28,475 - INFO - ROLLBACK
+2025-11-12 15:16:28,595 - INFO - BEGIN (implicit)
+2025-11-12 15:16:28,595 - INFO - SELECT 1 FROM collections WHERE collection_id = $1 AND user_id = $2
+2025-11-12 15:16:28,595 - INFO - [cached since 10.43s ago] (3, '73e9aabe-00c4-424b-a8ee-5739faf6c740')
+2025-11-12 15:16:28,715 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-12 15:16:28,715 - INFO - [cached since 10.3s ago] (3,)
+2025-11-12 15:16:28,780 - INFO - ROLLBACK
+2025-11-12 15:16:37,507 - INFO - BEGIN (implicit)
+2025-11-12 15:16:37,507 - INFO - SELECT collections.collection_id, collections.user_id, collections.name, collections.description, collections.icon_id, collections.created_at 
+FROM collections 
+WHERE collections.user_id = $1::UUID ORDER BY collections.created_at DESC
+2025-11-12 15:16:37,507 - INFO - [cached since 26.14s ago] ('73e9aabe-00c4-424b-a8ee-5739faf6c740',)
+2025-11-12 15:16:37,621 - INFO - ROLLBACK
+2025-11-12 15:16:37,751 - INFO - BEGIN (implicit)
+2025-11-12 15:16:37,752 - INFO - SELECT 1 FROM collections WHERE collection_id = $1 AND user_id = $2
+2025-11-12 15:16:37,752 - INFO - [cached since 19.59s ago] (3, '73e9aabe-00c4-424b-a8ee-5739faf6c740')
+2025-11-12 15:16:37,870 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-12 15:16:37,871 - INFO - [cached since 19.46s ago] (3,)
+2025-11-12 15:16:37,935 - INFO - ROLLBACK
+2025-11-12 15:17:18,547 - INFO - select pg_catalog.version()
+2025-11-12 15:17:18,547 - INFO - [raw sql] ()
+2025-11-12 15:17:18,786 - INFO - select current_schema()
+2025-11-12 15:17:18,786 - INFO - [raw sql] ()
+2025-11-12 15:17:19,011 - INFO - show standard_conforming_strings
+2025-11-12 15:17:19,011 - INFO - [raw sql] ()
+2025-11-12 15:17:19,191 - INFO - BEGIN (implicit)
+2025-11-12 15:17:19,194 - INFO - SELECT collections.collection_id, collections.user_id, collections.name, collections.description, collections.icon_id, collections.created_at 
+FROM collections 
+WHERE collections.user_id = $1::UUID ORDER BY collections.created_at DESC
+2025-11-12 15:17:19,194 - INFO - [generated in 0.00032s] ('73e9aabe-00c4-424b-a8ee-5739faf6c740',)
+2025-11-12 15:17:19,366 - INFO - ROLLBACK
+2025-11-12 15:17:19,582 - INFO - BEGIN (implicit)
+2025-11-12 15:17:19,582 - INFO - SELECT 1 FROM collections WHERE collection_id = $1 AND user_id = $2
+2025-11-12 15:17:19,582 - INFO - [generated in 0.00024s] (3, '73e9aabe-00c4-424b-a8ee-5739faf6c740')
+2025-11-12 15:17:19,797 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-12 15:17:19,798 - INFO - [generated in 0.00041s] (3,)
+2025-11-12 15:17:19,917 - INFO - ROLLBACK
