@@ -13126,3 +13126,110 @@ FROM collections
 WHERE collections.user_id = $1::UUID ORDER BY collections.created_at DESC
 2025-11-12 13:12:54,842 - INFO - [cached since 158.4s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00',)
 2025-11-12 13:12:54,944 - INFO - ROLLBACK
+2025-11-12 13:41:35,298 - INFO - select pg_catalog.version()
+2025-11-12 13:41:35,298 - INFO - [raw sql] ()
+2025-11-12 13:41:35,417 - INFO - select current_schema()
+2025-11-12 13:41:35,417 - INFO - [raw sql] ()
+2025-11-12 13:41:35,541 - INFO - show standard_conforming_strings
+2025-11-12 13:41:35,541 - INFO - [raw sql] ()
+2025-11-12 13:41:35,636 - INFO - BEGIN (implicit)
+2025-11-12 13:41:35,648 - INFO - SELECT collections.collection_id, collections.user_id, collections.name, collections.description, collections.icon_id, collections.created_at 
+FROM collections 
+WHERE collections.user_id = $1::UUID ORDER BY collections.created_at DESC
+2025-11-12 13:41:35,648 - INFO - [generated in 0.00103s] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00',)
+2025-11-12 13:41:35,792 - INFO - ROLLBACK
+2025-11-12 13:41:36,448 - INFO - BEGIN (implicit)
+2025-11-12 13:41:36,450 - INFO - SELECT 1 FROM collections WHERE collection_id = $1 AND user_id = $2
+2025-11-12 13:41:36,450 - INFO - [generated in 0.00068s] (2, 'a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00')
+2025-11-12 13:41:36,630 - INFO - 
+            SELECT b.book_id, b.title, b.author_name, b.first_publish_year, b.cover
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            WHERE cb.collection_id = $1
+        
+2025-11-12 13:41:36,631 - INFO - [generated in 0.00138s] (2,)
+2025-11-12 13:41:36,724 - INFO - ROLLBACK
+2025-11-12 13:41:40,114 - INFO - BEGIN (implicit)
+2025-11-12 13:41:40,114 - INFO - SELECT 1 FROM collections WHERE collection_id = $1 AND user_id = $2
+2025-11-12 13:41:40,114 - INFO - [cached since 3.667s ago] (1, 'a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00')
+2025-11-12 13:41:40,239 - INFO - 
+            SELECT b.book_id, b.title, b.author_name, b.first_publish_year, b.cover
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            WHERE cb.collection_id = $1
+        
+2025-11-12 13:41:40,239 - INFO - [cached since 3.61s ago] (1,)
+2025-11-12 13:41:40,327 - INFO - ROLLBACK
+2025-11-12 13:46:17,898 - INFO - BEGIN (implicit)
+2025-11-12 13:46:17,898 - INFO - SELECT 1 FROM collections WHERE collection_id = $1 AND user_id = $2
+2025-11-12 13:46:17,898 - INFO - [cached since 281.5s ago] (2, 'a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00')
+2025-11-12 13:46:18,007 - INFO - 
+            SELECT b.book_id, b.title, b.author_name, b.first_publish_year, b.cover
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            WHERE cb.collection_id = $1
+        
+2025-11-12 13:46:18,007 - INFO - [cached since 281.4s ago] (2,)
+2025-11-12 13:46:18,173 - INFO - ROLLBACK
+2025-11-12 13:46:20,534 - INFO - BEGIN (implicit)
+2025-11-12 13:46:20,534 - INFO - SELECT 1 FROM collections WHERE collection_id = $1 AND user_id = $2
+2025-11-12 13:46:20,534 - INFO - [cached since 284.1s ago] (1, 'a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00')
+2025-11-12 13:46:20,598 - INFO - 
+            SELECT b.book_id, b.title, b.author_name, b.first_publish_year, b.cover
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            WHERE cb.collection_id = $1
+        
+2025-11-12 13:46:20,598 - INFO - [cached since 284s ago] (1,)
+2025-11-12 13:46:20,731 - INFO - ROLLBACK
+2025-11-12 14:15:40,342 - INFO - select pg_catalog.version()
+2025-11-12 14:15:40,342 - INFO - [raw sql] ()
+2025-11-12 14:15:40,446 - INFO - select current_schema()
+2025-11-12 14:15:40,446 - INFO - [raw sql] ()
+2025-11-12 14:15:40,547 - INFO - show standard_conforming_strings
+2025-11-12 14:15:40,547 - INFO - [raw sql] ()
+2025-11-12 14:15:40,629 - INFO - BEGIN (implicit)
+2025-11-12 14:15:40,639 - INFO - SELECT collections.collection_id, collections.user_id, collections.name, collections.description, collections.icon_id, collections.created_at 
+FROM collections 
+WHERE collections.user_id = $1::UUID ORDER BY collections.created_at DESC
+2025-11-12 14:15:40,641 - INFO - [generated in 0.00252s] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00',)
+2025-11-12 14:15:40,733 - INFO - ROLLBACK
+2025-11-12 14:15:41,198 - INFO - BEGIN (implicit)
+2025-11-12 14:15:41,212 - INFO - SELECT 1 FROM collections WHERE collection_id = $1 AND user_id = $2
+2025-11-12 14:15:41,212 - INFO - [generated in 0.00078s] (2, 'a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00')
+2025-11-12 14:15:41,327 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-12 14:15:41,341 - INFO - [generated in 0.00152s] (2,)
+2025-11-12 14:15:41,408 - INFO - ROLLBACK
+2025-11-12 14:15:43,986 - INFO - BEGIN (implicit)
+2025-11-12 14:15:43,986 - INFO - SELECT 1 FROM collections WHERE collection_id = $1 AND user_id = $2
+2025-11-12 14:15:43,986 - INFO - [cached since 2.779s ago] (1, 'a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00')
+2025-11-12 14:15:44,074 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-12 14:15:44,074 - INFO - [cached since 2.737s ago] (1,)
+2025-11-12 14:15:44,126 - INFO - ROLLBACK
+2025-11-12 14:16:21,868 - INFO - BEGIN (implicit)
+2025-11-12 14:16:21,876 - INFO - SELECT 1 FROM collections WHERE collection_id = $1 AND user_id = $2
+2025-11-12 14:16:21,876 - INFO - [cached since 40.67s ago] (2, 'a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00')
+2025-11-12 14:16:21,978 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-12 14:16:21,978 - INFO - [cached since 40.64s ago] (2,)
+2025-11-12 14:16:22,019 - INFO - ROLLBACK

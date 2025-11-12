@@ -103,3 +103,39 @@ async def add_book_to_collections(
     except Exception as e:
         await db.rollback()
         raise HTTPException(status_code=500, detail=f"Failed to add book to collections: {e}")
+
+@router.get("/get_collection_books/{collection_id}")
+async def get_collection_books(
+    collection_id: int,
+    db = Depends(get_db),
+    current_user_id: str = Depends(get_current_user)
+):
+    #Return all books in a user's specific collection with joined author and book details
+    try:
+        #Verify collection belongs to current user
+        ownership_check = await db.execute(
+            text("SELECT 1 FROM collections WHERE collection_id = :cid AND user_id = :uid"),
+            {"cid": collection_id, "uid": current_user_id}
+        )
+        if ownership_check.scalar_one_or_none() is None:
+            raise HTTPException(status_code=403, detail="Not authorized to view this collection")
+
+        #Retrieve books joined with book details
+        result = await db.execute(text("""
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = :cid
+            ORDER BY cb.position NULLS LAST, b.title
+        """), {"cid": collection_id})
+
+        rows = result.mappings().all()
+        books = [dict(r) for r in rows]
+
+        return {"success": True, "collection_id": collection_id, "books": books}
+    except HTTPException:
+        raise
+    except Exception as e:
+        print(f"Error fetching books for collection {collection_id}: {e}")
+        raise HTTPException(status_code=500, detail="Failed to get collection books")
