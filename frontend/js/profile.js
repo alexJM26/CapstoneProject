@@ -93,7 +93,7 @@ async function loadProfile() {
   // generate icons for collections
   const iconContainer = document.getElementById("iconOptions");
   iconContainer.innerHTML = "";
-  for (let i = 1; i <= 12; i++) {
+  for (let i = 1; i <= 21; i++) {
     const img = document.createElement("img");
     img.src = `../images/collections/${i}.svg`;
     img.classList.add("icon-option");
