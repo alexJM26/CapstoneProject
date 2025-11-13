@@ -77,8 +77,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     try {
         const body = {
             search: query,
-            limit: 20,
-            page: pageCurrent,
+            limit: 50,
             ...(urlParams.has("minRating") ? { minRating: Number(urlParams.get("minRating")) } : {}),
             ...(urlParams.has("maxRating") ? { maxRating: Number(urlParams.get("maxRating")) } : {}),
             ...(urlParams.get("pubDateStart") ? { pubDateStart: urlParams.get("pubDateStart") } : {}),
@@ -390,24 +389,42 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     }
 
+    // constructs the query string for a given page
+    function buildQueryString(page) {
+        // empty params
+        const params = new URLSearchParams();
+
+        // set the parameters
+        params.set("search", query);
+        params.set("page", page);
+        if (minRating) params.set("minRating", minRating);
+        if (maxRating) params.set("maxRating", maxRating);
+        if (pubDateStart) params.set("pubDateStart", pubDateStart);
+        if (pubDateEnd) params.set("pubDateEnd", pubDateEnd);
+
+        return params.toString(); // convert to string
+    }
+
+    // query string for going back a page
     const back = document.getElementById("backPage");
     if (back) {
         back.addEventListener("click", (event) => {
             if (pageCurrent >= 2) {
-                window.location.href = `/subpages/browse.html?search=${encodeURIComponent(query)}&page=${pageCurrent - 1}`;
+                window.location.href = `/subpages/browse.html?${buildQueryString(pageCurrent - 1)}`;
             } else {
-                window.location.href = `/subpages/browse.html?search=${encodeURIComponent(query)}&page=${pageCurrent}`;
+                window.location.href = `/subpages/browse.html?${buildQueryString(pageCurrent)}`;
             }
         });
     }
 
+    // query string for going forward a page
     const next = document.getElementById("nextPage");
     if (next) {
         next.addEventListener("click", (event) => {
             if (pageCurrent < pageTotal) {
-                window.location.href = `/subpages/browse.html?search=${encodeURIComponent(query)}&page=${pageCurrent + 1}`;
+                window.location.href = `/subpages/browse.html?${buildQueryString(pageCurrent + 1)}`;
             } else {
-                window.location.href = `/subpages/browse.html?search=${encodeURIComponent(query)}&page=${pageCurrent}`;
+                window.location.href = `/subpages/browse.html?${buildQueryString(pageCurrent)}`;
             }
         });
     }

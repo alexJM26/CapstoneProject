@@ -15245,3 +15245,2294 @@ FROM authors
 WHERE authors.name = $1::VARCHAR
 2025-11-12 20:05:02,964 - INFO - [cached since 1124s ago] ('Kiyoshi Soya',)
 2025-11-12 20:05:03,024 - INFO - ROLLBACK
+2025-11-12 20:20:07,349 - INFO - select pg_catalog.version()
+2025-11-12 20:20:07,350 - INFO - [raw sql] ()
+2025-11-12 20:20:07,593 - INFO - select current_schema()
+2025-11-12 20:20:07,594 - INFO - [raw sql] ()
+2025-11-12 20:20:07,858 - INFO - show standard_conforming_strings
+2025-11-12 20:20:07,858 - INFO - [raw sql] ()
+2025-11-12 20:20:08,065 - INFO - BEGIN (implicit)
+2025-11-12 20:20:08,067 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:20:08,068 - INFO - [generated in 0.00024s] ('Mark Z. Danielewski',)
+2025-11-12 20:20:08,260 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-12 20:20:08,261 - INFO - [generated in 0.00044s] ('House of Leaves', 5)
+2025-11-12 20:20:08,397 - INFO - SELECT count(reviews.review_id) AS count_1, coalesce(sum(reviews.rating), $1::INTEGER) AS coalesce_1, avg(reviews.rating) AS avg_1 
+FROM reviews 
+WHERE reviews.book_id = $2::INTEGER
+2025-11-12 20:20:08,397 - INFO - [generated in 0.00041s] (0, 7)
+2025-11-12 20:20:08,532 - INFO - SELECT reviews.review_id, reviews.user_id, reviews.book_id, reviews.rating, reviews.text, reviews.created_at 
+FROM reviews 
+WHERE reviews.book_id = $1::INTEGER ORDER BY reviews.review_id DESC
+2025-11-12 20:20:08,532 - INFO - [generated in 0.00033s] (7,)
+2025-11-12 20:20:08,665 - INFO - SELECT profiles.user_id AS profiles_user_id, profiles.username AS profiles_username, profiles.bio AS profiles_bio, profiles.favorite_genres AS profiles_favorite_genres, profiles.favorite_book AS profiles_favorite_book, profiles.avatar_choice AS profiles_avatar_choice, profiles.created_at AS profiles_created_at 
+FROM profiles 
+WHERE profiles.user_id = $1::UUID
+2025-11-12 20:20:08,665 - INFO - [generated in 0.00035s] (UUID('73e9aabe-00c4-424b-a8ee-5739faf6c740'),)
+2025-11-12 20:20:08,824 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:20:08,824 - INFO - [cached since 0.7568s ago] ('Walt Whitman',)
+2025-11-12 20:20:08,883 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:20:08,884 - INFO - [cached since 0.816s ago] ('Edward Gibbon',)
+2025-11-12 20:20:08,949 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:20:08,949 - INFO - [cached since 0.8814s ago] ('Daniel Defoe',)
+2025-11-12 20:20:09,013 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:20:09,014 - INFO - [cached since 0.9463s ago] ('\u038c\u03bc\u03b7\u03c1\u03bf\u03c2',)
+2025-11-12 20:20:09,079 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:20:09,079 - INFO - [cached since 1.011s ago] ('Publius Vergilius Maro',)
+2025-11-12 20:20:09,148 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:20:09,149 - INFO - [cached since 1.081s ago] ('SuperSummary',)
+2025-11-12 20:20:09,213 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:20:09,214 - INFO - [cached since 1.146s ago] ('Nathaniel Tarn',)
+2025-11-12 20:20:09,283 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:20:09,283 - INFO - [cached since 1.216s ago] ('Gebrüder Grimm [Brothers Grimm]',)
+2025-11-12 20:20:09,343 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:20:09,344 - INFO - [cached since 1.276s ago] ('Charles Dickens',)
+2025-11-12 20:20:09,414 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:20:09,414 - INFO - [cached since 1.347s ago] ('United States. General Accounting Office',)
+2025-11-12 20:20:09,479 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:20:09,479 - INFO - [cached since 1.411s ago] ('Arthur Conan Doyle',)
+2025-11-12 20:20:09,555 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:20:09,555 - INFO - [cached since 1.488s ago] ('Bram Stoker',)
+2025-11-12 20:20:09,610 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:20:09,610 - INFO - [cached since 1.542s ago] ('Mitch Albom',)
+2025-11-12 20:20:09,673 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:20:09,673 - INFO - [cached since 1.606s ago] ('J. K. Rowling',)
+2025-11-12 20:20:09,733 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-12 20:20:09,734 - INFO - [cached since 1.474s ago] ('Harry Potter and the Half-Blood Prince', 7)
+2025-11-12 20:20:09,808 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:20:09,809 - INFO - [cached since 1.741s ago] ('Donald Nguyen',)
+2025-11-12 20:20:09,874 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:20:09,874 - INFO - [cached since 1.807s ago] ('Knut Hamsun',)
+2025-11-12 20:20:09,934 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:20:09,934 - INFO - [cached since 1.867s ago] ('Janice M. Gale',)
+2025-11-12 20:20:10,003 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:20:10,004 - INFO - [cached since 1.936s ago] ('United States. General Accounting Office',)
+2025-11-12 20:20:10,069 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:20:10,069 - INFO - [cached since 2.001s ago] ('Kiyoshi Soya',)
+2025-11-12 20:20:10,139 - INFO - ROLLBACK
+2025-11-12 20:21:47,200 - INFO - select pg_catalog.version()
+2025-11-12 20:21:47,201 - INFO - [raw sql] ()
+2025-11-12 20:21:47,421 - INFO - select current_schema()
+2025-11-12 20:21:47,422 - INFO - [raw sql] ()
+2025-11-12 20:21:47,635 - INFO - show standard_conforming_strings
+2025-11-12 20:21:47,635 - INFO - [raw sql] ()
+2025-11-12 20:21:47,805 - INFO - BEGIN (implicit)
+2025-11-12 20:21:47,809 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:21:47,809 - INFO - [generated in 0.00034s] ('Erin Hunter',)
+2025-11-12 20:21:47,967 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:21:47,967 - INFO - [cached since 0.1581s ago] ('Erin Hunter',)
+2025-11-12 20:21:48,016 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:21:48,017 - INFO - [cached since 0.2079s ago] ('Erin Hunter',)
+2025-11-12 20:21:48,066 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:21:48,066 - INFO - [cached since 0.2575s ago] ('Erin Hunter',)
+2025-11-12 20:21:48,116 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:21:48,117 - INFO - [cached since 0.3083s ago] ('Erin Hunter',)
+2025-11-12 20:21:48,176 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:21:48,177 - INFO - [cached since 0.3677s ago] ('Erin Hunter',)
+2025-11-12 20:21:48,227 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:21:48,227 - INFO - [cached since 0.418s ago] ('Erin Hunter',)
+2025-11-12 20:21:48,275 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:21:48,275 - INFO - [cached since 0.4674s ago] ('Tiyana Angel',)
+2025-11-12 20:21:48,331 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:21:48,331 - INFO - [cached since 0.5224s ago] ('Erin Hunter',)
+2025-11-12 20:21:48,381 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:21:48,381 - INFO - [cached since 0.5725s ago] ('Erin Hunter',)
+2025-11-12 20:21:48,431 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:21:48,431 - INFO - [cached since 0.6224s ago] ('Erin Hunter',)
+2025-11-12 20:21:48,481 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:21:48,482 - INFO - [cached since 0.6728s ago] ('Erin Hunter',)
+2025-11-12 20:21:48,543 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:21:48,544 - INFO - [cached since 0.7354s ago] ('Erin Hunter',)
+2025-11-12 20:21:48,626 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:21:48,627 - INFO - [cached since 0.8178s ago] ('Erin Hunter',)
+2025-11-12 20:21:48,676 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:21:48,676 - INFO - [cached since 0.8676s ago] ('Erin Hunter',)
+2025-11-12 20:21:48,730 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:21:48,731 - INFO - [cached since 0.9225s ago] ('SuperSummary',)
+2025-11-12 20:21:48,791 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:21:48,791 - INFO - [cached since 0.9827s ago] ('Erin Hunter',)
+2025-11-12 20:21:48,835 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:21:48,836 - INFO - [cached since 1.028s ago] ('Erin Hunter',)
+2025-11-12 20:21:48,896 - INFO - ROLLBACK
+2025-11-12 20:22:00,637 - INFO - BEGIN (implicit)
+2025-11-12 20:22:00,638 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:00,638 - INFO - [cached since 12.83s ago] ('Erin Hunter',)
+2025-11-12 20:22:00,841 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:00,842 - INFO - [cached since 13.03s ago] ('Erin Hunter',)
+2025-11-12 20:22:00,892 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:00,892 - INFO - [cached since 13.08s ago] ('Erin Hunter',)
+2025-11-12 20:22:00,950 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:00,951 - INFO - [cached since 13.14s ago] ('Erin Hunter',)
+2025-11-12 20:22:01,011 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:01,012 - INFO - [cached since 13.2s ago] ('Erin Hunter',)
+2025-11-12 20:22:01,061 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:01,061 - INFO - [cached since 13.25s ago] ('Erin Hunter',)
+2025-11-12 20:22:01,121 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:01,122 - INFO - [cached since 13.31s ago] ('Erin Hunter',)
+2025-11-12 20:22:01,176 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:01,177 - INFO - [cached since 13.37s ago] ('Tiyana Angel',)
+2025-11-12 20:22:01,236 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:01,236 - INFO - [cached since 13.43s ago] ('Erin Hunter',)
+2025-11-12 20:22:01,286 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:01,287 - INFO - [cached since 13.48s ago] ('Erin Hunter',)
+2025-11-12 20:22:01,342 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:01,342 - INFO - [cached since 13.53s ago] ('Erin Hunter',)
+2025-11-12 20:22:01,391 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:01,392 - INFO - [cached since 13.58s ago] ('Erin Hunter',)
+2025-11-12 20:22:01,446 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:01,446 - INFO - [cached since 13.64s ago] ('Erin Hunter',)
+2025-11-12 20:22:01,496 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:01,497 - INFO - [cached since 13.69s ago] ('Erin Hunter',)
+2025-11-12 20:22:01,547 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:01,547 - INFO - [cached since 13.74s ago] ('Erin Hunter',)
+2025-11-12 20:22:01,601 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:01,601 - INFO - [cached since 13.79s ago] ('SuperSummary',)
+2025-11-12 20:22:01,651 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:01,651 - INFO - [cached since 13.84s ago] ('Erin Hunter',)
+2025-11-12 20:22:01,696 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:01,697 - INFO - [cached since 13.89s ago] ('Erin Hunter',)
+2025-11-12 20:22:01,742 - INFO - ROLLBACK
+2025-11-12 20:22:18,192 - INFO - BEGIN (implicit)
+2025-11-12 20:22:18,192 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:18,192 - INFO - [cached since 30.38s ago] ('Erin Hunter',)
+2025-11-12 20:22:18,306 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:18,307 - INFO - [cached since 30.5s ago] ('Erin Hunter',)
+2025-11-12 20:22:18,356 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:18,357 - INFO - [cached since 30.55s ago] ('Erin Hunter',)
+2025-11-12 20:22:18,407 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:18,407 - INFO - [cached since 30.6s ago] ('Erin Hunter',)
+2025-11-12 20:22:18,457 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:18,457 - INFO - [cached since 30.65s ago] ('Erin Hunter',)
+2025-11-12 20:22:18,511 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:18,511 - INFO - [cached since 30.7s ago] ('Erin Hunter',)
+2025-11-12 20:22:18,566 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:18,566 - INFO - [cached since 30.76s ago] ('Erin Hunter',)
+2025-11-12 20:22:18,621 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:18,622 - INFO - [cached since 30.81s ago] ('Tiyana Angel',)
+2025-11-12 20:22:18,676 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:18,676 - INFO - [cached since 30.87s ago] ('Erin Hunter',)
+2025-11-12 20:22:18,727 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:18,727 - INFO - [cached since 30.92s ago] ('Erin Hunter',)
+2025-11-12 20:22:18,776 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:18,776 - INFO - [cached since 30.97s ago] ('Erin Hunter',)
+2025-11-12 20:22:18,832 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:18,832 - INFO - [cached since 31.02s ago] ('Erin Hunter',)
+2025-11-12 20:22:18,892 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:18,892 - INFO - [cached since 31.08s ago] ('Erin Hunter',)
+2025-11-12 20:22:18,941 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:18,942 - INFO - [cached since 31.13s ago] ('Erin Hunter',)
+2025-11-12 20:22:18,992 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:18,992 - INFO - [cached since 31.18s ago] ('Erin Hunter',)
+2025-11-12 20:22:19,046 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:19,047 - INFO - [cached since 31.24s ago] ('SuperSummary',)
+2025-11-12 20:22:19,097 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:19,097 - INFO - [cached since 31.29s ago] ('Erin Hunter',)
+2025-11-12 20:22:19,146 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:19,146 - INFO - [cached since 31.34s ago] ('Erin Hunter',)
+2025-11-12 20:22:19,203 - INFO - ROLLBACK
+2025-11-12 20:22:27,092 - INFO - BEGIN (implicit)
+2025-11-12 20:22:27,093 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:27,093 - INFO - [cached since 39.28s ago] ('kids M. shop notebook',)
+2025-11-12 20:22:27,212 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:27,212 - INFO - [cached since 39.4s ago] ('Erin Hunter',)
+2025-11-12 20:22:27,272 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:27,273 - INFO - [cached since 39.46s ago] ('Erin Hunter',)
+2025-11-12 20:22:27,327 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:27,327 - INFO - [cached since 39.52s ago] ('Erin Hunter',)
+2025-11-12 20:22:27,377 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:27,377 - INFO - [cached since 39.57s ago] ('Erin Hunter',)
+2025-11-12 20:22:27,426 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:27,427 - INFO - [cached since 39.62s ago] ('Frieda Van Raevels',)
+2025-11-12 20:22:27,482 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:27,483 - INFO - [cached since 39.67s ago] ('Erin Hunter',)
+2025-11-12 20:22:27,531 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:27,532 - INFO - [cached since 39.72s ago] ('Erin Hunter',)
+2025-11-12 20:22:27,582 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:27,583 - INFO - [cached since 39.77s ago] ('Erin Hunter',)
+2025-11-12 20:22:27,632 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:27,632 - INFO - [cached since 39.82s ago] ('Erin Hunter',)
+2025-11-12 20:22:27,682 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:27,682 - INFO - [cached since 39.87s ago] ('Erin Hunter',)
+2025-11-12 20:22:27,742 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:27,742 - INFO - [cached since 39.93s ago] ('Erin Hunter',)
+2025-11-12 20:22:27,792 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:27,792 - INFO - [cached since 39.98s ago] ('Erin Hunter',)
+2025-11-12 20:22:27,847 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:27,848 - INFO - [cached since 40.04s ago] ('Erin Hunter',)
+2025-11-12 20:22:27,902 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:27,902 - INFO - [cached since 40.09s ago] ('Erin Hunter',)
+2025-11-12 20:22:27,952 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:27,953 - INFO - [cached since 40.14s ago] ('Erin Hunter',)
+2025-11-12 20:22:28,003 - INFO - ROLLBACK
+2025-11-12 20:22:54,198 - INFO - BEGIN (implicit)
+2025-11-12 20:22:54,198 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:54,198 - INFO - [cached since 66.39s ago] ('Erin Hunter',)
+2025-11-12 20:22:54,297 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:54,298 - INFO - [cached since 66.49s ago] ('Erin Hunter',)
+2025-11-12 20:22:54,343 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:54,343 - INFO - [cached since 66.53s ago] ('Erin Hunter',)
+2025-11-12 20:22:54,397 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:54,397 - INFO - [cached since 66.59s ago] ('Erin Hunter',)
+2025-11-12 20:22:54,457 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:54,458 - INFO - [cached since 66.65s ago] ('Erin Hunter',)
+2025-11-12 20:22:54,512 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:54,513 - INFO - [cached since 66.7s ago] ('Erin Hunter',)
+2025-11-12 20:22:54,568 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:54,568 - INFO - [cached since 66.76s ago] ('Erin Hunter',)
+2025-11-12 20:22:54,622 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:54,623 - INFO - [cached since 66.81s ago] ('Tiyana Angel',)
+2025-11-12 20:22:54,678 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:54,679 - INFO - [cached since 66.87s ago] ('Erin Hunter',)
+2025-11-12 20:22:54,732 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:54,733 - INFO - [cached since 66.92s ago] ('Erin Hunter',)
+2025-11-12 20:22:54,797 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:54,797 - INFO - [cached since 66.99s ago] ('Erin Hunter',)
+2025-11-12 20:22:54,858 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:54,859 - INFO - [cached since 67.05s ago] ('Erin Hunter',)
+2025-11-12 20:22:54,906 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:54,908 - INFO - [cached since 67.1s ago] ('Erin Hunter',)
+2025-11-12 20:22:54,958 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:54,958 - INFO - [cached since 67.15s ago] ('Erin Hunter',)
+2025-11-12 20:22:55,017 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:55,018 - INFO - [cached since 67.21s ago] ('Erin Hunter',)
+2025-11-12 20:22:55,067 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:55,068 - INFO - [cached since 67.26s ago] ('SuperSummary',)
+2025-11-12 20:22:55,117 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:55,118 - INFO - [cached since 67.31s ago] ('Erin Hunter',)
+2025-11-12 20:22:55,168 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:22:55,168 - INFO - [cached since 67.36s ago] ('Erin Hunter',)
+2025-11-12 20:22:55,218 - INFO - ROLLBACK
+2025-11-12 20:46:06,715 - INFO - BEGIN (implicit)
+2025-11-12 20:46:06,715 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:06,715 - INFO - [cached since 1459s ago] ('Erin Hunter',)
+2025-11-12 20:46:25,263 - INFO - BEGIN (implicit)
+2025-11-12 20:46:25,264 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:25,264 - INFO - [cached since 1477s ago] ('Erin Hunter',)
+2025-11-12 20:46:25,489 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:25,490 - INFO - [cached since 1478s ago] ('Erin Hunter',)
+2025-11-12 20:46:25,554 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:25,554 - INFO - [cached since 1478s ago] ('Erin Hunter',)
+2025-11-12 20:46:25,609 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:25,610 - INFO - [cached since 1478s ago] ('Erin Hunter',)
+2025-11-12 20:46:25,663 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:25,663 - INFO - [cached since 1478s ago] ('Erin Hunter',)
+2025-11-12 20:46:25,719 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:25,719 - INFO - [cached since 1478s ago] ('Erin Hunter',)
+2025-11-12 20:46:25,779 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:25,779 - INFO - [cached since 1478s ago] ('Erin Hunter',)
+2025-11-12 20:46:25,833 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:25,834 - INFO - [cached since 1478s ago] ('Tiyana Angel',)
+2025-11-12 20:46:25,888 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:25,888 - INFO - [cached since 1478s ago] ('Erin Hunter',)
+2025-11-12 20:46:25,953 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:25,954 - INFO - [cached since 1478s ago] ('Erin Hunter',)
+2025-11-12 20:46:26,003 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:26,003 - INFO - [cached since 1478s ago] ('Erin Hunter',)
+2025-11-12 20:46:26,090 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:26,090 - INFO - [cached since 1478s ago] ('Erin Hunter',)
+2025-11-12 20:46:26,144 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:26,144 - INFO - [cached since 1478s ago] ('Erin Hunter',)
+2025-11-12 20:46:26,208 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:26,208 - INFO - [cached since 1478s ago] ('Erin Hunter',)
+2025-11-12 20:46:26,253 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:26,253 - INFO - [cached since 1478s ago] ('Erin Hunter',)
+2025-11-12 20:46:26,320 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:26,320 - INFO - [cached since 1479s ago] ('SuperSummary',)
+2025-11-12 20:46:26,379 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:26,379 - INFO - [cached since 1479s ago] ('Erin Hunter',)
+2025-11-12 20:46:26,438 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:26,439 - INFO - [cached since 1479s ago] ('Erin Hunter',)
+2025-11-12 20:46:26,495 - INFO - ROLLBACK
+2025-11-12 20:46:33,584 - INFO - BEGIN (implicit)
+2025-11-12 20:46:33,585 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:33,585 - INFO - [cached since 1486s ago] ('kids M. shop notebook',)
+2025-11-12 20:46:33,699 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:33,700 - INFO - [cached since 1486s ago] ('Erin Hunter',)
+2025-11-12 20:46:33,754 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:33,754 - INFO - [cached since 1486s ago] ('Erin Hunter',)
+2025-11-12 20:46:33,804 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:33,805 - INFO - [cached since 1486s ago] ('Erin Hunter',)
+2025-11-12 20:46:33,863 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:33,864 - INFO - [cached since 1486s ago] ('Erin Hunter',)
+2025-11-12 20:46:33,929 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:33,929 - INFO - [cached since 1486s ago] ('Frieda Van Raevels',)
+2025-11-12 20:46:33,979 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:33,980 - INFO - [cached since 1486s ago] ('Erin Hunter',)
+2025-11-12 20:46:34,034 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:34,035 - INFO - [cached since 1486s ago] ('Erin Hunter',)
+2025-11-12 20:46:34,088 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:34,088 - INFO - [cached since 1486s ago] ('Erin Hunter',)
+2025-11-12 20:46:34,144 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:34,144 - INFO - [cached since 1486s ago] ('Erin Hunter',)
+2025-11-12 20:46:34,194 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:34,194 - INFO - [cached since 1486s ago] ('Erin Hunter',)
+2025-11-12 20:46:34,259 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:34,260 - INFO - [cached since 1486s ago] ('Erin Hunter',)
+2025-11-12 20:46:34,319 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:34,320 - INFO - [cached since 1487s ago] ('Erin Hunter',)
+2025-11-12 20:46:34,374 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:34,375 - INFO - [cached since 1487s ago] ('Erin Hunter',)
+2025-11-12 20:46:34,428 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:34,428 - INFO - [cached since 1487s ago] ('Erin Hunter',)
+2025-11-12 20:46:34,478 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:34,479 - INFO - [cached since 1487s ago] ('Erin Hunter',)
+2025-11-12 20:46:34,534 - INFO - ROLLBACK
+2025-11-12 20:46:50,051 - INFO - BEGIN (implicit)
+2025-11-12 20:46:50,052 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:50,052 - INFO - [cached since 1502s ago] ('Erin Hunter',)
+2025-11-12 20:46:50,159 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:50,159 - INFO - [cached since 1502s ago] ('Erin Hunter',)
+2025-11-12 20:46:50,219 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:50,219 - INFO - [cached since 1502s ago] ('Erin Hunter',)
+2025-11-12 20:46:50,296 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:50,296 - INFO - [cached since 1502s ago] ('Erin Hunter',)
+2025-11-12 20:46:50,346 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:50,347 - INFO - [cached since 1503s ago] ('Erin Hunter',)
+2025-11-12 20:46:50,435 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:50,435 - INFO - [cached since 1503s ago] ('Erin Hunter',)
+2025-11-12 20:46:50,524 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:50,525 - INFO - [cached since 1503s ago] ('Erin Hunter',)
+2025-11-12 20:46:50,629 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:50,630 - INFO - [cached since 1503s ago] ('Tiyana Angel',)
+2025-11-12 20:46:50,814 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:50,815 - INFO - [cached since 1503s ago] ('Erin Hunter',)
+2025-11-12 20:46:50,890 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:50,890 - INFO - [cached since 1503s ago] ('Erin Hunter',)
+2025-11-12 20:46:50,956 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:50,956 - INFO - [cached since 1503s ago] ('Erin Hunter',)
+2025-11-12 20:46:51,015 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:51,015 - INFO - [cached since 1503s ago] ('Erin Hunter',)
+2025-11-12 20:46:51,070 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:51,071 - INFO - [cached since 1503s ago] ('Erin Hunter',)
+2025-11-12 20:46:51,130 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:51,131 - INFO - [cached since 1503s ago] ('Erin Hunter',)
+2025-11-12 20:46:51,186 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:51,186 - INFO - [cached since 1503s ago] ('Erin Hunter',)
+2025-11-12 20:46:51,245 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:51,245 - INFO - [cached since 1503s ago] ('SuperSummary',)
+2025-11-12 20:46:51,305 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:51,306 - INFO - [cached since 1503s ago] ('Erin Hunter',)
+2025-11-12 20:46:51,370 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:46:51,371 - INFO - [cached since 1504s ago] ('Erin Hunter',)
+2025-11-12 20:46:51,416 - INFO - ROLLBACK
+2025-11-12 20:48:43,458 - INFO - BEGIN (implicit)
+2025-11-12 20:48:43,458 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:48:43,459 - INFO - [cached since 1616s ago] ('Erin Hunter',)
+2025-11-12 20:48:43,572 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:48:43,572 - INFO - [cached since 1616s ago] ('Erin Hunter',)
+2025-11-12 20:48:43,633 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:48:43,634 - INFO - [cached since 1616s ago] ('Erin Hunter',)
+2025-11-12 20:48:43,702 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:48:43,703 - INFO - [cached since 1616s ago] ('Erin Hunter',)
+2025-11-12 20:48:43,757 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:48:43,758 - INFO - [cached since 1616s ago] ('Erin Hunter',)
+2025-11-12 20:48:43,817 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:48:43,818 - INFO - [cached since 1616s ago] ('Erin Hunter',)
+2025-11-12 20:48:43,878 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:48:43,878 - INFO - [cached since 1616s ago] ('Erin Hunter',)
+2025-11-12 20:48:43,932 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:48:43,932 - INFO - [cached since 1616s ago] ('Tiyana Angel',)
+2025-11-12 20:48:43,987 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:48:43,988 - INFO - [cached since 1616s ago] ('Erin Hunter',)
+2025-11-12 20:48:44,046 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:48:44,047 - INFO - [cached since 1616s ago] ('Erin Hunter',)
+2025-11-12 20:48:44,102 - INFO - ROLLBACK
+2025-11-12 20:48:48,022 - INFO - BEGIN (implicit)
+2025-11-12 20:48:48,024 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:48:48,024 - INFO - [cached since 1620s ago] ('Erin Hunter',)
+2025-11-12 20:48:48,137 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:48:48,137 - INFO - [cached since 1620s ago] ('Erin Hunter',)
+2025-11-12 20:48:48,197 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:48:48,198 - INFO - [cached since 1620s ago] ('Erin Hunter',)
+2025-11-12 20:48:48,257 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:48:48,258 - INFO - [cached since 1620s ago] ('Erin Hunter',)
+2025-11-12 20:48:48,307 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:48:48,308 - INFO - [cached since 1620s ago] ('Erin Hunter',)
+2025-11-12 20:48:48,367 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:48:48,367 - INFO - [cached since 1621s ago] ('Erin Hunter',)
+2025-11-12 20:48:48,422 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:48:48,422 - INFO - [cached since 1621s ago] ('Erin Hunter',)
+2025-11-12 20:48:48,467 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:48:48,468 - INFO - [cached since 1621s ago] ('Tiyana Angel',)
+2025-11-12 20:48:48,517 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:48:48,518 - INFO - [cached since 1621s ago] ('Erin Hunter',)
+2025-11-12 20:48:48,575 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:48:48,575 - INFO - [cached since 1621s ago] ('Erin Hunter',)
+2025-11-12 20:48:48,628 - INFO - ROLLBACK
+2025-11-12 20:48:58,994 - INFO - BEGIN (implicit)
+2025-11-12 20:48:58,994 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:48:58,995 - INFO - [cached since 1631s ago] ('Erin Hunter',)
+2025-11-12 20:48:59,103 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:48:59,104 - INFO - [cached since 1631s ago] ('Erin Hunter',)
+2025-11-12 20:48:59,163 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:48:59,163 - INFO - [cached since 1631s ago] ('Erin Hunter',)
+2025-11-12 20:48:59,222 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:48:59,222 - INFO - [cached since 1631s ago] ('Erin Hunter',)
+2025-11-12 20:48:59,267 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:48:59,267 - INFO - [cached since 1631s ago] ('Erin Hunter',)
+2025-11-12 20:48:59,317 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:48:59,318 - INFO - [cached since 1632s ago] ('Erin Hunter',)
+2025-11-12 20:48:59,373 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:48:59,374 - INFO - [cached since 1632s ago] ('Erin Hunter',)
+2025-11-12 20:48:59,418 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:48:59,419 - INFO - [cached since 1632s ago] ('Tiyana Angel',)
+2025-11-12 20:48:59,463 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:48:59,464 - INFO - [cached since 1632s ago] ('Erin Hunter',)
+2025-11-12 20:48:59,518 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:48:59,518 - INFO - [cached since 1632s ago] ('Erin Hunter',)
+2025-11-12 20:48:59,568 - INFO - ROLLBACK
+2025-11-12 20:49:07,299 - INFO - BEGIN (implicit)
+2025-11-12 20:49:07,299 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:07,299 - INFO - [cached since 1639s ago] ('Erin Hunter',)
+2025-11-12 20:49:07,398 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:07,399 - INFO - [cached since 1640s ago] ('Erin Hunter',)
+2025-11-12 20:49:07,463 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:07,464 - INFO - [cached since 1640s ago] ('Erin Hunter',)
+2025-11-12 20:49:07,518 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:07,519 - INFO - [cached since 1640s ago] ('Erin Hunter',)
+2025-11-12 20:49:07,573 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:07,573 - INFO - [cached since 1640s ago] ('Erin Hunter',)
+2025-11-12 20:49:07,631 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:07,631 - INFO - [cached since 1640s ago] ('Erin Hunter',)
+2025-11-12 20:49:07,678 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:07,678 - INFO - [cached since 1640s ago] ('Erin Hunter',)
+2025-11-12 20:49:07,733 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:07,734 - INFO - [cached since 1640s ago] ('Tiyana Angel',)
+2025-11-12 20:49:07,802 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:07,802 - INFO - [cached since 1640s ago] ('Erin Hunter',)
+2025-11-12 20:49:07,863 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:07,864 - INFO - [cached since 1640s ago] ('Erin Hunter',)
+2025-11-12 20:49:07,923 - INFO - ROLLBACK
+2025-11-12 20:49:14,629 - INFO - BEGIN (implicit)
+2025-11-12 20:49:14,630 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:14,630 - INFO - [cached since 1647s ago] ('Erin Hunter',)
+2025-11-12 20:49:14,734 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:14,734 - INFO - [cached since 1647s ago] ('Erin Hunter',)
+2025-11-12 20:49:14,778 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:14,779 - INFO - [cached since 1647s ago] ('Erin Hunter',)
+2025-11-12 20:49:14,834 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:14,834 - INFO - [cached since 1647s ago] ('Erin Hunter',)
+2025-11-12 20:49:14,878 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:14,879 - INFO - [cached since 1647s ago] ('Erin Hunter',)
+2025-11-12 20:49:14,934 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:14,934 - INFO - [cached since 1647s ago] ('Erin Hunter',)
+2025-11-12 20:49:15,048 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:15,048 - INFO - [cached since 1647s ago] ('Erin Hunter',)
+2025-11-12 20:49:15,107 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:15,108 - INFO - [cached since 1647s ago] ('Erin Hunter',)
+2025-11-12 20:49:15,174 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:15,174 - INFO - [cached since 1647s ago] ('Erin Hunter',)
+2025-11-12 20:49:15,228 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:15,229 - INFO - [cached since 1647s ago] ('Erin Hunter',)
+2025-11-12 20:49:15,287 - INFO - ROLLBACK
+2025-11-12 20:49:19,802 - INFO - BEGIN (implicit)
+2025-11-12 20:49:19,803 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:19,803 - INFO - [cached since 1652s ago] ('Erin Hunter',)
+2025-11-12 20:49:19,902 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:19,903 - INFO - [cached since 1652s ago] ('Erin Hunter',)
+2025-11-12 20:49:19,952 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:19,953 - INFO - [cached since 1652s ago] ('Erin Hunter',)
+2025-11-12 20:49:20,004 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:20,004 - INFO - [cached since 1652s ago] ('Erin Hunter',)
+2025-11-12 20:49:20,058 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:20,058 - INFO - [cached since 1652s ago] ('Erin Hunter',)
+2025-11-12 20:49:20,163 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:20,163 - INFO - [cached since 1652s ago] ('Erin Hunter',)
+2025-11-12 20:49:20,227 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:20,228 - INFO - [cached since 1652s ago] ('Erin Hunter',)
+2025-11-12 20:49:20,282 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:20,282 - INFO - [cached since 1652s ago] ('Erin Hunter',)
+2025-11-12 20:49:20,339 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:20,339 - INFO - [cached since 1653s ago] ('Erin Hunter',)
+2025-11-12 20:49:20,393 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:20,394 - INFO - [cached since 1653s ago] ('Erin Hunter',)
+2025-11-12 20:49:20,444 - INFO - ROLLBACK
+2025-11-12 20:49:24,925 - INFO - BEGIN (implicit)
+2025-11-12 20:49:24,925 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:24,925 - INFO - [cached since 1657s ago] ('Erin Hunter',)
+2025-11-12 20:49:25,022 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:25,023 - INFO - [cached since 1657s ago] ('Erin Hunter',)
+2025-11-12 20:49:25,079 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:25,079 - INFO - [cached since 1657s ago] ('Erin Hunter',)
+2025-11-12 20:49:25,139 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:25,139 - INFO - [cached since 1657s ago] ('Erin Hunter',)
+2025-11-12 20:49:25,199 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:25,199 - INFO - [cached since 1657s ago] ('Erin Hunter',)
+2025-11-12 20:49:25,243 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:25,243 - INFO - [cached since 1657s ago] ('Erin Hunter',)
+2025-11-12 20:49:25,298 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:25,299 - INFO - [cached since 1657s ago] ('Erin Hunter',)
+2025-11-12 20:49:25,343 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:25,343 - INFO - [cached since 1658s ago] ('Erin Hunter',)
+2025-11-12 20:49:25,401 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:25,401 - INFO - [cached since 1658s ago] ('Erin Hunter',)
+2025-11-12 20:49:25,459 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:25,459 - INFO - [cached since 1658s ago] ('Erin Hunter',)
+2025-11-12 20:49:25,515 - INFO - ROLLBACK
+2025-11-12 20:49:46,162 - ERROR - Failed search_books - request error - type=ReadTimeout url=https://openlibrary.org/search.json?q=book&limit=10&page=1
+2025-11-12 20:49:54,071 - ERROR - Failed search_books - request error - type=ReadTimeout url=https://openlibrary.org/search.json?q=book&limit=10&page=1
+2025-11-12 20:49:59,871 - INFO - BEGIN (implicit)
+2025-11-12 20:49:59,871 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:49:59,871 - INFO - [cached since 1692s ago] ('Françoise Sagan',)
+2025-11-12 20:50:00,013 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:00,014 - INFO - [cached since 1692s ago] ('Joseph Heller',)
+2025-11-12 20:50:00,068 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:00,069 - INFO - [cached since 1692s ago] ('Donald Nguyen',)
+2025-11-12 20:50:00,123 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:00,123 - INFO - [cached since 1692s ago] ('Ann Napolitano',)
+2025-11-12 20:50:00,178 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:00,178 - INFO - [cached since 1692s ago] ('Tere Liye',)
+2025-11-12 20:50:00,234 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:00,234 - INFO - [cached since 1692s ago] ('Amanda Westcott',)
+2025-11-12 20:50:00,290 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:00,290 - INFO - [cached since 1692s ago] ('\u03a0\u03bb\u03ac\u03c4\u03c9\u03bd',)
+2025-11-12 20:50:00,339 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:00,340 - INFO - [cached since 1693s ago] ('Sally Wentworth',)
+2025-11-12 20:50:00,404 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:00,404 - INFO - [cached since 1693s ago] ('Erin Entrada Kelly',)
+2025-11-12 20:50:00,460 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:00,460 - INFO - [cached since 1693s ago] ('\u03a0\u03bb\u03ac\u03c4\u03c9\u03bd',)
+2025-11-12 20:50:00,504 - INFO - ROLLBACK
+2025-11-12 20:50:04,655 - INFO - BEGIN (implicit)
+2025-11-12 20:50:04,655 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:04,657 - INFO - [cached since 1697s ago] ('Françoise Sagan',)
+2025-11-12 20:50:04,764 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:04,765 - INFO - [cached since 1697s ago] ('Joseph Heller',)
+2025-11-12 20:50:04,829 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:04,830 - INFO - [cached since 1697s ago] ('Donald Nguyen',)
+2025-11-12 20:50:04,884 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:04,885 - INFO - [cached since 1697s ago] ('Ann Napolitano',)
+2025-11-12 20:50:04,944 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:04,944 - INFO - [cached since 1697s ago] ('Tere Liye',)
+2025-11-12 20:50:04,989 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:04,990 - INFO - [cached since 1697s ago] ('Amanda Westcott',)
+2025-11-12 20:50:05,044 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:05,045 - INFO - [cached since 1697s ago] ('\u03a0\u03bb\u03ac\u03c4\u03c9\u03bd',)
+2025-11-12 20:50:05,100 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:05,100 - INFO - [cached since 1697s ago] ('Sally Wentworth',)
+2025-11-12 20:50:05,155 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:05,155 - INFO - [cached since 1697s ago] ('Erin Entrada Kelly',)
+2025-11-12 20:50:05,203 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:05,203 - INFO - [cached since 1697s ago] ('\u03a0\u03bb\u03ac\u03c4\u03c9\u03bd',)
+2025-11-12 20:50:05,264 - INFO - ROLLBACK
+2025-11-12 20:50:18,716 - INFO - BEGIN (implicit)
+2025-11-12 20:50:18,716 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:18,716 - INFO - [cached since 1711s ago] ('Françoise Sagan',)
+2025-11-12 20:50:18,834 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:18,835 - INFO - [cached since 1711s ago] ('Joseph Heller',)
+2025-11-12 20:50:18,890 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:18,891 - INFO - [cached since 1711s ago] ('Donald Nguyen',)
+2025-11-12 20:50:18,951 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:18,952 - INFO - [cached since 1711s ago] ('Ann Napolitano',)
+2025-11-12 20:50:19,006 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:19,007 - INFO - [cached since 1711s ago] ('Tere Liye',)
+2025-11-12 20:50:19,059 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:19,060 - INFO - [cached since 1711s ago] ('Amanda Westcott',)
+2025-11-12 20:50:19,114 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:19,114 - INFO - [cached since 1711s ago] ('\u03a0\u03bb\u03ac\u03c4\u03c9\u03bd',)
+2025-11-12 20:50:19,170 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:19,170 - INFO - [cached since 1711s ago] ('Sally Wentworth',)
+2025-11-12 20:50:19,225 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:19,225 - INFO - [cached since 1711s ago] ('Erin Entrada Kelly',)
+2025-11-12 20:50:19,278 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:19,279 - INFO - [cached since 1711s ago] ('\u03a0\u03bb\u03ac\u03c4\u03c9\u03bd',)
+2025-11-12 20:50:19,338 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:19,339 - INFO - [cached since 1712s ago] ('Gaius Julius Caesar',)
+2025-11-12 20:50:19,394 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:19,394 - INFO - [cached since 1712s ago] ('Joanna Cole',)
+2025-11-12 20:50:19,448 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:19,449 - INFO - [cached since 1712s ago] ('Peggy Parish',)
+2025-11-12 20:50:19,498 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:19,499 - INFO - [cached since 1712s ago] ('Begin Smart Books',)
+2025-11-12 20:50:19,575 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:19,575 - INFO - [cached since 1712s ago] ('L. Frank Baum',)
+2025-11-12 20:50:19,629 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:19,630 - INFO - [cached since 1712s ago] ('Audrey Wood',)
+2025-11-12 20:50:19,689 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:19,690 - INFO - [cached since 1712s ago] ('Love Write',)
+2025-11-12 20:50:19,745 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:19,746 - INFO - [cached since 1712s ago] ('Hannah Fry',)
+2025-11-12 20:50:19,800 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:19,800 - INFO - [cached since 1712s ago] ('Eric Berne',)
+2025-11-12 20:50:19,856 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:19,856 - INFO - [cached since 1712s ago] ('Sandra Brown',)
+2025-11-12 20:50:19,911 - INFO - ROLLBACK
+2025-11-12 20:50:24,456 - INFO - BEGIN (implicit)
+2025-11-12 20:50:24,456 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:24,456 - INFO - [cached since 1717s ago] ('Françoise Sagan',)
+2025-11-12 20:50:24,559 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:24,559 - INFO - [cached since 1717s ago] ('Joseph Heller',)
+2025-11-12 20:50:24,609 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:24,610 - INFO - [cached since 1717s ago] ('Donald Nguyen',)
+2025-11-12 20:50:24,660 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:24,660 - INFO - [cached since 1717s ago] ('Ann Napolitano',)
+2025-11-12 20:50:24,715 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:24,715 - INFO - [cached since 1717s ago] ('Tere Liye',)
+2025-11-12 20:50:24,765 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:24,766 - INFO - [cached since 1717s ago] ('Amanda Westcott',)
+2025-11-12 20:50:24,824 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:24,826 - INFO - [cached since 1717s ago] ('\u03a0\u03bb\u03ac\u03c4\u03c9\u03bd',)
+2025-11-12 20:50:24,878 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:24,879 - INFO - [cached since 1717s ago] ('Sally Wentworth',)
+2025-11-12 20:50:24,934 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:24,936 - INFO - [cached since 1717s ago] ('Erin Entrada Kelly',)
+2025-11-12 20:50:24,994 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:24,996 - INFO - [cached since 1717s ago] ('\u03a0\u03bb\u03ac\u03c4\u03c9\u03bd',)
+2025-11-12 20:50:25,046 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:25,046 - INFO - [cached since 1717s ago] ('Gaius Julius Caesar',)
+2025-11-12 20:50:25,100 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:25,101 - INFO - [cached since 1717s ago] ('Joanna Cole',)
+2025-11-12 20:50:25,149 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:25,149 - INFO - [cached since 1717s ago] ('Peggy Parish',)
+2025-11-12 20:50:25,199 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:25,199 - INFO - [cached since 1717s ago] ('Begin Smart Books',)
+2025-11-12 20:50:25,250 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:25,250 - INFO - [cached since 1717s ago] ('L. Frank Baum',)
+2025-11-12 20:50:25,395 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:25,396 - INFO - [cached since 1718s ago] ('Audrey Wood',)
+2025-11-12 20:50:25,440 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:25,440 - INFO - [cached since 1718s ago] ('Love Write',)
+2025-11-12 20:50:25,499 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:25,500 - INFO - [cached since 1718s ago] ('Hannah Fry',)
+2025-11-12 20:50:25,565 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:25,566 - INFO - [cached since 1718s ago] ('Eric Berne',)
+2025-11-12 20:50:25,641 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:50:25,641 - INFO - [cached since 1718s ago] ('Sandra Brown',)
+2025-11-12 20:50:25,695 - INFO - ROLLBACK
+2025-11-12 20:51:30,622 - INFO - BEGIN (implicit)
+2025-11-12 20:51:30,622 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:30,623 - INFO - [cached since 1783s ago] ('Erin Hunter',)
+2025-11-12 20:51:30,766 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:30,766 - INFO - [cached since 1783s ago] ('Erin Hunter',)
+2025-11-12 20:51:30,821 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:30,822 - INFO - [cached since 1783s ago] ('Erin Hunter',)
+2025-11-12 20:51:30,900 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:30,900 - INFO - [cached since 1783s ago] ('Erin Hunter',)
+2025-11-12 20:51:30,957 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:30,957 - INFO - [cached since 1783s ago] ('Erin Hunter',)
+2025-11-12 20:51:31,005 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:31,007 - INFO - [cached since 1783s ago] ('Erin Hunter',)
+2025-11-12 20:51:31,066 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:31,066 - INFO - [cached since 1783s ago] ('Erin Hunter',)
+2025-11-12 20:51:31,121 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:31,122 - INFO - [cached since 1783s ago] ('Tiyana Angel',)
+2025-11-12 20:51:31,176 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:31,177 - INFO - [cached since 1783s ago] ('Erin Hunter',)
+2025-11-12 20:51:31,226 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:31,227 - INFO - [cached since 1783s ago] ('Erin Hunter',)
+2025-11-12 20:51:31,286 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:31,286 - INFO - [cached since 1783s ago] ('Erin Hunter',)
+2025-11-12 20:51:31,346 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:31,346 - INFO - [cached since 1784s ago] ('Erin Hunter',)
+2025-11-12 20:51:31,396 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:31,397 - INFO - [cached since 1784s ago] ('Erin Hunter',)
+2025-11-12 20:51:31,451 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:31,452 - INFO - [cached since 1784s ago] ('Erin Hunter',)
+2025-11-12 20:51:31,512 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:31,512 - INFO - [cached since 1784s ago] ('Erin Hunter',)
+2025-11-12 20:51:31,566 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:31,566 - INFO - [cached since 1784s ago] ('SuperSummary',)
+2025-11-12 20:51:31,957 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:31,958 - INFO - [cached since 1784s ago] ('Erin Hunter',)
+2025-11-12 20:51:32,012 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:32,012 - INFO - [cached since 1784s ago] ('Erin Hunter',)
+2025-11-12 20:51:32,066 - INFO - ROLLBACK
+2025-11-12 20:51:32,402 - INFO - BEGIN (implicit)
+2025-11-12 20:51:32,402 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:32,403 - INFO - [cached since 1785s ago] ('Erin Hunter',)
+2025-11-12 20:51:32,521 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:32,522 - INFO - [cached since 1785s ago] ('Erin Hunter',)
+2025-11-12 20:51:32,581 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:32,581 - INFO - [cached since 1785s ago] ('Erin Hunter',)
+2025-11-12 20:51:32,631 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:32,631 - INFO - [cached since 1785s ago] ('Erin Hunter',)
+2025-11-12 20:51:32,686 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:32,687 - INFO - [cached since 1785s ago] ('Erin Hunter',)
+2025-11-12 20:51:32,746 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:32,747 - INFO - [cached since 1785s ago] ('Erin Hunter',)
+2025-11-12 20:51:32,806 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:32,806 - INFO - [cached since 1785s ago] ('Erin Hunter',)
+2025-11-12 20:51:32,862 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:32,862 - INFO - [cached since 1785s ago] ('Tiyana Angel',)
+2025-11-12 20:51:32,922 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:32,922 - INFO - [cached since 1785s ago] ('Erin Hunter',)
+2025-11-12 20:51:32,971 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:32,971 - INFO - [cached since 1785s ago] ('Erin Hunter',)
+2025-11-12 20:51:33,026 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:33,027 - INFO - [cached since 1785s ago] ('Erin Hunter',)
+2025-11-12 20:51:33,081 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:33,081 - INFO - [cached since 1785s ago] ('Erin Hunter',)
+2025-11-12 20:51:33,142 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:33,142 - INFO - [cached since 1785s ago] ('Erin Hunter',)
+2025-11-12 20:51:33,201 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:33,202 - INFO - [cached since 1785s ago] ('Erin Hunter',)
+2025-11-12 20:51:33,255 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:33,256 - INFO - [cached since 1785s ago] ('Erin Hunter',)
+2025-11-12 20:51:33,322 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:33,322 - INFO - [cached since 1786s ago] ('SuperSummary',)
+2025-11-12 20:51:33,377 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:33,377 - INFO - [cached since 1786s ago] ('Erin Hunter',)
+2025-11-12 20:51:33,427 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:33,427 - INFO - [cached since 1786s ago] ('Erin Hunter',)
+2025-11-12 20:51:33,478 - INFO - ROLLBACK
+2025-11-12 20:51:36,963 - INFO - BEGIN (implicit)
+2025-11-12 20:51:36,963 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:36,964 - INFO - [cached since 1789s ago] ('Erin Hunter',)
+2025-11-12 20:51:37,097 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:37,097 - INFO - [cached since 1789s ago] ('Erin Hunter',)
+2025-11-12 20:51:37,177 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:37,177 - INFO - [cached since 1789s ago] ('Erin Hunter',)
+2025-11-12 20:51:37,237 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:37,237 - INFO - [cached since 1789s ago] ('Erin Hunter',)
+2025-11-12 20:51:37,297 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:37,297 - INFO - [cached since 1789s ago] ('Erin Hunter',)
+2025-11-12 20:51:37,353 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:37,353 - INFO - [cached since 1790s ago] ('Erin Hunter',)
+2025-11-12 20:51:37,403 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:37,403 - INFO - [cached since 1790s ago] ('Erin Hunter',)
+2025-11-12 20:51:37,457 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:37,457 - INFO - [cached since 1790s ago] ('Tiyana Angel',)
+2025-11-12 20:51:37,517 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:37,517 - INFO - [cached since 1790s ago] ('Erin Hunter',)
+2025-11-12 20:51:37,572 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:37,573 - INFO - [cached since 1790s ago] ('Erin Hunter',)
+2025-11-12 20:51:37,623 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:37,623 - INFO - [cached since 1790s ago] ('Erin Hunter',)
+2025-11-12 20:51:37,683 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:37,683 - INFO - [cached since 1790s ago] ('Erin Hunter',)
+2025-11-12 20:51:37,732 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:37,733 - INFO - [cached since 1790s ago] ('Erin Hunter',)
+2025-11-12 20:51:37,782 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:37,783 - INFO - [cached since 1790s ago] ('Erin Hunter',)
+2025-11-12 20:51:37,832 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:37,833 - INFO - [cached since 1790s ago] ('Erin Hunter',)
+2025-11-12 20:51:37,882 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:37,883 - INFO - [cached since 1790s ago] ('SuperSummary',)
+2025-11-12 20:51:37,927 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:37,927 - INFO - [cached since 1790s ago] ('Erin Hunter',)
+2025-11-12 20:51:37,982 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:51:37,982 - INFO - [cached since 1790s ago] ('Erin Hunter',)
+2025-11-12 20:51:38,032 - INFO - ROLLBACK
+2025-11-12 20:52:18,294 - INFO - BEGIN (implicit)
+2025-11-12 20:52:18,294 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:18,294 - INFO - [cached since 1830s ago] ('Erin Hunter',)
+2025-11-12 20:52:18,403 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:18,403 - INFO - [cached since 1831s ago] ('Erin Hunter',)
+2025-11-12 20:52:18,453 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:18,453 - INFO - [cached since 1831s ago] ('Erin Hunter',)
+2025-11-12 20:52:18,508 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:18,508 - INFO - [cached since 1831s ago] ('Erin Hunter',)
+2025-11-12 20:52:18,563 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:18,564 - INFO - [cached since 1831s ago] ('Erin Hunter',)
+2025-11-12 20:52:18,623 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:18,624 - INFO - [cached since 1831s ago] ('Erin Hunter',)
+2025-11-12 20:52:18,673 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:18,673 - INFO - [cached since 1831s ago] ('Erin Hunter',)
+2025-11-12 20:52:18,723 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:18,723 - INFO - [cached since 1831s ago] ('Tiyana Angel',)
+2025-11-12 20:52:18,774 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:18,774 - INFO - [cached since 1831s ago] ('Erin Hunter',)
+2025-11-12 20:52:18,824 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:18,824 - INFO - [cached since 1831s ago] ('Erin Hunter',)
+2025-11-12 20:52:18,873 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:18,874 - INFO - [cached since 1831s ago] ('Erin Hunter',)
+2025-11-12 20:52:18,928 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:18,928 - INFO - [cached since 1831s ago] ('Erin Hunter',)
+2025-11-12 20:52:18,983 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:18,983 - INFO - [cached since 1831s ago] ('Erin Hunter',)
+2025-11-12 20:52:19,033 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:19,033 - INFO - [cached since 1831s ago] ('Erin Hunter',)
+2025-11-12 20:52:19,083 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:19,084 - INFO - [cached since 1831s ago] ('Erin Hunter',)
+2025-11-12 20:52:19,138 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:19,138 - INFO - [cached since 1831s ago] ('SuperSummary',)
+2025-11-12 20:52:19,193 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:19,193 - INFO - [cached since 1831s ago] ('Erin Hunter',)
+2025-11-12 20:52:19,243 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:19,244 - INFO - [cached since 1831s ago] ('Erin Hunter',)
+2025-11-12 20:52:19,298 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:19,299 - INFO - [cached since 1831s ago] ('kids M. shop notebook',)
+2025-11-12 20:52:19,353 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:19,354 - INFO - [cached since 1832s ago] ('Erin Hunter',)
+2025-11-12 20:52:19,404 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:19,404 - INFO - [cached since 1832s ago] ('Erin Hunter',)
+2025-11-12 20:52:19,458 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:19,459 - INFO - [cached since 1832s ago] ('Erin Hunter',)
+2025-11-12 20:52:19,513 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:19,513 - INFO - [cached since 1832s ago] ('Erin Hunter',)
+2025-11-12 20:52:19,568 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:19,569 - INFO - [cached since 1832s ago] ('Frieda Van Raevels',)
+2025-11-12 20:52:19,620 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:19,621 - INFO - [cached since 1832s ago] ('Erin Hunter',)
+2025-11-12 20:52:19,683 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:19,683 - INFO - [cached since 1832s ago] ('Erin Hunter',)
+2025-11-12 20:52:19,738 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:19,739 - INFO - [cached since 1832s ago] ('Erin Hunter',)
+2025-11-12 20:52:19,798 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:19,798 - INFO - [cached since 1832s ago] ('Erin Hunter',)
+2025-11-12 20:52:19,848 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:19,848 - INFO - [cached since 1832s ago] ('Erin Hunter',)
+2025-11-12 20:52:19,908 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:19,908 - INFO - [cached since 1832s ago] ('Erin Hunter',)
+2025-11-12 20:52:19,958 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:19,958 - INFO - [cached since 1832s ago] ('Erin Hunter',)
+2025-11-12 20:52:20,014 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:20,014 - INFO - [cached since 1832s ago] ('Erin Hunter',)
+2025-11-12 20:52:20,069 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:20,069 - INFO - [cached since 1832s ago] ('Erin Hunter',)
+2025-11-12 20:52:20,124 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:20,124 - INFO - [cached since 1832s ago] ('Erin Hunter',)
+2025-11-12 20:52:20,183 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:20,184 - INFO - [cached since 1832s ago] ('Battista Battista Bellini',)
+2025-11-12 20:52:20,238 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:20,238 - INFO - [cached since 1832s ago] ('Lily Pich',)
+2025-11-12 20:52:20,293 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:20,294 - INFO - [cached since 1832s ago] ('Erin Hunter',)
+2025-11-12 20:52:20,348 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:20,348 - INFO - [cached since 1833s ago] ('Erin Hunter',)
+2025-11-12 20:52:20,412 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:20,413 - INFO - [cached since 1833s ago] ('James Anderson',)
+2025-11-12 20:52:20,483 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:20,483 - INFO - [cached since 1833s ago] ('Erin Hunter',)
+2025-11-12 20:52:20,543 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:20,543 - INFO - [cached since 1833s ago] ('Frank Schulz-Nieswandt',)
+2025-11-12 20:52:20,599 - INFO - ROLLBACK
+2025-11-12 20:52:43,213 - INFO - BEGIN (implicit)
+2025-11-12 20:52:43,214 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:43,214 - INFO - [cached since 1855s ago] ('Erin Hunter',)
+2025-11-12 20:52:43,326 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:43,327 - INFO - [cached since 1856s ago] ('Erin Hunter',)
+2025-11-12 20:52:43,382 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:43,383 - INFO - [cached since 1856s ago] ('Erin Hunter',)
+2025-11-12 20:52:43,437 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:43,437 - INFO - [cached since 1856s ago] ('Erin Hunter',)
+2025-11-12 20:52:43,497 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:43,497 - INFO - [cached since 1856s ago] ('Erin Hunter',)
+2025-11-12 20:52:43,562 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:43,562 - INFO - [cached since 1856s ago] ('Erin Hunter',)
+2025-11-12 20:52:43,622 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:43,623 - INFO - [cached since 1856s ago] ('Erin Hunter',)
+2025-11-12 20:52:43,672 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:43,673 - INFO - [cached since 1856s ago] ('Tiyana Angel',)
+2025-11-12 20:52:43,731 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:43,732 - INFO - [cached since 1856s ago] ('Erin Hunter',)
+2025-11-12 20:52:43,813 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:43,814 - INFO - [cached since 1856s ago] ('Erin Hunter',)
+2025-11-12 20:52:43,856 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:43,857 - INFO - [cached since 1856s ago] ('Erin Hunter',)
+2025-11-12 20:52:43,912 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:43,913 - INFO - [cached since 1856s ago] ('Erin Hunter',)
+2025-11-12 20:52:43,957 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:43,958 - INFO - [cached since 1856s ago] ('Erin Hunter',)
+2025-11-12 20:52:44,017 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:44,018 - INFO - [cached since 1856s ago] ('Erin Hunter',)
+2025-11-12 20:52:44,066 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:44,067 - INFO - [cached since 1856s ago] ('Erin Hunter',)
+2025-11-12 20:52:44,122 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:44,123 - INFO - [cached since 1856s ago] ('SuperSummary',)
+2025-11-12 20:52:44,183 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:44,183 - INFO - [cached since 1856s ago] ('Erin Hunter',)
+2025-11-12 20:52:44,241 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:44,242 - INFO - [cached since 1856s ago] ('Erin Hunter',)
+2025-11-12 20:52:44,297 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:44,298 - INFO - [cached since 1856s ago] ('kids M. shop notebook',)
+2025-11-12 20:52:44,358 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:44,358 - INFO - [cached since 1857s ago] ('Erin Hunter',)
+2025-11-12 20:52:44,417 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:44,418 - INFO - [cached since 1857s ago] ('Erin Hunter',)
+2025-11-12 20:52:44,471 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:44,472 - INFO - [cached since 1857s ago] ('Erin Hunter',)
+2025-11-12 20:52:44,527 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:44,527 - INFO - [cached since 1857s ago] ('Erin Hunter',)
+2025-11-12 20:52:44,577 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:44,577 - INFO - [cached since 1857s ago] ('Frieda Van Raevels',)
+2025-11-12 20:52:44,633 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:44,633 - INFO - [cached since 1857s ago] ('Erin Hunter',)
+2025-11-12 20:52:44,687 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:44,687 - INFO - [cached since 1857s ago] ('Erin Hunter',)
+2025-11-12 20:52:44,737 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:44,737 - INFO - [cached since 1857s ago] ('Erin Hunter',)
+2025-11-12 20:52:44,797 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:44,798 - INFO - [cached since 1857s ago] ('Erin Hunter',)
+2025-11-12 20:52:44,852 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:44,853 - INFO - [cached since 1857s ago] ('Erin Hunter',)
+2025-11-12 20:52:44,897 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:44,897 - INFO - [cached since 1857s ago] ('Erin Hunter',)
+2025-11-12 20:52:44,952 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:44,953 - INFO - [cached since 1857s ago] ('Erin Hunter',)
+2025-11-12 20:52:45,002 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:45,002 - INFO - [cached since 1857s ago] ('Erin Hunter',)
+2025-11-12 20:52:45,057 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:45,058 - INFO - [cached since 1857s ago] ('Erin Hunter',)
+2025-11-12 20:52:45,114 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:45,115 - INFO - [cached since 1857s ago] ('Erin Hunter',)
+2025-11-12 20:52:45,168 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:45,168 - INFO - [cached since 1857s ago] ('Battista Battista Bellini',)
+2025-11-12 20:52:45,222 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:45,223 - INFO - [cached since 1857s ago] ('Lily Pich',)
+2025-11-12 20:52:45,284 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:45,284 - INFO - [cached since 1857s ago] ('Erin Hunter',)
+2025-11-12 20:52:45,342 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:45,343 - INFO - [cached since 1858s ago] ('Erin Hunter',)
+2025-11-12 20:52:45,403 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:45,403 - INFO - [cached since 1858s ago] ('James Anderson',)
+2025-11-12 20:52:45,467 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:45,467 - INFO - [cached since 1858s ago] ('Erin Hunter',)
+2025-11-12 20:52:45,523 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:45,523 - INFO - [cached since 1858s ago] ('Frank Schulz-Nieswandt',)
+2025-11-12 20:52:45,577 - INFO - ROLLBACK
+2025-11-12 20:52:54,767 - INFO - BEGIN (implicit)
+2025-11-12 20:52:54,769 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:54,769 - INFO - [cached since 1867s ago] ('Erin Hunter',)
+2025-11-12 20:52:54,887 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:54,888 - INFO - [cached since 1867s ago] ('Erin Hunter',)
+2025-11-12 20:52:54,937 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:54,937 - INFO - [cached since 1867s ago] ('Erin Hunter',)
+2025-11-12 20:52:54,988 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:54,988 - INFO - [cached since 1867s ago] ('Erin Hunter',)
+2025-11-12 20:52:55,052 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:55,053 - INFO - [cached since 1867s ago] ('Erin Hunter',)
+2025-11-12 20:52:55,117 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:55,118 - INFO - [cached since 1867s ago] ('Erin Hunter',)
+2025-11-12 20:52:55,172 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:55,173 - INFO - [cached since 1867s ago] ('Erin Hunter',)
+2025-11-12 20:52:55,228 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:55,228 - INFO - [cached since 1867s ago] ('Tiyana Angel',)
+2025-11-12 20:52:55,277 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:55,277 - INFO - [cached since 1867s ago] ('Erin Hunter',)
+2025-11-12 20:52:55,337 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:55,338 - INFO - [cached since 1868s ago] ('Erin Hunter',)
+2025-11-12 20:52:55,387 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:55,387 - INFO - [cached since 1868s ago] ('Erin Hunter',)
+2025-11-12 20:52:55,438 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:55,438 - INFO - [cached since 1868s ago] ('Erin Hunter',)
+2025-11-12 20:52:55,492 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:55,492 - INFO - [cached since 1868s ago] ('Erin Hunter',)
+2025-11-12 20:52:55,542 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:55,543 - INFO - [cached since 1868s ago] ('Erin Hunter',)
+2025-11-12 20:52:55,597 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:55,598 - INFO - [cached since 1868s ago] ('Erin Hunter',)
+2025-11-12 20:52:55,652 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:55,652 - INFO - [cached since 1868s ago] ('SuperSummary',)
+2025-11-12 20:52:55,707 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:55,708 - INFO - [cached since 1868s ago] ('Erin Hunter',)
+2025-11-12 20:52:55,767 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:55,767 - INFO - [cached since 1868s ago] ('Erin Hunter',)
+2025-11-12 20:52:55,822 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:55,822 - INFO - [cached since 1868s ago] ('kids M. shop notebook',)
+2025-11-12 20:52:55,872 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:55,872 - INFO - [cached since 1868s ago] ('Erin Hunter',)
+2025-11-12 20:52:55,932 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:55,933 - INFO - [cached since 1868s ago] ('Erin Hunter',)
+2025-11-12 20:52:55,993 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:55,993 - INFO - [cached since 1868s ago] ('Erin Hunter',)
+2025-11-12 20:52:56,057 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:56,058 - INFO - [cached since 1868s ago] ('Erin Hunter',)
+2025-11-12 20:52:56,127 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:56,127 - INFO - [cached since 1868s ago] ('Frieda Van Raevels',)
+2025-11-12 20:52:56,187 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:56,187 - INFO - [cached since 1868s ago] ('Erin Hunter',)
+2025-11-12 20:52:56,243 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:56,244 - INFO - [cached since 1868s ago] ('Erin Hunter',)
+2025-11-12 20:52:56,292 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:56,293 - INFO - [cached since 1868s ago] ('Erin Hunter',)
+2025-11-12 20:52:56,357 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:56,358 - INFO - [cached since 1869s ago] ('Erin Hunter',)
+2025-11-12 20:52:56,417 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:56,418 - INFO - [cached since 1869s ago] ('Erin Hunter',)
+2025-11-12 20:52:56,467 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:56,468 - INFO - [cached since 1869s ago] ('Erin Hunter',)
+2025-11-12 20:52:56,522 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:56,522 - INFO - [cached since 1869s ago] ('Erin Hunter',)
+2025-11-12 20:52:56,577 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:56,577 - INFO - [cached since 1869s ago] ('Erin Hunter',)
+2025-11-12 20:52:56,642 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:56,642 - INFO - [cached since 1869s ago] ('Erin Hunter',)
+2025-11-12 20:52:56,697 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:56,697 - INFO - [cached since 1869s ago] ('Erin Hunter',)
+2025-11-12 20:52:56,758 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:56,758 - INFO - [cached since 1869s ago] ('Battista Battista Bellini',)
+2025-11-12 20:52:56,812 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:56,813 - INFO - [cached since 1869s ago] ('Lily Pich',)
+2025-11-12 20:52:56,867 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:56,867 - INFO - [cached since 1869s ago] ('Erin Hunter',)
+2025-11-12 20:52:56,922 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:56,922 - INFO - [cached since 1869s ago] ('Erin Hunter',)
+2025-11-12 20:52:56,977 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:56,977 - INFO - [cached since 1869s ago] ('James Anderson',)
+2025-11-12 20:52:57,027 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:57,028 - INFO - [cached since 1869s ago] ('Erin Hunter',)
+2025-11-12 20:52:57,087 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:52:57,087 - INFO - [cached since 1869s ago] ('Frank Schulz-Nieswandt',)
+2025-11-12 20:52:57,165 - INFO - ROLLBACK
+2025-11-12 20:53:03,549 - INFO - BEGIN (implicit)
+2025-11-12 20:53:03,549 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:03,549 - INFO - [cached since 1876s ago] ('Erin Hunter',)
+2025-11-12 20:53:03,658 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:03,658 - INFO - [cached since 1876s ago] ('Erin Hunter',)
+2025-11-12 20:53:03,712 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:03,712 - INFO - [cached since 1876s ago] ('Erin Hunter',)
+2025-11-12 20:53:03,777 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:03,777 - INFO - [cached since 1876s ago] ('Erin Hunter',)
+2025-11-12 20:53:03,842 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:03,842 - INFO - [cached since 1876s ago] ('Erin Hunter',)
+2025-11-12 20:53:03,902 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:03,902 - INFO - [cached since 1876s ago] ('Erin Hunter',)
+2025-11-12 20:53:03,952 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:03,953 - INFO - [cached since 1876s ago] ('Erin Hunter',)
+2025-11-12 20:53:04,022 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:04,023 - INFO - [cached since 1876s ago] ('Tiyana Angel',)
+2025-11-12 20:53:04,077 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:04,077 - INFO - [cached since 1876s ago] ('Erin Hunter',)
+2025-11-12 20:53:04,138 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:04,138 - INFO - [cached since 1876s ago] ('Erin Hunter',)
+2025-11-12 20:53:04,202 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:04,202 - INFO - [cached since 1876s ago] ('Erin Hunter',)
+2025-11-12 20:53:04,253 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:04,253 - INFO - [cached since 1876s ago] ('Erin Hunter',)
+2025-11-12 20:53:04,312 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:04,312 - INFO - [cached since 1877s ago] ('Erin Hunter',)
+2025-11-12 20:53:04,367 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:04,368 - INFO - [cached since 1877s ago] ('Erin Hunter',)
+2025-11-12 20:53:04,427 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:04,427 - INFO - [cached since 1877s ago] ('Erin Hunter',)
+2025-11-12 20:53:04,478 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:04,478 - INFO - [cached since 1877s ago] ('SuperSummary',)
+2025-11-12 20:53:04,532 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:04,532 - INFO - [cached since 1877s ago] ('Erin Hunter',)
+2025-11-12 20:53:04,592 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:04,593 - INFO - [cached since 1877s ago] ('Erin Hunter',)
+2025-11-12 20:53:04,672 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:04,672 - INFO - [cached since 1877s ago] ('kids M. shop notebook',)
+2025-11-12 20:53:04,767 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:04,767 - INFO - [cached since 1877s ago] ('Erin Hunter',)
+2025-11-12 20:53:04,818 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:04,818 - INFO - [cached since 1877s ago] ('Erin Hunter',)
+2025-11-12 20:53:04,877 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:04,877 - INFO - [cached since 1877s ago] ('Erin Hunter',)
+2025-11-12 20:53:04,932 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:04,932 - INFO - [cached since 1877s ago] ('Erin Hunter',)
+2025-11-12 20:53:04,977 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:04,978 - INFO - [cached since 1877s ago] ('Frieda Van Raevels',)
+2025-11-12 20:53:05,039 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:05,040 - INFO - [cached since 1877s ago] ('Erin Hunter',)
+2025-11-12 20:53:05,101 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:05,101 - INFO - [cached since 1877s ago] ('Erin Hunter',)
+2025-11-12 20:53:05,166 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:05,166 - INFO - [cached since 1877s ago] ('Erin Hunter',)
+2025-11-12 20:53:05,223 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:05,223 - INFO - [cached since 1877s ago] ('Erin Hunter',)
+2025-11-12 20:53:05,287 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:05,287 - INFO - [cached since 1877s ago] ('Erin Hunter',)
+2025-11-12 20:53:05,348 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:05,348 - INFO - [cached since 1878s ago] ('Erin Hunter',)
+2025-11-12 20:53:05,398 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:05,398 - INFO - [cached since 1878s ago] ('Erin Hunter',)
+2025-11-12 20:53:05,458 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:05,458 - INFO - [cached since 1878s ago] ('Erin Hunter',)
+2025-11-12 20:53:05,507 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:05,507 - INFO - [cached since 1878s ago] ('Erin Hunter',)
+2025-11-12 20:53:05,557 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:05,557 - INFO - [cached since 1878s ago] ('Erin Hunter',)
+2025-11-12 20:53:05,613 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:05,613 - INFO - [cached since 1878s ago] ('Battista Battista Bellini',)
+2025-11-12 20:53:05,677 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:05,677 - INFO - [cached since 1878s ago] ('Lily Pich',)
+2025-11-12 20:53:05,738 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:05,738 - INFO - [cached since 1878s ago] ('Erin Hunter',)
+2025-11-12 20:53:05,797 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:05,798 - INFO - [cached since 1878s ago] ('Erin Hunter',)
+2025-11-12 20:53:05,869 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:05,869 - INFO - [cached since 1878s ago] ('James Anderson',)
+2025-11-12 20:53:05,999 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:05,999 - INFO - [cached since 1878s ago] ('Erin Hunter',)
+2025-11-12 20:53:06,058 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:06,058 - INFO - [cached since 1878s ago] ('Frank Schulz-Nieswandt',)
+2025-11-12 20:53:06,108 - INFO - ROLLBACK
+2025-11-12 20:53:13,447 - INFO - BEGIN (implicit)
+2025-11-12 20:53:13,448 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:13,448 - INFO - [cached since 1886s ago] ('Erin Hunter',)
+2025-11-12 20:53:13,563 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:13,564 - INFO - [cached since 1886s ago] ('Erin Hunter',)
+2025-11-12 20:53:13,622 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:13,622 - INFO - [cached since 1886s ago] ('Erin Hunter',)
+2025-11-12 20:53:13,682 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:13,682 - INFO - [cached since 1886s ago] ('Erin Hunter',)
+2025-11-12 20:53:13,732 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:13,732 - INFO - [cached since 1886s ago] ('Erin Hunter',)
+2025-11-12 20:53:13,792 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:13,792 - INFO - [cached since 1886s ago] ('Erin Hunter',)
+2025-11-12 20:53:13,848 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:13,848 - INFO - [cached since 1886s ago] ('Erin Hunter',)
+2025-11-12 20:53:13,908 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:13,908 - INFO - [cached since 1886s ago] ('Tiyana Angel',)
+2025-11-12 20:53:13,958 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:13,958 - INFO - [cached since 1886s ago] ('Erin Hunter',)
+2025-11-12 20:53:14,012 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:14,014 - INFO - [cached since 1886s ago] ('Erin Hunter',)
+2025-11-12 20:53:14,062 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:14,062 - INFO - [cached since 1886s ago] ('Erin Hunter',)
+2025-11-12 20:53:14,112 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:14,114 - INFO - [cached since 1886s ago] ('Erin Hunter',)
+2025-11-12 20:53:14,172 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:14,172 - INFO - [cached since 1886s ago] ('Erin Hunter',)
+2025-11-12 20:53:14,232 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:14,232 - INFO - [cached since 1886s ago] ('Erin Hunter',)
+2025-11-12 20:53:14,298 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:14,298 - INFO - [cached since 1886s ago] ('Erin Hunter',)
+2025-11-12 20:53:14,358 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:14,358 - INFO - [cached since 1887s ago] ('SuperSummary',)
+2025-11-12 20:53:14,418 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:14,418 - INFO - [cached since 1887s ago] ('Erin Hunter',)
+2025-11-12 20:53:14,488 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:14,488 - INFO - [cached since 1887s ago] ('Erin Hunter',)
+2025-11-12 20:53:14,537 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:14,538 - INFO - [cached since 1887s ago] ('kids M. shop notebook',)
+2025-11-12 20:53:14,598 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:14,598 - INFO - [cached since 1887s ago] ('Erin Hunter',)
+2025-11-12 20:53:14,647 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:14,648 - INFO - [cached since 1887s ago] ('Erin Hunter',)
+2025-11-12 20:53:14,698 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:14,698 - INFO - [cached since 1887s ago] ('Erin Hunter',)
+2025-11-12 20:53:14,748 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:14,748 - INFO - [cached since 1887s ago] ('Erin Hunter',)
+2025-11-12 20:53:14,803 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:14,803 - INFO - [cached since 1887s ago] ('Frieda Van Raevels',)
+2025-11-12 20:53:14,863 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:14,863 - INFO - [cached since 1887s ago] ('Erin Hunter',)
+2025-11-12 20:53:14,922 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:14,923 - INFO - [cached since 1887s ago] ('Erin Hunter',)
+2025-11-12 20:53:14,977 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:14,978 - INFO - [cached since 1887s ago] ('Erin Hunter',)
+2025-11-12 20:53:15,028 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:15,028 - INFO - [cached since 1887s ago] ('Erin Hunter',)
+2025-11-12 20:53:15,083 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:15,083 - INFO - [cached since 1887s ago] ('Erin Hunter',)
+2025-11-12 20:53:15,151 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:15,152 - INFO - [cached since 1887s ago] ('Erin Hunter',)
+2025-11-12 20:53:15,203 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:15,203 - INFO - [cached since 1887s ago] ('Erin Hunter',)
+2025-11-12 20:53:15,258 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:15,258 - INFO - [cached since 1887s ago] ('Erin Hunter',)
+2025-11-12 20:53:15,308 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:15,308 - INFO - [cached since 1887s ago] ('Erin Hunter',)
+2025-11-12 20:53:15,358 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:15,358 - INFO - [cached since 1888s ago] ('Erin Hunter',)
+2025-11-12 20:53:15,418 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:15,418 - INFO - [cached since 1888s ago] ('Battista Battista Bellini',)
+2025-11-12 20:53:15,467 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:15,468 - INFO - [cached since 1888s ago] ('Lily Pich',)
+2025-11-12 20:53:15,533 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:15,533 - INFO - [cached since 1888s ago] ('Erin Hunter',)
+2025-11-12 20:53:15,587 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:15,588 - INFO - [cached since 1888s ago] ('Erin Hunter',)
+2025-11-12 20:53:15,647 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:15,647 - INFO - [cached since 1888s ago] ('James Anderson',)
+2025-11-12 20:53:15,697 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:15,697 - INFO - [cached since 1888s ago] ('Erin Hunter',)
+2025-11-12 20:53:15,758 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-12 20:53:15,758 - INFO - [cached since 1888s ago] ('Frank Schulz-Nieswandt',)
+2025-11-12 20:53:15,813 - INFO - ROLLBACK
