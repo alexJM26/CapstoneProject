@@ -93,7 +93,7 @@ async function loadProfile() {
   // generate icons for collections
   const iconContainer = document.getElementById("iconOptions");
   iconContainer.innerHTML = "";
-  for (let i = 1; i <= 12; i++) {
+  for (let i = 1; i <= 21; i++) {
     const img = document.createElement("img");
     img.src = `../images/collections/${i}.svg`;
     img.classList.add("icon-option");
@@ -253,7 +253,8 @@ async function openFollowList(type) {
 
   //display modal with results
   const listType = isFollowers ? "Followers" : "Following";
-  let html = `<h5>${listType}</h5>`;
+  let html = `<h5 style="color: var(--offWhite);">${listType}</h5> 
+              <hr style="background-color: var(--offWhite); width: 100%;" class="mb-4">`;
   if (data.length === 0) {
     html += `<p>No ${listType.toLowerCase()} yet.</p>`;
   } else {
@@ -303,24 +304,26 @@ document.getElementById("saveProfileBtn").addEventListener("click", async () => 
   } else {
     loadProfile();
   }
+
+  // close pop=up
+  document.querySelectorAll(".popup").forEach(p => p.classList.remove("show"));
+  popupBackdrop.style.display = "none";
 });
 
 document.addEventListener("click", e => {
-  const popup = document.getElementById("popup");
   const popupBackdrop = document.getElementById("popupBackdrop");  
-  const popupContentCollection = popup.querySelector(".popupContentCollection");
+  const editPage = document.getElementById("editProfileModal");
+  const makeCollection = document.getElementById("makeCollectionPopup");
 
   // open collection popup
   if (e.target.closest(".makeCollectionPopup")) { 
-    popup.classList.add("show");
+    makeCollection.classList.add("show");
     popupBackdrop.style.display = "block";
-    popupContentCollection.style.display = "flex";
   }
 
   // open edit profile popup
   if (e.target.closest("#editProfileBtn")) {
-    const editModal = document.getElementById("editProfileModal");
-    editModal.classList.add("show");
+    editPage.classList.add("show");
     popupBackdrop.style.display = "block";
   }
 

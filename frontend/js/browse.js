@@ -51,17 +51,33 @@ document.addEventListener("DOMContentLoaded", async () => {
     let currentBooks = [];  //store book data for later use
     let userCollections = [];
 
-    if (searchInput && query) {
-        searchInput.value = query;
+    // keep search query active
+    if (searchInput && query) { searchInput.value = query; }
+
+    // grab url parameters
+    const minRating = urlParams.get("minRating");
+    const maxRating = urlParams.get("maxRating");
+    const pubDateStart = urlParams.get("pubDateStart");
+    const pubDateEnd = urlParams.get("pubDateEnd");
+
+    // keep url parameters active after search
+    if (minRating) {
+        const minRadio = document.querySelector(`input[name="minRating"][value="${minRating}"]`); // grab star with url value
+        if (minRadio) { minRadio.checked = true; }
     }
+    if (maxRating) {
+        const maxRadio = document.querySelector(`input[name="maxRating"][value="${maxRating}"]`); // grab star with url value
+        if (maxRadio) { maxRadio.checked = true; }
+    }
+    if (pubDateStart) { document.getElementById("pubDateStart").value = pubDateStart; }
+    if (pubDateEnd) { document.getElementById("pubDateEnd").value = pubDateEnd; }
 
     if (!query || !resultsDiv) return;
 
     try {
         const body = {
             search: query,
-            limit: 20,
-            page: pageCurrent,
+            limit: 50,
             ...(urlParams.has("minRating") ? { minRating: Number(urlParams.get("minRating")) } : {}),
             ...(urlParams.has("maxRating") ? { maxRating: Number(urlParams.get("maxRating")) } : {}),
             ...(urlParams.get("pubDateStart") ? { pubDateStart: urlParams.get("pubDateStart") } : {}),
@@ -373,24 +389,42 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     }
 
+    // constructs the query string for a given page
+    function buildQueryString(page) {
+        // empty params
+        const params = new URLSearchParams();
+
+        // set the parameters
+        params.set("search", query);
+        params.set("page", page);
+        if (minRating) params.set("minRating", minRating);
+        if (maxRating) params.set("maxRating", maxRating);
+        if (pubDateStart) params.set("pubDateStart", pubDateStart);
+        if (pubDateEnd) params.set("pubDateEnd", pubDateEnd);
+
+        return params.toString(); // convert to string
+    }
+
+    // query string for going back a page
     const back = document.getElementById("backPage");
     if (back) {
         back.addEventListener("click", (event) => {
             if (pageCurrent >= 2) {
-                window.location.href = `/subpages/browse.html?search=${encodeURIComponent(query)}&page=${pageCurrent - 1}`;
+                window.location.href = `/subpages/browse.html?${buildQueryString(pageCurrent - 1)}`;
             } else {
-                window.location.href = `/subpages/browse.html?search=${encodeURIComponent(query)}&page=${pageCurrent}`;
+                window.location.href = `/subpages/browse.html?${buildQueryString(pageCurrent)}`;
             }
         });
     }
 
+    // query string for going forward a page
     const next = document.getElementById("nextPage");
     if (next) {
         next.addEventListener("click", (event) => {
             if (pageCurrent < pageTotal) {
-                window.location.href = `/subpages/browse.html?search=${encodeURIComponent(query)}&page=${pageCurrent + 1}`;
+                window.location.href = `/subpages/browse.html?${buildQueryString(pageCurrent + 1)}`;
             } else {
-                window.location.href = `/subpages/browse.html?search=${encodeURIComponent(query)}&page=${pageCurrent}`;
+                window.location.href = `/subpages/browse.html?${buildQueryString(pageCurrent)}`;
             }
         });
     }
