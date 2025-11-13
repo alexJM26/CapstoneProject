@@ -303,24 +303,26 @@ document.getElementById("saveProfileBtn").addEventListener("click", async () => 
   } else {
     loadProfile();
   }
+
+  // close pop=up
+  document.querySelectorAll(".popup").forEach(p => p.classList.remove("show"));
+  popupBackdrop.style.display = "none";
 });
 
 document.addEventListener("click", e => {
-  const popup = document.getElementById("popup");
   const popupBackdrop = document.getElementById("popupBackdrop");  
-  const popupContentCollection = popup.querySelector(".popupContentCollection");
+  const editPage = document.getElementById("editProfileModal");
+  const makeCollection = document.getElementById("makeCollectionPopup");
 
   // open collection popup
   if (e.target.closest(".makeCollectionPopup")) { 
-    popup.classList.add("show");
+    makeCollection.classList.add("show");
     popupBackdrop.style.display = "block";
-    popupContentCollection.style.display = "flex";
   }
 
   // open edit profile popup
   if (e.target.closest("#editProfileBtn")) {
-    const editModal = document.getElementById("editProfileModal");
-    editModal.classList.add("show");
+    editPage.classList.add("show");
     popupBackdrop.style.display = "block";
   }
 

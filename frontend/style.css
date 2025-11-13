@@ -268,9 +268,8 @@ input[type=checkbox] {
     font-weight: bold;
 }
 .avatar-option {
-    width: 60px;
-    height: 60px;
-    margin: 5px;
+    width: 10%;
+    margin: 1%;
     border: 2px solid transparent;
     border-radius: 50%;
     cursor: pointer;
@@ -516,6 +515,30 @@ input[type=checkbox] {
 .popup.show {
     display: grid;
 }
+.popupContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--green);
+    grid-column: 2;
+    height: 100%;
+    overflow-y: auto;
+    color: var(--offWhite);
+    z-index: 10000;
+    padding: 2%;         
+    justify-content: flex-start; 
+    text-align: center;
+}
+.popupContent form {
+    width: 80%;
+    align-items: left;
+    text-align: left;
+}
+.popupContentForm {
+    width: 80%;
+    align-items: left;
+    text-align: left;
+}
 .close {
     font-size: 1.5rem;
     cursor: pointer;
@@ -545,7 +568,7 @@ input[type=checkbox] {
     justify-content: flex-start; 
     text-align: center;
 }
-.popupContentEditProfile form {
+.popupContentEditProfileForm {
     width: 80%;
     align-items: left;
     text-align: left;

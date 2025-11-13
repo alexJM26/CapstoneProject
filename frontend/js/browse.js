@@ -51,9 +51,26 @@ document.addEventListener("DOMContentLoaded", async () => {
     let currentBooks = [];  //store book data for later use
     let userCollections = [];
 
-    if (searchInput && query) {
-        searchInput.value = query;
+    // keep search query active
+    if (searchInput && query) { searchInput.value = query; }
+
+    // grab url parameters
+    const minRating = urlParams.get("minRating");
+    const maxRating = urlParams.get("maxRating");
+    const pubDateStart = urlParams.get("pubDateStart");
+    const pubDateEnd = urlParams.get("pubDateEnd");
+
+    // keep url parameters active after search
+    if (minRating) {
+        const minRadio = document.querySelector(`input[name="minRating"][value="${minRating}"]`); // grab star with url value
+        if (minRadio) { minRadio.checked = true; }
     }
+    if (maxRating) {
+        const maxRadio = document.querySelector(`input[name="maxRating"][value="${maxRating}"]`); // grab star with url value
+        if (maxRadio) { maxRadio.checked = true; }
+    }
+    if (pubDateStart) { document.getElementById("pubDateStart").value = pubDateStart; }
+    if (pubDateEnd) { document.getElementById("pubDateEnd").value = pubDateEnd; }
 
     if (!query || !resultsDiv) return;
 
