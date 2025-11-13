@@ -253,7 +253,8 @@ async function openFollowList(type) {
 
   //display modal with results
   const listType = isFollowers ? "Followers" : "Following";
-  let html = `<h5>${listType}</h5>`;
+  let html = `<h5 style="color: var(--offWhite);">${listType}</h5> 
+              <hr style="background-color: var(--offWhite); width: 100%;" class="mb-4">`;
   if (data.length === 0) {
     html += `<p>No ${listType.toLowerCase()} yet.</p>`;
   } else {
