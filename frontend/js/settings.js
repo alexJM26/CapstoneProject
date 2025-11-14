@@ -171,7 +171,7 @@ const disableDark = document.getElementById('darkToggleDisable');
 enableDark.addEventListener('click', () => setDarkMode(true));
 disableDark.addEventListener('click', () => setDarkMode(false));
 
-// USERNAME CHANGE
+//USERNAME CHANGE
 const usernameForm = document.getElementById('usernameForm');
 const newUsernameInput = document.getElementById('newUsername');
 const usernameStatus = document.getElementById('usernameStatus');
@@ -239,6 +239,46 @@ if (usernameForm) {
             usernameStatus.textContent = 'An unexpected error occurred.';
             usernameStatus.style.color = 'red';
             console.error('Error:', err);
+        }
+    });
+}
+
+//USERNAME DELETION
+const deleteAccountBtn = document.getElementById('deleteAccountBtn');
+
+if (deleteAccountBtn) {
+    deleteAccountBtn.addEventListener('click', async (e) => {
+        e.preventDefault();
+        
+        if (!currentUser) {
+            alert('You must be logged in to delete your account.');
+            return;
+        }
+        
+        const confirmed = confirm(
+            'Are you sure you want to delete your account?\n\n' +
+            'This will permanently delete all your data including:\n' +
+            '- Your profile\n' +
+            '- All your reviews\n' +
+            '- All your collections\n\n' +
+            'This action CANNOT be undone!'
+        );
+        
+        if (!confirmed) return;
+        
+        try {
+            //Call the database function
+            const { error } = await supabase.rpc('delete_user_account');
+            
+            if (error) throw error;
+            
+            //User is deleted, clear session and redirect
+            alert('Your account has been successfully deleted.');
+            window.location.href = '../index.html';
+            
+        } catch (err) {
+            console.error('Error deleting account:', err);
+            alert('Error deleting account. Please try again or contact support.');
         }
     });
 }
