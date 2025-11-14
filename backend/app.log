@@ -23104,3 +23104,469 @@ WHERE collections.user_id = $1::UUID ORDER BY collections.created_at DESC
         
 2025-11-13 19:37:01,307 - INFO - [cached since 30.89s ago] (2,)
 2025-11-13 19:37:01,330 - INFO - ROLLBACK
+2025-11-14 15:03:50,286 - INFO - select pg_catalog.version()
+2025-11-14 15:03:50,286 - INFO - [raw sql] ()
+2025-11-14 15:03:50,384 - INFO - select current_schema()
+2025-11-14 15:03:50,384 - INFO - [raw sql] ()
+2025-11-14 15:03:50,476 - INFO - show standard_conforming_strings
+2025-11-14 15:03:50,476 - INFO - [raw sql] ()
+2025-11-14 15:03:50,544 - INFO - BEGIN (implicit)
+2025-11-14 15:03:50,548 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:50,548 - INFO - [generated in 0.00106s] ('Harper Lee',)
+2025-11-14 15:03:50,626 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-14 15:03:50,626 - INFO - [generated in 0.00116s] ('To Kill a Mockingbird', 4)
+2025-11-14 15:03:50,681 - INFO - SELECT count(reviews.review_id) AS count_1, coalesce(sum(reviews.rating), $1::INTEGER) AS coalesce_1, avg(reviews.rating) AS avg_1 
+FROM reviews 
+WHERE reviews.book_id = $2::INTEGER
+2025-11-14 15:03:50,681 - INFO - [generated in 0.00120s] (0, 5)
+2025-11-14 15:03:50,727 - INFO - SELECT reviews.review_id, reviews.user_id, reviews.book_id, reviews.rating, reviews.text, reviews.created_at 
+FROM reviews 
+WHERE reviews.book_id = $1::INTEGER ORDER BY reviews.review_id DESC
+2025-11-14 15:03:50,740 - INFO - [generated in 0.00128s] (5,)
+2025-11-14 15:03:50,790 - INFO - SELECT profiles.user_id AS profiles_user_id, profiles.username AS profiles_username, profiles.bio AS profiles_bio, profiles.favorite_genres AS profiles_favorite_genres, profiles.favorite_book AS profiles_favorite_book, profiles.avatar_choice AS profiles_avatar_choice, profiles.created_at AS profiles_created_at 
+FROM profiles 
+WHERE profiles.user_id = $1::UUID
+2025-11-14 15:03:50,791 - INFO - [generated in 0.00105s] (UUID('73e9aabe-00c4-424b-a8ee-5739faf6c740'),)
+2025-11-14 15:03:50,839 - INFO - SELECT profiles.user_id AS profiles_user_id, profiles.username AS profiles_username, profiles.bio AS profiles_bio, profiles.favorite_genres AS profiles_favorite_genres, profiles.favorite_book AS profiles_favorite_book, profiles.avatar_choice AS profiles_avatar_choice, profiles.created_at AS profiles_created_at 
+FROM profiles 
+WHERE profiles.user_id = $1::UUID
+2025-11-14 15:03:50,839 - INFO - [cached since 0.05026s ago] (UUID('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00'),)
+2025-11-14 15:03:50,864 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:50,865 - INFO - [cached since 0.3126s ago] ('Claudia Durst Johnson',)
+2025-11-14 15:03:50,886 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:50,886 - INFO - [cached since 0.3359s ago] ('Tamara Castleman',)
+2025-11-14 15:03:50,911 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:50,911 - INFO - [cached since 0.3598s ago] ('Kathy Kifer',)
+2025-11-14 15:03:50,935 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:50,935 - INFO - [cached since 0.3836s ago] ('Li',)
+2025-11-14 15:03:50,958 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:50,959 - INFO - [cached since 0.4071s ago] ('Eva Fitzwater',)
+2025-11-14 15:03:50,980 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:50,980 - INFO - [cached since 0.4299s ago] ('Harold Bloom',)
+2025-11-14 15:03:51,004 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,004 - INFO - [cached since 0.4532s ago] ('Dawn Sova',)
+2025-11-14 15:03:51,029 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,029 - INFO - [cached since 0.4769s ago] ('Julia McGirr',)
+2025-11-14 15:03:51,051 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,051 - INFO - [cached since 0.5004s ago] ('Bradley Walton',)
+2025-11-14 15:03:51,072 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,072 - INFO - [cached since 0.5249s ago] ('Harold Bloom',)
+2025-11-14 15:03:51,102 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,102 - INFO - [cached since 0.5504s ago] ('James S. Scott',)
+2025-11-14 15:03:51,125 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,128 - INFO - [cached since 0.577s ago] ('Edward Craigs',)
+2025-11-14 15:03:51,152 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,155 - INFO - [cached since 0.6035s ago] ('Christopher Sergel',)
+2025-11-14 15:03:51,179 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,179 - INFO - [cached since 0.6301s ago] ('Harold Bloom',)
+2025-11-14 15:03:51,208 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,211 - INFO - [cached since 0.6579s ago] ('Harcourt A. Morgan',)
+2025-11-14 15:03:51,234 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,234 - INFO - [cached since 0.6825s ago] ('Joyce Milton',)
+2025-11-14 15:03:51,260 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,260 - INFO - [cached since 0.7088s ago] ('Ingrid Ross',)
+2025-11-14 15:03:51,284 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,284 - INFO - [cached since 0.7324s ago] ('Anita Price Davis',)
+2025-11-14 15:03:51,311 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,312 - INFO - [cached since 0.7601s ago] ('Tamara Castleman',)
+2025-11-14 15:03:51,339 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,339 - INFO - [cached since 0.7876s ago] ('Harold Bloom',)
+2025-11-14 15:03:51,363 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,367 - INFO - [cached since 0.8149s ago] ('Jill Green',)
+2025-11-14 15:03:51,392 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,392 - INFO - [cached since 0.8415s ago] ('Eva Fitzwater',)
+2025-11-14 15:03:51,413 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,413 - INFO - [cached since 0.866s ago] ('LessonCaps',)
+2025-11-14 15:03:51,444 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,445 - INFO - [cached since 0.8926s ago] ('Harper Lee',)
+2025-11-14 15:03:51,470 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-14 15:03:51,470 - INFO - [cached since 0.8452s ago] ('To Kill a Mockingbird. Interpretationshilfe.', 4)
+2025-11-14 15:03:51,496 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,500 - INFO - [cached since 0.9472s ago] ('Philip Burnham',)
+2025-11-14 15:03:51,513 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,525 - INFO - [cached since 0.9732s ago] ('Rachel Hitchcock',)
+2025-11-14 15:03:51,550 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,550 - INFO - [cached since 1.002s ago] ('Coles Editorial Board',)
+2025-11-14 15:03:51,575 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,575 - INFO - [cached since 1.027s ago] ('Spark Publishing',)
+2025-11-14 15:03:51,596 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,596 - INFO - [cached since 1.053s ago] ('Christopher Sergel',)
+2025-11-14 15:03:51,628 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,628 - INFO - [cached since 1.077s ago] ('Tony Buzan',)
+2025-11-14 15:03:51,645 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,645 - INFO - [cached since 1.101s ago] ('Piper Whelan',)
+2025-11-14 15:03:51,679 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,679 - INFO - [cached since 1.128s ago] ('Harper Lee',)
+2025-11-14 15:03:51,705 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-14 15:03:51,705 - INFO - [cached since 1.078s ago] ('to kill a mockingbird', 4)
+2025-11-14 15:03:51,729 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,729 - INFO - [cached since 1.178s ago] ('Fred Fordham',)
+2025-11-14 15:03:51,755 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,755 - INFO - [cached since 1.204s ago] ('Christopher Sergel',)
+2025-11-14 15:03:51,778 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,778 - INFO - [cached since 1.23s ago] ('Prestwick House',)
+2025-11-14 15:03:51,796 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,808 - INFO - [cached since 1.256s ago] ('Mary Hartley',)
+2025-11-14 15:03:51,828 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,828 - INFO - [cached since 1.281s ago] ('publishing',)
+2025-11-14 15:03:51,856 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,858 - INFO - [cached since 1.306s ago] ('Save Time Summaries',)
+2025-11-14 15:03:51,882 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,882 - INFO - [cached since 1.332s ago] ('Beth Sims',)
+2025-11-14 15:03:51,908 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,908 - INFO - [cached since 1.357s ago] ('Philip Page',)
+2025-11-14 15:03:51,929 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,929 - INFO - [cached since 1.381s ago] ('Trivia-on-Books Staff',)
+2025-11-14 15:03:51,957 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,958 - INFO - [cached since 1.406s ago] ('Daily Books Staff',)
+2025-11-14 15:03:51,983 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:51,985 - INFO - [cached since 1.433s ago] ('Harold Bloom',)
+2025-11-14 15:03:51,997 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:52,009 - INFO - [cached since 1.457s ago] ('Christopher Sergel ',)
+2025-11-14 15:03:52,029 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:52,029 - INFO - [cached since 1.481s ago] ('Mary Green',)
+2025-11-14 15:03:52,062 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:52,063 - INFO - [cached since 1.51s ago] ('Harold Bloom',)
+2025-11-14 15:03:52,093 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:52,101 - INFO - [cached since 1.548s ago] ('Philip Page',)
+2025-11-14 15:03:52,130 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:52,131 - INFO - [cached since 1.578s ago] ('Susan Elkin',)
+2025-11-14 15:03:52,154 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:03:52,154 - INFO - [cached since 1.604s ago] ('Ross Gregory Douthat',)
+2025-11-14 15:03:52,181 - INFO - ROLLBACK
+2025-11-14 15:05:17,720 - INFO - BEGIN (implicit)
+2025-11-14 15:05:17,723 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:17,723 - INFO - [cached since 87.17s ago] ('Harper Lee',)
+2025-11-14 15:05:17,771 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-14 15:05:17,771 - INFO - [cached since 87.14s ago] ('To Kill a Mockingbird', 4)
+2025-11-14 15:05:17,796 - INFO - SELECT count(reviews.review_id) AS count_1, coalesce(sum(reviews.rating), $1::INTEGER) AS coalesce_1, avg(reviews.rating) AS avg_1 
+FROM reviews 
+WHERE reviews.book_id = $2::INTEGER
+2025-11-14 15:05:17,797 - INFO - [cached since 87.12s ago] (0, 5)
+2025-11-14 15:05:17,826 - INFO - SELECT reviews.review_id, reviews.user_id, reviews.book_id, reviews.rating, reviews.text, reviews.created_at 
+FROM reviews 
+WHERE reviews.book_id = $1::INTEGER ORDER BY reviews.review_id DESC
+2025-11-14 15:05:17,826 - INFO - [cached since 87.09s ago] (5,)
+2025-11-14 15:05:17,851 - INFO - SELECT profiles.user_id AS profiles_user_id, profiles.username AS profiles_username, profiles.bio AS profiles_bio, profiles.favorite_genres AS profiles_favorite_genres, profiles.favorite_book AS profiles_favorite_book, profiles.avatar_choice AS profiles_avatar_choice, profiles.created_at AS profiles_created_at 
+FROM profiles 
+WHERE profiles.user_id = $1::UUID
+2025-11-14 15:05:17,851 - INFO - [cached since 87.06s ago] (UUID('73e9aabe-00c4-424b-a8ee-5739faf6c740'),)
+2025-11-14 15:05:17,879 - INFO - SELECT profiles.user_id AS profiles_user_id, profiles.username AS profiles_username, profiles.bio AS profiles_bio, profiles.favorite_genres AS profiles_favorite_genres, profiles.favorite_book AS profiles_favorite_book, profiles.avatar_choice AS profiles_avatar_choice, profiles.created_at AS profiles_created_at 
+FROM profiles 
+WHERE profiles.user_id = $1::UUID
+2025-11-14 15:05:17,879 - INFO - [cached since 87.09s ago] (UUID('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00'),)
+2025-11-14 15:05:17,902 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:17,902 - INFO - [cached since 87.35s ago] ('Claudia Durst Johnson',)
+2025-11-14 15:05:17,930 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:17,932 - INFO - [cached since 87.38s ago] ('Tamara Castleman',)
+2025-11-14 15:05:17,952 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:17,952 - INFO - [cached since 87.41s ago] ('Kathy Kifer',)
+2025-11-14 15:05:17,979 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:17,979 - INFO - [cached since 87.43s ago] ('Li',)
+2025-11-14 15:05:18,008 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,009 - INFO - [cached since 87.46s ago] ('Eva Fitzwater',)
+2025-11-14 15:05:18,035 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,035 - INFO - [cached since 87.48s ago] ('Harold Bloom',)
+2025-11-14 15:05:18,061 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,061 - INFO - [cached since 87.51s ago] ('Dawn Sova',)
+2025-11-14 15:05:18,080 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,080 - INFO - [cached since 87.53s ago] ('Julia McGirr',)
+2025-11-14 15:05:18,109 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,109 - INFO - [cached since 87.56s ago] ('Bradley Walton',)
+2025-11-14 15:05:18,128 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,128 - INFO - [cached since 87.59s ago] ('Harold Bloom',)
+2025-11-14 15:05:18,159 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,163 - INFO - [cached since 87.61s ago] ('James S. Scott',)
+2025-11-14 15:05:18,179 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,179 - INFO - [cached since 87.64s ago] ('Edward Craigs',)
+2025-11-14 15:05:18,209 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,212 - INFO - [cached since 87.66s ago] ('Christopher Sergel',)
+2025-11-14 15:05:18,237 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,238 - INFO - [cached since 87.69s ago] ('Harold Bloom',)
+2025-11-14 15:05:18,260 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,260 - INFO - [cached since 87.71s ago] ('Harcourt A. Morgan',)
+2025-11-14 15:05:18,280 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,280 - INFO - [cached since 87.73s ago] ('Joyce Milton',)
+2025-11-14 15:05:18,312 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,312 - INFO - [cached since 87.76s ago] ('Ingrid Ross',)
+2025-11-14 15:05:18,329 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,329 - INFO - [cached since 87.78s ago] ('Anita Price Davis',)
+2025-11-14 15:05:18,360 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,363 - INFO - [cached since 87.81s ago] ('Tamara Castleman',)
+2025-11-14 15:05:18,383 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,383 - INFO - [cached since 87.83s ago] ('Harold Bloom',)
+2025-11-14 15:05:18,406 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,406 - INFO - [cached since 87.86s ago] ('Jill Green',)
+2025-11-14 15:05:18,429 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,429 - INFO - [cached since 87.88s ago] ('Eva Fitzwater',)
+2025-11-14 15:05:18,455 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,459 - INFO - [cached since 87.91s ago] ('LessonCaps',)
+2025-11-14 15:05:18,483 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,484 - INFO - [cached since 87.93s ago] ('Harper Lee',)
+2025-11-14 15:05:18,496 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-14 15:05:18,509 - INFO - [cached since 87.88s ago] ('To Kill a Mockingbird. Interpretationshilfe.', 4)
+2025-11-14 15:05:18,530 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,530 - INFO - [cached since 87.98s ago] ('Philip Burnham',)
+2025-11-14 15:05:18,559 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,559 - INFO - [cached since 88.01s ago] ('Rachel Hitchcock',)
+2025-11-14 15:05:18,583 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,583 - INFO - [cached since 88.03s ago] ('Coles Editorial Board',)
+2025-11-14 15:05:18,608 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,609 - INFO - [cached since 88.06s ago] ('Spark Publishing',)
+2025-11-14 15:05:18,631 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,634 - INFO - [cached since 88.08s ago] ('Christopher Sergel',)
+2025-11-14 15:05:18,662 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,662 - INFO - [cached since 88.11s ago] ('Tony Buzan',)
+2025-11-14 15:05:18,680 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,680 - INFO - [cached since 88.14s ago] ('Piper Whelan',)
+2025-11-14 15:05:18,710 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,711 - INFO - [cached since 88.16s ago] ('Harper Lee',)
+2025-11-14 15:05:18,734 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-14 15:05:18,734 - INFO - [cached since 88.11s ago] ('to kill a mockingbird', 4)
+2025-11-14 15:05:18,760 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,760 - INFO - [cached since 88.21s ago] ('Fred Fordham',)
+2025-11-14 15:05:18,780 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,780 - INFO - [cached since 88.23s ago] ('Christopher Sergel',)
+2025-11-14 15:05:18,810 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,810 - INFO - [cached since 88.26s ago] ('Prestwick House',)
+2025-11-14 15:05:18,829 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,829 - INFO - [cached since 88.28s ago] ('Mary Hartley',)
+2025-11-14 15:05:18,859 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,859 - INFO - [cached since 88.31s ago] ('publishing',)
+2025-11-14 15:05:18,882 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,882 - INFO - [cached since 88.33s ago] ('Save Time Summaries',)
+2025-11-14 15:05:18,914 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,914 - INFO - [cached since 88.36s ago] ('Beth Sims',)
+2025-11-14 15:05:18,940 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,942 - INFO - [cached since 88.39s ago] ('Philip Page',)
+2025-11-14 15:05:18,964 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,964 - INFO - [cached since 88.42s ago] ('Trivia-on-Books Staff',)
+2025-11-14 15:05:18,994 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:18,996 - INFO - [cached since 88.44s ago] ('Daily Books Staff',)
+2025-11-14 15:05:19,012 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:19,012 - INFO - [cached since 88.47s ago] ('Harold Bloom',)
+2025-11-14 15:05:19,047 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:19,047 - INFO - [cached since 88.5s ago] ('Christopher Sergel ',)
+2025-11-14 15:05:19,076 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:19,076 - INFO - [cached since 88.53s ago] ('Mary Green',)
+2025-11-14 15:05:19,097 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:19,097 - INFO - [cached since 88.55s ago] ('Harold Bloom',)
+2025-11-14 15:05:19,129 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:19,129 - INFO - [cached since 88.58s ago] ('Philip Page',)
+2025-11-14 15:05:19,148 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:19,148 - INFO - [cached since 88.61s ago] ('Susan Elkin',)
+2025-11-14 15:05:19,180 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-14 15:05:19,180 - INFO - [cached since 88.63s ago] ('Ross Gregory Douthat',)
+2025-11-14 15:05:19,213 - INFO - ROLLBACK

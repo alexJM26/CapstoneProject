@@ -65,7 +65,8 @@ async function loadProfile() {
   await loadFollowData(viewedProfile.user_id, user.id);
 
   //load reviews
-  await loadUserReviews(viewedProfile.user_id);
+  const isOwner = viewedProfile.user_id === user.id;
+  await loadUserReviews(viewedProfile.user_id, isOwner);
   
   //only load collections if own profile
   if (viewedProfile.user_id === user.id) {
@@ -106,10 +107,10 @@ async function loadProfile() {
   }
 }
 
-async function loadUserReviews(userID) {
+async function loadUserReviews(userID, isOwner) {
   const { data: reviews, error } = await supabase
     .from("reviews")
-    .select("rating, text, created_at, books(title)")
+    .select("review_id, rating, text, created_at, books(title)")
     .eq("user_id", userID)
     .order("created_at", { ascending: false });
 
@@ -147,10 +148,23 @@ async function loadUserReviews(userID) {
         <div>${stars}</div>
         <div>${r.text || "(No text provided.)"}</div>
         <div style="font-size: smaller; color: var(--offWhite); margin-top: 2%;"> Date Created: ${new Date(r.created_at).toLocaleDateString()}</div>
+
+        ${isOwner ? `
+          <button class="edit-review-btn" data-review-id="${r.review_id}" data-rating="${r.rating}" data-text="${r.text || ""}">
+            Edit Review
+          </button>
+          ` : ""}
       </div>
     `;
   })
   .join("");
+
+  //click listener for Edit button
+  if (isOwner) {
+    document.querySelectorAll(".edit-review-btn").forEach((btn) => {
+      btn.addEventListener("click", () => openEditReviewModal(btn));
+    });
+  }
 }
 
 async function loadUserCollections(userID) {
@@ -276,6 +290,66 @@ async function openFollowList(type) {
   $("#followModal").modal("show");
 }
 
+let currentEditingReviewId = null;
+
+function openEditReviewModal(btn) {
+  const reviewId = btn.dataset.reviewId;
+  const rating = Number(btn.dataset.rating);
+  const text = btn.dataset.text;
+
+  currentEditingReviewId = reviewId;
+
+  //fill stars
+  const starContainer = document.getElementById("editReviewStars");
+  starContainer.innerHTML = "";
+
+  for (let i = 5; i >= 1; i--) {
+    const checked = rating === i ? "checked" : "";
+    starContainer.innerHTML += `
+      <input type="radio" id="edit-star${i}" name="edit-rating" value="${i}" ${checked}>
+      <label for="edit-star${i}">&#9733;</label>
+    `;
+  }
+
+  //fill text
+  document.getElementById("editReviewText").value = text;
+
+  $("#editReviewModal").modal("show");
+}
+
+document.getElementById("saveReviewBtn").addEventListener("click", async () => {
+  const newRating = Number(document.querySelector("input[name='edit-rating']:checked").value);
+  const newText = document.getElementById("editReviewText").value;
+
+  const { error } = await supabase
+    .from("reviews")
+    .update({ rating: newRating, text: newText })
+    .eq("review_id", currentEditingReviewId);
+
+  if (error) {
+    console.error("Error saving review:", error);
+    return;
+  }
+
+  $("#editReviewModal").modal("hide");
+  loadProfile();  //reload profile data
+});
+
+document.getElementById("deleteReviewBtn").addEventListener("click", async () => {
+  const { error } = await supabase
+    .from("reviews")
+    .delete()
+    .eq("review_id", currentEditingReviewId);
+
+  if (error) {
+    console.error("Error deleting review:", error);
+    return;
+  }
+
+  $("#editReviewModal").modal("hide");
+  loadProfile();
+});
+
 document.getElementById("saveProfileBtn").addEventListener("click", async () => {
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return;
@@ -378,8 +452,6 @@ document.addEventListener('DOMContentLoaded', () => {
       let data = null, text='';
       data = await res.json();
 
-
-
       if (!res.ok || (data && data.success == false)){
         const msg=data?.error || `Request failed ({$res.status})`;
         alert(`Couldnt create collection: ${msg}`);
@@ -398,8 +470,5 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
-
-
-
 
 loadProfile();
