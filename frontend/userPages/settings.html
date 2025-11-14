@@ -107,16 +107,17 @@
                     <div class="settingsValues">
                         <h1 id="account" class="mb-2"> Account Settings </h1>
                         <hr style="background-color: var(--darkBrown);">
+
+                        <fieldset>
+                            <label> Change Username </label> 
+                            <p> Enter new username below. </p>
+                            <form id="usernameForm">
+                                <input type="text" id="newUsername" style="margin-left: 0;" class="mb-2" placeholder="New username"> <br>
+                                <button type="submit" class="main-button-brown-xsmall mt-2">Confirm New Username</button>
+                                <p id="usernameStatus" style="margin-top: 10px; font-size: 0.9em;"></p>
+                            </form>
+                        </fieldset>
                         <form>
-                            <fieldset>
-                                <label> Change Username </label> 
-                                <p> Enter new username below. </p>
-                                <form id="usernameForm">
-                                    <input type="text" id="newUsername" style="margin-left: 0;" class="mb-2" placeholder="New username"> <br>
-                                    <button type="submit" class="main-button-brown-xsmall mt-2">Confirm New Username</button>
-                                    <p id="usernameStatus" style="margin-top: 10px; font-size: 0.9em;"></p>
-                                </form>
-                            </fieldset>
                             <fieldset>
                                 <label style="font-weight: bold;"> Account Data Options </label> <br>
                                 <button type="submit" class="main-button-brown-xsmall mt-2" id="submitReview">Delete Account</button> 
