@@ -253,7 +253,7 @@ async function openFollowList(type) {
 
   //display modal with results
   const listType = isFollowers ? "Followers" : "Following";
-  let html = `<h5 style="color: var(--offWhite);">${listType}</h5> 
+  let html = `<h5 style="color: var(--offWhite);" class="d-flex justify-content-center">${listType}</h5> 
               <hr style="background-color: var(--offWhite); width: 100%;" class="mb-4">`;
   if (data.length === 0) {
     html += `<p>No ${listType.toLowerCase()} yet.</p>`;
@@ -261,7 +261,7 @@ async function openFollowList(type) {
     html += data
       .map(
         f => `
-        <div class="d-flex align-items-center my-2">
+        <div class="d-flex align-items-center m-3">
           <img src="../images/pfp/${f.profiles.avatar_choice || 1}.svg" class="mr-2" style="height:40px;width:40px;">
           <a href="../userPages/profile.html?username=${f.profiles.username}">
             ${f.profiles.username}
