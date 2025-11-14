@@ -75,6 +75,20 @@ async function loadProfile() {
     document.getElementById("profileCollections").textContent = "Viewing another user's collections.";
   }
 
+  //PRE-FILL EDIT PROFILE MODAL FIELDS
+  if (viewedProfile.user_id === user.id) {
+    document.getElementById("bioInput").value =
+      viewedProfile.bio || "";
+
+    document.getElementById("genresInput").value =
+      viewedProfile.favorite_genres && viewedProfile.favorite_genres.length > 0
+        ? viewedProfile.favorite_genres.join(", ")
+        : "";
+
+    document.getElementById("bookInput").value =
+      viewedProfile.favorite_book || "";
+  }
+
   //generate avatar grid in modal
   const avatarContainer = document.getElementById("avatarOptions");
   avatarContainer.innerHTML = "";
