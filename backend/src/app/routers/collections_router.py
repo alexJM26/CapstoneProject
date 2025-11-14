@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status, Query
 from app.schemas.requests import CreateCollectionRequest
 from app.db import get_db
 from app.auth import get_current_user
@@ -104,6 +104,7 @@ async def add_book_to_collections(
         await db.rollback()
         raise HTTPException(status_code=500, detail=f"Failed to add book to collections: {e}")
 
+
 @router.get("/get_collection_books/{collection_id}")
 async def get_collection_books(
     collection_id: int,
@@ -139,3 +140,72 @@ async def get_collection_books(
     except Exception as e:
         print(f"Error fetching books for collection {collection_id}: {e}")
         raise HTTPException(status_code=500, detail="Failed to get collection books")
+
+
+@router.delete("/remove_book/{collection_id}/{book_id}")
+async def remove_book_from_collection(
+    collection_id: int,
+    book_id: int,
+    db = Depends(get_db),
+    current_user_id: str = Depends(get_current_user)
+):
+    #Remove a single book from user's collection
+    try:
+        #verify ownership
+        ownership = await db.execute(
+            text("SELECT 1 FROM collections WHERE collection_id=:cid AND user_id=:uid"),
+            {"cid": collection_id, "uid": current_user_id}
+        )
+        if ownership.scalar_one_or_none() is None:
+            raise HTTPException(status_code=403, detail="Not authorized")
+
+        #Delete the link
+        await db.execute(
+            text("DELETE FROM collection_books WHERE collection_id=:cid AND book_id=:bid"),
+            {"cid": collection_id, "bid": book_id}
+        )
+        await db.commit()
+        return {"success": True, "removed": book_id}
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        await db.rollback()
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.patch("/update_position/{collection_id}/{book_id}")
+async def update_book_position(
+    collection_id: int,
+    book_id: int,
+    new_position: int = Query(..., description="The new position for this book"),
+    db = Depends(get_db),
+    current_user_id: str = Depends(get_current_user),
+):
+    try:
+        #Verify ownership
+        ownership = await db.execute(
+            text("SELECT 1 FROM collections WHERE collection_id=:cid AND user_id=:uid"),
+            {"cid": collection_id, "uid": current_user_id}
+        )
+        if ownership.scalar_one_or_none() is None:
+            raise HTTPException(status_code=403, detail="Not authorized")
+
+        #Update position
+        await db.execute(
+            text("""
+                UPDATE collection_books
+                SET position = :pos
+                WHERE collection_id = :cid AND book_id = :bid
+            """),
+            {"pos": new_position, "cid": collection_id, "bid": book_id}
+        )
+
+        await db.commit()
+        return {"success": True, "book_id": book_id, "new_position": new_position}
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        await db.rollback()
+        raise HTTPException(status_code=500, detail=str(e))

@@ -1,5 +1,5 @@
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select
+from sqlalchemy import select, func
 from app.models import Book, Author
 from typing import Optional, Dict, Any
 import logging
@@ -64,7 +64,6 @@ async def find_book_id_by_title_author(db: AsyncSession, title: str, author_id: 
         return book.book_id
     return None
 
-# TODO: Use helper functions such as get_author, get_book_by_isbn, and find_book_id_by_title_author
 async def get_or_create_book(
     db: AsyncSession, 
     book_data: Dict[str, Any]
@@ -81,6 +80,8 @@ async def get_or_create_book(
     - cover: str (optional, the cover URL)
     """
     
+    book = None
+    
     #try to find existing book by ISBN first
     if book_data.get("isbn"):
         result = await db.execute(
@@ -89,7 +90,6 @@ async def get_or_create_book(
         book = result.scalar_one_or_none()
         if book:
             logger.info(f"Found existing book by ISBN: {book.book_id}")
-            return book.book_id
     
     #get or create author
     author_id = None
@@ -97,7 +97,7 @@ async def get_or_create_book(
         author_id = await get_or_create_author(db, book_data["author_name"])
     
     #try to find by title + author
-    if author_id:
+    if not book and author_id:
         result = await db.execute(
             select(Book).where(
                 Book.title == book_data["title"],
@@ -107,7 +107,50 @@ async def get_or_create_book(
         book = result.scalar_one_or_none()
         if book:
             logger.info(f"Found existing book by title+author: {book.book_id}")
-            return book.book_id
+    
+    #try to find by title alone (case-insensitive) if still not found
+    if not book:
+        from sqlalchemy import func
+        result = await db.execute(
+            select(Book).where(
+                func.lower(Book.title) == func.lower(book_data["title"])
+            )
+        )
+        book = result.scalar_one_or_none()
+        if book:
+            logger.info(f"Found book by title only: {book.book_id}")
+    
+    if book:
+        
+        #UPDATE LOGIC: Check if existing book has missing data
+        needs_update = False
+        
+        if not book.cover_img_url and book_data.get("cover"):
+            book.cover_img_url = book_data["cover"]
+            needs_update = True
+            logger.info(f"Adding cover_img_url: {book_data['cover']}")
+        
+        if not book.isbn and book_data.get("isbn"):
+            book.isbn = book_data["isbn"]
+            needs_update = True
+            logger.info(f"Adding ISBN: {book_data['isbn']}")
+        
+        if not book.year_published and book_data.get("first_publish_year"):
+            book.year_published = book_data["first_publish_year"]
+            needs_update = True
+            logger.info(f"Adding year: {book_data['first_publish_year']}")
+        
+        if not book.author_id and author_id:
+            book.author_id = author_id
+            needs_update = True
+            logger.info(f"Adding author_id: {author_id}")
+        
+        if needs_update:
+            db.add(book)
+            await db.flush()
+            logger.info(f"Updated book {book.book_id} with new data")
+        
+        return book.book_id
     
     #create new book
     new_book = Book(
