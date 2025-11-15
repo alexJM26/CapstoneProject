@@ -192,8 +192,10 @@
                 </span>
             </div>
 
-            <!-- Create Collection Popup -->
+            <!-- Popup Backdrop -->
             <div id="popupBackdrop" class="popupBackdrop"></div>
+            
+            <!-- Create Collection Popup -->
             <div id="makeCollectionPopup" class="popup">
                 <div class="popupContent">
                     <h1 style="font-weight: bold;" id="reviewTitle">Create a New Collection</h1>
@@ -213,6 +215,17 @@
                 </div>
                 <span class="close">&times;</span>
             </div>
+
+            <!-- View Collection Popup -->
+            <div id="viewCollectionPopup" class="popup">
+                <div class="popupContent">
+                    <h2 id="collectionPopupTitle"></h2>
+
+                    <div id="collectionPopupBooks">Loading...</div>
+                </div>
+                <span class="close">&times;</span>
+            </div>
+
         </section>
 
         <!-- scripts for bootstrap JS content -->

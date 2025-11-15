@@ -68,11 +68,11 @@ async function loadProfile() {
   const isOwner = viewedProfile.user_id === user.id;
   await loadUserReviews(viewedProfile.user_id, isOwner);
   
-  //only load collections if own profile
+  //no longer only loading collections if own profile
   if (viewedProfile.user_id === user.id) {
     await loadUserCollections(viewedProfile.user_id);
   } else {
-    document.getElementById("profileCollections").textContent = "Viewing another user's collections.";
+    await loadUserCollections(viewedProfile.user_id);
   }
 
   //PRE-FILL EDIT PROFILE MODAL FIELDS
@@ -181,23 +181,75 @@ async function loadUserReviews(userID, isOwner) {
   }
 }
 
-async function loadUserCollections(userID) {
-  //load user collections
-  const { data: collections, error } = await supabase
-    .from("collections")
-    .select("name, description")
-    .eq("user_id", userID);
+async function loadUserCollections(userId) {
+  const container = document.getElementById("profileCollections");
+  container.innerHTML = "Loading...";
 
-  const collectionsContainer = document.getElementById("profileCollections");
-  if (error) {
-    console.error("Error loading collections:", error);
-    collectionsContainer.textContent = "Unable to load collections.";
-    return;
+  try {
+    //if viewing own profile use normal endpoint
+    //if viewing someone else's call the same route but pass `?user_id=...`
+    const { data: { user: currentUser } } = await supabase.auth.getUser();
+    const isOwnProfile = currentUser && currentUser.id === userId;
+    const url = isOwnProfile
+      ? `/collections/get_collections`
+      : `/collections/get_collections?user_id=${userId}`;
+
+    const res = await authenticatedFetch(url);
+    if (!res.ok) throw new Error("Failed to load collections");
+
+    const data = await res.json();
+    const collections = Array.isArray(data.collections) ? data.collections : [];
+
+    if (!collections.length) {
+      container.textContent = "No collections yet.";
+      return;
+    }
+
+    //build previews for each collection
+    container.innerHTML = "";
+
+    for (const c of collections) {
+      //fetch preview books. Limit to 3
+      const previewRes = await authenticatedFetch(
+        `/collections/get_collection_books/${c.collectionId}`
+      );
+
+      let previewBooks = [];
+      if (previewRes.ok) {
+        const bookData = await previewRes.json();
+        previewBooks = (bookData.books || [])
+          .sort((a, b) => (a.position ?? 0) - (b.position ?? 0))
+          .slice(0, 3);
+      }
+
+      const preview =
+        previewBooks.length > 0
+          ? previewBooks.map(b => b.title).join(", ") +
+            (previewBooks.length === 3 ? "…" : "")
+          : "No books yet";
+
+      const div = document.createElement("div");
+      div.className = "collection-preview";
+      div.dataset.collectionId = c.collectionId;
+      div.innerHTML = `
+        <strong class="collection-link" style="cursor:pointer;">
+          ${c.name}
+        </strong>
+        <div style="font-size: 0.9em; color: var(--offWhite);">
+          ${preview}
+        </div>
+      `;
+
+      div.addEventListener("click", () =>
+        openCollectionPopup(c.collectionId, c.name)
+      );
+
+      container.appendChild(div);
+    }
+  } catch (err) {
+    console.error("Error loading collections:", err);
+    container.textContent = "Unable to load collections.";
   }
-
-  collectionsContainer.innerHTML = collections && collections.length
-    ? collections.map(l => `<div><strong>${l.name}</strong>: ${l.description || ""}</div>`).join("")
-    : "You have no collections yet.";
 }
 
 //function to handle counts and follow/unfollow actions
@@ -304,6 +356,59 @@ async function openFollowList(type) {
   $("#followModal").modal("show");
 }
 
+async function openCollectionPopup(collectionId, collectionName = "Collection") {
+  const popup = document.getElementById("viewCollectionPopup");
+  const backdrop = document.getElementById("popupBackdrop");
+  const titleEl = document.getElementById("collectionPopupTitle");
+  const booksEl = document.getElementById("collectionPopupBooks");
+
+  //reset content
+  booksEl.innerHTML = "Loading...";
+  titleEl.textContent = collectionName;
+
+  popup.classList.add("show");
+  backdrop.style.display = "block";
+
+  try {
+    const res = await authenticatedFetch(
+      `/collections/get_collection_books/${collectionId}`
+    );
+    if (!res.ok) throw new Error("Failed to fetch books");
+
+    const data = await res.json();
+    const books = Array.isArray(data.books) ? data.books : [];
+
+    if (!books.length) {
+      booksEl.textContent = "No books in this collection.";
+      return;
+    }
+
+    //sort by position
+    books.sort((a, b) => (a.position ?? 0) - (b.position ?? 0));
+
+    //render
+    booksEl.innerHTML = books
+      .map(b => {
+        const cover = b.cover_img_url || "../images/bookCoverDefault.svg";
+
+        return `
+          <div class="collection-book-entry">
+            <img src="${cover}" style="height:70px; border-radius:5px; margin-right:10px;">
+            <strong>${b.title}</strong><br>
+            <span style="font-size:0.9em; opacity:0.8;">
+              ${b.author_name || "Unknown Author"}
+            </span>
+          </div>
+          <hr style="opacity:0.2;">
+        `;
+      })
+      .join("");
+  } catch (err) {
+    console.error("Popup load error:", err);
+    booksEl.textContent = "Unable to load books.";
+  }
+}
+
 let currentEditingReviewId = null;
 
 function openEditReviewModal(btn) {
@@ -393,7 +498,7 @@ document.getElementById("saveProfileBtn").addEventListener("click", async () => 
     loadProfile();
   }
 
-  // close pop=up
+  // close popup
   document.querySelectorAll(".popup").forEach(p => p.classList.remove("show"));
   popupBackdrop.style.display = "none";
 });
@@ -431,7 +536,6 @@ document.getElementById("followingLink").addEventListener("click", e => {
   e.preventDefault();
   openFollowList("following");
 });
-
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('createCollectionForm');

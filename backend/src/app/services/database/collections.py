@@ -70,4 +70,3 @@ async def get_user_collections(db : AsyncSession, user_id: str) -> Optional[str]
         select(Collections).where(Collections.user_id == user_id).order_by(Collections.created_at.desc())
     )
     return result.scalars().all()
-
