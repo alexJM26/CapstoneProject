@@ -38,31 +38,42 @@ async def create_collection(
 
 @router.get("/get_collections")
 async def get_collections(
+    user_id: Optional[str] = Query(None, description="Optional user ID to fetch public collections"),
     db = Depends(get_db),
     current_user_id: str = Depends(get_current_user),
 ):
-    print("GET USER COLLECTIONS!\n\n")
+    """
+    Should return collections for either:
+    - the current authenticated user (default)
+    - OR another user when `?user_id=` is provided
+    """
     try:
-        # Get all collections owned by a user
-        rows = await get_user_collections(db, current_user_id)
+        #Determine which user we are fetching collections for
+        target_user_id = user_id if user_id else current_user_id
 
-        # Build list so that the HTML can understand it
+        #Get collections from database
+        rows = await get_user_collections(db, target_user_id)
+
+        #Build list so that the HTML can understand it
         data: List[Dict[str, Any]] = [ 
             {
                 "collectionId": str(r.collection_id),
                 "name": r.name,
                 "iconId": r.icon_id,
                 "createdAt": r.created_at.isoformat(),
+                "userId": r.user_id,
             }
             for r in rows
         ]
 
-        print("data: ", data)
-
-        return {"success": True, "collections": data}
+        return {
+            "success": True,
+            "collections": data,
+            "owner": target_user_id
+        }
 
     except Exception as e: # TODO: Add logging
-        print(f"Error: {e}")
+        print(f"Error in get_collections: {e}")
         raise HTTPException(status_code=500, detail="Failed to get user collections")
 
 
@@ -111,19 +122,24 @@ async def get_collection_books(
     db = Depends(get_db),
     current_user_id: str = Depends(get_current_user)
 ):
+    """
+    Return all books in ANY user's collection. Collections are public, and RLS allows public SELECT access.
+    Since we have the Collections page which will allow for looking at public collections, there is no
+    need to verify a collection's ownership to view the books within.
+    """
     #Return all books in a user's specific collection with joined author and book details
     try:
-        #Verify collection belongs to current user
-        ownership_check = await db.execute(
-            text("SELECT 1 FROM collections WHERE collection_id = :cid AND user_id = :uid"),
-            {"cid": collection_id, "uid": current_user_id}
+         #Check that the collection exists
+        exists = await db.execute(
+            text("SELECT 1 FROM collections WHERE collection_id = :cid"),
+            {"cid": collection_id}
         )
-        if ownership_check.scalar_one_or_none() is None:
-            raise HTTPException(status_code=403, detail="Not authorized to view this collection")
+        if exists.scalar_one_or_none() is None:
+            raise HTTPException(status_code=404, detail="Collection not found")
 
         #Retrieve books joined with book details
         result = await db.execute(text("""
-            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url, cb.position
             FROM collection_books cb
             JOIN books b ON cb.book_id = b.book_id
             LEFT JOIN authors a ON b.author_id = a.author_id
@@ -134,7 +150,12 @@ async def get_collection_books(
         rows = result.mappings().all()
         books = [dict(r) for r in rows]
 
-        return {"success": True, "collection_id": collection_id, "books": books}
+        return {
+            "success": True, 
+            "collection_id": collection_id, 
+            "books": books
+        }
+    
     except HTTPException:
         raise
     except Exception as e:
