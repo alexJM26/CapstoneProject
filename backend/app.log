@@ -26949,3 +26949,2945 @@ WHERE collections.user_id = $1::UUID ORDER BY collections.created_at DESC
         
 2025-11-15 14:30:43,299 - INFO - [cached since 191.1s ago] (3,)
 2025-11-15 14:30:43,324 - INFO - ROLLBACK
+2025-11-15 14:36:48,702 - INFO - select pg_catalog.version()
+2025-11-15 14:36:48,702 - INFO - [raw sql] ()
+2025-11-15 14:36:48,795 - INFO - select current_schema()
+2025-11-15 14:36:48,798 - INFO - [raw sql] ()
+2025-11-15 14:36:48,890 - INFO - show standard_conforming_strings
+2025-11-15 14:36:48,890 - INFO - [raw sql] ()
+2025-11-15 14:36:48,957 - INFO - BEGIN (implicit)
+2025-11-15 14:36:48,967 - INFO - SELECT collections.collection_id, collections.user_id, collections.name, collections.description, collections.icon_id, collections.created_at 
+FROM collections 
+WHERE collections.user_id = $1::UUID ORDER BY collections.created_at DESC
+2025-11-15 14:36:48,967 - INFO - [generated in 0.00073s] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00',)
+2025-11-15 14:36:49,066 - INFO - ROLLBACK
+2025-11-15 14:36:49,431 - INFO - BEGIN (implicit)
+2025-11-15 14:36:49,431 - INFO - SELECT 1 FROM collections WHERE collection_id = $1
+2025-11-15 14:36:49,431 - INFO - [generated in 0.00061s] (5,)
+2025-11-15 14:36:49,519 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url, cb.position
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-15 14:36:49,519 - INFO - [generated in 0.00110s] (5,)
+2025-11-15 14:36:49,569 - INFO - ROLLBACK
+2025-11-15 14:36:49,631 - INFO - BEGIN (implicit)
+2025-11-15 14:36:49,635 - INFO - SELECT 1 FROM collections WHERE collection_id = $1
+2025-11-15 14:36:49,635 - INFO - [cached since 0.203s ago] (2,)
+2025-11-15 14:36:49,703 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url, cb.position
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-15 14:36:49,703 - INFO - [cached since 0.1837s ago] (2,)
+2025-11-15 14:36:49,755 - INFO - ROLLBACK
+2025-11-15 14:36:49,817 - INFO - BEGIN (implicit)
+2025-11-15 14:36:49,818 - INFO - SELECT 1 FROM collections WHERE collection_id = $1
+2025-11-15 14:36:49,818 - INFO - [cached since 0.3861s ago] (1,)
+2025-11-15 14:36:49,867 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url, cb.position
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-15 14:36:49,867 - INFO - [cached since 0.3466s ago] (1,)
+2025-11-15 14:36:49,895 - INFO - ROLLBACK
+2025-11-15 14:36:55,395 - INFO - BEGIN (implicit)
+2025-11-15 14:36:55,395 - INFO - SELECT collections.collection_id, collections.user_id, collections.name, collections.description, collections.icon_id, collections.created_at 
+FROM collections 
+WHERE collections.user_id = $1::UUID ORDER BY collections.created_at DESC
+2025-11-15 14:36:55,395 - INFO - [cached since 6.429s ago] ('73e9aabe-00c4-424b-a8ee-5739faf6c740',)
+2025-11-15 14:36:55,435 - INFO - ROLLBACK
+2025-11-15 14:36:55,502 - INFO - BEGIN (implicit)
+2025-11-15 14:36:55,502 - INFO - SELECT 1 FROM collections WHERE collection_id = $1
+2025-11-15 14:36:55,502 - INFO - [cached since 6.072s ago] (3,)
+2025-11-15 14:36:55,554 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url, cb.position
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-15 14:36:55,554 - INFO - [cached since 6.034s ago] (3,)
+2025-11-15 14:36:55,581 - INFO - ROLLBACK
+2025-11-15 14:36:56,921 - INFO - BEGIN (implicit)
+2025-11-15 14:36:56,923 - INFO - SELECT 1 FROM collections WHERE collection_id = $1
+2025-11-15 14:36:56,923 - INFO - [cached since 7.491s ago] (3,)
+2025-11-15 14:36:56,964 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url, cb.position
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-15 14:36:56,964 - INFO - [cached since 7.447s ago] (3,)
+2025-11-15 14:36:56,995 - INFO - ROLLBACK
+2025-11-15 14:37:03,508 - INFO - BEGIN (implicit)
+2025-11-15 14:37:03,508 - INFO - SELECT 1 FROM collections WHERE collection_id = $1
+2025-11-15 14:37:03,508 - INFO - [cached since 14.08s ago] (3,)
+2025-11-15 14:37:03,558 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url, cb.position
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-15 14:37:03,562 - INFO - [cached since 14.04s ago] (3,)
+2025-11-15 14:37:03,585 - INFO - ROLLBACK
+2025-11-15 14:37:09,778 - INFO - BEGIN (implicit)
+2025-11-15 14:37:09,778 - INFO - SELECT collections.collection_id, collections.user_id, collections.name, collections.description, collections.icon_id, collections.created_at 
+FROM collections 
+WHERE collections.user_id = $1::UUID ORDER BY collections.created_at DESC
+2025-11-15 14:37:09,778 - INFO - [cached since 20.81s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00',)
+2025-11-15 14:37:09,821 - INFO - ROLLBACK
+2025-11-15 14:37:09,886 - INFO - BEGIN (implicit)
+2025-11-15 14:37:09,889 - INFO - SELECT 1 FROM collections WHERE collection_id = $1
+2025-11-15 14:37:09,891 - INFO - [cached since 20.46s ago] (5,)
+2025-11-15 14:37:09,940 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url, cb.position
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-15 14:37:09,942 - INFO - [cached since 20.42s ago] (5,)
+2025-11-15 14:37:09,963 - INFO - ROLLBACK
+2025-11-15 14:37:13,010 - INFO - BEGIN (implicit)
+2025-11-15 14:37:13,010 - INFO - SELECT 1 FROM collections WHERE collection_id = $1
+2025-11-15 14:37:13,012 - INFO - [cached since 23.58s ago] (1,)
+2025-11-15 14:37:13,048 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url, cb.position
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-15 14:37:13,048 - INFO - [cached since 23.54s ago] (1,)
+2025-11-15 14:37:13,081 - INFO - ROLLBACK
+2025-11-15 14:37:17,796 - INFO - BEGIN (implicit)
+2025-11-15 14:37:17,796 - INFO - SELECT 1 FROM collections WHERE collection_id = $1
+2025-11-15 14:37:17,796 - INFO - [cached since 28.36s ago] (2,)
+2025-11-15 14:37:17,842 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url, cb.position
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-15 14:37:17,842 - INFO - [cached since 28.32s ago] (2,)
+2025-11-15 14:37:17,865 - INFO - ROLLBACK
+2025-11-15 14:37:31,031 - INFO - BEGIN (implicit)
+2025-11-15 14:37:31,036 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:31,036 - INFO - [generated in 0.00076s] ('Harper Lee',)
+2025-11-15 14:37:31,116 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 14:37:31,116 - INFO - [generated in 0.00110s] ('To Kill a Mockingbird', 4)
+2025-11-15 14:37:31,169 - INFO - SELECT count(reviews.review_id) AS count_1, coalesce(sum(reviews.rating), $1::INTEGER) AS coalesce_1, avg(reviews.rating) AS avg_1 
+FROM reviews 
+WHERE reviews.book_id = $2::INTEGER
+2025-11-15 14:37:31,169 - INFO - [generated in 0.00089s] (0, 5)
+2025-11-15 14:37:31,228 - INFO - SELECT reviews.review_id, reviews.user_id, reviews.book_id, reviews.rating, reviews.text, reviews.created_at 
+FROM reviews 
+WHERE reviews.book_id = $1::INTEGER ORDER BY reviews.review_id DESC
+2025-11-15 14:37:31,228 - INFO - [generated in 0.00139s] (5,)
+2025-11-15 14:37:31,279 - INFO - SELECT profiles.user_id AS profiles_user_id, profiles.username AS profiles_username, profiles.bio AS profiles_bio, profiles.favorite_genres AS profiles_favorite_genres, profiles.favorite_book AS profiles_favorite_book, profiles.avatar_choice AS profiles_avatar_choice, profiles.created_at AS profiles_created_at 
+FROM profiles 
+WHERE profiles.user_id = $1::UUID
+2025-11-15 14:37:31,279 - INFO - [generated in 0.00135s] (UUID('73e9aabe-00c4-424b-a8ee-5739faf6c740'),)
+2025-11-15 14:37:31,327 - INFO - SELECT profiles.user_id AS profiles_user_id, profiles.username AS profiles_username, profiles.bio AS profiles_bio, profiles.favorite_genres AS profiles_favorite_genres, profiles.favorite_book AS profiles_favorite_book, profiles.avatar_choice AS profiles_avatar_choice, profiles.created_at AS profiles_created_at 
+FROM profiles 
+WHERE profiles.user_id = $1::UUID
+2025-11-15 14:37:31,329 - INFO - [cached since 0.04832s ago] (UUID('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00'),)
+2025-11-15 14:37:31,351 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:31,351 - INFO - [cached since 0.3172s ago] ('Claudia Durst Johnson',)
+2025-11-15 14:37:31,379 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:31,381 - INFO - [cached since 0.344s ago] ('Tamara Castleman',)
+2025-11-15 14:37:31,403 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:31,403 - INFO - [cached since 0.3687s ago] ('Kathy Kifer',)
+2025-11-15 14:37:31,431 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:31,431 - INFO - [cached since 0.3944s ago] ('Li',)
+2025-11-15 14:37:31,451 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:31,451 - INFO - [cached since 0.42s ago] ('Eva Fitzwater',)
+2025-11-15 14:37:31,479 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:31,482 - INFO - [cached since 0.4444s ago] ('Harold Bloom',)
+2025-11-15 14:37:31,499 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:31,499 - INFO - [cached since 0.4694s ago] ('Dawn Sova',)
+2025-11-15 14:37:31,529 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:31,529 - INFO - [cached since 0.4926s ago] ('Julia McGirr',)
+2025-11-15 14:37:31,550 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:31,550 - INFO - [cached since 0.5172s ago] ('Bradley Walton',)
+2025-11-15 14:37:31,568 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:31,579 - INFO - [cached since 0.541s ago] ('Harold Bloom',)
+2025-11-15 14:37:31,600 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:31,600 - INFO - [cached since 0.5666s ago] ('James S. Scott',)
+2025-11-15 14:37:31,627 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:31,629 - INFO - [cached since 0.5917s ago] ('Edward Craigs',)
+2025-11-15 14:37:31,650 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:31,650 - INFO - [cached since 0.6162s ago] ('Christopher Sergel',)
+2025-11-15 14:37:31,679 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:31,679 - INFO - [cached since 0.6418s ago] ('Harold Bloom',)
+2025-11-15 14:37:31,701 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:31,701 - INFO - [cached since 0.6672s ago] ('Harcourt A. Morgan',)
+2025-11-15 14:37:31,729 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:31,729 - INFO - [cached since 0.6926s ago] ('Joyce Milton',)
+2025-11-15 14:37:31,754 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:31,754 - INFO - [cached since 0.7169s ago] ('Ingrid Ross',)
+2025-11-15 14:37:31,779 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:31,782 - INFO - [cached since 0.7445s ago] ('Anita Price Davis',)
+2025-11-15 14:37:31,805 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:31,809 - INFO - [cached since 0.7714s ago] ('Tamara Castleman',)
+2025-11-15 14:37:31,833 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:31,833 - INFO - [cached since 0.7979s ago] ('Harold Bloom',)
+2025-11-15 14:37:31,859 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:31,859 - INFO - [cached since 0.8226s ago] ('Jill Green',)
+2025-11-15 14:37:31,883 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:31,883 - INFO - [cached since 0.8463s ago] ('Eva Fitzwater',)
+2025-11-15 14:37:31,909 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:31,909 - INFO - [cached since 0.8723s ago] ('LessonCaps',)
+2025-11-15 14:37:31,934 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:31,934 - INFO - [cached since 0.8973s ago] ('Harper Lee',)
+2025-11-15 14:37:31,961 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 14:37:31,962 - INFO - [cached since 0.8449s ago] ('To Kill a Mockingbird. Interpretationshilfe.', 4)
+2025-11-15 14:37:31,982 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:31,982 - INFO - [cached since 0.9498s ago] ('Philip Burnham',)
+2025-11-15 14:37:32,013 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:32,015 - INFO - [cached since 0.9776s ago] ('Rachel Hitchcock',)
+2025-11-15 14:37:32,040 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:32,041 - INFO - [cached since 1.004s ago] ('Coles Editorial Board',)
+2025-11-15 14:37:32,064 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:32,064 - INFO - [cached since 1.03s ago] ('Christopher Sergel',)
+2025-11-15 14:37:32,093 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:32,093 - INFO - [cached since 1.057s ago] ('Spark Publishing',)
+2025-11-15 14:37:32,129 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:32,132 - INFO - [cached since 1.094s ago] ('Tony Buzan',)
+2025-11-15 14:37:32,155 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:32,156 - INFO - [cached since 1.119s ago] ('Piper Whelan',)
+2025-11-15 14:37:32,179 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:32,182 - INFO - [cached since 1.144s ago] ('Harper Lee',)
+2025-11-15 14:37:32,200 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 14:37:32,200 - INFO - [cached since 1.088s ago] ('to kill a mockingbird', 4)
+2025-11-15 14:37:32,229 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:32,232 - INFO - [cached since 1.194s ago] ('Fred Fordham',)
+2025-11-15 14:37:32,252 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:32,252 - INFO - [cached since 1.217s ago] ('Christopher Sergel',)
+2025-11-15 14:37:32,277 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:32,278 - INFO - [cached since 1.24s ago] ('Prestwick House',)
+2025-11-15 14:37:32,298 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:32,298 - INFO - [cached since 1.265s ago] ('Mary Hartley',)
+2025-11-15 14:37:32,326 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:32,328 - INFO - [cached since 1.29s ago] ('publishing',)
+2025-11-15 14:37:32,352 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:32,352 - INFO - [cached since 1.315s ago] ('Save Time Summaries',)
+2025-11-15 14:37:32,376 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:32,379 - INFO - [cached since 1.341s ago] ('Beth Sims',)
+2025-11-15 14:37:32,399 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:32,399 - INFO - [cached since 1.366s ago] ('Philip Page',)
+2025-11-15 14:37:32,425 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:32,429 - INFO - [cached since 1.392s ago] ('Trivia-on-Books Staff',)
+2025-11-15 14:37:32,451 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:32,451 - INFO - [cached since 1.417s ago] ('Daily Books Staff',)
+2025-11-15 14:37:32,479 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:32,479 - INFO - [cached since 1.443s ago] ('Harold Bloom',)
+2025-11-15 14:37:32,499 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:32,499 - INFO - [cached since 1.465s ago] ('Christopher Sergel ',)
+2025-11-15 14:37:32,516 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:32,516 - INFO - [cached since 1.488s ago] ('Mary Green',)
+2025-11-15 14:37:32,549 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:32,549 - INFO - [cached since 1.512s ago] ('Harold Bloom',)
+2025-11-15 14:37:32,576 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:32,576 - INFO - [cached since 1.539s ago] ('Philip Page',)
+2025-11-15 14:37:32,601 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:32,601 - INFO - [cached since 1.566s ago] ('Susan Elkin',)
+2025-11-15 14:37:32,627 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 14:37:32,629 - INFO - [cached since 1.591s ago] ('Ross Gregory Douthat',)
+2025-11-15 14:37:32,651 - INFO - ROLLBACK
+2025-11-15 15:47:46,496 - INFO - select pg_catalog.version()
+2025-11-15 15:47:46,496 - INFO - [raw sql] ()
+2025-11-15 15:47:46,596 - INFO - select current_schema()
+2025-11-15 15:47:46,604 - INFO - [raw sql] ()
+2025-11-15 15:47:46,715 - INFO - show standard_conforming_strings
+2025-11-15 15:47:46,717 - INFO - [raw sql] ()
+2025-11-15 15:47:46,782 - INFO - BEGIN (implicit)
+2025-11-15 15:47:46,801 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:46,801 - INFO - [generated in 0.00091s] ('Harper Lee',)
+2025-11-15 15:47:46,882 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 15:47:46,882 - INFO - [generated in 0.00110s] ('To Kill a Mockingbird', 4)
+2025-11-15 15:47:46,953 - INFO - SELECT count(reviews.review_id) AS count_1, coalesce(sum(reviews.rating), $1::INTEGER) AS coalesce_1, avg(reviews.rating) AS avg_1 
+FROM reviews 
+WHERE reviews.book_id = $2::INTEGER
+2025-11-15 15:47:46,953 - INFO - [generated in 0.00084s] (0, 5)
+2025-11-15 15:47:47,012 - INFO - SELECT reviews.review_id, reviews.user_id, reviews.book_id, reviews.rating, reviews.text, reviews.created_at 
+FROM reviews 
+WHERE reviews.book_id = $1::INTEGER ORDER BY reviews.review_id DESC
+2025-11-15 15:47:47,013 - INFO - [generated in 0.00159s] (5,)
+2025-11-15 15:47:47,073 - INFO - SELECT profiles.user_id AS profiles_user_id, profiles.username AS profiles_username, profiles.bio AS profiles_bio, profiles.favorite_genres AS profiles_favorite_genres, profiles.favorite_book AS profiles_favorite_book, profiles.avatar_choice AS profiles_avatar_choice, profiles.created_at AS profiles_created_at 
+FROM profiles 
+WHERE profiles.user_id = $1::UUID
+2025-11-15 15:47:47,073 - INFO - [generated in 0.00094s] (UUID('73e9aabe-00c4-424b-a8ee-5739faf6c740'),)
+2025-11-15 15:47:47,130 - INFO - SELECT profiles.user_id AS profiles_user_id, profiles.username AS profiles_username, profiles.bio AS profiles_bio, profiles.favorite_genres AS profiles_favorite_genres, profiles.favorite_book AS profiles_favorite_book, profiles.avatar_choice AS profiles_avatar_choice, profiles.created_at AS profiles_created_at 
+FROM profiles 
+WHERE profiles.user_id = $1::UUID
+2025-11-15 15:47:47,131 - INFO - [cached since 0.05714s ago] (UUID('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00'),)
+2025-11-15 15:47:47,161 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:47,161 - INFO - [cached since 0.3574s ago] ('Claudia Durst Johnson',)
+2025-11-15 15:47:47,194 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:47,194 - INFO - [cached since 0.3921s ago] ('Tamara Castleman',)
+2025-11-15 15:47:47,230 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:47,230 - INFO - [cached since 0.4278s ago] ('Kathy Kifer',)
+2025-11-15 15:47:47,254 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:47,255 - INFO - [cached since 0.4514s ago] ('Li',)
+2025-11-15 15:47:47,283 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:47,283 - INFO - [cached since 0.4813s ago] ('Eva Fitzwater',)
+2025-11-15 15:47:47,313 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:47,313 - INFO - [cached since 0.5107s ago] ('Harold Bloom',)
+2025-11-15 15:47:47,347 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:47,347 - INFO - [cached since 0.5449s ago] ('Dawn Sova',)
+2025-11-15 15:47:47,363 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:47,363 - INFO - [cached since 0.5697s ago] ('Julia McGirr',)
+2025-11-15 15:47:47,396 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:47,396 - INFO - [cached since 0.5924s ago] ('Bradley Walton',)
+2025-11-15 15:47:47,413 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:47,413 - INFO - [cached since 0.6159s ago] ('Harold Bloom',)
+2025-11-15 15:47:47,441 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:47,444 - INFO - [cached since 0.6394s ago] ('James S. Scott',)
+2025-11-15 15:47:47,470 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:47,470 - INFO - [cached since 0.6679s ago] ('Edward Craigs',)
+2025-11-15 15:47:47,495 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:47,495 - INFO - [cached since 0.6925s ago] ('Christopher Sergel',)
+2025-11-15 15:47:47,527 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:47,528 - INFO - [cached since 0.7229s ago] ('Harold Bloom',)
+2025-11-15 15:47:47,552 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:47,552 - INFO - [cached since 0.7483s ago] ('Harcourt A. Morgan',)
+2025-11-15 15:47:47,580 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:47,580 - INFO - [cached since 0.778s ago] ('Joyce Milton',)
+2025-11-15 15:47:47,611 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:47,611 - INFO - [cached since 0.8071s ago] ('Ingrid Ross',)
+2025-11-15 15:47:47,629 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:47,629 - INFO - [cached since 0.8341s ago] ('Anita Price Davis',)
+2025-11-15 15:47:47,665 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:47,665 - INFO - [cached since 0.8643s ago] ('Tamara Castleman',)
+2025-11-15 15:47:47,691 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:47,691 - INFO - [cached since 0.8886s ago] ('Harold Bloom',)
+2025-11-15 15:47:47,720 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:47,720 - INFO - [cached since 0.9186s ago] ('Jill Green',)
+2025-11-15 15:47:47,750 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:47,750 - INFO - [cached since 0.9524s ago] ('Eva Fitzwater',)
+2025-11-15 15:47:47,789 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:47,789 - INFO - [cached since 0.9855s ago] ('LessonCaps',)
+2025-11-15 15:47:47,813 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:47,813 - INFO - [cached since 1.009s ago] ('Harper Lee',)
+2025-11-15 15:47:47,830 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 15:47:47,830 - INFO - [cached since 0.9575s ago] ('To Kill a Mockingbird. Interpretationshilfe.', 4)
+2025-11-15 15:47:47,863 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:47,863 - INFO - [cached since 1.063s ago] ('Philip Burnham',)
+2025-11-15 15:47:47,894 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:47,894 - INFO - [cached since 1.092s ago] ('Rachel Hitchcock',)
+2025-11-15 15:47:47,919 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:47,919 - INFO - [cached since 1.12s ago] ('Coles Editorial Board',)
+2025-11-15 15:47:47,943 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:47,943 - INFO - [cached since 1.143s ago] ('Christopher Sergel',)
+2025-11-15 15:47:47,966 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:47,966 - INFO - [cached since 1.167s ago] ('Spark Publishing',)
+2025-11-15 15:47:47,996 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:47,996 - INFO - [cached since 1.192s ago] ('Tony Buzan',)
+2025-11-15 15:47:48,014 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:48,014 - INFO - [cached since 1.221s ago] ('Piper Whelan',)
+2025-11-15 15:47:48,050 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:48,050 - INFO - [cached since 1.247s ago] ('Harper Lee',)
+2025-11-15 15:47:48,075 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 15:47:48,075 - INFO - [cached since 1.193s ago] ('to kill a mockingbird', 4)
+2025-11-15 15:47:48,097 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:48,097 - INFO - [cached since 1.304s ago] ('Fred Fordham',)
+2025-11-15 15:47:48,129 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:48,130 - INFO - [cached since 1.326s ago] ('Christopher Sergel',)
+2025-11-15 15:47:48,151 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:48,151 - INFO - [cached since 1.351s ago] ('Prestwick House',)
+2025-11-15 15:47:48,182 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:48,182 - INFO - [cached since 1.379s ago] ('Mary Hartley',)
+2025-11-15 15:47:48,207 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:48,207 - INFO - [cached since 1.405s ago] ('publishing',)
+2025-11-15 15:47:48,231 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:48,231 - INFO - [cached since 1.432s ago] ('Save Time Summaries',)
+2025-11-15 15:47:48,265 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:48,272 - INFO - [cached since 1.468s ago] ('Beth Sims',)
+2025-11-15 15:47:48,299 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:48,299 - INFO - [cached since 1.495s ago] ('Philip Page',)
+2025-11-15 15:47:48,328 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:48,328 - INFO - [cached since 1.526s ago] ('Trivia-on-Books Staff',)
+2025-11-15 15:47:48,352 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:48,352 - INFO - [cached since 1.553s ago] ('Daily Books Staff',)
+2025-11-15 15:47:48,378 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:48,382 - INFO - [cached since 1.578s ago] ('Harold Bloom',)
+2025-11-15 15:47:48,397 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:48,397 - INFO - [cached since 1.602s ago] ('Christopher Sergel ',)
+2025-11-15 15:47:48,431 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:48,431 - INFO - [cached since 1.632s ago] ('Mary Green',)
+2025-11-15 15:47:48,462 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:48,464 - INFO - [cached since 1.661s ago] ('Harold Bloom',)
+2025-11-15 15:47:48,488 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:48,494 - INFO - [cached since 1.69s ago] ('Philip Page',)
+2025-11-15 15:47:48,514 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:48,514 - INFO - [cached since 1.717s ago] ('Susan Elkin',)
+2025-11-15 15:47:48,548 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 15:47:48,548 - INFO - [cached since 1.744s ago] ('Ross Gregory Douthat',)
+2025-11-15 15:47:48,566 - INFO - ROLLBACK
+2025-11-15 16:07:34,124 - INFO - select pg_catalog.version()
+2025-11-15 16:07:34,124 - INFO - [raw sql] ()
+2025-11-15 16:07:34,221 - INFO - select current_schema()
+2025-11-15 16:07:34,221 - INFO - [raw sql] ()
+2025-11-15 16:07:34,334 - INFO - show standard_conforming_strings
+2025-11-15 16:07:34,334 - INFO - [raw sql] ()
+2025-11-15 16:07:34,415 - INFO - BEGIN (implicit)
+2025-11-15 16:07:34,431 - INFO - SELECT collections.collection_id, collections.user_id, collections.name, collections.description, collections.icon_id, collections.created_at 
+FROM collections 
+WHERE collections.user_id = $1::UUID ORDER BY collections.created_at DESC
+2025-11-15 16:07:34,431 - INFO - [generated in 0.00123s] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00',)
+2025-11-15 16:07:34,516 - INFO - ROLLBACK
+2025-11-15 16:07:34,961 - INFO - BEGIN (implicit)
+2025-11-15 16:07:34,961 - INFO - SELECT 1 FROM collections WHERE collection_id = $1
+2025-11-15 16:07:34,961 - INFO - [generated in 0.00070s] (5,)
+2025-11-15 16:07:35,070 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url, cb.position
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-15 16:07:35,073 - INFO - [generated in 0.00132s] (5,)
+2025-11-15 16:07:35,130 - INFO - ROLLBACK
+2025-11-15 16:07:38,222 - INFO - BEGIN (implicit)
+2025-11-15 16:07:38,222 - INFO - SELECT 1 FROM collections WHERE collection_id = $1
+2025-11-15 16:07:38,222 - INFO - [cached since 3.253s ago] (1,)
+2025-11-15 16:07:38,300 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url, cb.position
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-15 16:07:38,300 - INFO - [cached since 3.23s ago] (1,)
+2025-11-15 16:07:38,346 - INFO - ROLLBACK
+2025-11-15 16:07:42,549 - INFO - BEGIN (implicit)
+2025-11-15 16:07:42,549 - INFO - SELECT 1 FROM collections WHERE collection_id = $1
+2025-11-15 16:07:42,549 - INFO - [cached since 7.582s ago] (2,)
+2025-11-15 16:07:42,597 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url, cb.position
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-15 16:07:42,597 - INFO - [cached since 7.53s ago] (2,)
+2025-11-15 16:07:42,626 - INFO - ROLLBACK
+2025-11-15 16:07:45,767 - INFO - BEGIN (implicit)
+2025-11-15 16:07:45,767 - INFO - SELECT 1 FROM collections WHERE collection_id = $1
+2025-11-15 16:07:45,767 - INFO - [cached since 10.8s ago] (5,)
+2025-11-15 16:07:45,981 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url, cb.position
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-15 16:07:45,984 - INFO - [cached since 10.91s ago] (5,)
+2025-11-15 16:07:46,078 - INFO - ROLLBACK
+2025-11-15 16:07:48,222 - INFO - BEGIN (implicit)
+2025-11-15 16:07:48,222 - INFO - SELECT 1 FROM collections WHERE collection_id = $1
+2025-11-15 16:07:48,222 - INFO - [cached since 13.25s ago] (1,)
+2025-11-15 16:07:48,431 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url, cb.position
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-15 16:07:48,432 - INFO - [cached since 13.36s ago] (1,)
+2025-11-15 16:07:48,535 - INFO - ROLLBACK
+2025-11-15 16:07:53,848 - INFO - BEGIN (implicit)
+2025-11-15 16:07:53,863 - INFO - SELECT 1 FROM collections WHERE collection_id = $1
+2025-11-15 16:07:53,863 - INFO - [cached since 18.89s ago] (2,)
+2025-11-15 16:07:53,994 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url, cb.position
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-15 16:07:53,996 - INFO - [cached since 18.92s ago] (2,)
+2025-11-15 16:07:54,019 - INFO - ROLLBACK
+2025-11-15 16:08:00,100 - INFO - BEGIN (implicit)
+2025-11-15 16:08:00,100 - INFO - SELECT 1 FROM collections WHERE collection_id = $1
+2025-11-15 16:08:00,100 - INFO - [cached since 25.13s ago] (1,)
+2025-11-15 16:08:00,151 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url, cb.position
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-15 16:08:00,151 - INFO - [cached since 25.09s ago] (1,)
+2025-11-15 16:08:00,185 - INFO - ROLLBACK
+2025-11-15 16:08:02,444 - INFO - BEGIN (implicit)
+2025-11-15 16:08:02,446 - INFO - SELECT 1 FROM collections WHERE collection_id = $1
+2025-11-15 16:08:02,446 - INFO - [cached since 27.48s ago] (5,)
+2025-11-15 16:08:02,497 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url, cb.position
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-15 16:08:02,497 - INFO - [cached since 27.43s ago] (5,)
+2025-11-15 16:08:02,530 - INFO - ROLLBACK
+2025-11-15 16:08:06,568 - INFO - BEGIN (implicit)
+2025-11-15 16:08:06,568 - INFO - 
+                SELECT 
+                    ub.status,
+                    ub.created_at,
+                    b.book_id,
+                    b.title,
+                    b.isbn,
+                    b.year_published,
+                    b.cover_img_url,
+                    a.name as author_name,
+                    r.rating as user_rating,
+                    r.text as user_review
+                FROM user_books ub
+                JOIN books b ON ub.book_id = b.book_id
+                LEFT JOIN authors a ON b.author_id = a.author_id
+                LEFT JOIN reviews r ON r.book_id = b.book_id AND r.user_id = ub.user_id
+                WHERE ub.user_id = $1
+                ORDER BY ub.created_at DESC
+            
+2025-11-15 16:08:06,568 - INFO - [generated in 0.00089s] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00',)
+2025-11-15 16:08:06,660 - INFO - ROLLBACK
+2025-11-15 16:08:23,243 - INFO - BEGIN (implicit)
+2025-11-15 16:08:23,243 - INFO - 
+                SELECT 
+                    ub.status,
+                    ub.created_at,
+                    b.book_id,
+                    b.title,
+                    b.isbn,
+                    b.year_published,
+                    b.cover_img_url,
+                    a.name as author_name,
+                    r.rating as user_rating,
+                    r.text as user_review
+                FROM user_books ub
+                JOIN books b ON ub.book_id = b.book_id
+                LEFT JOIN authors a ON b.author_id = a.author_id
+                LEFT JOIN reviews r ON r.book_id = b.book_id AND r.user_id = ub.user_id
+                WHERE ub.user_id = $1
+                ORDER BY ub.created_at DESC
+            
+2025-11-15 16:08:23,243 - INFO - [cached since 16.67s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00',)
+2025-11-15 16:08:23,313 - INFO - ROLLBACK
+2025-11-15 16:08:25,847 - INFO - BEGIN (implicit)
+2025-11-15 16:08:25,847 - INFO - SELECT collections.collection_id, collections.user_id, collections.name, collections.description, collections.icon_id, collections.created_at 
+FROM collections 
+WHERE collections.user_id = $1::UUID ORDER BY collections.created_at DESC
+2025-11-15 16:08:25,855 - INFO - [cached since 51.42s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00',)
+2025-11-15 16:08:25,946 - INFO - ROLLBACK
+2025-11-15 16:08:26,009 - INFO - BEGIN (implicit)
+2025-11-15 16:08:26,012 - INFO - SELECT 1 FROM collections WHERE collection_id = $1
+2025-11-15 16:08:26,012 - INFO - [cached since 51.04s ago] (5,)
+2025-11-15 16:08:26,062 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url, cb.position
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-15 16:08:26,062 - INFO - [cached since 50.99s ago] (5,)
+2025-11-15 16:08:26,086 - INFO - ROLLBACK
+2025-11-15 16:08:26,145 - INFO - BEGIN (implicit)
+2025-11-15 16:08:26,153 - INFO - SELECT 1 FROM collections WHERE collection_id = $1
+2025-11-15 16:08:26,155 - INFO - [cached since 51.18s ago] (2,)
+2025-11-15 16:08:26,197 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url, cb.position
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-15 16:08:26,197 - INFO - [cached since 51.13s ago] (2,)
+2025-11-15 16:08:26,228 - INFO - ROLLBACK
+2025-11-15 16:08:26,307 - INFO - BEGIN (implicit)
+2025-11-15 16:08:26,309 - INFO - SELECT 1 FROM collections WHERE collection_id = $1
+2025-11-15 16:08:26,309 - INFO - [cached since 51.34s ago] (1,)
+2025-11-15 16:08:26,346 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url, cb.position
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-15 16:08:26,346 - INFO - [cached since 51.28s ago] (1,)
+2025-11-15 16:08:26,380 - INFO - ROLLBACK
+2025-11-15 16:08:27,603 - INFO - BEGIN (implicit)
+2025-11-15 16:08:27,603 - INFO - SELECT collections.collection_id, collections.user_id, collections.name, collections.description, collections.icon_id, collections.created_at 
+FROM collections 
+WHERE collections.user_id = $1::UUID ORDER BY collections.created_at DESC
+2025-11-15 16:08:27,603 - INFO - [cached since 53.17s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00',)
+2025-11-15 16:08:27,665 - INFO - ROLLBACK
+2025-11-15 16:08:27,734 - INFO - BEGIN (implicit)
+2025-11-15 16:08:27,734 - INFO - SELECT 1 FROM collections WHERE collection_id = $1
+2025-11-15 16:08:27,734 - INFO - [cached since 52.77s ago] (5,)
+2025-11-15 16:08:27,807 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url, cb.position
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-15 16:08:27,809 - INFO - [cached since 52.74s ago] (5,)
+2025-11-15 16:08:27,833 - INFO - ROLLBACK
+2025-11-15 16:08:34,888 - INFO - BEGIN (implicit)
+2025-11-15 16:08:34,891 - INFO - 
+                SELECT 
+                    ub.status,
+                    ub.created_at,
+                    b.book_id,
+                    b.title,
+                    b.isbn,
+                    b.year_published,
+                    b.cover_img_url,
+                    a.name as author_name,
+                    r.rating as user_rating,
+                    r.text as user_review
+                FROM user_books ub
+                JOIN books b ON ub.book_id = b.book_id
+                LEFT JOIN authors a ON b.author_id = a.author_id
+                LEFT JOIN reviews r ON r.book_id = b.book_id AND r.user_id = ub.user_id
+                WHERE ub.user_id = $1
+                ORDER BY ub.created_at DESC
+            
+2025-11-15 16:08:34,892 - INFO - [cached since 28.31s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00',)
+2025-11-15 16:08:34,943 - INFO - ROLLBACK
+2025-11-15 16:09:31,518 - INFO - BEGIN (implicit)
+2025-11-15 16:09:31,520 - INFO - 
+                SELECT 
+                    ub.status,
+                    ub.created_at,
+                    b.book_id,
+                    b.title,
+                    b.isbn,
+                    b.year_published,
+                    b.cover_img_url,
+                    a.name as author_name,
+                    r.rating as user_rating,
+                    r.text as user_review
+                FROM user_books ub
+                JOIN books b ON ub.book_id = b.book_id
+                LEFT JOIN authors a ON b.author_id = a.author_id
+                LEFT JOIN reviews r ON r.book_id = b.book_id AND r.user_id = ub.user_id
+                WHERE ub.user_id = $1
+                ORDER BY ub.created_at DESC
+            
+2025-11-15 16:09:31,520 - INFO - [cached since 84.94s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00',)
+2025-11-15 16:09:31,578 - INFO - ROLLBACK
+2025-11-15 16:10:06,906 - INFO - BEGIN (implicit)
+2025-11-15 16:10:06,922 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:10:06,922 - INFO - [generated in 0.00079s] ('Christopher Paolini',)
+2025-11-15 16:10:07,003 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:10:07,003 - INFO - [generated in 0.00112s] ('To Sleep in a Sea of Stars', 10)
+2025-11-15 16:10:07,052 - INFO - SELECT count(reviews.review_id) AS count_1, coalesce(sum(reviews.rating), $1::INTEGER) AS coalesce_1, avg(reviews.rating) AS avg_1 
+FROM reviews 
+WHERE reviews.book_id = $2::INTEGER
+2025-11-15 16:10:07,060 - INFO - [generated in 0.00121s] (0, 14)
+2025-11-15 16:10:07,114 - INFO - SELECT reviews.review_id, reviews.user_id, reviews.book_id, reviews.rating, reviews.text, reviews.created_at 
+FROM reviews 
+WHERE reviews.book_id = $1::INTEGER ORDER BY reviews.review_id DESC
+2025-11-15 16:10:07,114 - INFO - [generated in 0.00126s] (14,)
+2025-11-15 16:10:07,165 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:10:07,165 - INFO - [cached since 0.2455s ago] ('Christopher Paolini',)
+2025-11-15 16:10:07,210 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:10:07,210 - INFO - [cached since 0.2051s ago] ('FractalVerse 2-Book Set by Christopher Paolini (to Sleep in a Sea of Stars, Fractal Noise)', 10)
+2025-11-15 16:10:07,232 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:10:07,245 - INFO - [cached since 0.3213s ago] ('Scott Autumn',)
+2025-11-15 16:10:07,264 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:10:07,264 - INFO - [cached since 0.349s ago] ('Creative art Creative art planners 2019',)
+2025-11-15 16:10:07,297 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:10:07,297 - INFO - [cached since 0.3831s ago] ('Ada Hoffmann',)
+2025-11-15 16:10:07,343 - INFO - ROLLBACK
+2025-11-15 16:10:18,760 - INFO - BEGIN (implicit)
+2025-11-15 16:10:18,760 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:10:18,760 - INFO - [cached since 11.84s ago] ('Christopher Paolini',)
+2025-11-15 16:10:18,838 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:10:18,838 - INFO - [cached since 11.83s ago] ('To Sleep in a Sea of Stars', 10)
+2025-11-15 16:10:18,915 - INFO - SELECT count(reviews.review_id) AS count_1, coalesce(sum(reviews.rating), $1::INTEGER) AS coalesce_1, avg(reviews.rating) AS avg_1 
+FROM reviews 
+WHERE reviews.book_id = $2::INTEGER
+2025-11-15 16:10:18,918 - INFO - [cached since 11.86s ago] (0, 14)
+2025-11-15 16:10:18,970 - INFO - SELECT reviews.review_id, reviews.user_id, reviews.book_id, reviews.rating, reviews.text, reviews.created_at 
+FROM reviews 
+WHERE reviews.book_id = $1::INTEGER ORDER BY reviews.review_id DESC
+2025-11-15 16:10:18,970 - INFO - [cached since 11.86s ago] (14,)
+2025-11-15 16:10:19,022 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:10:19,022 - INFO - [cached since 12.1s ago] ('Christopher Paolini',)
+2025-11-15 16:10:19,048 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:10:19,048 - INFO - [cached since 12.04s ago] ('FractalVerse 2-Book Set by Christopher Paolini (to Sleep in a Sea of Stars, Fractal Noise)', 10)
+2025-11-15 16:10:19,080 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:10:19,080 - INFO - [cached since 12.16s ago] ('Scott Autumn',)
+2025-11-15 16:10:19,104 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:10:19,111 - INFO - [cached since 12.19s ago] ('Creative art Creative art planners 2019',)
+2025-11-15 16:10:19,134 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:10:19,134 - INFO - [cached since 12.21s ago] ('Ada Hoffmann',)
+2025-11-15 16:10:19,162 - INFO - ROLLBACK
+2025-11-15 16:10:34,932 - INFO - BEGIN (implicit)
+2025-11-15 16:10:34,934 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:10:34,934 - INFO - [cached since 28.01s ago] ('Christopher Paolini',)
+2025-11-15 16:10:34,994 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:10:34,996 - INFO - [cached since 27.99s ago] ('To Sleep in a Sea of Stars', 10)
+2025-11-15 16:10:35,023 - INFO - SELECT status FROM user_books WHERE user_id = $1 AND book_id = $2
+2025-11-15 16:10:35,023 - INFO - [generated in 0.00094s] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00', 14)
+2025-11-15 16:10:35,071 - INFO - 
+                    INSERT INTO user_books (user_id, book_id, status)
+                    VALUES ($1, $2, $3)
+                
+2025-11-15 16:10:35,071 - INFO - [generated in 0.00143s] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00', 14, 'Finished')
+2025-11-15 16:10:35,113 - INFO - 
+                INSERT INTO activity (user_id, action_type, book_id)
+                VALUES ($1, 'status', $2)
+            
+2025-11-15 16:10:35,113 - INFO - [generated in 0.00073s] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00', 14)
+2025-11-15 16:10:35,183 - INFO - COMMIT
+2025-11-15 16:10:40,458 - INFO - BEGIN (implicit)
+2025-11-15 16:10:40,459 - INFO - 
+                SELECT 
+                    ub.status,
+                    ub.created_at,
+                    b.book_id,
+                    b.title,
+                    b.isbn,
+                    b.year_published,
+                    b.cover_img_url,
+                    a.name as author_name,
+                    r.rating as user_rating,
+                    r.text as user_review
+                FROM user_books ub
+                JOIN books b ON ub.book_id = b.book_id
+                LEFT JOIN authors a ON b.author_id = a.author_id
+                LEFT JOIN reviews r ON r.book_id = b.book_id AND r.user_id = ub.user_id
+                WHERE ub.user_id = $1
+                ORDER BY ub.created_at DESC
+            
+2025-11-15 16:10:40,460 - INFO - [cached since 153.9s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00',)
+2025-11-15 16:10:40,515 - INFO - ROLLBACK
+2025-11-15 16:11:19,894 - INFO - BEGIN (implicit)
+2025-11-15 16:11:19,897 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:19,897 - INFO - [cached since 72.97s ago] ('Jo Graham',)
+2025-11-15 16:11:20,104 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:20,104 - INFO - [cached since 73.18s ago] ('Ronald William Raven',)
+2025-11-15 16:11:20,303 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:20,303 - INFO - [cached since 73.38s ago] ("Sorita d'Este",)
+2025-11-15 16:11:20,511 - INFO - ROLLBACK
+2025-11-15 16:11:48,358 - INFO - BEGIN (implicit)
+2025-11-15 16:11:48,358 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:48,358 - INFO - [cached since 101.4s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:48,413 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:48,413 - INFO - [cached since 101.5s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:48,445 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:48,449 - INFO - [cached since 101.5s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:48,465 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:48,465 - INFO - [cached since 101.6s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:48,509 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:48,509 - INFO - [cached since 101.6s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:48,543 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:48,543 - INFO - [cached since 101.6s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:48,575 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:48,578 - INFO - [cached since 101.7s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:48,611 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:48,613 - INFO - [cached since 101.7s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:48,631 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:48,631 - INFO - [cached since 101.7s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:48,662 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:48,664 - INFO - [cached since 101.7s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:48,687 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:48,687 - INFO - [cached since 101.8s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:48,712 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:48,712 - INFO - [cached since 101.8s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:48,745 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:48,745 - INFO - [cached since 101.8s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:48,783 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:48,783 - INFO - [cached since 101.9s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:48,802 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:48,811 - INFO - [cached since 101.9s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:48,841 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:48,841 - INFO - [cached since 101.9s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:48,866 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:48,868 - INFO - [cached since 101.9s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:48,910 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:48,912 - INFO - [cached since 102s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:48,960 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:48,961 - INFO - [cached since 102s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:48,981 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:48,981 - INFO - [cached since 102.1s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:49,011 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:49,011 - INFO - [cached since 102.1s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:49,042 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:49,044 - INFO - [cached since 102.1s ago] ('BARTOZ SZTYBOR',)
+2025-11-15 16:11:49,093 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:49,093 - INFO - [cached since 102.2s ago] ('BARTOZ SZTYBOR',)
+2025-11-15 16:11:49,121 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:49,121 - INFO - [cached since 102.2s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:49,165 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:49,165 - INFO - [cached since 102.2s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:49,190 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:49,190 - INFO - [cached since 102.3s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:49,225 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:49,234 - INFO - [cached since 102.3s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:49,261 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:49,261 - INFO - [cached since 102.3s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:49,295 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:49,299 - INFO - [cached since 102.4s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:49,324 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:49,324 - INFO - [cached since 102.4s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:49,352 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:49,354 - INFO - [cached since 102.4s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:49,374 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:49,374 - INFO - [cached since 102.5s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:49,416 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:49,416 - INFO - [cached since 102.5s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:49,455 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:49,455 - INFO - [cached since 102.5s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:49,491 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:49,491 - INFO - [cached since 102.6s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:49,516 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:49,518 - INFO - [cached since 102.6s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:49,569 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:49,569 - INFO - [cached since 102.6s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:49,613 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:49,613 - INFO - [cached since 102.7s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:49,650 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:49,650 - INFO - [cached since 102.7s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:49,682 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:49,682 - INFO - [cached since 102.8s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:49,710 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:49,710 - INFO - [cached since 102.8s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:49,731 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:49,731 - INFO - [cached since 102.8s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:49,765 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:49,765 - INFO - [cached since 102.8s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:49,800 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:49,800 - INFO - [cached since 102.9s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:49,848 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:49,848 - INFO - [cached since 102.9s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:49,887 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:49,887 - INFO - [cached since 103s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:49,916 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:49,916 - INFO - [cached since 103s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:49,948 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:49,948 - INFO - [cached since 103s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:49,967 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:11:49,967 - INFO - [cached since 103.1s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:11:50,011 - INFO - ROLLBACK
+2025-11-15 16:12:10,688 - INFO - BEGIN (implicit)
+2025-11-15 16:12:10,689 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:10,689 - INFO - [cached since 123.8s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:10,736 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:10,736 - INFO - [cached since 123.8s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:10,761 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:10,761 - INFO - [cached since 123.8s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:10,812 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:10,813 - INFO - [cached since 123.9s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:10,833 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:10,833 - INFO - [cached since 123.9s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:10,862 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:10,865 - INFO - [cached since 123.9s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:10,899 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:10,899 - INFO - [cached since 124s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:10,935 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:10,936 - INFO - [cached since 124s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:10,963 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:10,965 - INFO - [cached since 124s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:11,004 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,004 - INFO - [cached since 124.1s ago] ('BARTOZ SZTYBOR',)
+2025-11-15 16:12:11,036 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,036 - INFO - [cached since 124.1s ago] ('BARTOZ SZTYBOR',)
+2025-11-15 16:12:11,065 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,065 - INFO - [cached since 124.1s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:11,098 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,098 - INFO - [cached since 124.2s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:11,120 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,120 - INFO - [cached since 124.2s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:11,149 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,149 - INFO - [cached since 124.2s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:11,181 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,182 - INFO - [cached since 124.3s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:11,206 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,206 - INFO - [cached since 124.3s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:11,231 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,231 - INFO - [cached since 124.3s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:11,257 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,260 - INFO - [cached since 124.3s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:11,283 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,283 - INFO - [cached since 124.4s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:11,311 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,311 - INFO - [cached since 124.4s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:11,338 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,340 - INFO - [cached since 124.4s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:11,379 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,379 - INFO - [cached since 124.5s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:11,412 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,412 - INFO - [cached since 124.5s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:11,432 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,432 - INFO - [cached since 124.5s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:11,458 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,462 - INFO - [cached since 124.5s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:11,487 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,487 - INFO - [cached since 124.6s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:11,512 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,512 - INFO - [cached since 124.6s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:11,546 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,547 - INFO - [cached since 124.6s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:11,565 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,565 - INFO - [cached since 124.6s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:11,597 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,599 - INFO - [cached since 124.7s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:11,617 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,617 - INFO - [cached since 124.7s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:11,647 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,648 - INFO - [cached since 124.7s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:11,678 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,678 - INFO - [cached since 124.8s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:11,712 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,712 - INFO - [cached since 124.8s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:11,732 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,743 - INFO - [cached since 124.8s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:11,765 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,767 - INFO - [cached since 124.8s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:11,795 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,795 - INFO - [cached since 124.9s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:11,831 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,831 - INFO - [cached since 124.9s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:11,849 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,849 - INFO - [cached since 124.9s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:11,892 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,892 - INFO - [cached since 125s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:11,916 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,916 - INFO - [cached since 125s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:11,948 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,950 - INFO - [cached since 125s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:11,981 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:11,983 - INFO - [cached since 125.1s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:12,015 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:12,015 - INFO - [cached since 125.1s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:12,051 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:12,051 - INFO - [cached since 125.1s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:12,078 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:12,078 - INFO - [cached since 125.2s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:12,101 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:12,108 - INFO - [cached since 125.2s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:12,131 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:12,131 - INFO - [cached since 125.2s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:12,166 - INFO - ROLLBACK
+2025-11-15 16:12:31,673 - INFO - BEGIN (implicit)
+2025-11-15 16:12:31,673 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:31,673 - INFO - [cached since 144.8s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:31,737 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:31,739 - INFO - [cached since 144.8s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:31,872 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:31,872 - INFO - [cached since 144.9s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:31,915 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:31,915 - INFO - [cached since 145s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:31,950 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:31,950 - INFO - [cached since 145s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:31,972 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:31,972 - INFO - [cached since 145.1s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:32,002 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,002 - INFO - [cached since 145.1s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:32,026 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,026 - INFO - [cached since 145.1s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:32,059 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,059 - INFO - [cached since 145.1s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:32,084 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,084 - INFO - [cached since 145.2s ago] ('BARTOZ SZTYBOR',)
+2025-11-15 16:12:32,113 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,113 - INFO - [cached since 145.2s ago] ('BARTOZ SZTYBOR',)
+2025-11-15 16:12:32,133 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,133 - INFO - [cached since 145.2s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:32,166 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,166 - INFO - [cached since 145.2s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:32,199 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,199 - INFO - [cached since 145.3s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:32,240 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,241 - INFO - [cached since 145.3s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:32,264 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,264 - INFO - [cached since 145.3s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:32,298 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,298 - INFO - [cached since 145.4s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:32,325 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,325 - INFO - [cached since 145.4s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:32,349 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,357 - INFO - [cached since 145.4s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:32,383 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,383 - INFO - [cached since 145.5s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:32,427 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,429 - INFO - [cached since 145.5s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:32,451 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,451 - INFO - [cached since 145.5s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:32,488 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,488 - INFO - [cached since 145.6s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:32,513 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,513 - INFO - [cached since 145.6s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:32,543 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,543 - INFO - [cached since 145.6s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:32,563 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,572 - INFO - [cached since 145.6s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:32,599 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,599 - INFO - [cached since 145.7s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:32,629 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,631 - INFO - [cached since 145.7s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:32,656 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,659 - INFO - [cached since 145.7s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:32,681 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,683 - INFO - [cached since 145.8s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:32,716 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,716 - INFO - [cached since 145.8s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:32,747 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,747 - INFO - [cached since 145.8s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:32,773 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,773 - INFO - [cached since 145.9s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:32,797 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,797 - INFO - [cached since 145.9s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:32,823 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,823 - INFO - [cached since 145.9s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:32,851 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,853 - INFO - [cached since 145.9s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:32,874 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,874 - INFO - [cached since 146s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:32,897 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,897 - INFO - [cached since 146s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:32,929 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,929 - INFO - [cached since 146s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:32,956 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,956 - INFO - [cached since 146s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:32,983 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:32,985 - INFO - [cached since 146.1s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:33,007 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:33,007 - INFO - [cached since 146.1s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:33,036 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:33,036 - INFO - [cached since 146.1s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:33,062 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:33,062 - INFO - [cached since 146.1s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:33,083 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:33,083 - INFO - [cached since 146.2s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:33,112 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:33,112 - INFO - [cached since 146.2s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:33,145 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:33,145 - INFO - [cached since 146.2s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:33,168 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:33,168 - INFO - [cached since 146.2s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:33,202 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:33,204 - INFO - [cached since 146.3s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:33,231 - INFO - ROLLBACK
+2025-11-15 16:12:57,112 - INFO - BEGIN (implicit)
+2025-11-15 16:12:57,114 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:57,114 - INFO - [cached since 170.2s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:57,166 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:57,166 - INFO - [cached since 170.2s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:57,184 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:57,184 - INFO - [cached since 170.3s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:57,215 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:57,215 - INFO - [cached since 170.3s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:57,246 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:57,246 - INFO - [cached since 170.3s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:57,275 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:57,275 - INFO - [cached since 170.4s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:57,302 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:57,302 - INFO - [cached since 170.4s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:57,316 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:57,316 - INFO - [cached since 170.4s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:57,348 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:57,361 - INFO - [cached since 170.4s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:57,384 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:57,393 - INFO - [cached since 170.5s ago] ('BARTOZ SZTYBOR',)
+2025-11-15 16:12:57,416 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:57,416 - INFO - [cached since 170.5s ago] ('BARTOZ SZTYBOR',)
+2025-11-15 16:12:57,449 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:57,449 - INFO - [cached since 170.5s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:57,474 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:57,479 - INFO - [cached since 170.6s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:57,514 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:57,514 - INFO - [cached since 170.6s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:57,533 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:57,533 - INFO - [cached since 170.6s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:57,565 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:57,565 - INFO - [cached since 170.6s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:57,593 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:57,598 - INFO - [cached since 170.7s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:57,616 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:57,616 - INFO - [cached since 170.7s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:57,646 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:57,646 - INFO - [cached since 170.7s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:57,666 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:57,678 - INFO - [cached since 170.8s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:57,710 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:57,712 - INFO - [cached since 170.8s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:57,732 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:57,732 - INFO - [cached since 170.8s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:57,757 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:57,762 - INFO - [cached since 170.8s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:57,781 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:57,781 - INFO - [cached since 170.9s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:57,812 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:57,812 - INFO - [cached since 170.9s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:57,831 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:57,831 - INFO - [cached since 170.9s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:57,859 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:57,859 - INFO - [cached since 170.9s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:57,882 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:57,882 - INFO - [cached since 171s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:57,907 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:57,907 - INFO - [cached since 171s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:57,932 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:57,932 - INFO - [cached since 171s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:57,947 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:57,947 - INFO - [cached since 171s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:57,980 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:57,980 - INFO - [cached since 171.1s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:58,013 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:58,013 - INFO - [cached since 171.1s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:58,031 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:58,031 - INFO - [cached since 171.1s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:58,064 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:58,064 - INFO - [cached since 171.1s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:58,091 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:58,096 - INFO - [cached since 171.2s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:58,116 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:58,116 - INFO - [cached since 171.2s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:58,144 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:58,144 - INFO - [cached since 171.2s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:58,174 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:58,174 - INFO - [cached since 171.3s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:58,200 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:58,200 - INFO - [cached since 171.3s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:58,229 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:58,231 - INFO - [cached since 171.3s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:58,247 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:58,247 - INFO - [cached since 171.3s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:58,281 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:58,281 - INFO - [cached since 171.4s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:58,300 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:58,300 - INFO - [cached since 171.4s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:58,333 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:58,333 - INFO - [cached since 171.4s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:58,349 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:58,349 - INFO - [cached since 171.4s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:58,376 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:58,376 - INFO - [cached since 171.5s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:58,401 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:58,401 - INFO - [cached since 171.5s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:58,433 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:12:58,433 - INFO - [cached since 171.5s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:12:58,464 - INFO - ROLLBACK
+2025-11-15 16:13:38,135 - INFO - BEGIN (implicit)
+2025-11-15 16:13:38,135 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:13:38,135 - INFO - [cached since 211.2s ago] ('Jo Graham',)
+2025-11-15 16:13:38,195 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:13:38,198 - INFO - [cached since 211.3s ago] ('Ronald William Raven',)
+2025-11-15 16:13:38,220 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:13:38,220 - INFO - [cached since 211.3s ago] ("Sorita d'Este",)
+2025-11-15 16:13:38,249 - INFO - ROLLBACK
+2025-11-15 16:14:06,196 - INFO - BEGIN (implicit)
+2025-11-15 16:14:06,196 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:14:06,196 - INFO - [cached since 239.3s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:14:06,254 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:14:06,254 - INFO - [cached since 239.3s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:14:06,284 - INFO - ROLLBACK
+2025-11-15 16:14:22,019 - INFO - BEGIN (implicit)
+2025-11-15 16:14:22,019 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:14:22,021 - INFO - [cached since 255.1s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:14:22,067 - INFO - INSERT INTO authors (name) VALUES ($1::VARCHAR) RETURNING authors.author_id
+2025-11-15 16:14:22,067 - INFO - [generated in 0.00133s] ('Andrzej Sapkowski',)
+2025-11-15 16:14:22,120 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:14:22,120 - INFO - [cached since 255.1s ago] ('Wied\u017amin. Rozdro\u017ce kruków', 12)
+2025-11-15 16:14:22,157 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE lower(books.title) = lower($1::VARCHAR)
+2025-11-15 16:14:22,157 - INFO - [generated in 0.00091s] ('Wied\u017amin. Rozdro\u017ce kruków',)
+2025-11-15 16:14:22,221 - INFO - INSERT INTO books (title, author_id, type, year_published, isbn, cover_img_url) VALUES ($1::VARCHAR, $2::INTEGER, $3::VARCHAR, $4::INTEGER, $5::VARCHAR, $6::VARCHAR) RETURNING books.book_id
+2025-11-15 16:14:22,221 - INFO - [generated in 0.00098s] ('Wied\u017amin. Rozdro\u017ce kruków', 12, None, 2024, None, 'https://covers.openlibrary.org/b/id/14831265-M.jpg')
+2025-11-15 16:14:22,281 - INFO - SELECT status FROM user_books WHERE user_id = $1 AND book_id = $2
+2025-11-15 16:14:22,281 - INFO - [cached since 227.3s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00', 16)
+2025-11-15 16:14:22,326 - INFO - 
+                    INSERT INTO user_books (user_id, book_id, status)
+                    VALUES ($1, $2, $3)
+                
+2025-11-15 16:14:22,326 - INFO - [cached since 227.3s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00', 16, 'Want to Read')
+2025-11-15 16:14:22,386 - INFO - 
+                INSERT INTO activity (user_id, action_type, book_id)
+                VALUES ($1, 'status', $2)
+            
+2025-11-15 16:14:22,395 - INFO - [cached since 227.3s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00', 16)
+2025-11-15 16:14:22,449 - INFO - COMMIT
+2025-11-15 16:14:28,506 - INFO - BEGIN (implicit)
+2025-11-15 16:14:28,506 - INFO - SELECT collections.collection_id, collections.user_id, collections.name, collections.description, collections.icon_id, collections.created_at 
+FROM collections 
+WHERE collections.user_id = $1::UUID ORDER BY collections.created_at DESC
+2025-11-15 16:14:28,506 - INFO - [cached since 414.1s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00',)
+2025-11-15 16:14:28,554 - INFO - ROLLBACK
+2025-11-15 16:14:28,616 - INFO - BEGIN (implicit)
+2025-11-15 16:14:28,616 - INFO - SELECT 1 FROM collections WHERE collection_id = $1
+2025-11-15 16:14:28,616 - INFO - [cached since 413.7s ago] (5,)
+2025-11-15 16:14:28,682 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url, cb.position
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-15 16:14:28,682 - INFO - [cached since 413.6s ago] (5,)
+2025-11-15 16:14:28,713 - INFO - ROLLBACK
+2025-11-15 16:14:28,781 - INFO - BEGIN (implicit)
+2025-11-15 16:14:28,781 - INFO - SELECT 1 FROM collections WHERE collection_id = $1
+2025-11-15 16:14:28,781 - INFO - [cached since 413.8s ago] (2,)
+2025-11-15 16:14:28,835 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url, cb.position
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-15 16:14:28,835 - INFO - [cached since 413.8s ago] (2,)
+2025-11-15 16:14:28,867 - INFO - ROLLBACK
+2025-11-15 16:14:28,924 - INFO - BEGIN (implicit)
+2025-11-15 16:14:28,924 - INFO - SELECT 1 FROM collections WHERE collection_id = $1
+2025-11-15 16:14:28,924 - INFO - [cached since 414s ago] (1,)
+2025-11-15 16:14:28,982 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url, cb.position
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-15 16:14:28,982 - INFO - [cached since 413.9s ago] (1,)
+2025-11-15 16:14:29,016 - INFO - ROLLBACK
+2025-11-15 16:14:38,650 - INFO - BEGIN (implicit)
+2025-11-15 16:14:38,650 - INFO - 
+                SELECT 
+                    ub.status,
+                    ub.created_at,
+                    b.book_id,
+                    b.title,
+                    b.isbn,
+                    b.year_published,
+                    b.cover_img_url,
+                    a.name as author_name,
+                    r.rating as user_rating,
+                    r.text as user_review
+                FROM user_books ub
+                JOIN books b ON ub.book_id = b.book_id
+                LEFT JOIN authors a ON b.author_id = a.author_id
+                LEFT JOIN reviews r ON r.book_id = b.book_id AND r.user_id = ub.user_id
+                WHERE ub.user_id = $1
+                ORDER BY ub.created_at DESC
+            
+2025-11-15 16:14:38,650 - INFO - [cached since 392.1s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00',)
+2025-11-15 16:14:38,787 - INFO - ROLLBACK
+2025-11-15 16:15:06,818 - INFO - BEGIN (implicit)
+2025-11-15 16:15:06,818 - INFO - DELETE FROM user_books WHERE user_id = $1 AND book_id = $2
+2025-11-15 16:15:06,818 - INFO - [generated in 0.00055s] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00', 5)
+2025-11-15 16:15:06,981 - INFO - COMMIT
+2025-11-15 16:15:24,029 - INFO - BEGIN (implicit)
+2025-11-15 16:15:24,038 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:24,038 - INFO - [cached since 317.1s ago] ('Harper Lee',)
+2025-11-15 16:15:24,191 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:15:24,191 - INFO - [cached since 317.2s ago] ('To Kill a Mockingbird', 4)
+2025-11-15 16:15:24,332 - INFO - SELECT count(reviews.review_id) AS count_1, coalesce(sum(reviews.rating), $1::INTEGER) AS coalesce_1, avg(reviews.rating) AS avg_1 
+FROM reviews 
+WHERE reviews.book_id = $2::INTEGER
+2025-11-15 16:15:24,332 - INFO - [cached since 317.3s ago] (0, 5)
+2025-11-15 16:15:24,443 - INFO - SELECT reviews.review_id, reviews.user_id, reviews.book_id, reviews.rating, reviews.text, reviews.created_at 
+FROM reviews 
+WHERE reviews.book_id = $1::INTEGER ORDER BY reviews.review_id DESC
+2025-11-15 16:15:24,443 - INFO - [cached since 317.3s ago] (5,)
+2025-11-15 16:15:24,480 - INFO - SELECT profiles.user_id AS profiles_user_id, profiles.username AS profiles_username, profiles.bio AS profiles_bio, profiles.favorite_genres AS profiles_favorite_genres, profiles.favorite_book AS profiles_favorite_book, profiles.avatar_choice AS profiles_avatar_choice, profiles.created_at AS profiles_created_at 
+FROM profiles 
+WHERE profiles.user_id = $1::UUID
+2025-11-15 16:15:24,480 - INFO - [generated in 0.00124s] (UUID('73e9aabe-00c4-424b-a8ee-5739faf6c740'),)
+2025-11-15 16:15:24,551 - INFO - SELECT profiles.user_id AS profiles_user_id, profiles.username AS profiles_username, profiles.bio AS profiles_bio, profiles.favorite_genres AS profiles_favorite_genres, profiles.favorite_book AS profiles_favorite_book, profiles.avatar_choice AS profiles_avatar_choice, profiles.created_at AS profiles_created_at 
+FROM profiles 
+WHERE profiles.user_id = $1::UUID
+2025-11-15 16:15:24,551 - INFO - [cached since 0.07196s ago] (UUID('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00'),)
+2025-11-15 16:15:24,584 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:24,584 - INFO - [cached since 317.7s ago] ('Claudia Durst Johnson',)
+2025-11-15 16:15:24,614 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:24,614 - INFO - [cached since 317.7s ago] ('Tamara Castleman',)
+2025-11-15 16:15:24,649 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:24,650 - INFO - [cached since 317.7s ago] ('Kathy Kifer',)
+2025-11-15 16:15:24,678 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:24,678 - INFO - [cached since 317.8s ago] ('Li',)
+2025-11-15 16:15:24,700 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:24,700 - INFO - [cached since 317.8s ago] ('Eva Fitzwater',)
+2025-11-15 16:15:24,730 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:24,731 - INFO - [cached since 317.8s ago] ('Harold Bloom',)
+2025-11-15 16:15:24,750 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:24,750 - INFO - [cached since 317.8s ago] ('Dawn Sova',)
+2025-11-15 16:15:24,783 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:24,783 - INFO - [cached since 317.9s ago] ('Julia McGirr',)
+2025-11-15 16:15:24,800 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:24,800 - INFO - [cached since 317.9s ago] ('Bradley Walton',)
+2025-11-15 16:15:24,834 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:24,834 - INFO - [cached since 317.9s ago] ('Harold Bloom',)
+2025-11-15 16:15:24,897 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:24,898 - INFO - [cached since 318s ago] ('James S. Scott',)
+2025-11-15 16:15:24,923 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:24,923 - INFO - [cached since 318s ago] ('Edward Craigs',)
+2025-11-15 16:15:24,953 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:24,953 - INFO - [cached since 318s ago] ('Christopher Sergel',)
+2025-11-15 16:15:24,984 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:24,984 - INFO - [cached since 318.1s ago] ('Harold Bloom',)
+2025-11-15 16:15:25,018 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:25,018 - INFO - [cached since 318.1s ago] ('Harcourt A. Morgan',)
+2025-11-15 16:15:25,055 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:25,055 - INFO - [cached since 318.1s ago] ('Joyce Milton',)
+2025-11-15 16:15:25,083 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:25,083 - INFO - [cached since 318.2s ago] ('Ingrid Ross',)
+2025-11-15 16:15:25,110 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:25,110 - INFO - [cached since 318.2s ago] ('Anita Price Davis',)
+2025-11-15 16:15:25,139 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:25,139 - INFO - [cached since 318.2s ago] ('Tamara Castleman',)
+2025-11-15 16:15:25,167 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:25,169 - INFO - [cached since 318.2s ago] ('Harold Bloom',)
+2025-11-15 16:15:25,196 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:25,197 - INFO - [cached since 318.3s ago] ('Jill Green',)
+2025-11-15 16:15:25,216 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:25,216 - INFO - [cached since 318.3s ago] ('Eva Fitzwater',)
+2025-11-15 16:15:25,252 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:25,252 - INFO - [cached since 318.3s ago] ('LessonCaps',)
+2025-11-15 16:15:25,278 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:25,280 - INFO - [cached since 318.4s ago] ('Harper Lee',)
+2025-11-15 16:15:25,303 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:15:25,305 - INFO - [cached since 318.3s ago] ('To Kill a Mockingbird. Interpretationshilfe.', 4)
+2025-11-15 16:15:25,331 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:25,331 - INFO - [cached since 318.4s ago] ('Philip Burnham',)
+2025-11-15 16:15:25,379 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:25,380 - INFO - [cached since 318.5s ago] ('Rachel Hitchcock',)
+2025-11-15 16:15:25,404 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:25,404 - INFO - [cached since 318.5s ago] ('Coles Editorial Board',)
+2025-11-15 16:15:25,430 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:25,431 - INFO - [cached since 318.5s ago] ('Christopher Sergel',)
+2025-11-15 16:15:25,459 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:25,459 - INFO - [cached since 318.5s ago] ('Spark Publishing',)
+2025-11-15 16:15:25,487 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:25,489 - INFO - [cached since 318.6s ago] ('Tony Buzan',)
+2025-11-15 16:15:25,516 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:25,516 - INFO - [cached since 318.6s ago] ('Piper Whelan',)
+2025-11-15 16:15:25,535 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:25,547 - INFO - [cached since 318.6s ago] ('Harper Lee',)
+2025-11-15 16:15:25,577 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:15:25,579 - INFO - [cached since 318.6s ago] ('to kill a mockingbird', 4)
+2025-11-15 16:15:25,605 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:25,605 - INFO - [cached since 318.7s ago] ('Fred Fordham',)
+2025-11-15 16:15:25,639 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:25,639 - INFO - [cached since 318.7s ago] ('Christopher Sergel',)
+2025-11-15 16:15:25,668 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:25,668 - INFO - [cached since 318.7s ago] ('Prestwick House',)
+2025-11-15 16:15:25,702 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:25,702 - INFO - [cached since 318.8s ago] ('Mary Hartley',)
+2025-11-15 16:15:25,734 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:25,734 - INFO - [cached since 318.8s ago] ('publishing',)
+2025-11-15 16:15:25,767 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:25,767 - INFO - [cached since 318.8s ago] ('Save Time Summaries',)
+2025-11-15 16:15:25,803 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:25,805 - INFO - [cached since 318.9s ago] ('Beth Sims',)
+2025-11-15 16:15:25,832 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:25,832 - INFO - [cached since 318.9s ago] ('Philip Page',)
+2025-11-15 16:15:25,858 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:25,864 - INFO - [cached since 318.9s ago] ('Trivia-on-Books Staff',)
+2025-11-15 16:15:25,885 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:25,885 - INFO - [cached since 319s ago] ('Daily Books Staff',)
+2025-11-15 16:15:25,913 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:25,915 - INFO - [cached since 319s ago] ('Harold Bloom',)
+2025-11-15 16:15:25,946 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:25,948 - INFO - [cached since 319s ago] ('Christopher Sergel ',)
+2025-11-15 16:15:25,975 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:25,977 - INFO - [cached since 319.1s ago] ('Mary Green',)
+2025-11-15 16:15:26,005 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:26,005 - INFO - [cached since 319.1s ago] ('Harold Bloom',)
+2025-11-15 16:15:26,031 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:26,031 - INFO - [cached since 319.1s ago] ('Philip Page',)
+2025-11-15 16:15:26,050 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:26,050 - INFO - [cached since 319.1s ago] ('Susan Elkin',)
+2025-11-15 16:15:26,082 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:26,084 - INFO - [cached since 319.2s ago] ('Ross Gregory Douthat',)
+2025-11-15 16:15:26,114 - INFO - ROLLBACK
+2025-11-15 16:15:40,306 - INFO - BEGIN (implicit)
+2025-11-15 16:15:40,306 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:15:40,306 - INFO - [cached since 333.4s ago] ('Harper Lee',)
+2025-11-15 16:15:40,517 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:15:40,517 - INFO - [cached since 333.5s ago] ('To Kill a Mockingbird', 4)
+2025-11-15 16:15:40,623 - INFO - SELECT status FROM user_books WHERE user_id = $1 AND book_id = $2
+2025-11-15 16:15:40,623 - INFO - [cached since 305.6s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00', 5)
+2025-11-15 16:15:40,722 - INFO - 
+                    INSERT INTO user_books (user_id, book_id, status)
+                    VALUES ($1, $2, $3)
+                
+2025-11-15 16:15:40,722 - INFO - [cached since 305.7s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00', 5, 'Currently Reading')
+2025-11-15 16:15:40,763 - INFO - 
+                INSERT INTO activity (user_id, action_type, book_id)
+                VALUES ($1, 'status', $2)
+            
+2025-11-15 16:15:40,763 - INFO - [cached since 305.6s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00', 5)
+2025-11-15 16:15:40,799 - INFO - COMMIT
+2025-11-15 16:15:46,048 - INFO - BEGIN (implicit)
+2025-11-15 16:15:46,049 - INFO - SELECT collections.collection_id, collections.user_id, collections.name, collections.description, collections.icon_id, collections.created_at 
+FROM collections 
+WHERE collections.user_id = $1::UUID ORDER BY collections.created_at DESC
+2025-11-15 16:15:46,049 - INFO - [cached since 491.6s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00',)
+2025-11-15 16:15:46,104 - INFO - ROLLBACK
+2025-11-15 16:15:46,163 - INFO - BEGIN (implicit)
+2025-11-15 16:15:46,164 - INFO - SELECT 1 FROM collections WHERE collection_id = $1
+2025-11-15 16:15:46,164 - INFO - [cached since 491.2s ago] (5,)
+2025-11-15 16:15:46,212 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url, cb.position
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-15 16:15:46,212 - INFO - [cached since 491.1s ago] (5,)
+2025-11-15 16:15:46,243 - INFO - ROLLBACK
+2025-11-15 16:15:48,142 - INFO - BEGIN (implicit)
+2025-11-15 16:15:48,142 - INFO - 
+                SELECT 
+                    ub.status,
+                    ub.created_at,
+                    b.book_id,
+                    b.title,
+                    b.isbn,
+                    b.year_published,
+                    b.cover_img_url,
+                    a.name as author_name,
+                    r.rating as user_rating,
+                    r.text as user_review
+                FROM user_books ub
+                JOIN books b ON ub.book_id = b.book_id
+                LEFT JOIN authors a ON b.author_id = a.author_id
+                LEFT JOIN reviews r ON r.book_id = b.book_id AND r.user_id = ub.user_id
+                WHERE ub.user_id = $1
+                ORDER BY ub.created_at DESC
+            
+2025-11-15 16:15:48,142 - INFO - [cached since 461.6s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00',)
+2025-11-15 16:15:48,199 - INFO - ROLLBACK
+2025-11-15 16:15:58,936 - INFO - BEGIN (implicit)
+2025-11-15 16:15:58,937 - INFO - DELETE FROM user_books WHERE user_id = $1 AND book_id = $2
+2025-11-15 16:15:58,937 - INFO - [cached since 52.12s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00', 5)
+2025-11-15 16:15:58,986 - INFO - COMMIT
+2025-11-15 16:19:28,152 - INFO - BEGIN (implicit)
+2025-11-15 16:19:28,152 - INFO - 
+                SELECT 
+                    ub.status,
+                    ub.created_at,
+                    b.book_id,
+                    b.title,
+                    b.isbn,
+                    b.year_published,
+                    b.cover_img_url,
+                    a.name as author_name,
+                    r.rating as user_rating,
+                    r.text as user_review
+                FROM user_books ub
+                JOIN books b ON ub.book_id = b.book_id
+                LEFT JOIN authors a ON b.author_id = a.author_id
+                LEFT JOIN reviews r ON r.book_id = b.book_id AND r.user_id = ub.user_id
+                WHERE ub.user_id = $1
+                ORDER BY ub.created_at DESC
+            
+2025-11-15 16:19:28,152 - INFO - [cached since 681.6s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00',)
+2025-11-15 16:19:28,217 - INFO - ROLLBACK
+2025-11-15 16:19:51,817 - INFO - BEGIN (implicit)
+2025-11-15 16:19:51,817 - INFO - SELECT collections.collection_id, collections.user_id, collections.name, collections.description, collections.icon_id, collections.created_at 
+FROM collections 
+WHERE collections.user_id = $1::UUID ORDER BY collections.created_at DESC
+2025-11-15 16:19:51,817 - INFO - [cached since 737.4s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00',)
+2025-11-15 16:19:51,870 - INFO - ROLLBACK
+2025-11-15 16:19:51,932 - INFO - BEGIN (implicit)
+2025-11-15 16:19:51,933 - INFO - SELECT 1 FROM collections WHERE collection_id = $1
+2025-11-15 16:19:51,933 - INFO - [cached since 737s ago] (5,)
+2025-11-15 16:19:51,986 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url, cb.position
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-15 16:19:51,986 - INFO - [cached since 736.9s ago] (5,)
+2025-11-15 16:19:52,011 - INFO - ROLLBACK
+2025-11-15 16:19:54,246 - INFO - BEGIN (implicit)
+2025-11-15 16:19:54,249 - INFO - 
+                SELECT 
+                    ub.status,
+                    ub.created_at,
+                    b.book_id,
+                    b.title,
+                    b.isbn,
+                    b.year_published,
+                    b.cover_img_url,
+                    a.name as author_name,
+                    r.rating as user_rating,
+                    r.text as user_review
+                FROM user_books ub
+                JOIN books b ON ub.book_id = b.book_id
+                LEFT JOIN authors a ON b.author_id = a.author_id
+                LEFT JOIN reviews r ON r.book_id = b.book_id AND r.user_id = ub.user_id
+                WHERE ub.user_id = $1
+                ORDER BY ub.created_at DESC
+            
+2025-11-15 16:19:54,250 - INFO - [cached since 707.7s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00',)
+2025-11-15 16:19:54,313 - INFO - ROLLBACK
+2025-11-15 16:21:54,800 - INFO - BEGIN (implicit)
+2025-11-15 16:21:54,800 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:54,800 - INFO - [cached since 707.9s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:21:54,844 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:21:54,844 - INFO - [cached since 707.8s ago] ('Sword of Destiny', 12)
+2025-11-15 16:21:54,876 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:54,876 - INFO - [cached since 708s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:21:54,905 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:21:54,906 - INFO - [cached since 707.9s ago] ('Sword of Destiny', 12)
+2025-11-15 16:21:54,926 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:54,926 - INFO - [cached since 708s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:21:54,941 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:21:54,956 - INFO - [cached since 708s ago] ('Sword of Destiny', 12)
+2025-11-15 16:21:54,972 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:54,972 - INFO - [cached since 708.1s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:21:55,006 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:21:55,008 - INFO - [cached since 708s ago] ('Sword of Destiny', 12)
+2025-11-15 16:21:55,030 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:55,030 - INFO - [cached since 708.1s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:21:55,056 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:21:55,056 - INFO - [cached since 708.1s ago] ('Miecz przeznaczenia', 12)
+2025-11-15 16:21:55,079 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:55,079 - INFO - [cached since 708.2s ago] ('Steve Elliott',)
+2025-11-15 16:21:55,101 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:55,101 - INFO - [cached since 708.2s ago] ('Rosemary milligan',)
+2025-11-15 16:21:55,133 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:55,133 - INFO - [cached since 708.2s ago] ('Katrina Charley',)
+2025-11-15 16:21:55,160 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:55,161 - INFO - [cached since 708.2s ago] ('Jane Watkins',)
+2025-11-15 16:21:55,186 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:55,186 - INFO - [cached since 708.3s ago] ('Sue Vincent',)
+2025-11-15 16:21:55,212 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:55,212 - INFO - [cached since 708.3s ago] ('Bryan Kolar',)
+2025-11-15 16:21:55,238 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:55,238 - INFO - [cached since 708.3s ago] ('Todd Matthews',)
+2025-11-15 16:21:55,264 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:55,266 - INFO - [cached since 708.3s ago] ('Syed Bukhari',)
+2025-11-15 16:21:55,287 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:55,291 - INFO - [cached since 708.4s ago] ('Jo Alexander',)
+2025-11-15 16:21:55,315 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:55,315 - INFO - [cached since 708.4s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:21:55,329 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:21:55,329 - INFO - [cached since 708.3s ago] ('Sword of Destiny (eBook)', 12)
+2025-11-15 16:21:55,365 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:55,365 - INFO - [cached since 708.4s ago] ('K. C. Sherwood',)
+2025-11-15 16:21:55,389 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:55,389 - INFO - [cached since 708.5s ago] ('Jonathan W. Thurston',)
+2025-11-15 16:21:55,415 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:55,415 - INFO - [cached since 708.5s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:21:55,444 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:21:55,444 - INFO - [cached since 708.4s ago] ('Sword of destiny', 12)
+2025-11-15 16:21:55,466 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:55,470 - INFO - [cached since 708.5s ago] ('Justin Hill',)
+2025-11-15 16:21:55,493 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:55,493 - INFO - [cached since 708.6s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:21:55,517 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:21:55,521 - INFO - [cached since 708.5s ago] ('Sword of Destiny', 12)
+2025-11-15 16:21:55,539 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:55,539 - INFO - [cached since 708.6s ago] ('M. H. Bonham',)
+2025-11-15 16:21:55,569 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:55,569 - INFO - [cached since 708.6s ago] ('M. H. Bonham',)
+2025-11-15 16:21:55,589 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:55,589 - INFO - [cached since 708.7s ago] ('Bryan Kolar',)
+2025-11-15 16:21:55,621 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:55,621 - INFO - [cached since 708.7s ago] ('Justin Hill',)
+2025-11-15 16:21:55,646 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:55,646 - INFO - [cached since 708.7s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:21:55,669 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:21:55,671 - INFO - [cached since 708.7s ago] ('Witcher Series Andrzej Sapkowski 7 Books Collection Set Inc Sword Of Destiny', 12)
+2025-11-15 16:21:55,689 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:55,689 - INFO - [cached since 708.8s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:21:55,721 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:21:55,721 - INFO - [cached since 708.7s ago] ('Witcher Stories Boxed Set', 12)
+2025-11-15 16:21:55,748 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:55,748 - INFO - [cached since 708.8s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:21:55,771 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:21:55,771 - INFO - [cached since 708.8s ago] ('Witcher Stories Boxed Set', 12)
+2025-11-15 16:21:55,796 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:55,796 - INFO - [cached since 708.9s ago] ('Sapkovskiy A.',)
+2025-11-15 16:21:55,819 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:55,819 - INFO - [cached since 708.9s ago] ('Dave Duncan',)
+2025-11-15 16:21:55,846 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:55,846 - INFO - [cached since 708.9s ago] ('Dave Duncan',)
+2025-11-15 16:21:55,873 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:55,873 - INFO - [cached since 709s ago] ('Dave Duncan',)
+2025-11-15 16:21:55,894 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:55,894 - INFO - [cached since 709s ago] ('Dave Duncan',)
+2025-11-15 16:21:55,921 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:55,921 - INFO - [cached since 709s ago] ('Jeremy Twigg',)
+2025-11-15 16:21:55,945 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:55,945 - INFO - [cached since 709s ago] ('Dave Duncan',)
+2025-11-15 16:21:55,970 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:55,972 - INFO - [cached since 709s ago] ('Jones, Jeff',)
+2025-11-15 16:21:56,002 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:56,004 - INFO - [cached since 709.1s ago] ('Dave Duncan',)
+2025-11-15 16:21:56,027 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:56,027 - INFO - [cached since 709.1s ago] ('Dave Duncan',)
+2025-11-15 16:21:56,054 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:56,054 - INFO - [cached since 709.1s ago] ('Christopher Bryant',)
+2025-11-15 16:21:56,073 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:56,083 - INFO - [cached since 709.2s ago] ('Jean Johnson',)
+2025-11-15 16:21:56,104 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:56,104 - INFO - [cached since 709.2s ago] ('Dave Duncan',)
+2025-11-15 16:21:56,137 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:56,140 - INFO - [cached since 709.2s ago] ('Dave Duncan',)
+2025-11-15 16:21:56,168 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:56,168 - INFO - [cached since 709.2s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:21:56,191 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:21:56,191 - INFO - [cached since 709.2s ago] ('Witcher Boxed Set', 12)
+2025-11-15 16:21:56,215 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:56,221 - INFO - [cached since 709.3s ago] ('Susan Dexter',)
+2025-11-15 16:21:56,247 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:56,247 - INFO - [cached since 709.3s ago] ('Jean Johnson',)
+2025-11-15 16:21:56,273 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:56,273 - INFO - [cached since 709.4s ago] ("Tricia O'Malley",)
+2025-11-15 16:21:56,295 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:56,295 - INFO - [cached since 709.4s ago] ('Jean Johnson',)
+2025-11-15 16:21:56,323 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:21:56,323 - INFO - [cached since 709.4s ago] ('Jo Alexander',)
+2025-11-15 16:21:56,344 - INFO - ROLLBACK
+2025-11-15 16:22:12,812 - INFO - BEGIN (implicit)
+2025-11-15 16:22:12,812 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:22:12,814 - INFO - [cached since 725.9s ago] ('Andrzej Sapkowski',)
+2025-11-15 16:22:12,862 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:22:12,862 - INFO - [cached since 725.9s ago] ('Sword of Destiny', 12)
+2025-11-15 16:22:12,886 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE lower(books.title) = lower($1::VARCHAR)
+2025-11-15 16:22:12,886 - INFO - [generated in 0.00103s] ('Sword of Destiny',)
+2025-11-15 16:22:12,919 - INFO - INSERT INTO books (title, author_id, type, year_published, isbn, cover_img_url) VALUES ($1::VARCHAR, $2::INTEGER, $3::VARCHAR, $4::INTEGER, $5::VARCHAR, $6::VARCHAR) RETURNING books.book_id
+2025-11-15 16:22:12,925 - INFO - [cached since 470.7s ago] ('Sword of Destiny', 12, None, 2015, None, 'https://covers.openlibrary.org/b/id/10657690-M.jpg')
+2025-11-15 16:22:12,954 - INFO - SELECT status FROM user_books WHERE user_id = $1 AND book_id = $2
+2025-11-15 16:22:12,954 - INFO - [cached since 697.9s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00', 17)
+2025-11-15 16:22:12,975 - INFO - 
+                    INSERT INTO user_books (user_id, book_id, status)
+                    VALUES ($1, $2, $3)
+                
+2025-11-15 16:22:12,975 - INFO - [cached since 697.9s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00', 17, 'Currently Reading')
+2025-11-15 16:22:13,003 - INFO - 
+                INSERT INTO activity (user_id, action_type, book_id)
+                VALUES ($1, 'status', $2)
+            
+2025-11-15 16:22:13,003 - INFO - [cached since 697.9s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00', 17)
+2025-11-15 16:22:13,022 - INFO - COMMIT
+2025-11-15 16:22:21,628 - INFO - BEGIN (implicit)
+2025-11-15 16:22:21,628 - INFO - 
+                SELECT 
+                    ub.status,
+                    ub.created_at,
+                    b.book_id,
+                    b.title,
+                    b.isbn,
+                    b.year_published,
+                    b.cover_img_url,
+                    a.name as author_name,
+                    r.rating as user_rating,
+                    r.text as user_review
+                FROM user_books ub
+                JOIN books b ON ub.book_id = b.book_id
+                LEFT JOIN authors a ON b.author_id = a.author_id
+                LEFT JOIN reviews r ON r.book_id = b.book_id AND r.user_id = ub.user_id
+                WHERE ub.user_id = $1
+                ORDER BY ub.created_at DESC
+            
+2025-11-15 16:22:21,628 - INFO - [cached since 855.1s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00',)
+2025-11-15 16:22:21,675 - INFO - ROLLBACK
+2025-11-15 16:22:42,312 - INFO - BEGIN (implicit)
+2025-11-15 16:22:42,318 - INFO - 
+                SELECT 
+                    ub.status,
+                    ub.created_at,
+                    b.book_id,
+                    b.title,
+                    b.isbn,
+                    b.year_published,
+                    b.cover_img_url,
+                    a.name as author_name,
+                    r.rating as user_rating,
+                    r.text as user_review
+                FROM user_books ub
+                JOIN books b ON ub.book_id = b.book_id
+                LEFT JOIN authors a ON b.author_id = a.author_id
+                LEFT JOIN reviews r ON r.book_id = b.book_id AND r.user_id = ub.user_id
+                WHERE ub.user_id = $1
+                ORDER BY ub.created_at DESC
+            
+2025-11-15 16:22:42,318 - INFO - [cached since 875.7s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00',)
+2025-11-15 16:22:42,525 - INFO - ROLLBACK
+2025-11-15 16:22:45,332 - INFO - BEGIN (implicit)
+2025-11-15 16:22:45,332 - INFO - SELECT collections.collection_id, collections.user_id, collections.name, collections.description, collections.icon_id, collections.created_at 
+FROM collections 
+WHERE collections.user_id = $1::UUID ORDER BY collections.created_at DESC
+2025-11-15 16:22:45,332 - INFO - [cached since 910.9s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00',)
+2025-11-15 16:22:45,389 - INFO - ROLLBACK
+2025-11-15 16:22:45,459 - INFO - BEGIN (implicit)
+2025-11-15 16:22:45,459 - INFO - SELECT 1 FROM collections WHERE collection_id = $1
+2025-11-15 16:22:45,459 - INFO - [cached since 910.5s ago] (5,)
+2025-11-15 16:22:45,509 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url, cb.position
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-15 16:22:45,509 - INFO - [cached since 910.4s ago] (5,)
+2025-11-15 16:22:45,535 - INFO - ROLLBACK
+2025-11-15 16:22:48,403 - INFO - BEGIN (implicit)
+2025-11-15 16:22:48,403 - INFO - SELECT 1 FROM collections WHERE collection_id = $1
+2025-11-15 16:22:48,403 - INFO - [cached since 913.4s ago] (2,)
+2025-11-15 16:22:48,452 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url, cb.position
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-15 16:22:48,452 - INFO - [cached since 913.4s ago] (2,)
+2025-11-15 16:22:48,477 - INFO - ROLLBACK
+2025-11-15 16:22:51,737 - INFO - BEGIN (implicit)
+2025-11-15 16:22:51,737 - INFO - SELECT 1 FROM collections WHERE collection_id = $1
+2025-11-15 16:22:51,737 - INFO - [cached since 916.8s ago] (5,)
+2025-11-15 16:22:51,773 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url, cb.position
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-15 16:22:51,773 - INFO - [cached since 916.7s ago] (5,)
+2025-11-15 16:22:51,806 - INFO - ROLLBACK
+2025-11-15 16:22:54,185 - INFO - BEGIN (implicit)
+2025-11-15 16:22:54,185 - INFO - SELECT 1 FROM collections WHERE collection_id = $1
+2025-11-15 16:22:54,185 - INFO - [cached since 919.2s ago] (1,)
+2025-11-15 16:22:54,236 - INFO - 
+            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url, cb.position
+            FROM collection_books cb
+            JOIN books b ON cb.book_id = b.book_id
+            LEFT JOIN authors a ON b.author_id = a.author_id
+            WHERE cb.collection_id = $1
+            ORDER BY cb.position NULLS LAST, b.title
+        
+2025-11-15 16:22:54,236 - INFO - [cached since 919.2s ago] (1,)
+2025-11-15 16:22:54,263 - INFO - ROLLBACK
+2025-11-15 16:23:06,808 - INFO - BEGIN (implicit)
+2025-11-15 16:23:06,808 - INFO - 
+                SELECT 
+                    ub.status,
+                    ub.created_at,
+                    b.book_id,
+                    b.title,
+                    b.isbn,
+                    b.year_published,
+                    b.cover_img_url,
+                    a.name as author_name,
+                    r.rating as user_rating,
+                    r.text as user_review
+                FROM user_books ub
+                JOIN books b ON ub.book_id = b.book_id
+                LEFT JOIN authors a ON b.author_id = a.author_id
+                LEFT JOIN reviews r ON r.book_id = b.book_id AND r.user_id = ub.user_id
+                WHERE ub.user_id = $1
+                ORDER BY ub.created_at DESC
+            
+2025-11-15 16:23:06,808 - INFO - [cached since 900.2s ago] ('a37aaf7b-3d0a-4b7a-aab0-600e9b09ce00',)
+2025-11-15 16:23:06,857 - INFO - ROLLBACK
+2025-11-15 16:24:15,252 - ERROR - Failed search_books - request error - type=ReadTimeout url=https://openlibrary.org/search.json?q=The+Silmarillion&limit=50&page=1
+2025-11-15 16:24:38,914 - ERROR - Failed search_books - request error - type=ReadTimeout url=https://openlibrary.org/search.json?q=The+Silmarillion&limit=50&page=1
+2025-11-15 16:26:26,992 - INFO - select pg_catalog.version()
+2025-11-15 16:26:26,992 - INFO - [raw sql] ()
+2025-11-15 16:26:27,091 - INFO - select current_schema()
+2025-11-15 16:26:27,097 - INFO - [raw sql] ()
+2025-11-15 16:26:27,189 - INFO - show standard_conforming_strings
+2025-11-15 16:26:27,189 - INFO - [raw sql] ()
+2025-11-15 16:26:27,268 - INFO - BEGIN (implicit)
+2025-11-15 16:26:27,274 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:27,276 - INFO - [generated in 0.00074s] ('J.R.R. Tolkien',)
+2025-11-15 16:26:27,346 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:26:27,346 - INFO - [generated in 0.00087s] ('The Silmarillion', 1)
+2025-11-15 16:26:27,396 - INFO - SELECT count(reviews.review_id) AS count_1, coalesce(sum(reviews.rating), $1::INTEGER) AS coalesce_1, avg(reviews.rating) AS avg_1 
+FROM reviews 
+WHERE reviews.book_id = $2::INTEGER
+2025-11-15 16:26:27,396 - INFO - [generated in 0.00055s] (0, 13)
+2025-11-15 16:26:27,455 - INFO - SELECT reviews.review_id, reviews.user_id, reviews.book_id, reviews.rating, reviews.text, reviews.created_at 
+FROM reviews 
+WHERE reviews.book_id = $1::INTEGER ORDER BY reviews.review_id DESC
+2025-11-15 16:26:27,455 - INFO - [generated in 0.00077s] (13,)
+2025-11-15 16:26:27,505 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:27,507 - INFO - [cached since 0.231s ago] ('SuperSummary',)
+2025-11-15 16:26:27,531 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:27,533 - INFO - [cached since 0.2579s ago] ('J.R.R. Tolkien',)
+2025-11-15 16:26:27,557 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:26:27,557 - INFO - [cached since 0.2116s ago] ('The Silmarillion. 1/?', 1)
+2025-11-15 16:26:27,580 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:27,580 - INFO - [cached since 0.3052s ago] ('Christopher Tolkien ',)
+2025-11-15 16:26:27,611 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:27,611 - INFO - [cached since 0.3354s ago] ('chrstopher tolkhen',)
+2025-11-15 16:26:27,634 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:27,634 - INFO - [cached since 0.3594s ago] ('J.R.R. Tolkien',)
+2025-11-15 16:26:27,660 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:26:27,660 - INFO - [cached since 0.317s ago] ('The Silmarillion. 3/3', 1)
+2025-11-15 16:26:27,689 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:27,689 - INFO - [cached since 0.4141s ago] ('Clyde S. Kilby',)
+2025-11-15 16:26:27,706 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:27,706 - INFO - [cached since 0.4385s ago] ('Paul H. Kocher',)
+2025-11-15 16:26:27,738 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:27,738 - INFO - [cached since 0.4649s ago] ('Rhona Beare',)
+2025-11-15 16:26:27,763 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:27,763 - INFO - [cached since 0.493s ago] ('J.R.R. Tolkien',)
+2025-11-15 16:26:27,792 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:26:27,792 - INFO - [cached since 0.4474s ago] ('The Silmarillion. 2/3', 1)
+2025-11-15 16:26:27,820 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:27,821 - INFO - [cached since 0.5451s ago] ('J.R.R. Tolkien',)
+2025-11-15 16:26:27,840 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:26:27,840 - INFO - [cached since 0.4978s ago] ('THE SILMARILLION CALENDAR 1978', 1)
+2025-11-15 16:26:27,857 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:27,857 - INFO - [cached since 0.5907s ago] ('Allan, G Turner',)
+2025-11-15 16:26:27,891 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:27,891 - INFO - [cached since 0.6181s ago] ('Paul Harold Kocher',)
+2025-11-15 16:26:27,916 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:27,916 - INFO - [cached since 0.6427s ago] ('J.R.R. Tolkien',)
+2025-11-15 16:26:27,941 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:26:27,941 - INFO - [cached since 0.5991s ago] ('The Silmarillion of Beren and Lúthien', 1)
+2025-11-15 16:26:27,976 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:27,976 - INFO - [cached since 0.7011s ago] ('Clyde Kilby',)
+2025-11-15 16:26:27,994 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:27,994 - INFO - [cached since 0.7274s ago] ('Richard Mathews',)
+2025-11-15 16:26:28,040 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:28,042 - INFO - [cached since 0.7669s ago] ('J.R.R. Tolkien',)
+2025-11-15 16:26:28,074 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:26:28,078 - INFO - [cached since 0.7317s ago] ('The Hobbit / Lord of the Rings / Silmarillion', 1)
+2025-11-15 16:26:28,100 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:28,100 - INFO - [cached since 0.8281s ago] ('Robert Foster',)
+2025-11-15 16:26:28,128 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:28,132 - INFO - [cached since 0.8565s ago] ('D.R. Lloyd',)
+2025-11-15 16:26:28,155 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:28,155 - INFO - [cached since 0.8818s ago] ('J.R.R. Tolkien',)
+2025-11-15 16:26:28,184 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:26:28,184 - INFO - [cached since 0.8412s ago] ("Morgoth's Ring", 1)
+2025-11-15 16:26:28,208 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:28,208 - INFO - [cached since 0.9343s ago] ('Mark T. Hooker',)
+2025-11-15 16:26:28,241 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:28,241 - INFO - [cached since 0.9663s ago] ('Mark Hooker',)
+2025-11-15 16:26:28,264 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:28,264 - INFO - [cached since 0.9897s ago] ('Richard Mathews',)
+2025-11-15 16:26:28,290 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:28,291 - INFO - [cached since 1.016s ago] ('David Hijón',)
+2025-11-15 16:26:28,312 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:28,312 - INFO - [cached since 1.038s ago] ('J.R.R. Tolkien',)
+2025-11-15 16:26:28,335 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:26:28,335 - INFO - [cached since 0.9904s ago] ('Of the darkening of Valinor and of the flight of the Noldor from The silmarillion', 1)
+2025-11-15 16:26:28,358 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:28,358 - INFO - [cached since 1.086s ago] ('Robert Foster',)
+2025-11-15 16:26:28,384 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:28,384 - INFO - [cached since 1.108s ago] ('Federico Hilgers',)
+2025-11-15 16:26:28,407 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:28,407 - INFO - [cached since 1.135s ago] ('J.R.R. Tolkien',)
+2025-11-15 16:26:28,434 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:26:28,439 - INFO - [cached since 1.093s ago] ('The Shaping of Middle-Earth', 1)
+2025-11-15 16:26:28,457 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:28,457 - INFO - [cached since 1.187s ago] ('J.R.R. Tolkien',)
+2025-11-15 16:26:28,474 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:26:28,474 - INFO - [cached since 1.141s ago] ('The war of the jewels', 1)
+2025-11-15 16:26:28,508 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:28,508 - INFO - [cached since 1.237s ago] ('J.R.R. Tolkien',)
+2025-11-15 16:26:28,523 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:26:28,538 - INFO - [cached since 1.192s ago] ('Tolkien Fantasy Tales (Silmarillion/ Sir Gawain and the Green Knight / Tolkien Reader/Unfinished tales of Nu\u0301menor and Middle-earth)', 1)
+2025-11-15 16:26:28,563 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:28,563 - INFO - [cached since 1.288s ago] ('J.R.R. Tolkien',)
+2025-11-15 16:26:28,586 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:26:28,586 - INFO - [cached since 1.24s ago] ('J. R. R. Tolkien Deluxe Edition Collection', 1)
+2025-11-15 16:26:28,610 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:28,610 - INFO - [cached since 1.335s ago] ('J.R.R. Tolkien',)
+2025-11-15 16:26:28,636 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:26:28,636 - INFO - [cached since 1.291s ago] ('The J. R. R. Tolkien Audio Collection (Adventures of Tom Bombadil / Hobbit / Lord of the Rings / Road Goes Ever On / The Silmarillion)', 1)
+2025-11-15 16:26:28,657 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:28,657 - INFO - [cached since 1.389s ago] ('Robert Foster',)
+2025-11-15 16:26:28,688 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:28,689 - INFO - [cached since 1.414s ago] ('François Ducreux',)
+2025-11-15 16:26:28,716 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:28,718 - INFO - [cached since 1.442s ago] ('Christopher Tolkien',)
+2025-11-15 16:26:28,742 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:28,742 - INFO - [cached since 1.469s ago] ('Douglas Charles Kane',)
+2025-11-15 16:26:28,765 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:28,771 - INFO - [cached since 1.495s ago] ('Douglas Charles Kane',)
+2025-11-15 16:26:28,792 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:28,792 - INFO - [cached since 1.518s ago] ('Christopher Tolkien',)
+2025-11-15 16:26:28,807 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:28,817 - INFO - [cached since 1.542s ago] ('Olivia Stewart',)
+2025-11-15 16:26:28,842 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:28,847 - INFO - [cached since 1.571s ago] ('Robert Foster',)
+2025-11-15 16:26:28,868 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:28,868 - INFO - [cached since 1.594s ago] ('Douglas Charles Kane',)
+2025-11-15 16:26:28,892 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:28,892 - INFO - [cached since 1.619s ago] ('Elias Lönnrot',)
+2025-11-15 16:26:28,919 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:28,919 - INFO - [cached since 1.644s ago] ('J.R.R. Tolkien',)
+2025-11-15 16:26:28,942 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:26:28,942 - INFO - [cached since 1.596s ago] ('The war of the jewels', 1)
+2025-11-15 16:26:28,957 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:28,957 - INFO - [cached since 1.689s ago] ('J.R.R. Tolkien',)
+2025-11-15 16:26:28,991 - INFO - SELECT books.book_id, books.title, books.author_id, books.type, books.year_published, books.isbn, books.cover_img_url 
+FROM books 
+WHERE books.title = $1::VARCHAR AND books.author_id = $2::INTEGER
+2025-11-15 16:26:28,992 - INFO - [cached since 1.646s ago] ('History of Middle-Earth', 1)
+2025-11-15 16:26:29,013 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:29,013 - INFO - [cached since 1.738s ago] ('Mark Robert Hillegas',)
+2025-11-15 16:26:29,038 - INFO - SELECT authors.author_id, authors.name 
+FROM authors 
+WHERE authors.name = $1::VARCHAR
+2025-11-15 16:26:29,038 - INFO - [cached since 1.763s ago] ('Stefania Carta',)
+2025-11-15 16:26:29,058 - INFO - ROLLBACK

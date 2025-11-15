@@ -145,6 +145,7 @@
                 <div id="popupBackdrop" class="popupBackdrop"></div>
                 <!-- Popup -->
                 <div id="popup" class="popup">
+                    <!-- Add to Collection Popup -->
                     <div class="popupContentCollection" id="addToCollection">
                         <h1 style="font-weight: bold;" id="collectionTitle">Add [book_title] to Collections</h1>
                         <hr style="background-color: var(--offWhite); width: 80%;" class="mb-4">
@@ -180,6 +181,8 @@
                             <button type="submit" class="main-button-brown-small mb-4" id="submitCollectionChoice">Choose Collections</button>
                         </form>
                     </div>
+
+                    <!-- Leave Review Popup -->
                     <div class="popupContentReview" id="makeReview">
                         <h1 style="font-weight: bold;" id="reviewTitle">Review [book_title]</h1>
                         <hr style="background-color: var(--offWhite); width: 80%;" class="mb-4">
@@ -205,6 +208,29 @@
                             <button type="submit" class="main-button-brown-small mb-4" id="submitReview">Submit Review</button>
                         </form>
                     </div>
+
+                    <!-- Add to Reading List Popup -->
+                    <div class="popupContentReview" id="addToReadingList" style="display: none;">
+                        <h1 style="font-weight: bold;" id="readingListTitle">Add to Reading List</h1>
+                        <hr style="background-color: var(--offWhite); width: 80%;" class="mb-4">
+                        <form>     
+                            <fieldset class="mb-4">
+                                <label> Select Reading Status </label> <br>
+                                <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
+                                    <button type="button" class="main-button-brown-small status-choice" data-status="Want to Read">
+                                        Want to Read
+                                    </button>
+                                    <button type="button" class="main-button-brown-small status-choice" data-status="Currently Reading">
+                                        Currently Reading
+                                    </button>
+                                    <button type="button" class="main-button-brown-small status-choice" data-status="Finished">
+                                        Finished
+                                    </button>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+
                     <div class="popupContentViewReviews" id="viewReviews">
                         <h1 id="litTitle" style="font-weight:bold;">Reviews for [book_title]</h1>
                         <hr style="background-color: var(--offWhite); width: 80%;" class="mb-4">

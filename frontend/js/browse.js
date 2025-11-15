@@ -133,6 +133,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                             ${count > 0 ? `<span class="reviewCount"> | <a href="#" class="viewReviewsPopup">View Reviews (${count})</a></span>` : ""}
                         </div>
                         <div class="iconsContainer">
+                            <button class="unstyled-button openReadingListPopup">
+                                <img class="icon" src="../images/addToCollection.svg" title="Add to Reading List">
+                            </button>
                             <button class="unstyled-button openCollectionPopup">
                                 <img class="icon" src="../images/addToCollection.svg" title="Add to Collection">
                             </button>
@@ -162,11 +165,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         //grab elements
         const popup = document.getElementById("popup");
         const popupBackdrop = document.getElementById("popupBackdrop"); 
-        const popupContentReview = popup?.querySelector(".popupContentReview"); 
+        const popupContentReview = popup?.querySelector(".popupContentReview#makeReview"); 
+        const popupContentReadingList = popup?.querySelector("#addToReadingList");
         const popupContentCollection = popup?.querySelector(".popupContentCollection"); 
         const popupContentViewReviews = popup?.querySelector(".popupContentViewReviews");
 
-        if (e.target.closest(".openReviewPopup") || e.target.closest(".openCollectionPopup") || e.target.closest(".viewReviewsPopup")) {
+        if (e.target.closest(".openReadingListPopup") || e.target.closest(".openReviewPopup") || e.target.closest(".openCollectionPopup") || e.target.closest(".viewReviewsPopup")) {
             const litDiv = e.target.closest(".lit");
             const bookIndex = litDiv.dataset.bookIndex;
             currentBookData = currentBooks[bookIndex];
@@ -174,12 +178,18 @@ document.addEventListener("DOMContentLoaded", async () => {
             //dynamic titles
             const titleText = litDiv.querySelector(".litTitle").textContent.trim();
             const reviewTitle = document.getElementById("reviewTitle");
+            const readingListTitle = document.getElementById("readingListTitle");
             const collectionTitle = document.getElementById("collectionTitle");
             const litTitle = document.getElementById("litTitle");
 
             //make needed elements visible
             if (popup) popup.style.display = "grid";
             if (popupBackdrop) popupBackdrop.style.display = "block";
+            
+            if (e.target.closest(".openReadingListPopup") && popupContentReadingList) { 
+                popupContentReadingList.style.display = "flex"; 
+                if (readingListTitle) readingListTitle.innerHTML = `Add "${titleText}" to Reading List`;
+            }
             
             if (e.target.closest(".openReviewPopup") && popupContentReview) { 
                 popupContentReview.style.display = "flex"; 
@@ -247,8 +257,69 @@ document.addEventListener("DOMContentLoaded", async () => {
             if (popup) popup.style.display = "none";
             if (popupBackdrop) popupBackdrop.style.display = "none";
             if (popupContentReview) popupContentReview.style.display = "none";
+            if (popupContentReadingList) popupContentReadingList.style.display = "none";
             if (popupContentCollection) popupContentCollection.style.display = "none";
             if (popupContentViewReviews) popupContentViewReviews.style.display = "none";
+        }
+    });
+
+    // Handle reading status selection
+    document.addEventListener("click", async (e) => {
+        const statusBtn = e.target.closest(".status-choice");
+        if (!statusBtn) return;
+        
+        e.preventDefault();
+        
+        if (!currentBookData) {
+            alert("Error: No book selected");
+            return;
+        }
+
+        const status = statusBtn.dataset.status;
+        
+        const bookData = {
+            title: currentBookData.title,
+            author_name: currentBookData.authors?.[0] || null,
+            isbn: currentBookData.isbn,
+            first_publish_year: currentBookData.first_publish_year,
+            cover: currentBookData.cover,
+            status: status
+        };
+
+        try {
+            const response = await authenticatedFetch('/user_books/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(bookData)
+            });
+
+            if (!response.ok) {
+                const error = await response.json();
+                throw new Error(error.detail || 'Failed to add to reading list');
+            }
+
+            const result = await response.json();
+            alert(result.message || `Book added to "${status}"!`);
+            
+            //close popup
+            const popup = document.getElementById("popup");
+            const popupBackdrop = document.getElementById("popupBackdrop");
+            const popupContentReadingList = popup?.querySelector("#addToReadingList");
+            
+            if (popup) popup.style.display = "none";
+            if (popupBackdrop) popupBackdrop.style.display = "none";
+            if (popupContentReadingList) popupContentReadingList.style.display = "none";
+            
+        } catch (error) {
+            console.error('Error adding to reading list:', error);
+            if (error.message.includes("not authenticated")) {
+                alert('Please log in to add books to your reading list');
+                window.location.href = '../loginPages/login.html';
+            } else {
+                alert('Error adding to reading list: ' + error.message);
+            }
         }
     });
 
