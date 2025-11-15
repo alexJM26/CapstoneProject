@@ -164,7 +164,7 @@ async function loadUserReviews(userID, isOwner) {
         <div style="font-size: smaller; color: var(--offWhite); margin-top: 2%;"> Date Created: ${new Date(r.created_at).toLocaleDateString()}</div>
 
         ${isOwner ? `
-          <button class="edit-review-btn" data-review-id="${r.review_id}" data-rating="${r.rating}" data-text="${r.text || ""}">
+          <button class="main-button-brown-xsmall edit-review-btn mt-2" data-review-id="${r.review_id}" data-rating="${r.rating}" data-text="${r.text || ""}">
             Edit Review
           </button>
           ` : ""}
