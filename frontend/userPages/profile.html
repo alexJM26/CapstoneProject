@@ -142,15 +142,18 @@
             <!-- Edit Review Modal -->
             <div class="modal fade" id="editReviewModal" tabindex="-1" role="dialog">
                 <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content p-4">
-                        <h5>Edit Review</h5>
-                        <label>Rating:</label>
-                        <div id="editReviewStars" class="stars"></div>
-                        <label class="mt-3">Text:</label>
-                        <textarea id="editReviewText" class="form-control" rows="4"></textarea>
+                    <div class="modal-content p-4 popupSmall" style="color: var(--offWhite);">
+                        <h5 class="mb-0">Edit Review</h5>
+                        <hr style="background-color: var(--offWhite); width: 100%;">
+                        <div class="d-flex align-items-left justify-content-left flex-column">
+                            <label>Rating</label>
+                            <div id="editReviewStars" style="width: fit-content; font-size: 3vh;" class="stars"></div>
+                            <label class="mt-1">Text</label>
+                            <textarea id="editReviewText" class="form-control" rows="4" style="width: 25vw;"></textarea>
+                        </div>
                         <div class="mt-3 d-flex justify-content-between">
-                            <button id="saveReviewBtn" class="btn btn-primary">Save</button>
-                            <button id="deleteReviewBtn" class="btn btn-danger">Delete Review</button>
+                            <button id="saveReviewBtn" class="main-button-brown-small m-1">Save</button>
+                            <button id="deleteReviewBtn" class="main-button-brown-small m-1">Delete Review</button>
                         </div>
                     </div>
                 </div>
