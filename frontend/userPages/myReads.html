@@ -94,32 +94,48 @@
         <section>
 
             <div class="d-flex flex-column align-items-center text-center">
-                <div class="sectionContentHolderClear">
+                <div class="sectionContentHolderClear" style="max-width: 1400px; width: 95%;">
 
                     <h1 class="title-text">My Reads</h1>
 
-                    <table class="my-collections-reads-table">
-                        <tr>
-                            <th>Name</th>
-                            <th>Date Read</th>
-                            <th>Review Given</th>
-                        </tr>
-                        <tr>
-                            <td>Book1</td>
-                            <td>October 21, 2025</td>
-                            <td>Review</td>
-                        </tr>
-                        <tr>
-                            <td>Book2</td>
-                            <td>October 5, 2025</td>
-                            <td>Review</td>
-                        </tr>
-                        <tr>
-                            <td>Book3</td>
-                            <td>September 27, 2025</td>
-                            <td>Review</td>
-                        </tr>
-                    </table>
+                    <div id="loadingIndicator" class="loading">
+                        Loading your books...
+                    </div>
+
+                    <div id="booksContainer" style="display: none;">
+                        <!-- Currently Reading Section -->
+                        <div class="reading-section">
+                            <h2 class="section-header">Currently Reading</h2>
+                            <div class="books-grid" id="currentlyReadingGrid">
+                                <div class="empty-state">
+                                    <img src="../images/bookCoverDefault.svg" alt="No books">
+                                    <p>No books currently reading</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Want to Read Section -->
+                        <div class="reading-section">
+                            <h2 class="section-header">Want to Read</h2>
+                            <div class="books-grid" id="wantToReadGrid">
+                                <div class="empty-state">
+                                    <img src="../images/bookCoverDefault.svg" alt="No books">
+                                    <p>No books in your to-read list</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Finished Section -->
+                        <div class="reading-section">
+                            <h2 class="section-header">Finished</h2>
+                            <div class="books-grid" id="finishedGrid">
+                                <div class="empty-state">
+                                    <img src="../images/bookCoverDefault.svg" alt="No books">
+                                    <p>No finished books yet</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -138,6 +154,9 @@
 
         <!-- Script for settings changes -->
         <script type="module" src="../js/settings.js"></script>
+        
+        <!-- Script for My Reads functionality -->
+        <script type="module" src="../js/myReads.js"></script>
     </body>
 
 </html>
