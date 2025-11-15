@@ -906,6 +906,17 @@ input[type=checkbox] {
     padding-top: 0.5rem;
 }
            
+.status-dropdown:hover {
+    border-color: var(--brown, #8B7355);
+    background: #f8f8f8;
+}
+           
+.status-dropdown:focus {
+    outline: none;
+    border-color: var(--brown, #8B7355);
+    box-shadow: 0 0 0 2px rgba(139, 115, 85, 0.2);
+}
+           
 .status-btn {
     padding: 0.25rem 0.5rem;
     font-size: 0.8rem;
