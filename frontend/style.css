@@ -48,10 +48,10 @@ input[type=checkbox] {
 
 /* GENERAL SECTIONS =====================================================================================================================| */
 .sectionContentHolderClear {
-    width: 96%;
+    width: 96vw;
 }
 .section-content-holder-green {
-    width: 96%;
+    width: 96vw;
     background-color: var(--green);
     padding: 2vw;
     margin-top: 1vw; margin-bottom: 1vw;
@@ -94,8 +94,8 @@ input[type=checkbox] {
     z-index: 9999;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.9);
     color: var(--offWhite);
     font-size: 300%;
@@ -320,29 +320,31 @@ input[type=checkbox] {
 .userLabel {
     color: var(--offWhite);
     font-weight: bold; 
-    font-size: 3vh;
+    font-size: 3.5vh;
     padding-top: 2%; padding-bottom: 2%;
 }
 .userDesc {
     color: var(--offWhite);
-    font-size: 1.5vh;
+    font-size: 2vh;
 }
 
 
-/* MY COLLECTIONS + MY READS =====================================================================================================================| */
+/* MY COLLECTIONS =====================================================================================================================| */
 .my-collections-reads-table {
     width: 100%;
     color: var(--offWhite);
     font-size: 4vh;
-    border: 5px solid var(--darkBrown);
 }
 .my-collections-reads-table th {
-    background-color: var(--brown);
-    border-bottom: 5px solid var(--darkBrown);
+    background-color: var(--green);
+    border-bottom: 1vh solid var(--offWhite);
+    padding: 2vh;
 }
  .my-collections-reads-table td {
-    background-color: var(--green);
-    border-bottom: 2px solid var(--darkBrown);
+    background-color: var(--lightBrown);
+    border-bottom: 1vh solid var(--offWhite);
+    padding: 2vh;
+    color: var(--darkBrown);
  }
 .my-collections-reads-table td:first-child {
     text-decoration: underline;
@@ -353,7 +355,8 @@ input[type=checkbox] {
     color: var(--offWhite);
     font-size: 3vh;
     text-align: center;
-    border: 5px solid var(--darkBrown);
+    border: 1px solid var(--brown);
+    border-radius: 25px;
 }
 
 
@@ -698,17 +701,14 @@ input[type=checkbox] {
     text-align: center;
 }
 .reviewContainer {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--lightBrown);
     width: 80%;
-    padding: 1%;
-    align-items: left;
-    border-style: solid;
-    border-color: var(--brown);
     border-width: 0.5vh;
     margin: 1vh;
     text-align: left;
+    padding: 2%; 
+    background-color: var(--lightBrown); 
+    border: solid; 
+    border-color: var(--darkBrown);
 }
 .reviewRating {
     font-size: 3vh;
@@ -840,83 +840,74 @@ input[type=checkbox] {
 
 /* MY READS PAGE =====================================================================================================================| */
 .reading-section {
-    margin-bottom: 3rem;
-}
-           
+    margin-bottom: 4vh;
+}  
 .section-header {
-    background: var(--darkBrown, #5c4033);
-    color: var(--offWhite, #f5f5dc);
+    background: var(--green);
+    color: var(--offWhite);
     padding: 1rem;
-    border-radius: 8px 8px 0 0;
     margin-bottom: 0;
-}
-           
+}          
 .books-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 1.5rem;
     padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 0 0 8px 8px;
-    min-height: 200px;
-}
-           
+    background: var(--lightBrown);
+    min-height: 25vh;
+}          
 .book-card {
-    background: white;
-    border-radius: 8px;
     padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     transition: transform 0.2s;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-}
-           
+    width: 20vw;
+}          
 .book-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-}
-           
+}       
 .book-cover {
-    width: 120px;
-    height: 180px;
+    height: 25vh;
     object-fit: cover;
     border-radius: 4px;
     margin-bottom: 0.75rem;
-}
-           
+}      
 .book-title {
     font-weight: bold;
     font-size: 0.95rem;
     margin-bottom: 0.25rem;
     line-height: 1.3;
-}
-           
+    color: var(--darkBrown);
+}         
 .book-author {
     font-size: 0.85rem;
-    color: #666;
+    color: var(--offWhite);
     margin-bottom: 0.5rem;
-}
-           
+}       
 .book-actions {
     display: flex;
     gap: 0.5rem;
     margin-top: auto;
     padding-top: 0.5rem;
-}
-           
+}  
+.status-dropdown {
+    background: var(--brown);
+    border-radius: 25px;
+    border-color: var(--brown);
+    border-style: solid;
+    color: white;
+}      
 .status-dropdown:hover {
-    border-color: var(--brown, #8B7355);
-    background: #f8f8f8;
-}
-           
+    border-color: var(--darkBrown);
+}          
 .status-dropdown:focus {
     outline: none;
-    border-color: var(--brown, #8B7355);
+    border-color: var(--brown);
     box-shadow: 0 0 0 2px rgba(139, 115, 85, 0.2);
-}
-           
+}   
 .status-btn {
     padding: 0.25rem 0.5rem;
     font-size: 0.8rem;
@@ -924,29 +915,16 @@ input[type=checkbox] {
     border: none;
     cursor: pointer;
     transition: all 0.2s;
-}
-           
-.remove-btn {
-    background: #dc3545;
-    color: white;
-}
-           
-.remove-btn:hover {
-    background: #c82333;
-}
-           
+}             
 .empty-state {
     text-align: center;
     padding: 3rem;
-    color: #666;
-}
-           
+    color: var(--offWhite);
+}     
 .empty-state img {
     width: 100px;
-    opacity: 0.3;
     margin-bottom: 1rem;
-}
-           
+}          
 .loading {
     text-align: center;
     padding: 2rem;

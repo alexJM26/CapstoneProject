@@ -57,14 +57,20 @@ function initCollectionsUI(){
         //Cover image cell
         const coverUrl = b.cover_img_url || '../images/bookCoverDefault.svg';
         tr.innerHTML = `
-          <td><img src="${coverUrl}" alt="Cover" style="height:80px; border-radius:6px;"></td>
+          <td>
+            <div class="d-flex justify-content-center align-items-center">
+              <img src="${coverUrl}" alt="Cover" style="height: 15vh; margin: 1vh;">
+            </div>
+          </td>
           <td>${b.title || '(Untitled)'}</td>
           <td>${b.author_name || 'Unknown Author'}</td>
           <td>${b.year_published || ''}</td>
           <td>
-            <button class="btn btn-light btn-sm move-up" data-book-id="${b.book_id}" ${i === 0 ? 'disabled' : ''}>↑</button>
-            <button class="btn btn-light btn-sm move-down" data-book-id="${b.book_id}" ${i === books.length - 1 ? 'disabled' : ''}>↓</button>
-            <button class="remove-btn btn btn-sm btn-outline-danger" data-book-id="${b.book_id}">Remove</button>
+            <div class="d-flex flex-row">
+              <button class="unstyled-button move-up mr-3" style="color: var(--darkBrown);" data-book-id="${b.book_id}" ${i === 0 ? 'disabled' : ''}>↑</button>
+              <button class="unstyled-button move-down mr-3" style="color: var(--darkBrown);" data-book-id="${b.book_id}" ${i === books.length - 1 ? 'disabled' : ''}>↓</button>
+              <button class="main-button-brown-xsmall removeBtnTrigger" data-book-id="${b.book_id}">Remove</button>
+            </div>
           </td>
         `;
         tbody.appendChild(tr);
@@ -79,7 +85,7 @@ function initCollectionsUI(){
 
   //Handle remove clicks
   tbody.addEventListener('click', async (e) => {
-    if (e.target.classList.contains('remove-btn')) {
+    if (e.target.classList.contains('removeBtnTrigger')) {
       const bookId = e.target.dataset.bookId;
       const currentCollectionId = dd.value;
       if (!confirm('Remove this book from the collection?')) return;

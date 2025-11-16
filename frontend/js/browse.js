@@ -34,9 +34,9 @@ function renderReviewItem(r) {
     return `
         <div class="reviewContainer">
             <h1 class="reviewRating">${stars}</h1>
-            <p>${escapeHtml(text)}</p>
+            <p style="color: var(--darkBrown);">${escapeHtml(text)}</p>
             <a href="../userPages/profile.html?username=${user}">${escapeHtml(user)}</a>
-            ${createdStr ? `<p>Created on: ${escapeHtml(createdStr)}</p>` : ""}
+            ${createdStr ? `<p class="mb-0">Created on: ${escapeHtml(createdStr)}</p>` : ""}
         </div>
     `;
 }
@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                         </div>
                         <div class="iconsContainer">
                             <button class="unstyled-button openReadingListPopup">
-                                <img class="icon" src="../images/addToCollection.svg" title="Add to Reading List">
+                                <img class="icon" src="../images/addToList.svg" title="Add to Reading List">
                             </button>
                             <button class="unstyled-button openCollectionPopup">
                                 <img class="icon" src="../images/addToCollection.svg" title="Add to Collection">

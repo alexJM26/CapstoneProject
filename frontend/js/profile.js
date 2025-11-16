@@ -157,7 +157,7 @@ async function loadUserReviews(userID, isOwner) {
     }).join("");
 
     return `
-      <div class="my-3 text-left" style="padding: 5%; background-color: var(--lightBrown); border: solid; border-color: var(--darkBrown);">
+      <div class="my-3 text-left" style="padding: 5%; background-color: var(--lightBrown); border: solid; border-color: var(--darkBrown); color: var(--darkBrown);">
         <strong>${r.books?.title || "Unknown Title"}</strong>
         <div>${stars}</div>
         <div>${r.text || "(No text provided.)"}</div>
@@ -219,24 +219,26 @@ async function loadUserCollections(userId) {
         const bookData = await previewRes.json();
         previewBooks = (bookData.books || [])
           .sort((a, b) => (a.position ?? 0) - (b.position ?? 0))
-          .slice(0, 3);
+          .slice(0, 4);
       }
 
       const preview =
         previewBooks.length > 0
           ? previewBooks.map(b => b.title).join(", ") +
-            (previewBooks.length === 3 ? "…" : "")
+            (previewBooks.length > 4 ? "…" : "")
           : "No books yet";
 
       const div = document.createElement("div");
       div.className = "collection-preview";
       div.dataset.collectionId = c.collectionId;
       div.innerHTML = `
-        <strong class="collection-link" style="cursor:pointer;">
-          ${c.name}
-        </strong>
-        <div style="font-size: 0.9em; color: var(--offWhite);">
-          ${preview}
+        <div class="my-3 text-left" style="padding: 5%; background-color: var(--lightBrown); border: solid; border-color: var(--darkBrown); color: var(--darkBrown);">
+          <strong class="collection-link" style="cursor: pointer;">
+            ${c.name}
+          </strong>
+          <div style="font-size: 0.9em; color: var(--offWhite);">
+            ${preview}
+          </div>
         </div>
       `;
 
@@ -392,14 +394,15 @@ async function openCollectionPopup(collectionId, collectionName = "Collection") 
         const cover = b.cover_img_url || "../images/bookCoverDefault.svg";
 
         return `
-          <div class="collection-book-entry">
-            <img src="${cover}" style="height:70px; border-radius:5px; margin-right:10px;">
-            <strong>${b.title}</strong><br>
-            <span style="font-size:0.9em; opacity:0.8;">
-              ${b.author_name || "Unknown Author"}
-            </span>
+          <div class="d-flex justify-content-center align-items-center flex-column">
+            <div class="lit collection-book-entry my-2" style="width: 90%;">
+              <img src="${cover}" class="coverImgContainer" style="width: 100%">
+              <div class="litTitle">${b.title}</div><br>
+              <div class="litAuthor">
+                ${b.author_name || "Unknown Author"}
+              </div>
+            </div>
           </div>
-          <hr style="opacity:0.2;">
         `;
       })
       .join("");

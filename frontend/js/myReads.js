@@ -32,7 +32,7 @@ function createBookCard(book, currentStatus) {
                     <option value="" disabled selected>Move to...</option>
                     ${otherStatuses.map(status => `<option value="${escapeHtml(status)}">${escapeHtml(status)}</option>`).join('')}
                 </select>
-                <button class="status-btn remove-btn" data-action="remove">Remove</button>
+                <button class="main-button-brown-xsmall remove-btn" data-action="remove">Remove</button>
             </div>
         </div>
     `;
