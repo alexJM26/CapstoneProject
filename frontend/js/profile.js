@@ -571,10 +571,22 @@ document.addEventListener('DOMContentLoaded', () => {
       data = await res.json();
 
       if (!res.ok || (data && data.success == false)){
-        const msg=data?.error || `Request failed ({$res.status})`;
-        alert(`Couldnt create collection: ${msg}`);
+        let msg = data?.error || 'Something went wrong. Please try again.';
+
+        //context for common errors
+        if (res.status === 422) {
+          msg = data?.error || 'Invalid collection data.';
+        } else if (res.status === 401) {
+          msg = 'You need to be logged in to create collections.';
+        } else if (res.status === 500) {
+          msg = 'Server error. Please try again later.';
+        }
+
+        alert(`Couldn't create collection: ${msg}`);
+        console.error('Collection creation failed:', { status: res.status, data });
         return;
       }
+      
       form.reset();
       const popup = document.getElementById('popup');
       const backdrop = document.getElementById('popupBackdrop');
