@@ -250,9 +250,12 @@ async def search_collections(
 ):
     print(f" Body: {body}")
 
-    collections_by_title = await search_collections_by_title(db, body.search)
-    collections_by_user = await search_collections_by_user(db, body.search)
-
+    collections_by_title = await search_collections_by_title(db, body.search, body.pubDateStart, body.pubDateEnd)
+    collections_by_user = await search_collections_by_user(db, body.search, body.pubDateStart, body.pubDateEnd)
+    print("Created at:")
+    for collection in collections_by_title:
+        
+        print("\t", collection.created_at)
 
     already_in: set[int] = set()
     combined: list[Collections] = []

@@ -4,7 +4,7 @@ from typing import List, Optional, Sequence, Dict, Any
 from sqlalchemy import select, func, text
 from sqlalchemy.ext.asyncio import AsyncSession
 from app.models import Collections, Profile
-from datetime import datetime, timezone
+from datetime import datetime, date, timezone, timedelta
 
 
 logger = logging.getLogger(__name__)
@@ -111,23 +111,53 @@ async def get_collection_books(
 async def search_collections_by_title(
     db: AsyncSession,
     search: str,
+    pubDateStart: Optional[str] = None,
+    pubDateEnd: Optional[str] = None,
 ) -> Sequence[Collections]:
 
-    
-    result = await db.execute(select(Collections).where(Collections.name.ilike(f"%{search}%")))
+    start_date: Optional[date] = None
+    end_date: Optional[date] = None
+
+    statement = (
+        select(Collections)
+        .where(Collections.name.ilike(f"%{search}%"))
+    )
+
+    if pubDateStart:
+        start_date = date.fromisoformat(pubDateStart)
+        statement = statement.where(func.date(Collections.created_at) >= start_date)
+        
+    if pubDateEnd:
+        end_date = date.fromisoformat(pubDateEnd)
+        statement = statement.where(func.date(Collections.created_at) <= end_date)
+
+    result = await db.execute(statement)
+
     return result.scalars().all()
 
 # Searches collections by user. This is not an exact match like get_user_collections.
 async def search_collections_by_user(
     db: AsyncSession,
     search: str,
+    pubDateStart: Optional[str] = None,
+    pubDateEnd: Optional[str] = None,
 ) -> Sequence[Collections]:
-    result = await db.execute(
+    statement = (
         select(Collections)
         .join(Profile, Collections.user_id == Profile.user_id)
         .where(Profile.username.ilike(f"%{search}%"))
         .order_by(Collections.created_at.desc())
     )
+
+    if pubDateStart:
+        start_date = date.fromisoformat(pubDateStart)
+        statement = statement.where(func.date(Collections.created_at) >= start_date)
+        
+    if pubDateEnd:
+        end_date = date.fromisoformat(pubDateEnd)
+        statement = statement.where(func.date(Collections.created_at) <= end_date)
+
+    result = await db.execute(statement)
     return result.scalars().all()
 
 async def build_collection_search_response(
