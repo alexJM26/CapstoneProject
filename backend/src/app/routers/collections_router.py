@@ -1,12 +1,21 @@
 from fastapi import APIRouter, Depends, HTTPException, status, Query
-from app.schemas.requests import CreateCollectionRequest
+from app.schemas.requests import CreateCollectionRequest, CollectionSearchRequest
 from app.db import get_db
 from app.auth import get_current_user
 from typing import List, Dict, Any, Optional
 from pydantic import BaseModel
 from sqlalchemy import text
 
-from app.services.database.collections import create_user_collection, get_collection_id_by_name, get_user_collections
+from app.services.database.collections import (
+    create_user_collection, 
+    get_collection_id_by_name, 
+    get_user_collections, 
+    search_collections_by_title, 
+    search_collections_by_user,
+    get_collection_books,
+    build_collection_search_response
+)
+        
 from app.services.database.book_service import get_or_create_book
 
 router = APIRouter(prefix="/collections", tags=["collections"])
@@ -117,7 +126,7 @@ async def add_book_to_collections(
 
 
 @router.get("/get_collection_books/{collection_id}")
-async def get_collection_books(
+async def get_collection_books_with_id(
     collection_id: int,
     db = Depends(get_db),
     current_user_id: str = Depends(get_current_user)
@@ -129,26 +138,27 @@ async def get_collection_books(
     """
     #Return all books in a user's specific collection with joined author and book details
     try:
-         #Check that the collection exists
-        exists = await db.execute(
-            text("SELECT 1 FROM collections WHERE collection_id = :cid"),
-            {"cid": collection_id}
-        )
-        if exists.scalar_one_or_none() is None:
-            raise HTTPException(status_code=404, detail="Collection not found")
+        books = await get_collection_books(db, collection_id)
+        #  #Check that the collection exists
+        # exists = await db.execute(
+        #     text("SELECT 1 FROM collections WHERE collection_id = :cid"),
+        #     {"cid": collection_id}
+        # )
+        # if exists.scalar_one_or_none() is None:
+        #     raise HTTPException(status_code=404, detail="Collection not found")
 
-        #Retrieve books joined with book details
-        result = await db.execute(text("""
-            SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url, cb.position
-            FROM collection_books cb
-            JOIN books b ON cb.book_id = b.book_id
-            LEFT JOIN authors a ON b.author_id = a.author_id
-            WHERE cb.collection_id = :cid
-            ORDER BY cb.position NULLS LAST, b.title
-        """), {"cid": collection_id})
+        # #Retrieve books joined with book details
+        # result = await db.execute(text("""
+        #     SELECT b.book_id, b.title, a.name AS author_name, b.year_published, b.isbn, b.cover_img_url, cb.position
+        #     FROM collection_books cb
+        #     JOIN books b ON cb.book_id = b.book_id
+        #     LEFT JOIN authors a ON b.author_id = a.author_id
+        #     WHERE cb.collection_id = :cid
+        #     ORDER BY cb.position NULLS LAST, b.title
+        # """), {"cid": collection_id})
 
-        rows = result.mappings().all()
-        books = [dict(r) for r in rows]
+        # rows = result.mappings().all()
+        # books = [dict(r) for r in rows]
 
         return {
             "success": True, 
@@ -230,3 +240,37 @@ async def update_book_position(
     except Exception as e:
         await db.rollback()
         raise HTTPException(status_code=500, detail=str(e))
+
+
+
+@router.post("/search_collections")
+async def search_collections(
+    body: CollectionSearchRequest, 
+    db = Depends(get_db)
+):
+    print(f" Body: {body}")
+
+    collections_by_title = await search_collections_by_title(db, body.search)
+    collections_by_user = await search_collections_by_user(db, body.search)
+
+
+    already_in: set[int] = set()
+    combined: list[Collections] = []
+
+    # This will add in the username collections first
+    for c in collections_by_user:
+        if c.collection_id not in already_in:
+            combined.append(c)
+            already_in.add(c.collection_id)
+    
+    # Add collection title matches that aren't already in 
+    for c in collections_by_title:
+        if c.collection_id not in already_in:
+            combined.append(c)
+            already_in.add(c.collection_id)
+
+
+    # build response
+    response = await build_collection_search_response(db, combined)
+
+    return response

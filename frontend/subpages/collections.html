@@ -100,10 +100,10 @@
                     <div class="filter">
                         <div class="filterTitle mb-0"> Select Filters for your Search </div>
                         <hr style="background-color: var(--offWhite); width: 100%;" class="mt-0">
-                        <form>
+                        <form id="filterform">
                             <fieldset class="mb-4">
                                 <label> Search by Title/Username </label>
-                                <input type="text" placeholder="Search Title/Author..." name="search" id="searchInput" style="margin-left: 0;">
+                                <input type="text" placeholder="Search Title/Author..." name="search" id="collectionSearchInput" style="margin-left: 0;">
                             </fieldset>
                             <fieldset class="mb-4">
                                 <label> Creation Date Range Start </label> 
@@ -123,7 +123,7 @@
                             <a href="#"><img src="../images/right.svg" style="width: 1vw;"></a>
                         </div>
                     </div>
-                    <div>
+                    <!-- <div>
                         <div class="collection">
                             <div class="coverImgContainer">
                                 <img src="../images/collections/1.svg" class="coverImage">
@@ -175,7 +175,7 @@
                                 </button>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
 
@@ -277,6 +277,8 @@
 
         <!-- Script for settings changes -->
        <script type="module" src="../js/settings.js"></script>
+
+       <script type="module" src="../js/collections.js"></script>
 
     </body>
 

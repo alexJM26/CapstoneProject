@@ -17,3 +17,8 @@ class SearchBookRequest(BaseModel):
 class CreateCollectionRequest(BaseModel):
     name: str = Field(..., min_length=1, max_length=120)
     iconId: int = Field(..., ge=1, le=21)  #Fixed to match the 21 icon options we now have
+
+class CollectionSearchRequest(BaseModel):
+    search: Optional[str] = None
+    pubDateStart: Optional[str] = None
+    pubDateEnd: Optional[str] = None
