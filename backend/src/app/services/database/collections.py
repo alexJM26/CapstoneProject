@@ -209,7 +209,7 @@ async def build_collection_search_response(
                 "title": collection.name,
                 "username": username,
                 "created_at": (
-                    collection.created_at.isoformat()
+                    collection.created_at.date().isoformat()
                     if collection.created_at
                     else None
                 ),

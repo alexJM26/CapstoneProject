@@ -121,7 +121,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         </div>
                         <div class="litTitle">${escapeHtml(title)}</div>
                         <div class="litAuthor">
-                            Created By <a href="#">${escapeHtml(username)}</a>
+                            Created By <a href="/userPages/profile.html?username=${encodeURIComponent(username)}">
+                                ${escapeHtml(username)}
+                            </a>
                         </div>
                         <div class="litRating">
                             <em>${escapeHtml(createdAt)}</em>
