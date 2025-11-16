@@ -16,4 +16,4 @@ class SearchBookRequest(BaseModel):
 
 class CreateCollectionRequest(BaseModel):
     name: str = Field(..., min_length=1, max_length=120)
-    iconId: int = Field(..., ge=1, le=12) # 12 is the upper bound for now. Cannot go above 12 icon ids
+    iconId: int = Field(..., ge=1, le=21)  #Fixed to match the 21 icon options we now have
