@@ -6,21 +6,11 @@ from typing import Optional, List
 from app.services.database.book_service import get_or_create_book
 from app.db import get_db
 from app.auth import get_current_user
-import logging
+from app.schemas.requests import AddToReadingListRequest
+from app.core.logging import logger
 
-logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/user_books", tags=["user_books"])
-
-
-class AddToReadingListRequest(BaseModel):
-    title: str
-    author_name: Optional[str] = None
-    isbn: Optional[str] = None
-    first_publish_year: Optional[int] = None
-    cover: Optional[str] = None
-    status: str  # 'Want to Read', 'Currently Reading', 'Finished'
-
 
 @router.post("/add")
 async def add_book_to_reading_list(
@@ -33,15 +23,15 @@ async def add_book_to_reading_list(
     Creates book and author in database if they don't exist.
     """
     try:
-        #Validate status
+        # Validate status
         valid_statuses = ['Want to Read', 'Currently Reading', 'Finished']
         if request.status not in valid_statuses:
             raise HTTPException(status_code=400, detail=f"Invalid status. Must be one of: {valid_statuses}")
         
-        #Get or create book
+        # Get or create book
         book_id = await get_or_create_book(db, request.dict())
         
-        #Check if already exists
+        # Check if book exists
         result = await db.execute(
             text("SELECT status FROM user_books WHERE user_id = :user_id AND book_id = :book_id"),
             {"user_id": current_user_id, "book_id": book_id}
@@ -49,7 +39,7 @@ async def add_book_to_reading_list(
         existing = result.scalar_one_or_none()
         
         if existing:
-            #Update existing
+            # Update existing book
             await db.execute(
                 text("""
                     UPDATE user_books 
@@ -60,7 +50,7 @@ async def add_book_to_reading_list(
             )
             message = f"Book status updated to '{request.status}'"
         else:
-            #Insert new
+            # Insert new book
             await db.execute(
                 text("""
                     INSERT INTO user_books (user_id, book_id, status)
@@ -70,7 +60,7 @@ async def add_book_to_reading_list(
             )
             message = f"Book added to '{request.status}'"
         
-        #Log activity
+        # Log activity
         await db.execute(
             text("""
                 INSERT INTO activity (user_id, action_type, book_id)
@@ -91,8 +81,8 @@ async def add_book_to_reading_list(
     except HTTPException:
         raise
     except Exception as e:
+        logger.error(f"user_books_router [add_book_to_reading_list] - Failed. Error: {e}. Will Rollback Changes.")
         await db.rollback()
-        logger.error(f"Error adding book to reading list: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 
@@ -130,13 +120,14 @@ async def get_user_books(
         
         rows = result.fetchall()
         
-        #Organize by status
+        # Organize by book status
         books_by_status = {
             'Want to Read': [],
             'Currently Reading': [],
             'Finished': []
         }
         
+        # Format response
         for row in rows:
             book_data = {
                 'book_id': row.book_id,
@@ -159,7 +150,7 @@ async def get_user_books(
         }
         
     except Exception as e:
-        logger.error(f"Error fetching user books: {e}")
+        logger.error(f"user_books_router [get_user_books] - Failed. Error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 
@@ -173,6 +164,7 @@ async def remove_book_from_reading_list(
     Remove a book from user's reading list.
     """
     try:
+        # Delete book
         result = await db.execute(
             text("DELETE FROM user_books WHERE user_id = :user_id AND book_id = :book_id"),
             {"user_id": current_user_id, "book_id": book_id}
@@ -189,10 +181,11 @@ async def remove_book_from_reading_list(
         }
         
     except HTTPException:
+        logger.error(f"user_books_router [remove_book_from_reading_list] - Failed. Error: {e}")
         raise
     except Exception as e:
+        logger.error(f"user_books_router [remove_book_from_reading_list] - Failed. Error: {e}. Will Rollback Changes.")
         await db.rollback()
-        logger.error(f"Error removing book from reading list: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 
@@ -220,5 +213,5 @@ async def get_book_status(
         }
         
     except Exception as e:
-        logger.error(f"Error fetching book status: {e}")
+        logger.error(f"user_books_router [get_book_status] - Failed. Error: {e}")
         raise HTTPException(status_code=500, detail=str(e))

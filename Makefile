@@ -6,4 +6,10 @@ install:
 	poetry -C backend install
 
 run:
-	poetry -C backend run uvicorn app.main:app --app-dir backend/src --host 127.0.0.1 --port 8000 --reload
+run:
+	poetry -C backend run \
+		uvicorn app.main:app \
+		--app-dir backend/src \
+		--host 127.0.0.1 \
+		--port 8000 \
+		--reload

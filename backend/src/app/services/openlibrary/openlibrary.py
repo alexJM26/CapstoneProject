@@ -1,10 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException, Query
 from app.services.openlibrary.openlibrary_client import search_books
 
-router = APIRouter(prefix="/openlibrary", tags=["openlibrary"])
 
-# TODO: Limit total outgoing API requests < limit
-#   We could show out a 'Please try again' message or add a queue for requests.
+router = APIRouter(prefix="/openlibrary", tags=["openlibrary"])
 
 @router.get("/search")
 async def openlibrary_search(
@@ -12,6 +10,7 @@ async def openlibrary_search(
     limit: int = Query(10, ge=1, le=50),
     page: int = Query(1, ge=1),
 ):
+    """Proxy OpenLibrary search, returning a simplified list of books with basic metadata and cover URLs."""
     data = await search_books(q, limit=limit, page=page)
     docs = data.get("docs", []) or []
 
