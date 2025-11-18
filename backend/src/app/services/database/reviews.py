@@ -3,12 +3,12 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, func
 from app.models import Review
 
-
+# Gets all book reviews given book_id
 async def get_book_reviews(
     db: AsyncSession,
     book_id: int
 ) -> list[Review]:
-    """Return all reviews for the given book, ordered from newest to oldest."""
+
     result = await db.execute(
         select(Review)
         .where(Review.book_id == book_id)
@@ -17,12 +17,13 @@ async def get_book_reviews(
 
     return result.scalars().all()
 
-
+# Averages all review ratings of a given book_id.
+# Returns average, review count, and sumation of stars
 async def get_book_rating(
     db: AsyncSession,
     book_id: int,
 ) -> tuple[Optional[float], int, int]:
-    """Return the average rating, review count, and total stars for the given book_id."""
+
     sqlStatement = select(
         func.count(Review.review_id),
         func.coalesce(func.sum(Review.rating), 0),

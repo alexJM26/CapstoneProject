@@ -2,7 +2,10 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, func
 from app.models import Book, Author
 from typing import Optional, Dict, Any
-from app.core.logging import logger
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 async def get_or_create_author(db: AsyncSession, author_name: str) -> Optional[int]:
     """Get existing author or create new one. Returns author_id."""
@@ -25,7 +28,6 @@ async def get_or_create_author(db: AsyncSession, author_name: str) -> Optional[i
     return new_author.author_id
 
 async def get_book_by_isbn(db: AsyncSession, isbn) -> Optional[int]:
-    """Return book_id if isbn exists, otherwise None."""
     if book_data.get("isbn"):
         result = await db.execute(
             select(Book).where(Book.isbn == book_data["isbn"])
@@ -37,7 +39,6 @@ async def get_book_by_isbn(db: AsyncSession, isbn) -> Optional[int]:
     return None
 
 async def get_author(db: AsyncSession, author_name: str) -> Optional[int]:
-    """Return the author_id for the given name if it exists, otherwise None."""
     if not author_name:
         return None
     result = await db.execute(
@@ -51,7 +52,6 @@ async def get_author(db: AsyncSession, author_name: str) -> Optional[int]:
     return None
 
 async def find_book_id_by_title_author(db: AsyncSession, title: str, author_id: int) -> Optional[int]:
-    """Return the book_id for the given title and author_id if it exists, otherwise None."""
     result = await db.execute(
         select(Book).where(
             Book.title == title,
@@ -82,7 +82,7 @@ async def get_or_create_book(
     
     book = None
     
-    # Try to find existing book by ISBN first
+    #try to find existing book by ISBN first
     if book_data.get("isbn"):
         result = await db.execute(
             select(Book).where(Book.isbn == book_data["isbn"])
@@ -91,12 +91,12 @@ async def get_or_create_book(
         if book:
             logger.info(f"Found existing book by ISBN: {book.book_id}")
     
-    # Get or create author
+    #get or create author
     author_id = None
     if book_data.get("author_name"):
         author_id = await get_or_create_author(db, book_data["author_name"])
     
-    # Try to find by title + author
+    #try to find by title + author
     if not book and author_id:
         result = await db.execute(
             select(Book).where(
@@ -108,7 +108,7 @@ async def get_or_create_book(
         if book:
             logger.info(f"Found existing book by title+author: {book.book_id}")
     
-    # Try to find by title alone (case-insensitive) if still not found
+    #try to find by title alone (case-insensitive) if still not found
     if not book:
         from sqlalchemy import func
         result = await db.execute(
@@ -121,7 +121,8 @@ async def get_or_create_book(
             logger.info(f"Found book by title only: {book.book_id}")
     
     if book:
-        # UPDATE LOGIC: Check if existing book has missing data
+        
+        #UPDATE LOGIC: Check if existing book has missing data
         needs_update = False
         
         if not book.cover_img_url and book_data.get("cover"):
@@ -151,7 +152,7 @@ async def get_or_create_book(
         
         return book.book_id
     
-    # Create new book
+    #create new book
     new_book = Book(
         title=book_data["title"],
         author_id=author_id,
@@ -160,7 +161,7 @@ async def get_or_create_book(
         cover_img_url=book_data.get("cover")
     )
     db.add(new_book)
-    await db.flush()  # Get ID without committing
+    await db.flush()  #get ID without committing
     
     logger.info(f"Created new book: {new_book.book_id} - {new_book.title}")
     return new_book.book_id
@@ -169,8 +170,8 @@ async def get_book_by_data(
     db: AsyncSession, 
     book_data: Dict[str, Any]
 ) -> Optional[int]:
-    """Return the book_id matching the given ISBN or (title + author), otherwise None."""
-    # Try to find existing book by ISBN first
+
+    #try to find existing book by ISBN first
     if book_data.get("isbn"):
         ok, book_id = await get_book_by_isbn(db, book_data["isbn"])
         if ok:

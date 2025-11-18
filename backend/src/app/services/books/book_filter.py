@@ -7,17 +7,12 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 
 def _parse_year(date_str) -> Optional[int]:
-    """
-        Parses the year from a date string.
-        Input (str): YYYY-MM-DD or YYYY
-        Output (int): YYYY
-    """
     if not date_str: return None
 
     s = str(date_str).strip()
     if s.lower() == "undefined" or s.lower() == "null": return None
 
-    # YYYY format
+    # Support if we change it to just year (YYYY) because all the publishd dates are just their years
     if len(s) == 4 and s.isdigit():
         return int(s)
     
@@ -27,12 +22,7 @@ def _parse_year(date_str) -> Optional[int]:
     
     return None
 
-
 async def filter_books(db: AsyncSession, books, request: SearchBookRequest):
-    """
-        Filters book search results based on publish year range and rating (min/max),
-        using the options provided in the SearchBookRequest
-    """
     results: List[Dict[str, Any]] = books.get("results", []) or []
 
     start_year = _parse_year(request.pubDateStart)

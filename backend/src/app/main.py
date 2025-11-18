@@ -4,7 +4,7 @@ from fastapi.staticfiles import StaticFiles
 from sqlalchemy import text
 from sqlalchemy.future import select
 from sqlalchemy.exc import SQLAlchemyError
-from app.core.logging import logger
+import logging
 from .db import get_db
 from .models import Book
 
@@ -20,6 +20,11 @@ app.include_router(collections_router.router)
 REPO_ROOT = Path(__file__).resolve().parents[3]
 FRONTEND_DIR = REPO_ROOT / "frontend"
 
+logging.basicConfig(
+    filename='app.log',
+    level=logging.ERROR,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+)
 
 
 api = APIRouter(prefix="/api")
@@ -35,9 +40,9 @@ async def db_test(db=Depends(get_db)):
         current_time = result.scalar_one()
         return {"database_time": str(current_time)}
     except SQLAlchemyError as e:
-        logger.error("Failed db_test (SQLAlchemyError): %s", e)
+        logging.error("Failed db_test (SQLAlchemyError): %s", e)
     except Exception as e:
-        logger.error(f"Failed db_test %r", e)
+        logging.error(f"Failed db_test %r", e)
 
 @app.get("/books")
 async def get_books(db=Depends(get_db)):
@@ -46,11 +51,11 @@ async def get_books(db=Depends(get_db)):
         books = result.scalars().all()
         return books
     except SQLAlchemyError as e:
-        logger.error("Failed get_books (SQLAlchemyError): %s", e)
+        logging.error("Failed get_books (SQLAlchemyError): %s", e)
     except Exception as e:
-        logger.error(f"Failed get_books %r", e)
+        logging.error(f"Failed get_books %r", e)
 
 app.mount("/", StaticFiles(directory=str(FRONTEND_DIR), html=True), name="frontend")
 
 
-logger.info('App started!')
+logging.info('App started!')

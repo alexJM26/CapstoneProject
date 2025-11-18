@@ -5,15 +5,11 @@ from app.services.database.book_service import get_book_by_data
 from app.services.database.reviews import get_book_rating, get_book_reviews
 from app.services.database.profile import get_username_with_id
 
-
+# Helper function to add ratings to search results
 async def add_ratings_to_results(
     db: AsyncSession, 
     data: Dict[str, Any]
 ) -> Dict[str, Any]:
-    """
-        Go through each book in the given results and add its rating, rating count,
-        and reviews (including reviewer usernames) from the database.
-    """
 
     results: List[Dict[str, Any]] = data.get("results", [])
 
@@ -36,6 +32,7 @@ async def add_ratings_to_results(
             if user_id:
                 username = await get_username_with_id(db, user_id)
             
+            # after username, we will get
             reviews.append({
                 "username": username,
                 "text": review.text,
@@ -54,7 +51,7 @@ async def add_ratings_to_results(
             "isbn": book.get("isbn"),
             "author_name": author_name,
         })
-        if not book_id: # No book id so there cannot be a review
+        if not book_id: # No review if there is no book id
             continue
         
         rating, count = await _get_rating(book_id)
