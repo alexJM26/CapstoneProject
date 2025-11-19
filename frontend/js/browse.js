@@ -1,4 +1,5 @@
 import { authenticatedFetch } from '../js/session.js';
+//Comment
 
 function starFillPercent(avg, max = 5) {
   if (!Number.isFinite(avg)) return "0%";
